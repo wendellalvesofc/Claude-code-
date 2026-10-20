@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>HYPE CASH v2 — Meta Ads 9:16</title>
+<style>
+@font-face { font-family: Poppins; font-weight: 700; src: url(fonts/poppins-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 900; src: url(fonts/poppins-latin-900-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+
+/* palette sampled from the real HYPE CASH screens */
+:root {
+  --pink: #ff3fa4; --purple: #b04bff; --blue: #4f8bff; --lime: #dcfe64;
+  --bg: #0d0e1f; --ink: #f5f3ff; --muted: #b9b3d6; --check: #3f8fff;
+  --grad: linear-gradient(90deg, #ff3fa4 0%, #b04bff 52%, #4f8bff 100%);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #07060f; }
+body { font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #07060f; }
+.abs { position: absolute; }
+.layer { position: absolute; inset: 0; }
+.cx { left: 0; right: 0; text-align: center; }
+.display { font-family: Poppins, sans-serif; font-weight: 900; letter-spacing: -0.03em; line-height: .95; }
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.w { display: inline-block; }
+.shadow { text-shadow: 0 6px 40px rgba(0,0,0,.55); }
+.vignette { background: radial-gradient(ellipse 85% 65% at 50% 45%, transparent 0%, rgba(7,6,15,.55) 70%, rgba(7,6,15,.95) 100%); }
+.grid { background:
+  linear-gradient(rgba(176,75,255,.12) 2px, transparent 2px) 0 0 / 108px 108px,
+  linear-gradient(90deg, rgba(176,75,255,.12) 2px, transparent 2px) 0 0 / 108px 108px; }
+.glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+.card { position: absolute; border-radius: 30px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,.6), 0 0 0 2px rgba(255,255,255,.08); }
+.card img { display: block; width: 100%; }
+
+/* S1 */
+#bg1 { left: 50%; top: 50%; width: 1080px; }
+.chip { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 14px; padding: 18px 32px; border-radius: 44px; background: rgba(18,14,38,.82); border: 2px solid rgba(255,255,255,.22); font-weight: 700; font-size: 42px; white-space: nowrap; box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+.chip i { width: 18px; height: 18px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 14px var(--pink); }
+.chip.b i { background: var(--blue); box-shadow: 0 0 14px var(--blue); }
+.chip.l i { background: var(--lime); box-shadow: 0 0 14px var(--lime); }
+#todo { top: 610px; font-size: 116px; }
+#falar { top: 742px; font-family: Inter; font-weight: 700; font-size: 58px; letter-spacing: .02em; }
+#gta { top: 840px; height: 320px; }
+#gta span { position: absolute; left: 0; right: 0; text-align: center; font-size: 280px; }
+#gtaR { color: #ff2e7e; mix-blend-mode: screen; }
+#gtaC { color: #2ee6ff; mix-blend-mode: screen; }
+
+/* S2 */
+.corner { position: absolute; width: 90px; height: 90px; border: 0 solid rgba(255,255,255,.9); }
+#rec { left: 130px; top: 360px; font-weight: 700; font-size: 34px; letter-spacing: .12em; display: flex; align-items: center; gap: 14px; }
+#rec i { width: 24px; height: 24px; border-radius: 50%; background: #ff2b4a; box-shadow: 0 0 16px #ff2b4a; }
+#tc { right: 130px; top: 360px; font-weight: 600; font-size: 34px; letter-spacing: .06em; color: rgba(255,255,255,.85); font-variant-numeric: tabular-nums; }
+#perg { top: 520px; font-weight: 700; font-size: 46px; letter-spacing: .22em; color: var(--muted); }
+#quem { top: 610px; font-size: 128px; }
+#criar { top: 740px; font-size: 270px; }
+#criarLine { left: 210px; top: 1010px; width: 660px; height: 14px; border-radius: 7px; background: var(--grad); }
+#oconteudo { top: 1050px; font-weight: 700; font-size: 58px; line-height: 1.25; }
+#oconteudo .w { margin: 0 7px; }
+.avatar { position: absolute; width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(160deg, #2a2347, #15122a); border: 3px solid transparent; background-clip: padding-box; overflow: hidden; }
+.avatar::before { content: ""; position: absolute; left: 30px; top: 18px; width: 36px; height: 36px; border-radius: 50%; background: rgba(245,243,255,.85); }
+.avatar::after { content: ""; position: absolute; left: 16px; top: 60px; width: 64px; height: 50px; border-radius: 32px 32px 0 0; background: rgba(245,243,255,.85); }
+.ring { position: absolute; width: 108px; height: 108px; border-radius: 50%; background: var(--grad); }
+
+/* S3 */
+#bg3 { left: 50%; top: 50%; width: 1700px; height: 2100px; object-fit: cover; }
+#logoBox { left: 540px; top: 760px; width: 860px; height: 603px; margin: -301px 0 0 -430px; will-change: transform; }
+#logoBox img { width: 100%; height: 100%; filter: drop-shadow(0 0 50px rgba(255,63,164,.45)); }
+#logoBox #sweep { position: absolute; left: 0; top: 0; width: 100%; height: 100%; filter: brightness(2.4) saturate(.2); opacity: .75; clip-path: polygon(-30% 0, -20% 0, -40% 100%, -50% 100%); }
+#pill { left: 50%; top: 1130px; padding: 16px 44px; border: 3px solid var(--pink); border-radius: 60px; color: var(--pink); font-weight: 700; font-size: 38px; letter-spacing: .18em; white-space: nowrap; background: rgba(13,14,31,.6); }
+#tema { top: 1250px; font-family: Poppins; font-weight: 800; font-size: 76px; letter-spacing: -.01em; }
+#tema .w { margin: 0 10px; }
+
+/* S4 */
+#track { left: 140px; top: 290px; width: 800px; height: 70px; }
+#trackBase, #trackFill { position: absolute; left: 0; top: 31px; width: 800px; height: 8px; border-radius: 4px; }
+#trackBase { background: rgba(255,255,255,.15); }
+#trackFill { background: var(--grad); width: 0; }
+.node { position: absolute; top: 0; width: 70px; height: 70px; margin-left: -35px; border-radius: 50%; background: #1a1830; border: 4px solid rgba(255,255,255,.25); display: flex; align-items: center; justify-content: center; font-family: Poppins; font-weight: 800; font-size: 30px; color: rgba(255,255,255,.6); }
+.node .on { position: absolute; inset: -4px; border-radius: 50%; background: var(--grad); display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 0 30px rgba(255,63,164,.6); }
+#stepWord { left: 0; right: 0; top: 370px; height: 200px; overflow: hidden; }
+#stepWord div { position: absolute; left: 0; right: 0; top: 52px; text-align: center; font-size: 118px; }
+#stepCap { top: 560px; font-weight: 600; font-size: 40px; color: var(--muted); }
+.ucard { left: 40px; width: 1000px; }
+#mark { position: absolute; border: 5px solid var(--lime); border-radius: 18px; box-shadow: 0 0 30px rgba(220,254,100,.55); }
+
+/* S5 */
+.full { position: absolute; left: 0; width: 1080px; }
+.full img { display: block; width: 100%; }
+.big-badge { position: absolute; padding: 20px 40px; border-radius: 30px; font-family: Poppins; font-weight: 900; font-size: 84px; letter-spacing: -.02em; white-space: nowrap; box-shadow: 0 30px 70px rgba(0,0,0,.55); }
+#bSeis { left: 70px; top: 1120px; background: var(--lime); color: #12101f; }
+#bBonus { right: 70px; top: 1290px; background: linear-gradient(90deg, #ff3fa4, #b04bff); color: #fff; font-size: 70px; }
+#bTools { left: 70px; top: 1300px; background: linear-gradient(90deg, #b04bff, #4f8bff); color: #fff; font-size: 58px; }
+.chk { position: absolute; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 15px; background: var(--grad); box-shadow: 0 0 24px rgba(255,63,164,.7); }
+.chk svg { position: absolute; inset: 8px; }
+#chkCount { position: absolute; left: 30px; top: 18px; padding: 0 10px; background: var(--bg); color: var(--check); font-family: Poppins; font-weight: 800; font-size: 41px; line-height: 56px; }
+#prog { left: 60px; top: 330px; width: 960px; padding: 40px 48px 46px; border-radius: 34px; background: #161728; border: 2px solid rgba(255,255,255,.08); box-shadow: 0 40px 100px rgba(0,0,0,.6); }
+#prog .row { display: flex; justify-content: space-between; align-items: baseline; font-size: 42px; color: var(--muted); font-weight: 500; }
+#prog .pct { font-family: Poppins; font-weight: 800; color: var(--lime); font-size: 54px; }
+#prog .bar { margin-top: 26px; height: 26px; border-radius: 13px; background: #07061a; overflow: hidden; }
+#prog .fill { height: 100%; border-radius: 13px; background: var(--grad); transform-origin: 0 50%; }
+
+/* S6 */
+#scan { background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 2px, transparent 2px 6px); }
+#nao { top: 600px; font-weight: 700; font-size: 56px; color: var(--muted); }
+#nao .w { margin: 0 8px; }
+#facil { top: 690px; height: 140px; }
+#facil span { position: absolute; left: 0; right: 0; text-align: center; font-size: 112px; }
+#facilR { color: #ff2e7e; mix-blend-mode: screen; }
+#facilC { color: #2ee6ff; mix-blend-mode: screen; }
+#strike { left: 130px; top: 745px; width: 820px; height: 16px; border-radius: 8px; background: #ff2b4a; box-shadow: 0 0 24px #ff2b4a; transform-origin: 0 50%; }
+#plano { top: 930px; font-size: 128px; }
+#plano .w { margin: 0 12px; }
+#comecar { top: 1080px; font-family: Poppins; font-weight: 800; font-size: 74px; }
+#path { left: 90px; top: 1230px; width: 900px; height: 260px; overflow: visible; }
+
+/* S7 */
+#bg7 { left: 50%; top: 50%; width: 1080px; }
+#car { left: 0; top: 1300px; width: 1080px; height: 640px; -webkit-mask-image: linear-gradient(transparent, #000 45%); mask-image: linear-gradient(transparent, #000 45%); opacity: .8; }
+#endLogo { left: 540px; top: 470px; width: 600px; height: 421px; margin: -210px 0 0 -300px; will-change: transform; }
+#endLogo img { width: 100%; height: 100%; filter: drop-shadow(0 0 40px rgba(255,63,164,.45)); }
+#entre { top: 735px; font-size: 104px; }
+#cta { left: 90px; top: 900px; width: 900px; height: 150px; border-radius: 75px; background: linear-gradient(100deg, #ff3fa4 0%, #b04bff 50%, #4f8bff 100%); display: flex; align-items: center; justify-content: center; gap: 24px; color: #0b0b14; font-weight: 700; font-size: 54px; box-shadow: 0 24px 80px rgba(176,75,255,.55); overflow: hidden; }
+#cta .shine { position: absolute; top: 0; left: -200px; width: 150px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent); transform: skewX(-20deg); }
+#url { top: 1085px; font-weight: 600; font-size: 44px; color: rgba(245,243,255,.92); }
+#chev { left: 490px; top: 1160px; width: 100px; height: 150px; will-change: transform; }
+#legal { top: 1430px; font-size: 28px; font-weight: 500; color: rgba(245,243,255,.6); }
+
+#flash { background: #fff; opacity: 0; }
+#grain { left: 0; top: 0; width: 2048px; height: 2560px; background: url(img/grain.png); opacity: .06; mix-blend-mode: overlay; pointer-events: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- S1 · onda de atenção -->
+  <section id="s1" class="layer">
+    <img id="bg1" class="abs" src="img/bg-home-blur.jpg" alt="">
+    <div class="layer" style="background:rgba(7,6,15,.42)"></div>
+    <div id="chips" class="layer"></div>
+    <div class="layer vignette"></div>
+    <div id="todo" class="abs cx display shadow">TODO MUNDO</div>
+    <div id="falar" class="abs cx shadow">VAI FALAR DE</div>
+    <div id="gta" class="abs cx">
+      <span id="gtaR" class="display">GTA VI</span><span id="gtaC" class="display">GTA VI</span><span id="gtaM" class="display grad">GTA VI</span>
+    </div>
+  </section>
+
+  <!-- S2 · a pergunta -->
+  <section id="s2" class="layer">
+    <div class="layer grid" style="opacity:.6"></div>
+    <div class="glow" style="left:-250px;top:350px;width:760px;height:760px;background:rgba(255,63,164,.28)"></div>
+    <div class="glow" style="right:-260px;top:900px;width:800px;height:800px;background:rgba(79,139,255,.25)"></div>
+    <div id="vf" class="layer">
+      <div class="corner" style="left:90px;top:290px;border-left-width:8px;border-top-width:8px;border-top-left-radius:26px"></div>
+      <div class="corner" style="right:90px;top:290px;border-right-width:8px;border-top-width:8px;border-top-right-radius:26px"></div>
+      <div class="corner" style="left:90px;top:1400px;border-left-width:8px;border-bottom-width:8px;border-bottom-left-radius:26px"></div>
+      <div class="corner" style="right:90px;top:1400px;border-right-width:8px;border-bottom-width:8px;border-bottom-right-radius:26px"></div>
+      <div id="rec" class="abs"><i></i>REC</div>
+      <div id="tc" class="abs">00:00:00:00</div>
+    </div>
+    <div id="perg" class="abs cx">A PERGUNTA É:</div>
+    <div id="quem" class="abs cx display">QUEM VAI</div>
+    <div id="criar" class="abs cx display grad">CRIAR</div>
+    <div id="criarLine" class="abs"></div>
+    <div id="oconteudo" class="abs cx"><span class="w">o</span><span class="w">conteúdo</span><span class="w">que</span><br><span class="w">essa</span><span class="w">galera</span><span class="w">vai</span><span class="w">assistir?</span></div>
+    <div id="crowd" class="layer"></div>
+  </section>
+
+  <!-- S3 · revelação -->
+  <section id="s3" class="layer">
+    <img id="bg3" class="abs" src="img/bg-sky.jpg" alt="">
+    <div class="layer" style="background:rgba(7,6,15,.45)"></div>
+    <div class="layer vignette"></div>
+    <div id="logoBox" class="abs"><img src="img/logo-860.png" alt="HYPE CASH"><img id="sweep" src="img/logo-860.png" alt=""></div>
+    <div id="pill" class="abs">PLAYBOOK INTERATIVO</div>
+    <div id="tema" class="abs cx shadow"><span class="w">use</span><span class="w">esse</span><span class="w grad">hype</span><span class="w">como</span><span class="w grad">tema</span></div>
+  </section>
+
+  <!-- S4 · o caminho -->
+  <section id="s4" class="layer">
+    <div class="layer" style="background:#0b0a18"></div>
+    <div class="layer grid" style="opacity:.45"></div>
+    <div id="g4a" class="glow" style="left:-200px;top:700px;width:700px;height:700px;background:rgba(176,75,255,.25)"></div>
+    <div id="g4b" class="glow" style="right:-200px;top:1100px;width:700px;height:700px;background:rgba(255,63,164,.2)"></div>
+    <div id="track" class="abs">
+      <div id="trackBase"></div><div id="trackFill"></div>
+      <div class="node" style="left:0">1<div class="on">1</div></div>
+      <div class="node" style="left:266px">2<div class="on">2</div></div>
+      <div class="node" style="left:533px">3<div class="on">3</div></div>
+      <div class="node" style="left:800px">4<div class="on">4</div></div>
+    </div>
+    <div id="stepWord" class="abs">
+      <div class="display grad">FORMATO</div><div class="display grad">CONSTÂNCIA</div><div class="display grad">AUDIÊNCIA</div><div class="display grad" style="font-size:104px;top:60px">MONETIZAÇÃO</div>
+    </div>
+    <div id="stepCap" class="abs cx">&nbsp;</div>
+    <div id="u1" class="card ucard" style="top:700px"><img src="img/ui-check.png" alt=""></div>
+    <div id="u2" class="card ucard" style="top:860px"><img src="img/ui-constancia.png" alt=""></div>
+    <div id="u3" class="card ucard" style="top:700px"><img src="img/ui-audiencia.png" alt=""></div>
+    <div id="u4" class="card ucard" style="top:830px"><img src="img/ui-monet.png" alt=""></div>
+    <div id="mark" class="abs"></div>
+  </section>
+
+  <!-- S5 · prova -->
+  <section id="s5" class="layer">
+    <div class="layer" style="background:#0d0e1f"></div>
+    <div id="fMapa" class="full" style="top:150px"><img src="img/ui-mapa.png" alt=""></div>
+    <div id="fTools" class="full" style="top:150px"><img src="img/ui-tools.png" alt=""></div>
+    <div id="fCheck" class="layer" style="background:#0d0e1f">
+      <div id="prog" class="abs">
+        <div class="row"><span>Progresso da missão</span><span class="pct" id="pct">0%</span></div>
+        <div class="bar"><div class="fill" id="fill"></div></div>
+      </div>
+      <div class="full" id="chkWrap" style="top:640px">
+        <img src="img/ui-check.png" alt="">
+        <div id="chkCount">Checklist (0/4)</div>
+      </div>
+    </div>
+    <div class="layer" style="background:linear-gradient(transparent 70%, rgba(7,6,15,.85) 100%)"></div>
+    <div id="bSeis" class="big-badge">6 MISSÕES</div>
+    <div id="bBonus" class="big-badge">+1 BÔNUS</div>
+    <div id="bTools" class="big-badge">CENTRAL DE FERRAMENTAS</div>
+  </section>
+
+  <!-- S6 · sem promessa -->
+  <section id="s6" class="layer">
+    <div class="layer" style="background:#07050f"></div>
+    <div id="g6a" class="glow" style="left:-160px;top:420px;width:760px;height:760px;background:rgba(255,63,164,.22)"></div>
+    <div id="g6b" class="glow" style="right:-200px;top:900px;width:760px;height:760px;background:rgba(79,139,255,.2)"></div>
+    <div id="scan" class="layer"></div>
+    <div id="nao" class="abs cx"><span class="w">NÃO</span><span class="w">É</span><span class="w">PROMESSA</span><span class="w">DE</span></div>
+    <div id="facil" class="abs cx"><span id="facilR" class="display">DINHEIRO FÁCIL</span><span id="facilC" class="display">DINHEIRO FÁCIL</span><span id="facilM" class="display">DINHEIRO FÁCIL</span></div>
+    <div id="strike" class="abs"></div>
+    <div id="plano" class="abs cx display"><span class="w">É</span><span class="w">UM</span><span class="w grad">PLANO</span></div>
+    <div id="comecar" class="abs cx">PRA COMEÇAR.</div>
+    <svg id="path" class="abs" viewBox="0 0 900 260"></svg>
+  </section>
+
+  <!-- S7 · CTA -->
+  <section id="s7" class="layer">
+    <img id="bg7" class="abs" src="img/bg-home-blur.jpg" alt="">
+    <div class="layer" style="background:rgba(7,6,15,.5)"></div>
+    <img id="car" class="abs" src="img/bg-car.jpg" alt="">
+    <div class="layer vignette" style="opacity:.7"></div>
+    <div id="endLogo" class="abs"><img src="img/logo-600.png" alt="HYPE CASH"></div>
+    <div id="entre" class="abs cx display shadow"><span class="w">ENTRE</span> <span class="w">NO</span> <span class="w grad">JOGO.</span></div>
+    <div id="cta" class="abs"><span>Conheça o HYPE CASH</span><span>→</span><i class="shine"></i></div>
+    <div id="url" class="abs cx shadow">hype-cash.vercel.app</div>
+    <svg id="chev" class="abs" viewBox="0 0 100 150"><path d="M18 22 L50 54 L82 22" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 70 L50 102 L82 70" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div id="legal" class="abs cx">Produto independente. Sem vínculo com a Rockstar Games.</div>
+  </section>
+
+  <div id="flash" class="layer"></div>
+  <div id="grain" class="abs"></div>
+</div>
+<script src="timing.js"></script>
+<script src="gsap.min.js"></script>
+<script src="timeline.js"></script>
+</body>
+</html>

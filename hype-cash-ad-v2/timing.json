@@ -1,0 +1,647 @@
+{
+ "audio": {
+  "file": "audio/narration.mp3",
+  "duration_s": 30.354286,
+  "speech_end_s": 30.4,
+  "source": "ElevenLabs eleven_v4, voz 'Gabriel — Friendly Brazilian Ad Voice' (WPgqgCVa3mD38JuyODU6), take 2 de 4"
+ },
+ "fps": 30,
+ "video_duration_s": 31.6,
+ "total_frames": 948,
+ "timestamps_source": "ElevenLabs Scribe v1 (alinhamento por palavra), conferido com silencedetect do ffmpeg",
+ "pauses_s": [
+  [
+   2.24,
+   2.75
+  ],
+  [
+   3.59,
+   3.91
+  ],
+  [
+   6.41,
+   7.42
+  ],
+  [
+   11.23,
+   11.66
+  ],
+  [
+   12.62,
+   12.85
+  ],
+  [
+   18.15,
+   18.55
+  ],
+  [
+   23.68,
+   24.29
+  ],
+  [
+   26.05,
+   26.43
+  ],
+  [
+   27.5,
+   28.02
+  ]
+ ],
+ "scenes": [
+  {
+   "id": "S1",
+   "name": "Gancho: a onda de atenção",
+   "start": 0.0,
+   "end": 2.48,
+   "start_frame": 0,
+   "end_frame": 73
+  },
+  {
+   "id": "S2",
+   "name": "A pergunta: quem vai criar?",
+   "start": 2.48,
+   "end": 7.2,
+   "start_frame": 74,
+   "end_frame": 215
+  },
+  {
+   "id": "S3",
+   "name": "Revelação do HYPE CASH",
+   "start": 7.2,
+   "end": 11.64,
+   "start_frame": 216,
+   "end_frame": 348
+  },
+  {
+   "id": "S4",
+   "name": "O caminho: formato → constância → audiência → monetização",
+   "start": 11.64,
+   "end": 18.46,
+   "start_frame": 349,
+   "end_frame": 553
+  },
+  {
+   "id": "S5",
+   "name": "Prova: o playbook real",
+   "start": 18.46,
+   "end": 23.92,
+   "start_frame": 554,
+   "end_frame": 717
+  },
+  {
+   "id": "S6",
+   "name": "Sem promessa: um plano",
+   "start": 23.92,
+   "end": 27.9,
+   "start_frame": 718,
+   "end_frame": 836
+  },
+  {
+   "id": "S7",
+   "name": "CTA",
+   "start": 27.9,
+   "end": 31.6,
+   "start_frame": 837,
+   "end_frame": 947
+  }
+ ],
+ "emphasis": {
+  "todo": 0.274,
+  "falar": 0.96,
+  "gta": 1.36,
+  "pergunta": 2.88,
+  "quem": 3.92,
+  "criar": 4.32,
+  "conteudo": 4.8,
+  "galera": 5.6,
+  "assistir": 6.08,
+  "hypecash": 7.52,
+  "playbook": 8.44,
+  "hype": 10.4,
+  "tema": 10.96,
+  "formato": 12.16,
+  "constancia": 13.36,
+  "audiencia": 14.96,
+  "monetizacao": 16.88,
+  "seis": 18.88,
+  "bonus": 20.08,
+  "central": 20.8,
+  "checklist": 22.32,
+  "progresso": 23.12,
+  "nao": 24.4,
+  "dinheiro": 25.36,
+  "facil": 25.68,
+  "plano": 26.64,
+  "comecar": 27.16,
+  "toque": 28.133,
+  "botao": 28.44,
+  "hypecash_end": 29.56,
+  "cash_end": 29.96
+ },
+ "words": [
+  {
+   "w": "Todo",
+   "start": 0.274,
+   "end": 0.32,
+   "frame": 8
+  },
+  {
+   "w": "mundo",
+   "start": 0.48,
+   "end": 0.72,
+   "frame": 14
+  },
+  {
+   "w": "vai",
+   "start": 0.8,
+   "end": 0.88,
+   "frame": 24
+  },
+  {
+   "w": "falar",
+   "start": 0.96,
+   "end": 1.2,
+   "frame": 29
+  },
+  {
+   "w": "de",
+   "start": 1.24,
+   "end": 1.28,
+   "frame": 37
+  },
+  {
+   "w": "GTA",
+   "start": 1.36,
+   "end": 1.68,
+   "frame": 41
+  },
+  {
+   "w": "Seis.",
+   "start": 1.76,
+   "end": 2.2,
+   "frame": 53
+  },
+  {
+   "w": "A",
+   "start": 2.72,
+   "end": 2.8,
+   "frame": 82
+  },
+  {
+   "w": "pergunta",
+   "start": 2.88,
+   "end": 3.28,
+   "frame": 86
+  },
+  {
+   "w": "é:",
+   "start": 3.36,
+   "end": 3.72,
+   "frame": 101
+  },
+  {
+   "w": "quem",
+   "start": 3.92,
+   "end": 4.0,
+   "frame": 118
+  },
+  {
+   "w": "vai",
+   "start": 4.08,
+   "end": 4.24,
+   "frame": 122
+  },
+  {
+   "w": "CRIAR",
+   "start": 4.32,
+   "end": 4.64,
+   "frame": 130
+  },
+  {
+   "w": "o",
+   "start": 4.68,
+   "end": 4.72,
+   "frame": 140
+  },
+  {
+   "w": "conteúdo",
+   "start": 4.8,
+   "end": 5.28,
+   "frame": 144
+  },
+  {
+   "w": "que",
+   "start": 5.32,
+   "end": 5.36,
+   "frame": 160
+  },
+  {
+   "w": "essa",
+   "start": 5.44,
+   "end": 5.52,
+   "frame": 163
+  },
+  {
+   "w": "galera",
+   "start": 5.6,
+   "end": 5.84,
+   "frame": 168
+  },
+  {
+   "w": "vai",
+   "start": 5.867,
+   "end": 5.92,
+   "frame": 176
+  },
+  {
+   "w": "assistir?",
+   "start": 6.08,
+   "end": 6.88,
+   "frame": 182
+  },
+  {
+   "w": "O",
+   "start": 7.424,
+   "end": 7.44,
+   "frame": 223
+  },
+  {
+   "w": "Hype",
+   "start": 7.52,
+   "end": 7.68,
+   "frame": 226
+  },
+  {
+   "w": "Cash",
+   "start": 7.76,
+   "end": 8.08,
+   "frame": 233
+  },
+  {
+   "w": "é",
+   "start": 8.16,
+   "end": 8.2,
+   "frame": 245
+  },
+  {
+   "w": "um",
+   "start": 8.24,
+   "end": 8.32,
+   "frame": 247
+  },
+  {
+   "w": "playbook",
+   "start": 8.44,
+   "end": 8.72,
+   "frame": 253
+  },
+  {
+   "w": "interativo",
+   "start": 8.88,
+   "end": 9.44,
+   "frame": 266
+  },
+  {
+   "w": "pra",
+   "start": 9.52,
+   "end": 9.6,
+   "frame": 286
+  },
+  {
+   "w": "você",
+   "start": 9.64,
+   "end": 9.84,
+   "frame": 289
+  },
+  {
+   "w": "usar",
+   "start": 9.92,
+   "end": 10.08,
+   "frame": 298
+  },
+  {
+   "w": "esse",
+   "start": 10.2,
+   "end": 10.32,
+   "frame": 306
+  },
+  {
+   "w": "hype",
+   "start": 10.4,
+   "end": 10.64,
+   "frame": 312
+  },
+  {
+   "w": "como",
+   "start": 10.72,
+   "end": 10.88,
+   "frame": 322
+  },
+  {
+   "w": "tema:",
+   "start": 10.96,
+   "end": 11.6,
+   "frame": 329
+  },
+  {
+   "w": "escolher",
+   "start": 11.68,
+   "end": 11.92,
+   "frame": 350
+  },
+  {
+   "w": "seu",
+   "start": 12.0,
+   "end": 12.12,
+   "frame": 360
+  },
+  {
+   "w": "formato,",
+   "start": 12.16,
+   "end": 12.8,
+   "frame": 365
+  },
+  {
+   "w": "publicar",
+   "start": 12.96,
+   "end": 13.2,
+   "frame": 389
+  },
+  {
+   "w": "com",
+   "start": 13.24,
+   "end": 13.28,
+   "frame": 397
+  },
+  {
+   "w": "constância,",
+   "start": 13.36,
+   "end": 14.24,
+   "frame": 401
+  },
+  {
+   "w": "construir",
+   "start": 14.32,
+   "end": 14.8,
+   "frame": 430
+  },
+  {
+   "w": "audiência",
+   "start": 14.96,
+   "end": 15.44,
+   "frame": 449
+  },
+  {
+   "w": "e",
+   "start": 15.52,
+   "end": 15.6,
+   "frame": 466
+  },
+  {
+   "w": "entender",
+   "start": 15.68,
+   "end": 16.16,
+   "frame": 470
+  },
+  {
+   "w": "os",
+   "start": 16.2,
+   "end": 16.24,
+   "frame": 486
+  },
+  {
+   "w": "caminhos",
+   "start": 16.32,
+   "end": 16.64,
+   "frame": 490
+  },
+  {
+   "w": "de",
+   "start": 16.72,
+   "end": 16.8,
+   "frame": 502
+  },
+  {
+   "w": "monetização",
+   "start": 16.88,
+   "end": 17.52,
+   "frame": 506
+  },
+  {
+   "w": "de",
+   "start": 17.6,
+   "end": 17.64,
+   "frame": 528
+  },
+  {
+   "w": "um",
+   "start": 17.68,
+   "end": 17.72,
+   "frame": 530
+  },
+  {
+   "w": "criador.",
+   "start": 17.76,
+   "end": 18.36,
+   "frame": 533
+  },
+  {
+   "w": "São",
+   "start": 18.56,
+   "end": 18.8,
+   "frame": 557
+  },
+  {
+   "w": "seis",
+   "start": 18.88,
+   "end": 19.04,
+   "frame": 566
+  },
+  {
+   "w": "missões,",
+   "start": 19.12,
+   "end": 19.76,
+   "frame": 574
+  },
+  {
+   "w": "uma",
+   "start": 19.84,
+   "end": 20.0,
+   "frame": 595
+  },
+  {
+   "w": "bônus",
+   "start": 20.08,
+   "end": 20.48,
+   "frame": 602
+  },
+  {
+   "w": "e",
+   "start": 20.56,
+   "end": 20.6,
+   "frame": 617
+  },
+  {
+   "w": "uma",
+   "start": 20.64,
+   "end": 20.72,
+   "frame": 619
+  },
+  {
+   "w": "central",
+   "start": 20.8,
+   "end": 21.2,
+   "frame": 624
+  },
+  {
+   "w": "de",
+   "start": 21.28,
+   "end": 21.32,
+   "frame": 638
+  },
+  {
+   "w": "ferramentas,",
+   "start": 21.36,
+   "end": 22.08,
+   "frame": 641
+  },
+  {
+   "w": "com",
+   "start": 22.16,
+   "end": 22.24,
+   "frame": 665
+  },
+  {
+   "w": "checklist",
+   "start": 22.32,
+   "end": 22.96,
+   "frame": 670
+  },
+  {
+   "w": "e",
+   "start": 23.04,
+   "end": 23.08,
+   "frame": 691
+  },
+  {
+   "w": "progresso.",
+   "start": 23.12,
+   "end": 23.76,
+   "frame": 694
+  },
+  {
+   "w": "Não",
+   "start": 24.4,
+   "end": 24.56,
+   "frame": 732
+  },
+  {
+   "w": "é",
+   "start": 24.64,
+   "end": 24.72,
+   "frame": 739
+  },
+  {
+   "w": "promessa",
+   "start": 24.8,
+   "end": 25.2,
+   "frame": 744
+  },
+  {
+   "w": "de",
+   "start": 25.24,
+   "end": 25.28,
+   "frame": 757
+  },
+  {
+   "w": "dinheiro",
+   "start": 25.36,
+   "end": 25.6,
+   "frame": 761
+  },
+  {
+   "w": "fácil.",
+   "start": 25.68,
+   "end": 26.4,
+   "frame": 770
+  },
+  {
+   "w": "É",
+   "start": 26.44,
+   "end": 26.48,
+   "frame": 793
+  },
+  {
+   "w": "um",
+   "start": 26.52,
+   "end": 26.56,
+   "frame": 796
+  },
+  {
+   "w": "plano",
+   "start": 26.64,
+   "end": 26.88,
+   "frame": 799
+  },
+  {
+   "w": "pra",
+   "start": 26.96,
+   "end": 27.04,
+   "frame": 809
+  },
+  {
+   "w": "começar.",
+   "start": 27.16,
+   "end": 27.76,
+   "frame": 815
+  },
+  {
+   "w": "Toque",
+   "start": 28.133,
+   "end": 28.24,
+   "frame": 844
+  },
+  {
+   "w": "no",
+   "start": 28.28,
+   "end": 28.32,
+   "frame": 848
+  },
+  {
+   "w": "botão",
+   "start": 28.44,
+   "end": 28.72,
+   "frame": 853
+  },
+  {
+   "w": "e",
+   "start": 28.88,
+   "end": 28.96,
+   "frame": 866
+  },
+  {
+   "w": "conheça",
+   "start": 29.04,
+   "end": 29.44,
+   "frame": 871
+  },
+  {
+   "w": "o",
+   "start": 29.48,
+   "end": 29.52,
+   "frame": 884
+  },
+  {
+   "w": "Hype",
+   "start": 29.56,
+   "end": 29.76,
+   "frame": 887
+  },
+  {
+   "w": "Cash.",
+   "start": 29.96,
+   "end": 30.4,
+   "frame": 899
+  }
+ ]
+}
