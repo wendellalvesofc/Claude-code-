@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>HYPE CASH — Filme 01: A Rota</title>
+    <script src="gsap.min.js"></script>
+    <script src="beats.js"></script>
+    <style>
+      @font-face { font-family: Poppins; font-weight: 700; src: url(fonts/poppins-latin-700-normal.woff2) format("woff2"); }
+      @font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+      @font-face { font-family: Poppins; font-weight: 900; src: url(fonts/poppins-latin-900-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2) format("woff2"); }
+      @font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+
+      /* palette: styles/tokens.css of the HYPE CASH app */
+      :root {
+        --pink: #ff3fa2; --purple: #a83ffe; --blue: #3f8fff; --lime: #d4ff3f; --cyan: #3fd4ff;
+        --navy: #0d0a1c; --ink: #ffffff; --muted: #b8a8d0; --rec: #ff3f5a;
+        --grad: linear-gradient(90deg, #ff3fa2 0%, #a83ffe 50%, #3f8fff 100%);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; }
+      .full { position: absolute; inset: 0; }
+      .line { position: absolute; left: 60px; width: 960px; text-align: center; font-family: Poppins; font-weight: 900; text-transform: uppercase; letter-spacing: -0.025em; line-height: 1; }
+      .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .lime { color: var(--lime); }
+      .word { display: inline-block; }
+
+      /* hook */
+      #s1 { background: radial-gradient(ellipse 70% 45% at 50% 46%, #2a1050 0%, #120a26 55%, var(--navy) 100%); }
+      #gta { top: 760px; font-size: 250px; letter-spacing: -0.04em; }
+      #gtaOutline { top: 760px; font-size: 250px; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 3px rgba(212,255,63,.9); }
+      .pill { position: absolute; left: 540px; top: 900px; width: 0; height: 0; }
+      .pill span { position: absolute; left: 0; top: 0; white-space: nowrap; font: 700 34px Inter; padding: 14px 26px; border-radius: 99px; background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.18); color: #f1ebff; }
+      .pill span.hot { background: var(--pink); border-color: var(--pink); color: #fff; }
+      .pill span.alt { background: rgba(63,143,255,.2); border-color: rgba(63,143,255,.6); }
+
+      /* feed */
+      #s2 { background: var(--navy); }
+      .col { position: absolute; top: 0; width: 320px; }
+      .row { position: relative; height: 300px; padding: 10px; }
+      .row .th { height: 180px; border-radius: 18px; }
+      .row .l1 { height: 18px; width: 90%; border-radius: 9px; background: rgba(255,255,255,.18); margin-top: 16px; }
+      .row .l2 { height: 14px; width: 60%; border-radius: 7px; background: rgba(255,255,255,.1); margin-top: 10px; }
+      .row .seen { position: absolute; left: 10px; top: 184px; height: 6px; border-radius: 3px; background: var(--rec); }
+      #feedShade { background: radial-gradient(ellipse 75% 32% at 50% 50%, rgba(13,10,28,.96) 0%, rgba(13,10,28,.8) 55%, rgba(13,10,28,.35) 100%); }
+      #playbar { position: absolute; left: 140px; top: 1090px; width: 800px; height: 170px; border-radius: 30px; background: var(--pink); }
+      #playicon { position: absolute; left: 175px; top: 1125px; width: 0; height: 0; border-top: 50px solid transparent; border-bottom: 50px solid transparent; border-left: 82px solid #fff; }
+
+      /* turn */
+      #s3 { background: var(--lime); color: #0d0a1c; }
+      #s3 .line { color: #0d0a1c; }
+      #rec { position: absolute; left: 500px; top: 660px; width: 80px; height: 80px; border-radius: 50%; background: var(--rec); }
+
+      /* map */
+      #s4 { background: var(--navy); }
+      #mapTilt { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 1150px; transform-style: preserve-3d; }
+      #mapPlane { position: absolute; left: 0; top: 0; width: 2000px; height: 3600px; transform-style: preserve-3d; }
+      #mapSvg { position: absolute; left: 0; top: 0; }
+      .bb { position: absolute; width: 0; height: 0; transform-style: preserve-3d; }
+      .bbin { position: absolute; left: -300px; bottom: 0; width: 600px; display: flex; flex-direction: column; align-items: center; transform-origin: 50% 100%; }
+      .wpcard { display: flex; align-items: center; gap: 18px; padding: 20px 28px; border-radius: 22px; background: rgba(13,10,28,.92); border: 3px solid var(--lime); box-shadow: 0 0 40px rgba(212,255,63,.35); white-space: nowrap; }
+      .wpcard b { font: 900 40px Poppins; color: #0d0a1c; background: var(--lime); border-radius: 12px; padding: 2px 14px; }
+      .wpcard span { font: 800 44px Poppins; text-transform: uppercase; letter-spacing: -.02em; }
+      .stem { width: 4px; height: 90px; background: linear-gradient(var(--lime), rgba(212,255,63,0)); }
+      .ring { position: absolute; left: -50px; top: -50px; width: 100px; height: 100px; border-radius: 50%; border: 6px solid var(--lime); }
+      .dot { position: absolute; left: -16px; top: -16px; width: 32px; height: 32px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 30px var(--lime); }
+      #pin .pinhead { font: 900 40px Poppins; color: #0d0a1c; background: #fff; border-radius: 18px; padding: 10px 24px; }
+      #horizon { background: linear-gradient(180deg, var(--navy) 0%, rgba(13,10,28,.95) 30%, rgba(13,10,28,0) 52%); }
+      #chipTop { position: absolute; left: 0; width: 1080px; top: 250px; text-align: center; }
+      #chipTop span { display: inline-block; font: 800 34px Inter; letter-spacing: .16em; text-transform: uppercase; color: var(--lime); border: 3px solid var(--lime); border-radius: 99px; padding: 12px 30px; background: rgba(13,10,28,.7); }
+
+      /* logo reveal */
+      #s5 { }
+      #logoBg { background: radial-gradient(circle at 50% 45%, rgba(168,63,254,.55) 0%, rgba(13,10,28,.9) 45%, var(--navy) 75%); }
+      #logo1 { position: absolute; left: 165px; top: 560px; width: 750px; }
+      #logoSub { top: 1130px; font: 800 44px Inter; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+      .flash { background: #fff; opacity: 0; }
+
+      /* phone */
+      #s6 { background: radial-gradient(ellipse 80% 55% at 50% 55%, #24104a 0%, #120a26 55%, var(--navy) 100%); }
+      #s6grid { background: linear-gradient(rgba(168,63,254,.13) 2px, transparent 2px) 0 0 / 120px 120px, linear-gradient(90deg, rgba(168,63,254,.13) 2px, transparent 2px) 0 0 / 120px 120px; }
+      #stage { position: absolute; inset: 0; perspective: 2400px; perspective-origin: 540px 1000px; }
+      #phone { position: absolute; left: 260px; top: 400px; width: 560px; height: 1180px; transform-style: preserve-3d; }
+      .edge { position: absolute; inset: 0; border-radius: 86px; background: linear-gradient(135deg, #3b3550, #15121f 45%, #2a2438); }
+      #frame { position: absolute; inset: 0; border-radius: 86px; padding: 11px; background: linear-gradient(145deg, #8f88a6 0%, #3d3750 18%, #1c1828 50%, #4a4360 82%, #a49cbc 100%); }
+      #bezel { position: relative; width: 100%; height: 100%; border-radius: 76px; background: #050407; padding: 13px; }
+      #screen { position: relative; width: 512px; height: 1132px; border-radius: 64px; overflow: hidden; background: #0d0a18; }
+      #screen img { position: absolute; left: 0; top: 22px; width: 512px; }
+      #island { position: absolute; left: 196px; top: 12px; width: 120px; height: 34px; border-radius: 20px; background: #000; z-index: 5; }
+      #status { position: absolute; left: 0; top: 0; width: 512px; height: 40px; z-index: 4; font: 600 15px Inter; display: flex; justify-content: space-between; align-items: center; padding: 6px 44px 0 50px; }
+      #glare { position: absolute; inset: 0; z-index: 6; background: linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.1) 42%, rgba(255,255,255,0) 55%); }
+      #pageAfter { z-index: 3; }
+      .hl { position: absolute; z-index: 7; border: 3px solid var(--lime); border-radius: 16px; box-shadow: 0 0 22px rgba(212,255,63,.6); }
+      .chip { position: absolute; display: flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 22px; background: rgba(13,10,28,.9); border: 2px solid rgba(255,255,255,.18); box-shadow: 0 20px 50px rgba(0,0,0,.5); font: 800 38px Poppins; text-transform: uppercase; letter-spacing: -.01em; white-space: nowrap; }
+      .chip i { font-style: normal; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font: 900 28px Poppins; color: #0d0a1c; background: var(--lime); }
+      #phoneShadow { position: absolute; left: 250px; top: 1560px; width: 580px; height: 110px; border-radius: 50%; background: radial-gradient(ellipse, rgba(0,0,0,.65), rgba(0,0,0,0) 70%); }
+
+      /* honest */
+      #s7 { background: #120a26; }
+      #stripes { position: absolute; left: -400px; top: -400px; width: 2000px; height: 2800px; background: repeating-linear-gradient(-35deg, rgba(255,63,162,.07) 0 40px, rgba(0,0,0,0) 40px 120px); }
+      .strike { position: absolute; left: 70px; top: 850px; width: 940px; height: 16px; border-radius: 8px; background: var(--pink); box-shadow: 0 0 30px rgba(255,63,162,.8); transform-origin: 0 50%; }
+      .under { position: absolute; left: 290px; top: 1065px; width: 500px; height: 14px; border-radius: 7px; background: var(--lime); transform-origin: 0 50%; }
+
+      /* cta */
+      #s8 { background: var(--navy); }
+      #ctaBg { position: absolute; left: -110px; top: -190px; width: 1300px; height: 2300px; }
+      #ctaShade { background: linear-gradient(180deg, rgba(13,10,28,.55) 0%, rgba(13,10,28,.35) 35%, rgba(13,10,28,.75) 60%, rgba(13,10,28,.95) 100%); }
+      #logo2 { position: absolute; left: 150px; top: 330px; width: 780px; }
+      #ctaSub { top: 930px; font: 700 42px/1.3 Inter; text-transform: none; letter-spacing: 0; color: #f1ebff; }
+      #btn { position: absolute; left: 90px; top: 1130px; width: 900px; height: 150px; border-radius: 99px; background: var(--grad); display: flex; align-items: center; justify-content: center; gap: 20px; font: 800 52px Poppins; color: #120a1f; overflow: hidden; box-shadow: 0 24px 70px rgba(168,63,254,.5); }
+      #shine { position: absolute; left: -200px; top: -40px; width: 120px; height: 240px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.75), rgba(255,255,255,0)); }
+      #tap { position: absolute; left: 690px; top: 1145px; width: 120px; height: 120px; border-radius: 50%; border: 6px solid #fff; opacity: 0; }
+      #hint { top: 1320px; font: 700 36px Inter; text-transform: none; letter-spacing: 0; }
+      #legal { top: 1410px; font: 500 24px/1.4 Inter; text-transform: none; letter-spacing: 0; color: rgba(255,255,255,.72); }
+
+      #grain { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; background: url(assets/grain.png) repeat; opacity: .06; mix-blend-mode: overlay; }
+      #vig { background: radial-gradient(ellipse 85% 65% at 50% 48%, rgba(0,0,0,0) 60%, rgba(5,3,12,.55) 100%); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="25">
+
+      <!-- S1 hook: the subject everyone will talk about -->
+      <section id="s1" class="clip" data-start="0" data-duration="2.5" data-track-index="1">
+        <div id="pills"></div>
+        <div class="line" id="hookTop" style="top: 600px; font-size: 54px; color: var(--muted)">O próximo grande assunto</div>
+        <div class="line" id="gtaOutline">GTA VI</div>
+        <div class="line" id="gta">GTA VI</div>
+        <div class="line" id="hookSub" style="top: 1070px; font-size: 76px"><span class="word">vai</span> <span class="word">dominar</span> <span class="word">seu</span> <span class="word lime">feed.</span></div>
+      </section>
+
+      <!-- S2 most people will only watch -->
+      <section id="s2" class="clip" data-start="2.5" data-duration="2.5" data-track-index="1">
+        <div id="cols"></div>
+        <div class="full" id="feedShade"></div>
+        <div class="line" id="f1" style="top: 720px; font-size: 110px">A maioria</div>
+        <div class="line" id="f2" style="top: 850px; font-size: 140px">vai só</div>
+        <div id="playbar"></div>
+        <div id="playicon"></div>
+        <div class="line" id="f3" style="top: 1112px; left: 230px; width: 760px; font-size: 118px">assistir.</div>
+      </section>
+
+      <!-- S3 the turn -->
+      <section id="s3" class="clip" data-start="5" data-duration="1.5" data-track-index="1">
+        <div class="line" id="t1" style="top: 760px; font-size: 104px">E se você</div>
+        <div class="line" id="t2" style="top: 890px; font-size: 190px">criasse?</div>
+        <div id="rec"></div>
+      </section>
+
+      <!-- S4 the route: subject → project, mission by mission -->
+      <section id="s4" class="clip" data-start="6.3" data-duration="7.2" data-track-index="0">
+        <div id="mapTilt" data-layout-allow-overflow><div id="mapPlane"></div></div>
+        <div class="full" id="horizon"></div>
+        <div class="line" id="m1" style="top: 240px; font-size: 74px">Transforme o assunto</div>
+        <div class="line" id="m2" style="top: 330px; font-size: 74px">em um <span class="grad">projeto</span></div>
+        <div class="line" id="m3" style="top: 420px; font-size: 74px">de conteúdo</div>
+        <div id="chipTop"><span>Missão por missão</span></div>
+      </section>
+
+      <!-- S5 brand reveal -->
+      <section id="s5" class="clip" data-start="13" data-duration="1.6" data-track-index="2">
+        <div class="full" id="logoBg"></div>
+        <img id="logo1" src="assets/logo.png" alt="HYPE CASH">
+        <div class="line" id="logoSub">Playbook interativo</div>
+        <div class="full flash" id="flash1"></div>
+      </section>
+
+      <!-- S6 product proof: the only phone moment (real captures) -->
+      <section id="s6" class="clip" data-start="14.5" data-duration="3.6" data-track-index="1">
+        <div class="full" id="s6grid"></div>
+        <div id="phoneShadow"></div>
+        <div id="stage">
+          <div id="phone" data-layout-allow-overflow>
+            <div class="edge" style="transform: translateZ(-12px)"></div>
+            <div class="edge" style="transform: translateZ(-8px)"></div>
+            <div class="edge" style="transform: translateZ(-4px)"></div>
+            <div id="frame"><div id="bezel"><div id="screen">
+              <div id="status"><span>9:41</span><span>▂▄▆ ▮</span></div>
+              <div id="island"></div>
+              <div id="pageM1">
+                <img id="m1_0" src="assets/scr-m1-0.jpg" alt=""><img id="m1_1" src="assets/scr-m1-1.jpg" alt="">
+                <img id="m1_2" src="assets/scr-m1-2.jpg" alt=""><img id="m1_3" src="assets/scr-m1-3.jpg" alt="">
+                <img id="m1_4" src="assets/scr-m1-4.jpg" alt="">
+              </div>
+              <div id="pageAfter" class="full"><img src="assets/scr-map-after.jpg" alt=""><div class="hl" id="hlProg"></div></div>
+              <div id="glare"></div>
+            </div></div></div>
+          </div>
+        </div>
+        <div class="chip" id="c0" style="left: 40px; top: 300px"><i>★</i>6 missões + bônus</div>
+        <div class="chip" id="c1" style="left: 560px; top: 640px"><i>✓</i>Checklist</div>
+        <div class="chip" id="c2" style="left: 40px; top: 1180px"><i>%</i>Progresso</div>
+        <div class="chip" id="c3" style="left: 440px; top: 1500px"><i>⚒</i>Ferramentas</div>
+      </section>
+
+      <!-- S7 honest framing -->
+      <section id="s7" class="clip" data-start="18" data-duration="2.5" data-track-index="1">
+        <div id="stripes"></div>
+        <div class="line" id="h1" style="top: 720px; font-size: 76px">Sem promessa de</div>
+        <div class="line" id="h2" style="top: 800px; font-size: 112px">dinheiro fácil.</div>
+        <div class="strike" id="strike"></div>
+        <div class="line" id="h3" style="top: 760px; font-size: 92px">É um</div>
+        <div class="line" id="h4" style="top: 860px; font-size: 200px"><span class="grad">plano</span></div>
+        <div class="under" id="under"></div>
+        <div class="line" id="h5" style="top: 1110px; font-size: 92px">pra começar.</div>
+      </section>
+
+      <!-- S8 CTA -->
+      <section id="s8" class="clip" data-start="20.5" data-duration="4.5" data-track-index="1">
+        <img id="ctaBg" data-layout-allow-overflow src="assets/bg-car.jpg" alt="">
+        <div class="full" id="ctaShade"></div>
+        <img id="logo2" src="assets/logo.png" alt="HYPE CASH">
+        <div class="line" id="ctaSub">O playbook interativo para criar conteúdo com o hype do GTA VI</div>
+        <div id="btn"><span>Conheça o HYPE CASH</span><span>→</span><div id="shine"></div></div>
+        <div id="tap"></div>
+        <div class="line" id="hint">Toque em <span class="lime">Saiba mais</span> ↓</div>
+        <div class="line" id="legal">Produto digital independente, sem vínculo com a Rockstar Games. Resultados dependem da sua execução.</div>
+        <div class="full flash" id="flash2"></div>
+      </section>
+
+      <section id="fx" class="clip" data-start="0" data-duration="25" data-track-index="5" style="pointer-events: none">
+        <div class="full" id="vig"></div>
+        <div id="grain"></div>
+      </section>
+
+      <audio id="mix" src="audio/mix.wav" data-start="0" data-duration="25" data-track-index="9"></audio>
+    </div>
+
+    <script>
+      const B = window.BEATS;
+      const $ = (id) => document.getElementById(id);
+      function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+
+      // ---------------- S1: pills burst out of the subject (attention everywhere)
+      const PILLS = [["Trailer 3?", "hot"], ["#GTAVI", ""], ["Vazou?", "alt"], ["Teoria do mapa", ""], ["React ao vivo", "hot"], ["Data de lançamento", "alt"],
+        ["Easter eggs", ""], ["Gameplay", "alt"], ["Personagens", ""], ["Ranking", "hot"], ["Detalhes", ""], ["Física nova?", "alt"]];
+      const pillHost = $("pills");
+      // fixed spots above and below the headline band (y 560–1190 stays clear for the type)
+      const PILL_POS = [[90, 240], [440, 200], [760, 260], [110, 420], [640, 430], [80, 1250], [600, 1240], [180, 1400], [560, 1420], [840, 1560], [90, 1570], [420, 1560]]
+        .map(([X, Y]) => ({ x: X - 540, y: Y - 900, dy: Y < 900 ? -40 : 40 }));
+      PILLS.forEach(([txt, cls], i) => {
+        const d = document.createElement("div"); d.className = "pill";
+        d.innerHTML = `<span class="${cls}" id="pill${i}">${txt}</span>`;
+        pillHost.appendChild(d);
+      });
+
+      // ---------------- S2: three feed columns
+      const COLORS = [["#ff3fa2", "#3b1263"], ["#3f8fff", "#160d3a"], ["#a83ffe", "#0f2a4a"], ["#ff8a3f", "#3a0f3f"], ["#3fd4ff", "#1a1046"], ["#d4ff3f", "#16283a"]];
+      const colHost = $("cols");
+      for (let c = 0; c < 3; c++) {
+        const col = document.createElement("div"); col.className = "col"; col.id = `col${c}`; col.style.left = `${20 + c * 350}px`;
+        for (let r = 0; r < 14; r++) {
+          const [a, b] = COLORS[(r * 2 + c) % COLORS.length];
+          col.insertAdjacentHTML("beforeend", `<div class="row"><div class="th" style="background: linear-gradient(160deg, ${a}, ${b})"></div><div class="seen" style="width: ${(r * 37 + c * 23) % 100 + 60}px"></div><div class="l1"></div><div class="l2"></div></div>`);
+        }
+        colHost.appendChild(col);
+      }
+
+      // ---------------- S4: map with streets, blocks and the mission route (seeded, built once)
+      const MAP_W = 2000, MAP_H = 3600;
+      const R = rng(42);
+      let svg = `<svg id="mapSvg" width="${MAP_W}" height="${MAP_H}" viewBox="0 0 ${MAP_W} ${MAP_H}">`;
+      for (let y = 0; y < MAP_H; y += 200) for (let x = 0; x < MAP_W; x += 200) {
+        const sub = R() < 0.45;
+        const fill = (o) => `rgba(${R() < 0.12 ? "168,63,254" : "255,255,255"},${o})`;
+        if (sub) { svg += `<rect x="${x + 22}" y="${y + 22}" width="76" height="156" rx="8" fill="${fill(0.03 + R() * 0.05)}"/><rect x="${x + 102}" y="${y + 22}" width="76" height="156" rx="8" fill="${fill(0.03 + R() * 0.05)}"/>`; }
+        else svg += `<rect x="${x + 22}" y="${y + 22}" width="156" height="156" rx="10" fill="${fill(0.03 + R() * 0.06)}"/>`;
+      }
+      for (let x = 0; x <= MAP_W; x += 200) svg += `<line x1="${x}" y1="0" x2="${x}" y2="${MAP_H}" stroke="rgba(168,63,254,${x % 600 === 0 ? 0.45 : 0.18})" stroke-width="${x % 600 === 0 ? 8 : 4}"/>`;
+      for (let y = 0; y <= MAP_H; y += 200) svg += `<line x1="0" y1="${y}" x2="${MAP_W}" y2="${y}" stroke="rgba(168,63,254,${y % 600 === 0 ? 0.45 : 0.18})" stroke-width="${y % 600 === 0 ? 8 : 4}"/>`;
+      // route along streets: pin → 01 → 02 → 05 → 06 → destination
+      const PIN = [1000, 3000], WP = [[800, 2600], [1200, 2200], [800, 1600], [1200, 1200]], DEST = [1000, 600];
+      const ROUTE = [PIN, [1000, 2600], WP[0], [800, 2200], WP[1], [1200, 1600], WP[2], [800, 1200], WP[3], [1200, 600], DEST];
+      const segLen = (a, b) => Math.hypot(b[0] - a[0], b[1] - a[1]);
+      const CUM = [0]; for (let i = 1; i < ROUTE.length; i++) CUM.push(CUM[i - 1] + segLen(ROUTE[i - 1], ROUTE[i]));
+      const LEN = CUM[CUM.length - 1];
+      const lenAt = (pt) => CUM[ROUTE.findIndex((p) => p[0] === pt[0] && p[1] === pt[1])];
+      const d = "M" + ROUTE.map((p) => p.join(" ")).join(" L");
+      svg += `<path d="${d}" fill="none" stroke="rgba(212,255,63,.18)" stroke-width="36" stroke-linejoin="round" stroke-linecap="round"/>`;
+      svg += `<path id="route" d="${d}" fill="none" stroke="#d4ff3f" stroke-width="18" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="${LEN}" stroke-dashoffset="${LEN}" style="filter: drop-shadow(0 0 14px rgba(212,255,63,.8))"/>`;
+      svg += `</svg>`;
+      const plane = $("mapPlane");
+      plane.innerHTML = svg;
+      const TILT = 50;
+      const bb = (id, [x, y], inner) => plane.insertAdjacentHTML("beforeend",
+        `<div class="bb" id="${id}" style="left:${x}px; top:${y}px"><div class="ring" id="${id}r"></div><div class="dot"></div>
+         <div style="position:absolute; left:0; top:0; transform: rotateX(${-TILT}deg); transform-style: preserve-3d"><div class="bbin" id="${id}c">${inner}</div></div></div>`);
+      bb("pin", PIN, `<div class="pinhead">VOCÊ</div><div class="stem"></div>`);
+      const WPTXT = [["01", "Encontre seu formato"], ["02", "Publique o 1º vídeo"], ["05", "Construa audiência"], ["06", "Monetização"]];
+      WP.forEach((p, i) => bb(`wp${i}`, p, `<div class="wpcard"><b>${WPTXT[i][0]}</b><span>${WPTXT[i][1]}</span></div><div class="stem"></div>`));
+      bb("dest", DEST, ``);
+      const camTo = ([x, y]) => ({ x: 540 - x, y: 1150 - y });
+
+      // ---------------- timeline
+      const tl = gsap.timeline({ paused: true });
+
+      // S1
+      tl.fromTo("#gta", { scale: 1.55, opacity: 1 }, { scale: 1, duration: 0.28, ease: "power4.out" }, 0);
+      tl.fromTo("#gtaOutline", { scale: 1, opacity: 0.9 }, { scale: 1.35, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.18);
+      tl.fromTo("#hookTop", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.hook_top);
+      PILLS.forEach((_, i) => {
+        const p = PILL_POS[i];
+        tl.fromTo(`#pill${i}`, { x: -100, y: -30, scale: 0.2, opacity: 0 },
+          { x: p.x, y: p.y, scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.6)" }, 0.08 + i * 0.05);
+        tl.to(`#pill${i}`, { y: p.y + p.dy, duration: 1.8, ease: "none" }, 0.6 + i * 0.05);
+      });
+      tl.fromTo("#hookSub .word", { y: 60, opacity: 0, rotateX: -60 }, { y: 0, opacity: 1, rotateX: 0, duration: 0.32, stagger: 0.12, ease: "back.out(2)" }, B.hook_sub);
+      tl.to(["#gta", "#hookTop", "#hookSub"], { y: -90, opacity: 0, duration: 0.25, ease: "power2.in" }, 2.3);
+      tl.to("#pills", { scale: 0.7, opacity: 0, duration: 0.25, ease: "power2.in" }, 2.3);
+
+      // S2: the subject turns into an endless feed
+      [0, 1, 2].forEach((c) => tl.fromTo(`#col${c}`, { y: c === 1 ? -300 : 0 }, { y: c === 1 ? -2900 : -2600, duration: 2.5, ease: "power1.out" }, B.feed));
+      tl.fromTo("#f1", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.feed_w[0]);
+      tl.fromTo("#f2", { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "power4.out" }, B.feed_w[1]);
+      tl.fromTo("#playbar", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, B.feed_w[2]);
+      tl.fromTo("#playicon", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2.5)" }, B.feed_w[2] + 0.12);
+      tl.fromTo("#f3", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.feed_w[2] + 0.12);
+      tl.to("#playbar", { opacity: 0.85, duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, 3.9);
+
+      // S3: flip of perspective
+      tl.fromTo("#t1", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, B.turn);
+      tl.fromTo("#t2", { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "power4.out" }, B.turn_b);
+      tl.fromTo("#rec", { scale: 0 }, { scale: 1, duration: 0.2, ease: "back.out(3)" }, B.turn_b + 0.1);
+      tl.to("#rec", { opacity: 0.35, duration: 0.15, yoyo: true, repeat: 1 }, B.turn_b + 0.3);
+      tl.to("#rec", { scale: 34, backgroundColor: "#0d0a1c", duration: 0.5, ease: "power3.in" }, B.iris);
+
+      // S4: map, pin, route, waypoints
+      tl.fromTo("#mapTilt", { rotateX: 68, scale: 1.5 }, { rotateX: TILT, scale: 1, duration: 1.6, ease: "power3.out" }, 6.3);
+      tl.fromTo("#mapPlane", camTo([PIN[0], PIN[1] - 500]), { ...camTo(PIN), duration: 1.6, ease: "power3.out" }, 6.3);
+      tl.fromTo("#m1", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.map_t1);
+      tl.fromTo("#m2", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.map_t2);
+      tl.fromTo("#m3", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.map_t2 + 0.15);
+      tl.fromTo("#pinc", { y: -260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "bounce.out" }, B.pin);
+      tl.fromTo("#pinr", { scale: 0.3, opacity: 1 }, { scale: 2.4, opacity: 0, duration: 0.7, ease: "power2.out" }, B.pin + 0.35);
+      tl.to(["#m1", "#m2", "#m3"], { y: -40, opacity: 0, duration: 0.25, ease: "power2.in", stagger: 0.04 }, B.route - 0.3);
+      tl.fromTo("#chipTop", { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, B.route);
+      let prevT = B.route;
+      WP.forEach((p, i) => {
+        const t = B.wp[i];
+        tl.to("#route", { strokeDashoffset: LEN - lenAt(p), duration: t - prevT, ease: "power1.inOut" }, prevT);
+        tl.to("#mapPlane", { ...camTo(p), duration: t - prevT, ease: "power2.inOut" }, prevT);
+        tl.fromTo(`#wp${i}c`, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2.2)" }, t);
+        tl.fromTo(`#wp${i}r`, { scale: 0.3, opacity: 1 }, { scale: 2.6, opacity: 0, duration: 0.6, ease: "power2.out" }, t);
+        prevT = t;
+      });
+      tl.to("#route", { strokeDashoffset: 0, duration: B.dest - prevT, ease: "power1.inOut" }, prevT);
+      tl.to("#mapPlane", { ...camTo(DEST), duration: B.dest - prevT, ease: "power2.inOut" }, prevT);
+      tl.fromTo("#destr", { scale: 0.3, opacity: 1 }, { scale: 4, opacity: 0, duration: 0.5, ease: "power2.out" }, B.dest);
+      tl.to("#mapTilt", { rotateX: 20, scale: 1.8, duration: 0.5, ease: "power3.in" }, B.dest);
+
+      // S5: logo
+      tl.fromTo("#logoBg", { opacity: 0 }, { opacity: 1, duration: 0.25 }, B.dest);
+      tl.fromTo("#flash1", { opacity: 0.9 }, { opacity: 0, duration: 0.4, ease: "power2.out" }, B.logo);
+      tl.fromTo("#logo1", { scale: 1.6, opacity: 0, rotate: -6 }, { scale: 1, opacity: 1, rotate: 0, duration: 0.35, ease: "back.out(1.8)" }, B.logo);
+      tl.fromTo("#logoSub", { scaleX: 1.6, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, B.logo_sub);
+      tl.to("#logo1", { scale: 1.06, duration: 1.0, ease: "none" }, B.logo + 0.35);
+
+      // S6: phone with the real checklist ticking, then the real progress screen
+      tl.fromTo("#phone", { y: 1300, rotateX: 40, rotateY: -30, rotateZ: 10, scale: 0.85 },
+        { y: 0, rotateX: 8, rotateY: -14, rotateZ: -3, scale: 0.92, duration: 0.55, ease: "power3.out" }, B.phone_in);
+      tl.to("#phone", { rotateY: 10, rotateX: 4, rotateZ: 1, duration: 2.5, ease: "sine.inOut" }, B.phone_in + 0.55);
+      tl.fromTo("#phoneShadow", { opacity: 0, scaleX: 0.5 }, { opacity: 1, scaleX: 1, duration: 0.5 }, B.phone_in + 0.1);
+      const M1_Y = -1189;
+      [0, 1, 2, 3].forEach((k) => tl.set(`#m1_${k}`, { y: M1_Y }, B.phone_in));
+      tl.set("#m1_4", { y: M1_Y - 27 }, B.phone_in);
+      [1, 2, 3, 4].forEach((k) => tl.fromTo(`#m1_${k}`, { opacity: 0 }, { opacity: 1, duration: 0.05 }, B.ticks[k - 1]));
+      tl.fromTo("#pageAfter", { x: 512 }, { x: 0, duration: 0.3, ease: "power3.out" }, B.nav);
+      const PX = 512 / 430;
+      tl.set("#hlProg", { left: 16 * PX - 4, top: 22 + 285 * PX - 4, width: 398 * PX + 8, height: 87 * PX + 8, opacity: 0 }, B.phone_in);
+      tl.to("#hlProg", { opacity: 1, duration: 0.2 }, B.nav + 0.35);
+      ["#c0", "#c1", "#c2", "#c3"].forEach((c, i) =>
+        tl.fromTo(c, { scale: 0.4, opacity: 0, y: 30 }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "back.out(2.2)" }, B.chips[i]));
+      ["#c0", "#c1", "#c2", "#c3"].forEach((c, i) => tl.to(c, { y: -18 + (i % 2) * 36, duration: 1.4, ease: "sine.inOut" }, B.chips[i] + 0.35));
+      tl.to("#phone", { y: -1500, rotateX: -30, rotateZ: -12, duration: 0.45, ease: "power3.in" }, B.phone_out);
+      tl.to(["#c0", "#c1", "#c2", "#c3"], { opacity: 0, scale: 0.6, duration: 0.3, ease: "power2.in", stagger: 0.03 }, B.phone_out);
+      tl.to("#phoneShadow", { opacity: 0, duration: 0.3 }, B.phone_out);
+
+      // S7: honest framing
+      tl.fromTo("#stripes", { x: 0 }, { x: 240, duration: 2.5, ease: "none" }, B.honest);
+      tl.fromTo("#h1", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.honest + 0.1);
+      tl.fromTo("#h2", { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.28, ease: "power4.out" }, B.honest + 0.4);
+      tl.fromTo("#strike", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power3.out" }, B.strike);
+      tl.to(["#h1", "#h2", "#strike"], { x: -1100, duration: 0.3, ease: "power3.in", stagger: 0.03 }, B.plan - 0.25);
+      tl.fromTo("#h3", { x: 900, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.plan);
+      tl.fromTo("#h4", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, B.plan + 0.12);
+      tl.fromTo("#under", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out" }, B.plan + 0.45);
+      tl.fromTo("#h5", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.plan + 0.3);
+
+      // S8: CTA
+      tl.fromTo("#flash2", { opacity: 0.7 }, { opacity: 0, duration: 0.35 }, B.cta);
+      tl.fromTo("#ctaBg", { scale: 1.15 }, { scale: 1.02, duration: 4.5, ease: "power2.out" }, B.cta);
+      tl.fromTo("#logo2", { scale: 1.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, B.cta_logo);
+      tl.fromTo("#ctaSub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, B.cta_logo + 0.35);
+      tl.fromTo("#btn", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)" }, B.cta_btn);
+      tl.to("#btn", { scale: 1.03, duration: 0.5, yoyo: true, repeat: 5, ease: "sine.inOut" }, B.cta_btn + 0.4);
+      tl.fromTo("#shine", { x: 0 }, { x: 1300, duration: 0.7, ease: "power2.inOut" }, B.cta_btn + 0.5);
+      tl.fromTo("#shine", { x: 0 }, { x: 1300, duration: 0.7, ease: "power2.inOut" }, B.tap + 0.6);
+      tl.fromTo("#tap", { scale: 0.4, opacity: 1 }, { scale: 1.8, opacity: 0, duration: 0.5, ease: "power2.out" }, B.tap);
+      tl.fromTo("#hint", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3 }, B.cta_btn + 0.4);
+      tl.fromTo("#legal", { opacity: 0 }, { opacity: 1, duration: 0.4 }, B.cta_btn + 0.6);
+
+      // film grain: stepped offsets, deterministic
+      for (let f = 0; f < 25 * 12; f++) tl.set("#grain", { x: (f * 73) % 200, y: (f * 131) % 200 }, f / 12);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
