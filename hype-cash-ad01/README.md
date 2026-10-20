@@ -45,3 +45,26 @@ node scripts/render.mjs --stills 0,5.3,8,14,20.1,24.5,28.4   # prévia → previ
 WORKERS=6 node scripts/render.mjs         # out/frames → out/motion.mp4
 ```
 A senha do playbook não fica neste repositório: passe-a por `GATE_PASSWORD` só na hora de capturar.
+
+## Relatório de qualidade (vídeo final)
+**Arquivo**
+- `out/motion.mp4`: H.264 High, yuv420p, 1080×1920, 30 fps, 30,000 s (900 quadros), AAC 48 kHz estéreo, 16,4 MB.
+
+**Áudio**
+- −14,6 LUFS integrado e pico de −1,4 dBFS.
+- Voz sobre música + SFX, na faixa da fala (300 Hz–4 kHz): mediana de 28,8 dB.
+- O ponto mais apertado da faixa cheia é o grave do impacto final sob "Hype Cash" (28,0 s), sem perda de inteligibilidade na faixa da fala.
+
+**Imagem**, conferida em grade de 1 quadro por segundo (`preview/qc/grid.png`) e quadros em resolução cheia:
+- O texto do gancho já está na tela no quadro 0.
+- Os textos ficam dentro de y 220–1500.
+- Títulos dos cards, checklist e ferramentas ficam legíveis no tamanho do celular.
+- Não aparecem artefatos de transição.
+
+**Sincronia:** todos os eventos de imagem e de SFX saem do mesmo `timing.json` (tempos por palavra), então a animação cai na palavra falada.
+
+**Limitações**
+- As telas são capturas reais do app rodando localmente, com o código de hoje do repositório. Não foram feitas na versão publicada na Vercel, mas o conteúdo bate com ela.
+- O texto do checklist foi renderizado na cor que o iPhone mostra (azul do sistema), porque o app não define essa cor. Ver os achados da auditoria em `storyboard.md`.
+- A trilha é sintetizada e original. A locução é IA (ElevenLabs).
+- A mixagem foi validada por medição, não por audição humana. Vale ouvir no celular antes de subir na Meta.
