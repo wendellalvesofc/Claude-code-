@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>HYPE CASH — Meta Ads 9:16</title>
+<style>
+@font-face { font-family: Poppins; font-weight: 700; src: url(fonts/poppins-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 900; src: url(fonts/poppins-latin-900-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 400; src: url(fonts/inter-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+
+/* Brand palette sampled from the real HYPE CASH screens */
+:root {
+  --pink: #ff3fa4; --purple: #b04bff; --blue: #4f8bff; --lime: #dcfe64;
+  --bg: #0d0e1f; --card: #161728; --ink: #f5f3ff; --muted: #b9b3d6; --check: #3f8fff;
+  --grad: linear-gradient(90deg, #ff3fa4 0%, #b04bff 52%, #4f8bff 100%);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+body { font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+.abs { position: absolute; }
+.layer { position: absolute; inset: 0; }
+.center-x { left: 0; right: 0; text-align: center; }
+.display { font-family: Poppins, sans-serif; font-weight: 900; letter-spacing: -0.03em; line-height: .95; }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.word { display: inline-block; }
+
+/* backgrounds */
+.bg-img { position: absolute; left: 50%; top: 50%; transform-origin: 50% 50%; }
+#bgHome { width: 1080px; filter: blur(16px) brightness(.5) saturate(1.25); }
+#bgSky { width: 1300px; height: 2100px; object-fit: cover; filter: blur(8px) saturate(1.2); }
+.vignette { background: radial-gradient(ellipse 80% 60% at 50% 45%, transparent 0%, rgba(8,6,20,.55) 70%, rgba(8,6,20,.92) 100%); }
+.grid { background:
+  linear-gradient(rgba(176,75,255,.13) 2px, transparent 2px) 0 0 / 120px 120px,
+  linear-gradient(90deg, rgba(176,75,255,.13) 2px, transparent 2px) 0 0 / 120px 120px;
+  -webkit-mask-image: linear-gradient(transparent 0%, #000 55%, #000 100%); }
+.blob { position: absolute; border-radius: 50%; filter: blur(110px); }
+
+/* S1 */
+#milhoes { top: 470px; font-size: 168px; }
+#s1line { top: 664px; font-family: Inter; font-weight: 700; font-size: 60px; color: var(--ink); }
+#s1line .word { margin: 0 8px; }
+#gta { top: 790px; height: 360px; }
+#gta span { position: absolute; left: 0; right: 0; text-align: center; font-size: 268px; }
+#gtaR { color: #ff2e7e; mix-blend-mode: screen; }
+#gtaC { color: #2ee6ff; mix-blend-mode: screen; }
+
+/* S2 */
+#poucas { top: 380px; font-size: 160px; }
+#prontas { top: 560px; font-family: Inter; font-weight: 700; font-size: 66px; }
+#transf { top: 700px; font-family: Inter; font-weight: 600; font-size: 50px; color: var(--muted); }
+#hype { top: 800px; font-size: 230px; color: transparent; -webkit-text-stroke: 5px #fff; }
+#arrow { top: 1040px; left: 490px; width: 100px; height: 120px; }
+#conteudo { top: 1170px; font-size: 150px; }
+.vcard { position: absolute; width: 210px; height: 373px; border-radius: 28px; background: linear-gradient(160deg, rgba(255,63,164,.55), rgba(79,139,255,.35)); border: 2px solid rgba(255,255,255,.25); box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+.vcard::after { content: ""; position: absolute; left: 50%; top: 50%; margin: -30px 0 0 -18px; border-left: 54px solid rgba(255,255,255,.9); border-top: 32px solid transparent; border-bottom: 32px solid transparent; }
+.vcard i { position: absolute; left: 22px; right: 60px; bottom: 30px; height: 12px; border-radius: 6px; background: rgba(255,255,255,.55); }
+.vcard b { position: absolute; left: 22px; right: 110px; bottom: 54px; height: 12px; border-radius: 6px; background: rgba(255,255,255,.35); }
+
+/* S3 */
+#conheca { top: 610px; font-family: Inter; font-weight: 600; font-size: 64px; letter-spacing: .01em; }
+#logoWrap { left: 540px; top: 930px; width: 680px; height: 486px; margin: -243px 0 0 -340px; transform-origin: 50% 50%; }
+#logo { position: relative; width: 100%; height: 100%; filter: drop-shadow(0 0 40px rgba(255,63,164,.55)); }
+#sweep { position: absolute; inset: 0; overflow: hidden; border-radius: 50%; mix-blend-mode: screen; }
+#sweep i { position: absolute; top: -20%; width: 120px; height: 140%; left: -30%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent); transform: skewX(-20deg); }
+
+/* S4–S6: phone with the real screens */
+#pill { left: 50%; top: 392px; transform: translateX(-50%); padding: 14px 40px; border: 3px solid var(--pink); border-radius: 60px; color: var(--pink); font-weight: 700; font-size: 34px; letter-spacing: .18em; white-space: nowrap; background: rgba(13,14,31,.55); }
+#phone { left: 230px; top: 500px; width: 620px; height: 1084px; border-radius: 76px; padding: 20px; background: linear-gradient(145deg, #3a3550, #13121f 40%, #2b2740); box-shadow: 0 60px 140px rgba(0,0,0,.6), 0 0 0 2px rgba(255,255,255,.12) inset, 0 0 90px rgba(176,75,255,.35); transform-origin: 50% 100%; }
+#screen { position: relative; width: 580px; height: 1044px; border-radius: 58px; overflow: hidden; background: var(--bg); }
+#screen .scr { position: absolute; left: 0; top: 0; width: 580px; }
+#notch { position: absolute; left: 50%; top: 18px; width: 150px; height: 40px; margin-left: -75px; border-radius: 22px; background: #050509; z-index: 5; }
+.badge { position: absolute; padding: 18px 34px; border-radius: 26px; font-family: Poppins; font-weight: 800; font-size: 46px; letter-spacing: -.01em; white-space: nowrap; box-shadow: 0 24px 60px rgba(0,0,0,.5); }
+#b6 { left: 70px; top: 700px; background: var(--lime); color: #12101f; }
+#bBonus { right: 70px; top: 880px; background: linear-gradient(90deg, #ff3fa4, #b04bff); color: #fff; }
+#bTools { left: 70px; top: 1060px; background: linear-gradient(90deg, #b04bff, #4f8bff); color: #fff; }
+#s5a, #s5b { font-size: 100px; }
+#s5a { top: 190px; }
+#s5b { top: 318px; }
+#s6h { top: 250px; font-size: 92px; }
+.chk { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 9px; background: var(--grad); box-shadow: 0 0 18px rgba(255,63,164,.7); }
+.chk svg { position: absolute; inset: 4px; }
+#chkCount { position: absolute; left: 14px; padding: 0 6px; background: var(--bg); color: var(--check); font-family: Poppins; font-weight: 800; font-size: 22px; line-height: 30px; }
+#prog { left: 120px; top: 1290px; width: 840px; padding: 34px 44px 40px; border-radius: 34px; background: #161728; border: 2px solid rgba(255,255,255,.08); box-shadow: 0 40px 100px rgba(0,0,0,.6); }
+#prog .row { display: flex; justify-content: space-between; align-items: baseline; font-size: 36px; color: var(--muted); font-weight: 500; }
+#prog .pct { font-family: Poppins; font-weight: 800; color: var(--lime); font-size: 44px; }
+#prog .bar { margin-top: 22px; height: 22px; border-radius: 11px; background: #07061a; overflow: hidden; }
+#prog .fill { height: 100%; width: 100%; border-radius: 11px; background: var(--grad); transform-origin: 0 50%; }
+
+/* S7 */
+#endLogo { left: 540px; top: 380px; width: 420px; height: 300px; margin: -150px 0 0 -210px; }
+#entre { top: 620px; font-size: 128px; }
+#cta { left: 100px; top: 935px; width: 880px; height: 140px; border-radius: 70px; background: linear-gradient(100deg, #ff3fa4 0%, #b04bff 50%, #4f8bff 100%); display: flex; align-items: center; justify-content: center; gap: 22px; color: #0b0b14; font-weight: 700; font-size: 50px; box-shadow: 0 24px 80px rgba(176,75,255,.55); overflow: hidden; }
+#cta .shine { position: absolute; top: 0; left: -200px; width: 140px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent); transform: skewX(-20deg); }
+#url { top: 1110px; font-weight: 600; font-size: 42px; color: rgba(245,243,255,.9); letter-spacing: .01em; }
+#chev { left: 490px; top: 1200px; width: 100px; height: 150px; }
+#legal { top: 1440px; font-size: 27px; font-weight: 500; color: rgba(245,243,255,.55); }
+
+/* transitions & texture */
+#wipe { left: -400px; top: -200px; width: 900px; height: 2400px; background: var(--grad); transform: rotate(14deg) translateX(-1400px); }
+#flash { background: #fff; opacity: 0; }
+#grain { opacity: .07; mix-blend-mode: overlay; pointer-events: none; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- S1 · Gancho -->
+  <section id="s1" class="layer">
+    <img id="bgHome" class="bg-img" src="img/screen-home.png" alt="">
+    <div class="layer vignette"></div>
+    <div id="milhoes" class="abs center-x display">MILHÕES</div>
+    <div id="s1line" class="abs center-x"><span class="word">de</span><span class="word">pessoas</span><span class="word">vão</span><span class="word">falar</span><span class="word">de</span></div>
+    <div id="gta" class="abs center-x">
+      <span id="gtaR" class="display">GTA VI</span>
+      <span id="gtaC" class="display">GTA VI</span>
+      <span id="gtaM" class="display grad-text">GTA VI</span>
+    </div>
+  </section>
+
+  <!-- S2 · Hype vira conteúdo -->
+  <section id="s2" class="layer">
+    <div class="layer grid"></div>
+    <div class="blob" style="left:-200px;top:300px;width:700px;height:700px;background:rgba(255,63,164,.35)"></div>
+    <div class="blob" style="right:-250px;top:1000px;width:800px;height:800px;background:rgba(79,139,255,.3)"></div>
+    <div class="vcard" id="vc1" style="left:40px;top:1500px"><b></b><i></i></div>
+    <div class="vcard" id="vc2" style="left:435px;top:1560px"><b></b><i></i></div>
+    <div class="vcard" id="vc3" style="left:830px;top:1500px"><b></b><i></i></div>
+    <div id="poucas" class="abs center-x display">POUCAS</div>
+    <div id="prontas" class="abs center-x">vão estar prontas</div>
+    <div id="transf" class="abs center-x">pra transformar esse</div>
+    <div id="hype" class="abs center-x display">HYPE</div>
+    <svg id="arrow" class="abs" viewBox="0 0 100 120"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff3fa4"/><stop offset="1" stop-color="#4f8bff"/></linearGradient></defs><path id="arrowPath" d="M50 6 V104 M14 70 L50 106 L86 70" fill="none" stroke="url(#ga)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div id="conteudo" class="abs center-x display grad-text">CONTEÚDO</div>
+  </section>
+
+  <!-- S3–S6 share the sky background -->
+  <section id="s3" class="layer">
+    <img id="bgSky" class="bg-img" src="img/sky.png" alt="">
+    <div id="skyDim" class="layer" style="background:#0a0817"></div>
+    <div class="layer vignette"></div>
+    <div id="conheca" class="abs center-x">Conheça o</div>
+    <div id="pill" class="abs">PLAYBOOK INTERATIVO</div>
+    <div id="s5a" class="abs center-x display">DA IDEIA</div>
+    <div id="s5b" class="abs center-x display grad-text">À PUBLICAÇÃO</div>
+    <div id="s6h" class="abs center-x display"><span class="word">MISSÃO</span> <span class="word">POR</span> <span class="word grad-text">MISSÃO</span></div>
+
+    <div id="phone" class="abs">
+      <div id="screen">
+        <div id="notch"></div>
+        <img id="scrMissoes" class="scr" src="img/screen-missoes.png" alt="">
+        <img id="scrTools" class="scr" src="img/screen-ferramentas.png" alt="">
+        <img id="scrM01" class="scr" src="img/screen-missao01.png" alt="">
+        <div id="scrCheckWrap" class="scr" style="height:1044px;background:var(--bg)">
+          <img id="scrCheck" src="img/screen-checklist.png" style="width:580px;display:block" alt="">
+          <div id="chkCount">Checklist (0/4)</div>
+          <div class="chk" id="c1"><svg viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div>
+          <div class="chk" id="c2"><svg viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div>
+          <div class="chk" id="c3"><svg viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div>
+          <div class="chk" id="c4"><svg viewBox="0 0 22 22"><path d="M4 11.5 L9 16 L18 6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="b6" class="badge">6 MISSÕES</div>
+    <div id="bBonus" class="badge">+1 MISSÃO BÔNUS</div>
+    <div id="bTools" class="badge">CENTRAL DE FERRAMENTAS</div>
+
+    <div id="prog" class="abs">
+      <div class="row"><span>Progresso da missão</span><span class="pct" id="pct">0%</span></div>
+      <div class="bar"><div class="fill" id="fill"></div></div>
+    </div>
+
+    <div id="logoWrap" class="abs">
+      <img id="logo" src="img/logo.png" alt="HYPE CASH">
+      <div id="sweep"><i></i></div>
+    </div>
+  </section>
+
+  <!-- S7 · CTA -->
+  <section id="s7" class="layer">
+    <img id="bgHome2" class="bg-img" src="img/screen-home.png" style="width:1080px;filter:blur(14px) brightness(.42) saturate(1.3)" alt="">
+    <div class="layer vignette"></div>
+    <div id="endLogo" class="abs"><img src="img/logo.png" alt="HYPE CASH" style="position:relative;width:100%;height:100%;filter:drop-shadow(0 0 36px rgba(255,63,164,.5))"></div>
+    <div id="entre" class="abs center-x display"><span class="word">ENTRE</span> <span class="word">NO</span><br><span class="word grad-text">JOGO.</span></div>
+    <div id="cta" class="abs"><span>Conheça o HYPE CASH</span><span>→</span><i class="shine"></i></div>
+    <div id="url" class="abs center-x">hype-cash.vercel.app</div>
+    <svg id="chev" class="abs" viewBox="0 0 100 150"><path id="ch1" d="M18 22 L50 54 L82 22" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path id="ch2" d="M18 70 L50 102 L82 70" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div id="legal" class="abs center-x">Produto independente. Sem vínculo com a Rockstar Games.</div>
+  </section>
+
+  <div id="wipe" class="abs"></div>
+  <div id="flash" class="layer"></div>
+  <svg id="grain" class="layer" width="1080" height="1920"><filter id="gf"><feTurbulence id="turb" type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="1"/></filter><rect width="100%" height="100%" filter="url(#gf)"/></svg>
+</div>
+
+<script src="timing.js"></script>
+<script src="gsap.min.js"></script>
+<script src="timeline.js"></script>
+</body>
+</html>
