@@ -67,3 +67,29 @@ Aviso: "Produto digital independente, sem vínculo com a Rockstar Games. Resulta
 
 ## Gancho alternativo para teste A/B
 "TODO MUNDO VAI ASSISTIR. / VOCÊ PODE GRAVAR." Abre direto no campo lima com o REC, e o feed vira a 2ª cena.
+
+## Entrega e qualidade
+**Arquivo:** `renders/hype-cash-filme01.mp4`, renderizado pelo HyperFrames (`render --quality delivery --fps 30`, captura beginframe).
+- H.264 yuv420p, 1080×1920, 30 fps, **25,0 s**, AAC 48 kHz estéreo, ~25 MB.
+- Áudio: −14,2 LUFS e pico de −1,6 dBFS.
+
+**`hyperframes check`**
+- 31/31 checagens de contraste WCAG AA passam.
+- Os avisos restantes são estruturais: o projeto está num único arquivo, sem sub-composições.
+- Os sobreposições e saídas da tela apontados são intencionais (pills entrando, celular saindo de quadro).
+
+**Revisão do render (grade de 1 quadro a cada 0,5 s + quadros em resolução cheia)**
+- **1º render:** entre 13,0 s e 13,25 s o flash da logo aparecia antes da hora e lavava a tela de branco.
+  - Causa: o estado inicial do `fromTo` era aplicado já no carregamento.
+  - Correção: `immediateRender: false` nos dois flashes.
+  - O vídeo foi renderizado de novo e conferido.
+- **Ajustes antes do render:**
+  - Pills reposicionados para não cobrir a frase do gancho (erro do `check`).
+  - Animação de espaçamento entre letras trocada por escala (erro do `check`).
+  - Rota do mapa estreitada para os cards ficarem no quadro.
+  - Ícone do chip "6 missões + bônus" corrigido.
+
+**Limitações**
+- Trilha sintetizada e mixagem validadas por medição, não por audição humana.
+- Render em GPU de software (mais lento, sem efeito no resultado).
+- Durante o movimento da câmera no mapa, um card pode ficar parcialmente cortado na borda por alguns quadros.

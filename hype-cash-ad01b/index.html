@@ -356,7 +356,7 @@
 
       // S5: logo
       tl.fromTo("#logoBg", { opacity: 0 }, { opacity: 1, duration: 0.25 }, B.dest);
-      tl.fromTo("#flash1", { opacity: 0.9 }, { opacity: 0, duration: 0.4, ease: "power2.out" }, B.logo);
+      tl.fromTo("#flash1", { opacity: 0.9 }, { opacity: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, B.logo);
       tl.fromTo("#logo1", { scale: 1.6, opacity: 0, rotate: -6 }, { scale: 1, opacity: 1, rotate: 0, duration: 0.35, ease: "back.out(1.8)" }, B.logo);
       tl.fromTo("#logoSub", { scaleX: 1.6, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, B.logo_sub);
       tl.to("#logo1", { scale: 1.06, duration: 1.0, ease: "none" }, B.logo + 0.35);
@@ -393,7 +393,7 @@
       tl.fromTo("#h5", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, B.plan + 0.3);
 
       // S8: CTA
-      tl.fromTo("#flash2", { opacity: 0.7 }, { opacity: 0, duration: 0.35 }, B.cta);
+      tl.fromTo("#flash2", { opacity: 0.7 }, { opacity: 0, duration: 0.35, immediateRender: false }, B.cta);
       tl.fromTo("#ctaBg", { scale: 1.15 }, { scale: 1.02, duration: 4.5, ease: "power2.out" }, B.cta);
       tl.fromTo("#logo2", { scale: 1.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, B.cta_logo);
       tl.fromTo("#ctaSub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, B.cta_logo + 0.35);
