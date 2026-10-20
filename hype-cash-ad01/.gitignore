@@ -1,0 +1,6 @@
+node_modules/
+out/frames/
+out/determinism/
+out/*.log
+preview/still_*.png
+assets/captures/sales-full.png

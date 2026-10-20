@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>HYPE CASH AD 01 — A oportunidade por trás do assunto</title>
+<style>
+@font-face { font-family: Poppins; font-weight: 700; src: url(fonts/poppins-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 900; src: url(fonts/poppins-latin-900-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+
+/* palette from styles/tokens.css of the HYPE CASH app */
+:root {
+  --pink: #ff3fa2; --purple: #a83ffe; --blue: #3f8fff; --lime: #d4ff3f; --cyan: #3fd4ff;
+  --bg: #0a0612; --ink: #ffffff; --muted: #b8a8d0;
+  --grad: linear-gradient(90deg, #ff3fa2 0%, #a83ffe 50%, #3f8fff 100%);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+body { font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+.layer { position: absolute; inset: 0; }
+.abs { position: absolute; }
+.bgimg { position: absolute; left: -110px; top: -190px; width: 1300px; height: 2300px; will-change: transform, opacity; }
+.dot { position: absolute; border-radius: 50%; }
+
+/* ---------- phone ---------- */
+#stage3d { position: absolute; inset: 0; perspective: 2600px; perspective-origin: 540px 900px; }
+#rig { position: absolute; left: 0; top: 0; width: 560px; height: 1180px; transform-style: preserve-3d; }
+.edge { position: absolute; inset: 0; border-radius: 86px;
+  background: linear-gradient(135deg, #3b3550 0%, #15121f 45%, #2a2438 100%); }
+#frame { position: absolute; inset: 0; border-radius: 86px; padding: 11px;
+  background: linear-gradient(145deg, #8f88a6 0%, #3d3750 18%, #1c1828 50%, #4a4360 82%, #a49cbc 100%);
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,.18) inset; }
+#bezel { position: relative; width: 100%; height: 100%; border-radius: 76px; background: #050407; padding: 13px; }
+#screen { position: relative; width: 512px; height: 1132px; border-radius: 64px; overflow: hidden; background: #0d0a18; }
+.page { position: absolute; left: 0; top: 0; width: 512px; height: 1132px; overflow: hidden; }
+.page img.cap { position: absolute; left: 0; top: 22px; width: 512px; display: block; }
+#status { position: absolute; left: 0; top: 0; width: 512px; height: 40px; z-index: 5;
+  font: 600 15px Inter; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 6px 44px 0 50px; }
+#island { position: absolute; left: 196px; top: 12px; width: 120px; height: 34px; border-radius: 20px; background: #000; z-index: 6; }
+#glare { position: absolute; inset: 0; z-index: 7; pointer-events: none; mix-blend-mode: screen; }
+#dim { position: absolute; inset: 0; z-index: 8; background: #000; opacity: 0; }
+#shadow { position: absolute; width: 560px; height: 120px; border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 70%); }
+
+/* feed (consumer side, original UI) */
+#feed { background: #0b0a12; }
+#feedhead { position: absolute; left: 0; top: 40px; width: 512px; height: 54px; z-index: 3; background: rgba(11,10,18,.92);
+  display: flex; align-items: center; gap: 10px; padding: 0 22px; font: 700 20px Poppins; }
+#feedhead .chip { font: 600 13px Inter; padding: 6px 12px; border-radius: 99px; background: #1f1c2c; color: #cfc6e6; }
+#feedhead .chip.on { background: #fff; color: #0b0a12; }
+#feedlist { position: absolute; left: 0; top: 100px; width: 512px; }
+.fcard { position: absolute; left: 16px; width: 480px; height: 360px; }
+.thumb { position: absolute; left: 0; top: 0; width: 480px; height: 270px; border-radius: 18px; overflow: hidden; }
+.thumb .tt { position: absolute; left: 22px; bottom: 20px; right: 22px; font: 900 34px/0.98 Poppins; text-transform: uppercase; letter-spacing: -.02em; text-shadow: 0 3px 14px rgba(0,0,0,.6); }
+.thumb .dur { position: absolute; right: 12px; top: 12px; font: 600 13px Inter; background: rgba(0,0,0,.75); padding: 3px 7px; border-radius: 6px; }
+.thumb .seen { position: absolute; left: 0; bottom: 0; height: 5px; background: #ff3f5a; }
+.meta { position: absolute; left: 0; top: 282px; display: flex; gap: 12px; align-items: flex-start; width: 480px; }
+.ava { width: 40px; height: 40px; border-radius: 50%; flex: none; }
+.mt { font: 600 17px/1.25 Inter; color: #f2eefc; }
+.ms { font: 500 14px Inter; color: #8f86a8; margin-top: 4px; }
+
+/* hero card that leaves the phone in S2 */
+#hero { position: absolute; left: 0; top: 0; width: 480px; height: 360px; transform-origin: 50% 50%; }
+#hero::before { content: ""; position: absolute; left: -14px; top: -14px; right: -14px; bottom: -10px; border-radius: 28px; background: rgba(14,11,24,.97); box-shadow: 0 50px 120px rgba(0,0,0,.7), 0 0 0 1.5px rgba(255,255,255,.1); }
+#hero .thumb { box-shadow: 0 40px 90px rgba(0,0,0,.65), 0 0 0 2px rgba(255,255,255,.12); }
+#hero .you { position: absolute; left: 0; top: 282px; width: 480px; display: flex; gap: 12px; }
+#hero .ava { box-shadow: 0 0 0 3px var(--lime); }
+.youtag { display: inline-block; font: 800 13px Poppins; color: #0a0612; background: var(--lime); border-radius: 6px; padding: 2px 8px; margin-left: 8px; vertical-align: 2px; }
+.rec { position: absolute; left: 16px; top: 14px; font: 700 14px Inter; background: rgba(0,0,0,.6); padding: 4px 10px; border-radius: 99px; display: flex; gap: 7px; align-items: center; }
+.rec i { width: 11px; height: 11px; border-radius: 50%; background: #ff3f5a; display: inline-block; }
+
+/* highlight drawn over real UI inside the screen */
+.hl { position: absolute; border: 3px solid var(--lime); border-radius: 18px; box-shadow: 0 0 22px rgba(212,255,63,.55), inset 0 0 18px rgba(212,255,63,.18); }
+
+/* ---------- type ---------- */
+.kt { position: absolute; left: 60px; right: 60px; text-align: center; font-family: Poppins; font-weight: 900; text-transform: uppercase;
+  letter-spacing: -.025em; line-height: .98; text-shadow: 0 8px 40px rgba(0,0,0,.65); }
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 6px 26px rgba(0,0,0,.55)); }
+.lime { color: var(--lime); }
+.w { display: inline-block; }
+.sm { font-family: Inter; font-weight: 700; text-transform: none; letter-spacing: 0; }
+.mark { position: relative; display: inline-block; }
+.strike { position: absolute; left: -10px; top: 50%; height: 12px; background: var(--pink); border-radius: 6px; transform-origin: 0 50%; box-shadow: 0 0 22px rgba(255,63,162,.7); }
+.uline { position: absolute; left: 0; bottom: -14px; height: 10px; background: var(--lime); border-radius: 5px; transform-origin: 0 50%; }
+.eyebrow { display: inline-block; font: 700 26px Inter; letter-spacing: .14em; text-transform: uppercase; color: var(--pink);
+  border: 2px solid var(--pink); border-radius: 99px; padding: 10px 26px; background: rgba(10,6,18,.55); }
+.num { display: inline-block; font: 900 30px Poppins; color: #0a0612; background: var(--lime); border-radius: 12px; padding: 4px 14px; letter-spacing: 0; }
+
+#logo { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+#sweep { position: absolute; left: 0; top: 0; width: 260px; height: 2600px; transform-origin: 0 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); mix-blend-mode: overlay; }
+#flash { background: radial-gradient(ellipse at 50% 40%, rgba(255,255,255,.95), rgba(255,63,162,.5) 40%, rgba(10,6,18,0) 75%); opacity: 0; }
+
+/* CTA */
+#btn { position: absolute; left: 90px; width: 900px; height: 150px; border-radius: 99px; background: var(--grad);
+  display: flex; align-items: center; justify-content: center; gap: 22px; font: 800 50px Poppins; color: #120a1f; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(168,63,254,.45), 0 0 0 2px rgba(255,255,255,.25) inset; }
+#btn .shine { position: absolute; top: -40px; width: 120px; height: 240px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.7), rgba(255,255,255,0)); transform: rotate(18deg); }
+#tap { position: absolute; width: 120px; height: 120px; border-radius: 50%; border: 6px solid rgba(255,255,255,.9); }
+#hint { font: 700 34px Inter; color: #fff; text-align: center; }
+#legal { font: 500 23px/1.35 Inter; color: rgba(255,255,255,.72); text-align: center; }
+
+#grain { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; background: url(img/grain.png) repeat; opacity: .07; mix-blend-mode: overlay; }
+#scrim { background: linear-gradient(180deg, rgba(10,6,18,.92) 0%, rgba(10,6,18,.75) 22%, rgba(10,6,18,0) 34%); opacity: 0; }
+#vig { background: radial-gradient(ellipse 80% 62% at 50% 48%, transparent 0%, rgba(10,6,18,.45) 70%, rgba(10,6,18,.92) 100%); }
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="layer" id="bgs">
+    <img class="bgimg" id="bgCity" src="img/bg-city.jpg">
+    <img class="bgimg" id="bgCitySharp" src="img/bg-city-sharp.jpg">
+    <img class="bgimg" id="bgCar" src="img/bg-car.jpg">
+    <div class="layer" id="tint"></div>
+  </div>
+  <div class="layer" id="bokeh"></div>
+
+  <div id="stage3d">
+    <div id="shadow"></div>
+    <div id="rig">
+      <div class="edge" style="transform: translateZ(-14px)"></div>
+      <div class="edge" style="transform: translateZ(-10px)"></div>
+      <div class="edge" style="transform: translateZ(-6px)"></div>
+      <div class="edge" style="transform: translateZ(-2px)"></div>
+      <div id="frame"><div id="bezel"><div id="screen">
+        <div id="status"><span>9:41</span><span>▂▄▆ ᯤ ▮</span></div>
+        <div id="island"></div>
+
+        <div class="page" id="feed">
+          <div id="feedhead"><span style="margin-right:6px">▶</span>
+            <span class="chip on">GTA VI</span><span class="chip">Trailer</span><span class="chip">Mapa</span><span class="chip">Teorias</span></div>
+          <div id="feedlist"></div>
+        </div>
+        <div class="page" id="pMap"><img class="cap" src="img/scr-map.jpg"><div class="hl" id="hlMap"></div></div>
+        <div class="page" id="pM1">
+          <img class="cap" id="m1_0" src="img/scr-m1-0.jpg"><img class="cap" id="m1_1" src="img/scr-m1-1.jpg">
+          <img class="cap" id="m1_2" src="img/scr-m1-2.jpg"><img class="cap" id="m1_3" src="img/scr-m1-3.jpg">
+          <img class="cap" id="m1_4" src="img/scr-m1-4.jpg">
+        </div>
+        <div class="page" id="pAfter"><img class="cap" src="img/scr-map-after.jpg"><div class="hl" id="hlAfter"></div></div>
+        <div class="page" id="pTools"><img class="cap" src="img/scr-tools.jpg"></div>
+        <div id="glare"></div>
+        <div id="dim"></div>
+      </div></div></div>
+    </div>
+    <div id="hero">
+      <div class="thumb" id="heroThumb"><div class="tt" id="heroTitle"></div><div class="rec" id="heroRec"><i></i>GRAVANDO</div></div>
+      <div class="meta" id="heroMetaOld"><div class="ava" id="heroAvaOld"></div><div><div class="mt" id="heroMt"></div><div class="ms" id="heroMs"></div></div></div>
+      <div class="you" id="heroMetaYou"><div class="ava" style="background: var(--grad)"></div>
+        <div><div class="mt">Seu primeiro vídeo sobre GTA VI <span class="youtag">VOCÊ</span></div><div class="ms">@seucanal · publicado por você</div></div></div>
+    </div>
+  </div>
+
+  <div class="layer" id="fx"><div class="layer" id="flash"></div></div>
+  <div class="layer" id="vig"></div>
+  <div class="layer" id="scrim"></div>
+
+  <!-- S1 -->
+  <div class="kt" id="t1a" style="top:250px; font-size:74px">Você vai assistir</div>
+  <div class="kt" id="t1b" style="top:338px; font-size:112px"><span class="grad">centenas</span></div>
+  <div class="kt" id="t1c" style="top:458px; font-size:74px">de vídeos sobre <span class="lime">GTA VI</span></div>
+  <!-- S2 -->
+  <div class="kt" id="t2a" style="top:262px; font-size:80px">E se alguns deles</div>
+  <div class="kt" id="t2b" style="top:358px; font-size:118px">fossem <span class="mark lime" id="seus">seus?<span class="uline" id="seusLine"></span></span></div>
+  <!-- S3 -->
+  <img id="logo" src="img/logo.png">
+  <div class="kt" id="t3a" style="top:600px"><span class="eyebrow">Playbook interativo</span></div>
+  <div class="kt" id="t3b" style="top:300px; font-size:56px"><span class="sm" style="font-size:40px; color: var(--muted)">de um assunto</span></div>
+  <div class="kt" id="t3c" style="top:356px; font-size:94px">a um <span class="grad">projeto</span><br>de conteúdo</div>
+  <!-- S4 -->
+  <div class="kt" id="t4a" style="top:250px; font-size:92px">Missão por <span class="grad">missão</span></div>
+  <div class="kt" id="t4s0" style="top:236px; font-size:70px"><span class="num">01</span><br>encontre seu <span class="lime">formato</span></div>
+  <div class="kt" id="t4s1" style="top:236px; font-size:70px"><span class="num">02</span><br>publique o <span class="lime">1º vídeo</span></div>
+  <div class="kt" id="t4s2" style="top:236px; font-size:70px"><span class="num">05</span><br>construa <span class="lime">audiência</span></div>
+  <div class="kt" id="t4s3" style="top:236px; font-size:70px"><span class="num">06</span><br>caminhos de <span class="lime">monetização</span></div>
+  <!-- S5 -->
+  <div class="kt" id="t5a" style="top:250px; font-size:86px">✓ <span class="lime">Checklist</span></div>
+  <div class="kt" id="t5b" style="top:250px; font-size:86px"><span class="grad">Progresso</span></div>
+  <div class="kt" id="t5c" style="top:236px; font-size:76px">Central de<br><span class="lime">ferramentas</span></div>
+  <!-- S6 -->
+  <div class="kt" id="t6a" style="top:520px; font-size:66px">Sem promessa de</div>
+  <div class="kt" id="t6b" style="top:600px; font-size:104px"><span class="mark">dinheiro fácil.<span class="strike" id="strike"></span></span></div>
+  <div class="kt" id="t6c" style="top:520px; font-size:66px">É um</div>
+  <div class="kt" id="t6d" style="top:600px; font-size:118px"><span class="mark"><span class="grad">plano</span><span class="uline" id="planoLine"></span></span><br><span style="font-size:76px">pra começar.</span></div>
+  <!-- S7 -->
+  <div class="abs" id="ctaWrap" style="left:0; top:0; width:1080px; height:1920px">
+    <div class="kt" id="t7a" style="top:900px; font-size:46px"><span class="sm" style="font-size:40px; color:#e9e2fb">Um plano interativo para criar conteúdo<br>com o hype do GTA VI</span></div>
+    <div id="btn" style="top:1110px"><span>Conheça o HYPE CASH</span><span>→</span><div class="shine" id="shine"></div></div>
+    <div id="tap"></div>
+    <div class="abs" id="hint" style="left:0; width:1080px; top:1300px">Toque em <b style="color: var(--lime)">Saiba mais</b> ↓</div>
+    <div class="abs" id="legal" style="left:90px; width:900px; top:1400px">Produto digital independente, sem vínculo com a Rockstar Games.<br>Resultados dependem da sua execução.</div>
+  </div>
+
+  <div id="sweep"></div>
+  <div id="grain"></div>
+</div>
+<script src="timing.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

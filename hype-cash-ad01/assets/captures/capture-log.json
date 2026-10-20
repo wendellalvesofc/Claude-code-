@@ -1,0 +1,96 @@
+[
+ {
+  "name": "sales-hero",
+  "url": "http://localhost:3123/",
+  "full": false
+ },
+ {
+  "name": "sales-full",
+  "url": "http://localhost:3123/",
+  "full": true
+ },
+ {
+  "name": "gate",
+  "url": "http://localhost:3123/playbook",
+  "full": false
+ },
+ {
+  "name": "pb-home",
+  "url": "http://localhost:3123/playbook",
+  "full": false
+ },
+ {
+  "name": "pb-map-0",
+  "url": "http://localhost:3123/playbook/missoes",
+  "full": false
+ },
+ {
+  "name": "pb-map-0-full",
+  "url": "http://localhost:3123/playbook/missoes",
+  "full": true
+ },
+ {
+  "name": "pb-m1-top",
+  "url": "http://localhost:3123/playbook/missao/entre-no-jogo",
+  "full": false
+ },
+ {
+  "name": "pb-m1-full-0",
+  "url": "http://localhost:3123/playbook/missao/entre-no-jogo",
+  "full": true
+ },
+ {
+  "checklistItems": 4
+ },
+ {
+  "name": "pb-m1-full-1",
+  "url": "http://localhost:3123/playbook/missao/entre-no-jogo",
+  "full": true
+ },
+ {
+  "name": "pb-m1-full-2",
+  "url": "http://localhost:3123/playbook/missao/entre-no-jogo",
+  "full": true
+ },
+ {
+  "name": "pb-m1-full-3",
+  "url": "http://localhost:3123/playbook/missao/entre-no-jogo",
+  "full": true
+ },
+ {
+  "name": "pb-m1-full-4",
+  "url": "http://localhost:3123/playbook/missao/entre-no-jogo",
+  "full": true
+ },
+ {
+  "missionProgressAfter": "100%"
+ },
+ {
+  "name": "pb-map-after",
+  "url": "http://localhost:3123/playbook/missoes",
+  "full": false
+ },
+ {
+  "overallAfter": "14%"
+ },
+ {
+  "name": "pb-home-after",
+  "url": "http://localhost:3123/playbook",
+  "full": false
+ },
+ {
+  "name": "pb-pro-top",
+  "url": "http://localhost:3123/playbook/missao/a-proxima-onda",
+  "full": false
+ },
+ {
+  "name": "pb-tools-top",
+  "url": "http://localhost:3123/playbook/ferramentas",
+  "full": false
+ },
+ {
+  "name": "pb-tools-full",
+  "url": "http://localhost:3123/playbook/ferramentas",
+  "full": true
+ }
+]

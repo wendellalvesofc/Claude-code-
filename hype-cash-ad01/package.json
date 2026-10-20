@@ -1,0 +1,15 @@
+{
+  "name": "hype-cash-ad01",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "stills": "node scripts/render.mjs --stills",
+    "render": "node scripts/render.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/poppins": "^5.1.0",
+    "gsap": "^3.12.5",
+    "playwright-core": "^1.56.1"
+  }
+}
