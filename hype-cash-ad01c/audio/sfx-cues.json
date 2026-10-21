@@ -25,6 +25,11 @@
   "gain_db": -16
  },
  {
+  "sfx": "pop",
+  "cue_s": 2.82,
+  "gain_db": -14
+ },
+ {
   "sfx": "whoosh",
   "cue_s": 3.35,
   "gain_db": -12
