@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>HYPE CASH — Motion 01 D (A Estreia)</title>
+<style>
+@font-face { font-family: Poppins; font-weight: 700; src: url(fonts/poppins-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 900; src: url(fonts/poppins-latin-900-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: InstrumentSerif; font-style: italic; font-weight: 400; src: url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2"); }
+
+/* brand tokens (styles/tokens.css of the app). This version is a film trailer: true black, light in the brand gradient */
+:root {
+  --pink: #ff3fa2; --purple: #a83ffe; --deep: #5a17c9; --blue: #3f8fff; --lime: #d4ff3f;
+  --ink: #15101f; --black: #050307; --muted: #8a809e;
+  --g: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--black); }
+body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--black); }
+.scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+.full { position: absolute; inset: 0; }
+.c { position: absolute; left: 60px; width: 960px; text-align: center; }
+.w { display: inline-block; }
+.lbl { font: 700 30px Inter; letter-spacing: .32em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.serif { font-family: InstrumentSerif; font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+.big { font-family: Poppins; font-weight: 800; letter-spacing: -.035em; line-height: 1.02; }
+.gt { background: var(--g); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.lime { color: var(--lime); }
+
+/* cinema: letterbox bars, anamorphic streaks, vignette */
+.bar { position: absolute; left: 0; width: 1080px; height: 150px; background: #000; z-index: 40; }
+#barT { top: 0; } #barB { bottom: 0; }
+.streak { position: absolute; left: -200px; width: 1480px; height: 6px; border-radius: 3px; background: linear-gradient(90deg, rgba(63,143,255,0), rgba(120,170,255,.9) 45%, #fff 50%, rgba(255,63,162,.9) 55%, rgba(255,63,162,0)); filter: blur(2px); opacity: 0; }
+#vig { background: radial-gradient(ellipse 75% 60% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.7) 100%); z-index: 30; pointer-events: none; }
+#grain { position: absolute; inset: 0; background: url(img/grain.png); opacity: .06; z-index: 45; pointer-events: none; }
+.glow { position: absolute; border-radius: 50%; }
+
+/* S1 the number */
+#s1 { visibility: visible; }
+#glow1 { left: 40px; top: 460px; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(168,63,254,.38), rgba(255,63,162,.12) 45%, rgba(0,0,0,0) 70%); }
+#n475 { position: absolute; left: 0; top: 640px; width: 1080px; text-align: center; font: 900 400px/1 Poppins; letter-spacing: -.05em; }
+#ring { position: absolute; left: 0; top: 0; }
+#src { position: absolute; left: 120px; top: 1680px; width: 840px; text-align: center; font: 500 22px/1.35 Inter; color: rgba(255,255,255,.45); z-index: 41; }
+
+/* S2 the trailer card */
+#card { position: absolute; left: 90px; top: 820px; width: 900px; height: 506px; border-radius: 26px; overflow: hidden; border: 2px solid rgba(255,255,255,.18);
+  background: radial-gradient(circle at 70% 58%, #ffe6a0 0 7%, rgba(255,170,90,.6) 9%, rgba(255,120,90,0) 22%), linear-gradient(180deg, #2b0f5c 0%, #a83ffe 38%, #ff3fa2 62%, #ff9a4a 76%, #12081f 77%, #1d0c33 100%);
+  box-shadow: 0 50px 120px rgba(168,63,254,.35); }
+#card .scan { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 2px, transparent 2px 5px); }
+#card .play { position: absolute; left: 400px; top: 203px; width: 100px; height: 100px; border-radius: 50%; background: rgba(0,0,0,.45); border: 3px solid rgba(255,255,255,.8); }
+#card .play::after { content: ""; position: absolute; left: 38px; top: 28px; border-top: 22px solid transparent; border-bottom: 22px solid transparent; border-left: 34px solid #fff; }
+#card .tag { position: absolute; left: 28px; top: 24px; font: 800 30px Inter; letter-spacing: .2em; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+#card .city { position: absolute; left: 0; bottom: 110px; width: 900px; height: 120px; }
+#stat { position: absolute; left: 90px; top: 1360px; width: 900px; display: flex; align-items: center; gap: 18px; font: 700 38px Inter; color: #fff; }
+#stat .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--pink); box-shadow: 0 0 16px var(--pink); }
+
+/* S3 the date + S4 the crowd (one canvas) */
+#d19 { position: absolute; left: 0; top: 560px; width: 1080px; text-align: center; font: 900 460px/1 Poppins; letter-spacing: -.06em; color: #fff; }
+#dNov { position: absolute; left: 0; top: 1060px; width: 1080px; text-align: center; font: 800 86px Poppins; letter-spacing: .14em; }
+#crowd { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+#node { position: absolute; left: 470px; top: 1060px; width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ff9ccd, #ff3fa2 50%, #a8126a); box-shadow: 0 0 90px rgba(255,63,162,.8); }
+#node::after { content: ""; position: absolute; left: 54px; top: 40px; border-top: 30px solid transparent; border-bottom: 30px solid transparent; border-left: 44px solid #fff; }
+
+/* S5 product + film strip */
+#glow5 { left: 40px; top: 300px; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(255,63,162,.42), rgba(168,63,254,.16) 45%, rgba(0,0,0,0) 70%); }
+#logo5 { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+#strip { position: absolute; left: 0; top: 1180px; height: 330px; display: flex; gap: 0; background: #0d0a14; border-top: 2px solid #26203a; border-bottom: 2px solid #26203a; }
+.fr { position: relative; width: 380px; height: 330px; flex: none; padding: 46px 22px; }
+.fr .in { position: relative; width: 100%; height: 100%; border-radius: 14px; background: linear-gradient(160deg, #2a1052, #120a20); border: 2px solid rgba(255,255,255,.12); padding: 26px 24px; }
+.fr .n { font: 900 64px/1 Poppins; letter-spacing: -.03em; }
+.fr .t { margin-top: 14px; font: 700 34px/1.12 Poppins; letter-spacing: -.02em; color: #fff; }
+.fr::before, .fr::after { content: ""; position: absolute; left: 0; width: 380px; height: 22px; top: 12px;
+  background: repeating-linear-gradient(90deg, transparent 0 16px, #2b2440 16px 40px, transparent 40px 48px); border-radius: 4px; }
+.fr::after { top: auto; bottom: 12px; }
+
+/* S6 phone in a spotlight */
+#spot { left: 90px; top: 360px; width: 900px; height: 1300px; border-radius: 50%; background: radial-gradient(ellipse, rgba(168,63,254,.35), rgba(0,0,0,0) 65%); }
+#phone { position: absolute; left: 300px; top: 470px; width: 480px; height: 1012px; border-radius: 74px; padding: 10px; background: linear-gradient(145deg, #4a4360, #15121f 45%, #2a2438); box-shadow: 0 60px 140px rgba(0,0,0,.8), 0 0 0 2px rgba(255,255,255,.08); }
+#screen { position: relative; width: 460px; height: 992px; border-radius: 64px; overflow: hidden; background: #0d0a18; }
+#screen img { position: absolute; left: 0; top: 22px; width: 460px; }
+.pg { position: absolute; inset: 0; }
+#island { position: absolute; left: 170px; top: 12px; width: 120px; height: 32px; border-radius: 18px; background: #000; z-index: 9; }
+#hlP { position: absolute; z-index: 7; border: 4px solid var(--lime); border-radius: 14px; box-shadow: 0 0 24px rgba(212,255,63,.7); }
+.lt { position: absolute; display: flex; align-items: center; gap: 16px; font: 800 46px Poppins; letter-spacing: -.02em; }
+.lt i { width: 14px; height: 60px; border-radius: 7px; background: var(--g); }
+
+/* S7 the plan: today → launch */
+#s7 { background: var(--black); }
+#strike { position: absolute; height: 12px; border-radius: 6px; background: var(--pink); transform-origin: 0 50%; box-shadow: 0 0 20px rgba(255,63,162,.8); }
+#tline { position: absolute; left: 140px; top: 1180px; width: 800px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.15); }
+#tfill { position: absolute; left: 0; top: 0; width: 100%; height: 100%; border-radius: 4px; background: var(--g); transform-origin: 0 50%; }
+.tk { position: absolute; top: 1110px; font: 800 36px Poppins; letter-spacing: .06em; }
+.pin { position: absolute; width: 44px; height: 44px; border-radius: 50%; }
+#pinYou { left: 118px; top: 1162px; background: var(--lime); box-shadow: 0 0 30px rgba(212,255,63,.9); }
+#pinLate { left: 918px; top: 1162px; background: #4a4160; border: 4px solid #6c6386; }
+#you { position: absolute; left: 60px; top: 1250px; width: 220px; text-align: center; font: 700 30px/1.2 Inter; color: var(--lime); }
+#late { position: absolute; left: 800px; top: 1250px; width: 260px; text-align: center; font: 600 28px/1.25 Inter; color: rgba(255,255,255,.45); }
+
+/* S8 CTA */
+#glow8 { left: 40px; top: 150px; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(255,63,162,.42), rgba(168,63,254,.16) 45%, rgba(0,0,0,0) 70%); }
+#logo8 { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+#btn { position: absolute; left: 140px; top: 1080px; width: 800px; height: 150px; border-radius: 75px; background: var(--g); display: grid; place-items: center;
+  font: 800 58px Poppins; letter-spacing: -.02em; color: #fff; box-shadow: 0 30px 90px rgba(255,63,162,.5); overflow: hidden; }
+#shine { position: absolute; top: 0; left: -300px; width: 200px; height: 100%; background: linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); }
+#cursor { position: absolute; left: 0; top: 0; width: 84px; z-index: 5; }
+#ripple { position: absolute; width: 60px; height: 60px; border-radius: 50%; border: 6px solid #fff; opacity: 0; }
+#legal { position: absolute; left: 140px; top: 1300px; width: 800px; text-align: center; font: 500 23px/1.4 Inter; color: rgba(255,255,255,.5); }
+</style>
+</head>
+<body>
+<div id="root">
+  <!-- S1: 475 million views in 24 hours -->
+  <section class="scene" id="s1">
+    <div class="glow" id="glow1"></div>
+    <div class="streak" id="sk1" style="top: 840px"></div>
+    <div class="c lbl" id="t1top" style="top: 470px">o número que parou a internet</div>
+    <div id="n475"><span class="gt" id="num">475</span></div>
+    <div class="c big" id="t1m" style="top: 1050px; font-size: 120px; letter-spacing: .02em">MILHÕES</div>
+    <div class="c serif" id="t1v" style="top: 1195px; font-size: 96px">de visualizações</div>
+    <div class="c big" id="t1h" style="top: 1320px; font-size: 92px"><span class="lime">em 24 horas.</span></div>
+  </section>
+
+  <!-- S2: that was GTA VI's second trailer -->
+  <section class="scene" id="s2">
+    <div class="c serif" id="t2a" style="top: 470px; font-size: 92px">Foi isso que o</div>
+    <div class="c big" id="t2b" style="top: 590px; font-size: 92px"><span class="w">segundo</span> <span class="w">trailer</span> <span class="w">de</span> <span class="w gt">GTA VI</span> <span class="w">fez.</span></div>
+    <div id="card"><svg class="city" viewBox="0 0 900 120" preserveAspectRatio="none" id="city"></svg><div class="scan"></div><div class="tag">TRAILER 2</div><div class="play"></div></div>
+    <div id="stat"><span class="dot"></span><span id="statN">475 mi de visualizações · primeiras 24 h</span></div>
+  </section>
+
+  <!-- S3 + S4: the date, then the attention, then the few who are ready -->
+  <section class="scene" id="s3">
+    <canvas id="crowd" width="1080" height="1920"></canvas>
+    <div id="node"></div>
+    <div class="c lbl" id="t3a" style="top: 440px">o jogo chega em</div>
+    <div id="d19">19</div>
+    <div id="dNov"><span class="gt">NOVEMBRO</span></div>
+    <div class="c serif" id="t3b" style="top: 250px; font-size: 84px">e toda essa atenção</div>
+    <div class="c big" id="t3c" style="top: 360px; font-size: 92px"><span class="w">vai</span> <span class="w">procurar</span> <span class="w gt">conteúdo.</span></div>
+    <div class="c big" id="t4a" style="top: 210px; font-size: 84px"><span class="w">A</span> <span class="w">maioria</span> <span class="w">só</span> <span class="w">vai</span> <span class="w" style="color: #8a809e">assistir.</span></div>
+    <div class="c big" id="t4b" style="top: 420px; font-size: 84px"><span class="w">Poucos</span> <span class="w">vão</span> <span class="w">estar</span> <span class="w">prontos</span> <span class="w">pra</span> <span class="w gt">criar.</span></div>
+  </section>
+
+  <!-- S5: the product, mission by mission (film strip) -->
+  <section class="scene" id="s5">
+    <div class="glow" id="glow5"></div>
+    <div class="streak" id="sk5" style="top: 700px"></div>
+    <img id="logo5" src="img/logo.png">
+    <div class="c lbl" id="t5a" style="top: 950px">playbook interativo</div>
+    <div class="c serif" id="t5b" style="top: 1030px; font-size: 76px">que te prepara, <span class="lime">missão por missão</span></div>
+    <div id="strip"></div>
+  </section>
+
+  <!-- S6: the only phone moment, real screens -->
+  <section class="scene" id="s6">
+    <div class="glow" id="spot"></div>
+    <div class="c big" id="t6" style="top: 200px; font-size: 84px"><span class="w">Do</span> <span class="w">zero</span> <span class="w">ao</span> <span class="w gt">primeiro</span> <span class="w gt">vídeo</span></div>
+    <div id="phone"><div id="screen">
+      <div id="island"></div>
+      <div class="pg" id="pgM1"><img id="m1_0" src="img/scr-m1-0.jpg"><img id="m1_1" src="img/scr-m1-1.jpg"><img id="m1_2" src="img/scr-m1-2.jpg"><img id="m1_3" src="img/scr-m1-3.jpg"><img id="m1_4" src="img/scr-m1-4.jpg"></div>
+      <div class="pg" id="pgMap"><img src="img/scr-map-after.jpg"><div id="hlP"></div></div>
+    </div></div>
+    <div class="lt" id="l6a" style="left: 60px; top: 1530px"><i></i>Checklist</div>
+    <div class="lt" id="l6b" style="left: 640px; top: 1530px"><i></i>Progresso</div>
+  </section>
+
+  <!-- S7: no easy money; a plan, so you don't start late -->
+  <section class="scene" id="s7">
+    <div class="c serif" id="t7a" style="top: 420px; font-size: 76px; color: rgba(255,255,255,.75)">Sem promessa de</div>
+    <div class="c big" id="t7b" style="top: 520px; font-size: 120px"><span class="w">dinheiro</span> <span class="w">fácil.</span></div>
+    <div id="strike"></div>
+    <div class="c big" id="t7c" style="top: 400px; font-size: 104px"><span class="w">Só</span> <span class="w">um</span> <span class="w gt">plano,</span></div>
+    <div class="c serif" id="t7d" style="top: 540px; font-size: 80px"><span class="w">pra</span> <span class="w">você</span> <span class="w">não</span> <span class="w">começar</span> <span class="w lime">atrasado.</span></div>
+    <div id="tline"><div id="tfill"></div></div>
+    <div class="tk" id="tkA" style="left: 92px">HOJE</div>
+    <div class="tk" id="tkB" style="left: 870px"><span class="gt">19 NOV</span></div>
+    <div class="pin" id="pinYou"></div>
+    <div class="pin" id="pinLate"></div>
+    <div id="you">você começa<br>aqui</div>
+    <div id="late">quem deixa<br>pra depois</div>
+  </section>
+
+  <!-- S8: CTA -->
+  <section class="scene" id="s8">
+    <div class="glow" id="glow8"></div>
+    <img id="logo8" src="img/logo.png">
+    <div class="c" id="t8" style="top: 790px; left: 140px; width: 800px; font: 600 42px/1.3 Inter; color: rgba(255,255,255,.88)">O playbook interativo para criar conteúdo com o hype do GTA VI</div>
+    <div id="btn">Comece hoje →<div id="shine"></div></div>
+    <div id="ripple"></div>
+    <svg id="cursor" viewBox="0 0 24 24"><path d="M4 2.5l15 9.2-6.6 1.4 3.8 7.3-3 1.5-3.8-7.3L4.6 19z" fill="#fff" stroke="#15101f" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <div id="legal">Produto digital independente, sem vínculo com a Rockstar Games. Resultados dependem da sua execução.</div>
+  </section>
+
+  <div class="full" id="vig"></div>
+  <div class="bar" id="barT"></div><div class="bar" id="barB"></div>
+  <div id="src">475 milhões: visualizações do Trailer 2 de GTA VI somadas em todas as plataformas nas primeiras 24 h, segundo a Rockstar Games (maio de 2025).</div>
+  <div id="grain"></div>
+</div>
+<script src="gsap.min.js"></script>
+<script src="timing.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
