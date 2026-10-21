@@ -66,8 +66,8 @@
  },
  {
   "sfx": "riser",
-  "cue_s": 12.0,
-  "gain_db": -20
+  "cue_s": 12.75,
+  "gain_db": -22
  },
  {
   "sfx": "whoosh",

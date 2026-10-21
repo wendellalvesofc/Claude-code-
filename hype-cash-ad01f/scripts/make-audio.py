@@ -85,7 +85,7 @@ CUES = (
     [("impact-bass-1", 0.0, -10, .9), ("riser", 0.0, -22, 1.6), ("impact-bass-2", E["milhoes"] - .04, -12, .7), ("whoosh", 1.72, -15, .5),
      ("pop", E["h24"] - .03, -15, .3), ("whoosh-cinematic", 4.95, -13, .6), ("whoosh-short", 5.25, -16, .4)] +
     [("click-soft", E["fez"], -17, .25), ("whoosh", 8.28, -12, .5), ("impact-bass-1", E["d19"] - .04, -11, .9), ("whoosh-short", E["novembro"] - .05, -17, .35),
-     ("whoosh-cinematic", 11.35, -14, .6), ("pop", E["toda"] - .03, -15, .3), ("riser", 12.0, -20, 1.8),
+     ("whoosh-cinematic", 11.35, -14, .6), ("pop", E["toda"] - .03, -15, .3), ("riser", 12.75, -22, 1.1),
      ("whoosh", 13.82, -14, .5), ("glitch-3", E["assistir"], -21, .3)] +
     [("ping", E["poucos"] + i * .12, -21, .4) for i in range(5)] +
     [("click-soft", E["criar"] + i * .08, -18, .2) for i in range(4)] +

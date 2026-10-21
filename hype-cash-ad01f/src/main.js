@@ -55,7 +55,7 @@ function build() {
   rise("#stat", 6.0);
   tl.to("#card", { scale: 2.6, opacity: 0, filter: "blur(20px)", duration: 0.35, ease: "power3.in" }, 8.3);
   leave(["#t2a", "#t2b", "#stat"], 8.28);
-  flash(8.6, 0.4);
+  flash(8.6, 0.22);
 
   // ================= S3 + S4 (8.6 – 18.35): the date, the attention, the few who are ready
   scene("#s3", 8.6, 18.35);
@@ -147,10 +147,10 @@ function build() {
   streak("#sk5", E.hypecash);
   tl.to("#logo5", { scale: L5 * 1.03, duration: 1.6, ease: "sine.inOut" }, E.hypecash + 0.5);
   rise("#t5a", E.playbook - 0.06);
-  rise("#t5b", E.prepara - 0.35);
+  rise("#t5b", E.prepara - 0.5);
   const MIS = ["Entre no Jogo", "Modo Gameplay", "Mercado de Criadores", "Conteúdo Evergreen", "Território Próprio", "Escala de Monetização", "A Próxima Onda"];
   $("#strip").innerHTML = MIS.map((m, i) => `<div class="fr"><div class="in"><div class="n gt">${String(i + 1).padStart(2, "0")}</div><div class="t">${m}</div></div></div>`).join("");
-  tl.fromTo("#strip", { x: 1080 }, { x: -1720, duration: 1.5, ease: "power1.inOut" }, E.missao - 0.3);
+  tl.fromTo("#strip", { x: 1080 }, { x: -1720, duration: 2.0, ease: "power1.inOut" }, E.prepara - 0.45);
   flash(22.45, 0.35);
 
   // ================= S6 (22.45 – 25.95): the only phone moment (~3.5 s), real screens
