@@ -19,4 +19,15 @@ WORKERS=6 node scripts/render.mjs                                         # out/
 ```
 
 ## Nota de entrega
-(preenchida após o render final)
+- **Verificações sobre o render final:**
+  - ffprobe: 720 quadros, 30 fps, 24,000 s.
+  - Loudness: −14,7 LUFS e pico de −1,5 dBFS.
+  - Voz sobre o fundo: mediana de 24 dB na faixa da fala.
+  - Grade de 1 quadro a cada 0,5 s.
+  - Transcrição da mix final: todas as palavras do roteiro.
+- **Correções feitas na revisão:**
+  - título do gancho quebrando sobre "começar?";
+  - nó de rabisco encostando no título;
+  - respostas das missões encostando no ✓.
+  - Uma corrida no `render.mjs`: os workers paralelos reescreviam `src/timing.js` enquanto outra página o lia. Agora o script só grava o arquivo quando ele muda.
+- **Limitações:** o ambiente não tem saída de áudio; a mix foi validada por medição e transcrição. O transcritor escreve "Hype Cash" como "Hypecash", limitação conhecida dele.
