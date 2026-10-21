@@ -1,0 +1,27 @@
+ready: {"fonts":{"Poppins 700":"loaded","Poppins 800":"loaded","Inter 500":"loaded","Inter 600":"loaded","Inter 700":"loaded"},"images":13,"duration":30.1}
+ready: {"fonts":{"Poppins 700":"loaded","Poppins 800":"loaded","Inter 500":"loaded","Inter 600":"loaded","Inter 700":"loaded"},"images":13,"duration":30.1}
+ready: {"fonts":{"Poppins 700":"loaded","Poppins 800":"loaded","Inter 500":"loaded","Inter 600":"loaded","Inter 700":"loaded"},"images":13,"duration":30.1}
+ready: {"fonts":{"Poppins 700":"loaded","Poppins 800":"loaded","Inter 500":"loaded","Inter 600":"loaded","Inter 700":"loaded"},"images":13,"duration":30.1}
+ready: {"fonts":{"Poppins 700":"loaded","Poppins 800":"loaded","Inter 500":"loaded","Inter 600":"loaded","Inter 700":"loaded"},"images":13,"duration":30.1}
+ready: {"fonts":{"Poppins 700":"loaded","Poppins 800":"loaded","Inter 500":"loaded","Inter 600":"loaded","Inter 700":"loaded"},"images":13,"duration":30.1}
+ready: {"fonts":{"Poppins 700":"loaded","Poppins 800":"loaded","Inter 500":"loaded","Inter 600":"loaded","Inter 700":"loaded"},"images":13,"duration":30.1}
+[150-300] frame 150 (2s)
+[0-150] frame 0 (3s)
+[300-450] frame 300 (3s)
+[600-750] frame 600 (4s)
+[750-900] frame 750 (3s)
+[450-600] frame 450 (5s)
+[150-300] frame 200 (123s)
+[750-900] frame 800 (125s)
+[300-450] frame 350 (149s)
+[0-150] frame 50 (160s)
+[600-750] frame 650 (171s)
+[450-600] frame 500 (213s)
+[150-300] frame 250 (256s)
+[750-900] frame 850 (261s)
+[0-150] frame 100 (312s)
+[300-450] frame 400 (328s)
+[600-750] frame 700 (340s)
+[450-600] frame 550 (408s)
+captured 900 frames
+wrote out/motion.mp4
