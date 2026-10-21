@@ -1,0 +1,247 @@
+[
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 0.0,
+  "gain_db": -10
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 0.05,
+  "gain_db": -18
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 0.8,
+  "gain_db": -14
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 0.85,
+  "gain_db": -16
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 2.32,
+  "gain_db": -16
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 3.35,
+  "gain_db": -12
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 3.6,
+  "gain_db": -18
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 5.32,
+  "gain_db": -14
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 5.35,
+  "gain_db": -17
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 5.58,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh-cinematic",
+  "cue_s": 6.15,
+  "gain_db": -13
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 6.44,
+  "gain_db": -7
+ },
+ {
+  "sfx": "sparkle",
+  "cue_s": 6.59,
+  "gain_db": -16
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 7.33,
+  "gain_db": -17
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 8.75,
+  "gain_db": -20
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 9.44,
+  "gain_db": -15
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 9.89,
+  "gain_db": -16
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 10.26,
+  "gain_db": -13
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 11.62,
+  "gain_db": -12
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 13.16,
+  "gain_db": -16
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 14.42,
+  "gain_db": -16
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 15.82,
+  "gain_db": -16
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 17.16,
+  "gain_db": -16
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 13.36,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 14.62,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 16.02,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 17.36,
+  "gain_db": -15
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 19.25,
+  "gain_db": -11
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 19.4,
+  "gain_db": -16
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 19.8,
+  "gain_db": -11
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 19.97,
+  "gain_db": -11
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 20.14,
+  "gain_db": -11
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 20.31,
+  "gain_db": -11
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 19.7,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 20.54,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 21.52,
+  "gain_db": -15
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 20.49,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 21.45,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 22.8,
+  "gain_db": -13
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 22.97,
+  "gain_db": -17
+ },
+ {
+  "sfx": "glitch-3",
+  "cue_s": 24.42,
+  "gain_db": -17
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 24.9,
+  "gain_db": -18
+ },
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 25.36,
+  "gain_db": -12
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 25.82,
+  "gain_db": -14
+ },
+ {
+  "sfx": "whoosh-cinematic",
+  "cue_s": 26.45,
+  "gain_db": -13
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 26.8,
+  "gain_db": -8
+ },
+ {
+  "sfx": "sparkle",
+  "cue_s": 26.95,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 27.75,
+  "gain_db": -15
+ },
+ {
+  "sfx": "click",
+  "cue_s": 28.62,
+  "gain_db": -10
+ }
+]
