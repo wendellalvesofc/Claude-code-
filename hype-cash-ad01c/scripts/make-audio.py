@@ -82,7 +82,7 @@ CUES = (
      ("click-soft", E["gta"], -16, .25),
      ("whoosh", 3.35, -12, .6), ("whoosh-short", 3.6, -18, .4), ("pop", E["seus"] + .02, -14, .3), ("whoosh-short", E["seus"] + .05, -17, .4),
      ("ping", E["seus"] + .28, -18, .6), ("whoosh-cinematic", 6.15, -13, .7),
-     ("impact-bass-1", E["hypecash"], -7, 1.4), ("sparkle", E["hypecash"] + .15, -16, 1.2), ("pop", E["playbook"] - .03, -17, .3),
+     ("impact-bass-1", E["hypecash"] - .04, -13, .8), ("sparkle", E["hypecash"] + .7, -20, .9), ("pop", E["playbook"] - .03, -17, .3),
      ("whoosh-short", 8.75, -20, .4), ("whoosh", E["assunto"] - .1, -15, .5), ("click-soft", E["assunto"] + .35, -16, .25),
      ("pop", E["projeto"] - .02, -13, .3), ("whoosh", 11.62, -12, .6)] +
     [("whoosh-short", t, -16, .4) for t in (13.16, 14.42, 15.82, 17.16)] +
@@ -93,7 +93,7 @@ CUES = (
     [("whoosh-short", E["progresso"] - .05, -18, .35), ("whoosh-short", E["central"] - .07, -18, .35),
      ("whoosh", 22.8, -13, .5), ("whoosh-short", 22.97, -17, .35), ("glitch-3", E["facil"], -17, .35),
      ("whoosh-short", 24.9, -18, .35), ("impact-bass-2", E["plano"], -12, .7), ("pop", E["comecar"], -14, .3),
-     ("whoosh-cinematic", 26.45, -13, .6), ("impact-bass-1", E["conheca"], -8, 1.6), ("sparkle", E["conheca"] + .15, -15, 1.3),
+     ("whoosh-cinematic", 26.45, -13, .6), ("impact-bass-1", E["conheca"] - .04, -12, .7), ("sparkle", E["cash_end"] + .05, -18, 1.2),
      ("pop", 27.75, -15, .3), ("click", 28.62, -10, .3)]
 )
 def onset(x, kind):

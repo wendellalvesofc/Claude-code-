@@ -113,7 +113,7 @@ function build() {
     { img: "card-05.png", icon: "i-white", glyph: '<circle cx="9" cy="8.5" r="3.2" fill="#5a17c9"/><circle cx="16.5" cy="9.5" r="2.6" fill="#a83ffe"/><path d="M3 19c.6-3.4 3-5 6-5s5.4 1.6 6 5zM14 19c.3-2.4 1.6-3.8 3.5-3.8S20.7 16.6 21 19z" fill="#5a17c9"/>' },
     { img: "card-06.png", icon: "i-purple", glyph: '<rect x="4" y="13" width="3.6" height="7" rx="1" fill="#fff"/><rect x="10.2" y="9" width="3.6" height="11" rx="1" fill="#fff"/><rect x="16.4" y="5" width="3.6" height="15" rx="1" fill="#fff"/>' },
   ];
-  const ENTER = [E.encontrar - 0.1, E.publicar - 0.1, E.construir - 0.1, E.entender - 0.1];
+  const ENTER = [E.missao2 - 0.05, E.publicar - 0.1, E.construir - 0.1, E.entender - 0.1];
   const KW = [E.formato - 0.05, E.primeiro - 0.05, E.audiencia - 0.05, E.monetizacao - 0.05];
   const stack = $("#stack"), cardEls = [];
   CARDS.forEach((c, i) => {

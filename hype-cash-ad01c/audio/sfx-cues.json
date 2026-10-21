@@ -56,13 +56,13 @@
  },
  {
   "sfx": "impact-bass-1",
-  "cue_s": 6.44,
-  "gain_db": -7
+  "cue_s": 6.4,
+  "gain_db": -13
  },
  {
   "sfx": "sparkle",
-  "cue_s": 6.59,
-  "gain_db": -16
+  "cue_s": 7.14,
+  "gain_db": -20
  },
  {
   "sfx": "pop",
@@ -226,13 +226,13 @@
  },
  {
   "sfx": "impact-bass-1",
-  "cue_s": 26.8,
-  "gain_db": -8
+  "cue_s": 26.76,
+  "gain_db": -12
  },
  {
   "sfx": "sparkle",
-  "cue_s": 26.95,
-  "gain_db": -15
+  "cue_s": 28.25,
+  "gain_db": -18
  },
  {
   "sfx": "pop",
