@@ -27,7 +27,7 @@ function build() {
   draw($("#strike1"), E.gta, 0.28, "power3.out");
   tl.to("#t1b", { color: "#9a93a3", duration: 0.3 }, E.gta + 0.1);
   // the controller is not needed: it drops out of the page
-  tl.to("#pad", { y: 1100, rotate: 38, duration: 0.75, ease: "power2.in" }, E.gta + 0.12);
+  tl.to("#pad", { y: 1500, rotate: 38, duration: 0.75, ease: "power2.in" }, E.gta + 0.12);
   rise("#t1c", E.criar - 0.06, 0.1);
   const c = rectOf($("#t1c")), cy = c.y + c.h / 2;
   $("#loop1").setAttribute("d", `M${c.x + 120} ${cy - 90} C ${c.x - 40} ${cy - 70}, ${c.x - 30} ${cy + 95}, ${c.x + 470} ${cy + 92} S ${c.x + c.w + 30} ${cy - 40}, ${c.x + 600} ${cy - 96} S ${c.x + 200} ${cy - 110}, ${c.x + 150} ${cy - 70}`);
@@ -106,9 +106,9 @@ function build() {
 
   // ================= S5 (15.98 – 18.85): no easy promise, direction
   scene("#s5", 15.98, 18.85);
+  const f = rectOf($("#facilW"));                         // measured before the slide-in offsets the scene
   tl.fromTo("#s5", { x: 1080 }, { x: 0, duration: 0.42, ease: "expo.inOut" }, 15.98);
   rise("#t5a", E.sem - 0.05, 0.08);
-  const f = rectOf($("#facilW"));
   tl.set("#strike5", { left: f.x - 8, top: f.y + f.h * 0.56, width: f.w + 16, scaleX: 0 }, 15.98);
   tl.to("#strike5", { scaleX: 1, duration: 0.28, ease: "power3.out" }, E.facil + 0.2);
   tl.to(["#t5a"], { opacity: 0.45, duration: 0.3 }, E.com_dir - 0.1);
