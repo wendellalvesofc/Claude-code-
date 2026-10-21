@@ -92,8 +92,8 @@ function build() {
     tl.fromTo(r.querySelector(".hi"), { opacity: 0 }, { opacity: 1, duration: 0.15 }, at);
     if (i < 3) tl.to(r.querySelector(".hi"), { opacity: 0, duration: 0.2 }, SAT[i + 1] - 0.08);
     // the giant outlined keyword behind the panel
-    tl.fromTo(`#bw${i}`, { y: 260 }, { y: 0, duration: 0.45, ease: "expo.out" }, at);
-    if (i < 3) tl.to(`#bw${i}`, { y: -260, duration: 0.35, ease: "power3.in" }, SAT[i + 1] - 0.12);
+    tl.fromTo(`#bw${i}`, { y: 260 }, { y: 0, duration: 0.45, ease: "expo.out", immediateRender: false }, at + 0.04);
+    if (i < 3) tl.to(`#bw${i}`, { y: -260, duration: 0.18, ease: "power3.in" }, SAT[i + 1] - 0.16);
   });
   tl.set(["#bw0", "#bw1", "#bw2", "#bw3"], { y: 260 }, 0);
   tl.to(["#drop", "#bar"], { y: "-=900", filter: "blur(12px)", duration: 0.4, ease: "power3.in", stagger: 0.04 }, 7.05);
@@ -185,7 +185,7 @@ function build() {
   tl.fromTo("#onair", { y: 60, opacity: 0, scale: 0.92 }, { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "expo.out" }, E.enquanto + 0.1);
   [[0, 1], [0.06, 0], [0.12, 1], [0.17, 0.25], [0.23, 1]].forEach(([d, o]) => tl.set("#onairOn", { opacity: o }, E.ar - 0.14 + d));
   tl.fromTo("#onair", { scale: 1 }, { scale: 1.05, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, E.ar - 0.05);
-  wipe("#w67", 540, 1155, 25.52, 0.3);
+  wipe("#w67", 540, 1155, 25.6, 0.22);
 
   // ================= S7 (25.82 – 30): CTA, the search bar returns and becomes the button
   scene("#s7", 25.82, 30.1);
@@ -193,12 +193,12 @@ function build() {
   tl.fromTo("#bar7", { y: 80, scale: 0.9, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.35, ease: "expo.out" }, 25.82);
   type($("#q7"), "hype cash", 25.86, 0.28);
   blink("#caret7", 26.15, 26.4);
-  tl.fromTo("#ctaBtn", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, E.botao + 0.1);
-  tl.to("#bar7", { opacity: 0, duration: 0.2 }, E.botao + 0.15);
-  tl.fromTo("#hand", { x: 760, y: 1560, rotate: -12, opacity: 0 }, { x: 491, y: 1108, rotate: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, E.botao + 0.1);
+  tl.to("#bar7", { opacity: 0, scale: 0.96, duration: 0.1 }, E.botao + 0.04);
+  tl.fromTo("#ctaBtn", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, E.botao + 0.1);
+  tl.fromTo("#hand", { x: 760, y: 1560, rotate: -12, opacity: 0 }, { x: 551, y: 1139, rotate: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, E.botao + 0.1);
   tl.to("#hand", { scale: 0.88, duration: 0.09, yoyo: true, repeat: 1, ease: "power2.out", transformOrigin: "40% 10%" }, E.botao + 0.5);
   tl.to("#ctaBtn", { scale: 0.95, duration: 0.09, yoyo: true, repeat: 1, ease: "power2.out" }, E.botao + 0.5);
-  tl.fromTo("#ripple", { left: 420, top: 45, scale: 0.4, opacity: 0.9 }, { scale: 5, opacity: 0, duration: 0.6, ease: "expo.out" }, E.botao + 0.55);
+  tl.fromTo("#ripple", { left: 480, top: 80, scale: 0.4, opacity: 0.9 }, { scale: 5, opacity: 0, duration: 0.6, ease: "expo.out" }, E.botao + 0.55);
   tl.to("#hand", { x: 760, y: 1560, opacity: 0, duration: 0.4, ease: "power2.in" }, E.botao + 1.0);
   const L7 = 560 / 1189;
   tl.fromTo("#logo7", { x: 260, y: 330, scale: L7 * 1.35, opacity: 0, filter: "blur(18px)" },
