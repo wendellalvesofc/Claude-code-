@@ -1,0 +1,295 @@
+{
+ "audio": {
+  "file": "audio/narration.wav",
+  "duration_s": 22.16,
+  "speech_end_s": 22.04,
+  "source": "ElevenLabs eleven_v4, voz 'Gabriel — Friendly Brazilian Ad Voice' (WPgqgCVa3mD38JuyODU6), take 2 de 4, usado inteiro e sem edição"
+ },
+ "fps": 30,
+ "video_duration_s": 24.0,
+ "total_frames": 720,
+ "timestamps_source": "faster-whisper medium local (word_timestamps)",
+ "words": [
+  {
+   "w": "você",
+   "s": 0.0,
+   "e": 0.5
+  },
+  {
+   "w": "já",
+   "s": 0.5,
+   "e": 0.94
+  },
+  {
+   "w": "vai",
+   "s": 0.94,
+   "e": 1.22
+  },
+  {
+   "w": "jogar",
+   "s": 1.22,
+   "e": 1.5
+  },
+  {
+   "w": "GTA",
+   "s": 1.5,
+   "e": 1.88
+  },
+  {
+   "w": "6!",
+   "s": 1.88,
+   "e": 2.44
+  },
+  {
+   "w": "Então",
+   "s": 2.82,
+   "e": 3.14
+  },
+  {
+   "w": "pensa",
+   "s": 3.14,
+   "e": 3.5
+  },
+  {
+   "w": "além",
+   "s": 3.5,
+   "e": 3.76
+  },
+  {
+   "w": "da",
+   "s": 3.76,
+   "e": 3.96
+  },
+  {
+   "w": "partida.",
+   "s": 3.96,
+   "e": 4.6
+  },
+  {
+   "w": "Cada",
+   "s": 4.78,
+   "e": 4.98
+  },
+  {
+   "w": "sessão",
+   "s": 4.98,
+   "e": 5.46
+  },
+  {
+   "w": "pode",
+   "s": 5.46,
+   "e": 5.68
+  },
+  {
+   "w": "virar",
+   "s": 5.68,
+   "e": 6.02
+  },
+  {
+   "w": "conteúdo.",
+   "s": 6.02,
+   "e": 6.42
+  },
+  {
+   "w": "Gameplay,",
+   "s": 6.84,
+   "e": 7.46
+  },
+  {
+   "w": "guia,",
+   "s": 7.8,
+   "e": 8.06
+  },
+  {
+   "w": "react.",
+   "s": 8.4,
+   "e": 8.7
+  },
+  {
+   "w": "O",
+   "s": 9.14,
+   "e": 9.3
+  },
+  {
+   "w": "Hypecash",
+   "s": 9.3,
+   "e": 9.68
+  },
+  {
+   "w": "é",
+   "s": 9.68,
+   "e": 9.82
+  },
+  {
+   "w": "um",
+   "s": 9.82,
+   "e": 9.96
+  },
+  {
+   "w": "playbook",
+   "s": 9.96,
+   "e": 10.34
+  },
+  {
+   "w": "interativo,",
+   "s": 10.34,
+   "e": 11.04
+  },
+  {
+   "w": "com",
+   "s": 11.2,
+   "e": 11.34
+  },
+  {
+   "w": "missões",
+   "s": 11.34,
+   "e": 11.76
+  },
+  {
+   "w": "para",
+   "s": 11.76,
+   "e": 11.94
+  },
+  {
+   "w": "você",
+   "s": 11.94,
+   "e": 12.18
+  },
+  {
+   "w": "começar.",
+   "s": 12.18,
+   "e": 12.54
+  },
+  {
+   "w": "Formato,",
+   "s": 12.94,
+   "e": 13.5
+  },
+  {
+   "w": "primeiro",
+   "s": 13.74,
+   "e": 13.94
+  },
+  {
+   "w": "vídeo,",
+   "s": 13.94,
+   "e": 14.32
+  },
+  {
+   "w": "audiência",
+   "s": 14.72,
+   "e": 15.12
+  },
+  {
+   "w": "e",
+   "s": 15.12,
+   "e": 15.3
+  },
+  {
+   "w": "monetização.",
+   "s": 15.3,
+   "e": 16.0
+  },
+  {
+   "w": "Com",
+   "s": 16.34,
+   "e": 16.56
+  },
+  {
+   "w": "checklist",
+   "s": 16.56,
+   "e": 17.06
+  },
+  {
+   "w": "e",
+   "s": 17.06,
+   "e": 17.44
+  },
+  {
+   "w": "progresso.",
+   "s": 17.44,
+   "e": 17.9
+  },
+  {
+   "w": "Sem",
+   "s": 18.3,
+   "e": 18.46
+  },
+  {
+   "w": "promessa",
+   "s": 18.46,
+   "e": 18.86
+  },
+  {
+   "w": "fácil.",
+   "s": 18.86,
+   "e": 19.24
+  },
+  {
+   "w": "Com",
+   "s": 19.62,
+   "e": 19.78
+  },
+  {
+   "w": "um",
+   "s": 19.78,
+   "e": 20.06
+  },
+  {
+   "w": "plano.",
+   "s": 20.06,
+   "e": 20.24
+  },
+  {
+   "w": "Conheça",
+   "s": 20.78,
+   "e": 21.22
+  },
+  {
+   "w": "o",
+   "s": 21.22,
+   "e": 21.42
+  },
+  {
+   "w": "Hypecash.",
+   "s": 21.42,
+   "e": 22.04
+  }
+ ],
+ "emphasis": {
+  "voce": 0.0,
+  "ja": 0.5,
+  "jogar": 1.22,
+  "gta": 1.5,
+  "entao": 2.82,
+  "pensa": 3.14,
+  "alem": 3.5,
+  "partida": 3.96,
+  "cada": 4.78,
+  "sessao": 4.98,
+  "virar": 5.68,
+  "conteudo": 6.02,
+  "gameplay": 6.84,
+  "guia": 7.8,
+  "react": 8.4,
+  "hypecash": 9.3,
+  "playbook": 9.96,
+  "interativo": 10.34,
+  "missoes": 11.34,
+  "comecar": 12.18,
+  "formato": 12.94,
+  "primeiro": 13.74,
+  "audiencia": 14.72,
+  "monetizacao": 15.3,
+  "com_check": 16.34,
+  "checklist": 16.56,
+  "progresso": 17.44,
+  "sem": 18.3,
+  "facil": 18.86,
+  "com_plano": 19.62,
+  "plano": 20.06,
+  "conheca": 20.78,
+  "cash_end": 21.42,
+  "speech_end": 22.04
+ }
+}

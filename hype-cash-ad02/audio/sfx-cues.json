@@ -1,0 +1,262 @@
+[
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 0.0,
+  "gain_db": -10
+ },
+ {
+  "sfx": "key-press",
+  "cue_s": 0.05,
+  "gain_db": -16
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 1.17,
+  "gain_db": -14
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 1.5,
+  "gain_db": -15
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 2.82,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click",
+  "cue_s": 3.55,
+  "gain_db": -12
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 3.5,
+  "gain_db": -15
+ },
+ {
+  "sfx": "notification",
+  "cue_s": 4.06,
+  "gain_db": -15
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 4.42,
+  "gain_db": -16
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 4.64,
+  "gain_db": -13
+ },
+ {
+  "sfx": "whoosh-cinematic",
+  "cue_s": 4.82,
+  "gain_db": -14
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 5.97,
+  "gain_db": -15
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 6.78,
+  "gain_db": -18
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 6.84,
+  "gain_db": -13
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 6.96,
+  "gain_db": -19
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 7.74,
+  "gain_db": -18
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 7.8,
+  "gain_db": -13
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 7.92,
+  "gain_db": -19
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 8.34,
+  "gain_db": -18
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 8.4,
+  "gain_db": -13
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 8.52,
+  "gain_db": -19
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 8.9,
+  "gain_db": -12
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 9.26,
+  "gain_db": -13
+ },
+ {
+  "sfx": "sparkle",
+  "cue_s": 9.9,
+  "gain_db": -20
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 9.91,
+  "gain_db": -16
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 11.29,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click",
+  "cue_s": 12.92,
+  "gain_db": -11
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 12.99,
+  "gain_db": -21
+ },
+ {
+  "sfx": "click",
+  "cue_s": 13.72,
+  "gain_db": -11
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 13.79,
+  "gain_db": -21
+ },
+ {
+  "sfx": "click",
+  "cue_s": 14.7,
+  "gain_db": -11
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 14.77,
+  "gain_db": -21
+ },
+ {
+  "sfx": "click",
+  "cue_s": 15.28,
+  "gain_db": -11
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 15.35,
+  "gain_db": -21
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 16.15,
+  "gain_db": -11
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 16.62,
+  "gain_db": -10
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 16.76,
+  "gain_db": -10
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 16.9,
+  "gain_db": -10
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 17.04,
+  "gain_db": -10
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 16.56,
+  "gain_db": -15
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 17.34,
+  "gain_db": -17
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 17.44,
+  "gain_db": -15
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 17.9,
+  "gain_db": -13
+ },
+ {
+  "sfx": "glitch-3",
+  "cue_s": 19.01,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 19.62,
+  "gain_db": -18
+ },
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 20.03,
+  "gain_db": -13
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 20.56,
+  "gain_db": -17
+ },
+ {
+  "sfx": "whoosh-cinematic",
+  "cue_s": 20.45,
+  "gain_db": -14
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 20.74,
+  "gain_db": -13
+ },
+ {
+  "sfx": "sparkle",
+  "cue_s": 21.52,
+  "gain_db": -18
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 21.65,
+  "gain_db": -15
+ },
+ {
+  "sfx": "click",
+  "cue_s": 22.55,
+  "gain_db": -10
+ }
+]
