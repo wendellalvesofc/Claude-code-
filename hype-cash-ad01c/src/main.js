@@ -25,48 +25,54 @@ function build() {
     tl.set(sel, { visibility: "hidden" }, at + dur + 0.02);
   };
 
-  // ================= S1 hook (0 – 3.85): a swarm of videos bursts out of the play icon
+  // ================= S1 hook (0 – 3.85): a tunnel of screens the camera flies through
   tl.set("#s1", { visibility: "hidden" }, 3.86);   // s1 is visible from the first frame (see CSS)
-  const R = rng(9), swarm = $("#swarm"), COLS = [["#ff3fa2", "#3b1263"], ["#3f8fff", "#160d3a"], ["#a83ffe", "#0f2a4a"], ["#ff8a3f", "#3a0f3f"], ["#3fd4ff", "#1a1046"], ["#d4ff3f", "#16283a"]];
-  const THUMBS = [];
-  for (let i = 0; i < 34; i++) {
-    let x, y, tries = 0;
-    do { x = 40 + R() * 1000; y = 720 + R() * 900; tries++; } while (Math.hypot(x - 540, y - 1000) < 250 && tries < 50);
-    const z = -700 + R() * 820, c = COLS[i % COLS.length];
-    const d = document.createElement("div");
-    d.className = "thumb"; d.style.background = `linear-gradient(160deg, ${c[0]}, ${c[1]})`;
-    d.innerHTML = `<i></i><b style="width:${30 + (i * 37) % 70}%"></b>`;
-    const wrap = document.createElement("div"); wrap.style.cssText = `position:absolute; left:0; top:0; filter: blur(${Math.max(0, -z / 140).toFixed(1)}px); opacity:${(0.55 + (z + 700) / 1800).toFixed(2)}`;
-    wrap.appendChild(d); swarm.appendChild(wrap);
-    THUMBS.push({ d, x, y, z });
+  const R = rng(9), swarm = $("#swarm");
+  const COLS = [["#ff3fa2", "#3b1263"], ["#3f8fff", "#160d3a"], ["#a83ffe", "#0f2a4a"], ["#ff8a3f", "#3a0f3f"], ["#3fd4ff", "#1a1046"], ["#d4ff3f", "#16283a"]];
+  const TOPICS = ["Trailer 2", "Mapa", "Teorias", "React", "Notícias", "Gameplay", "Personagens", "Easter eggs", "Lançamento", "Detalhes"];
+  const CX = 540, CY = 1080, N = 34, GAP = 230;
+  const SCREENS = [];
+  for (let i = 0; i < N; i++) {
+    // golden-angle spiral around the vanishing point, skipping the top sector where the headline sits
+    let a = i * 2.39996 + R() * 0.4;
+    const deg = ((a * 180 / Math.PI) % 360 + 360) % 360;
+    if (deg > 215 && deg < 325) a += (deg < 270 ? -1 : 1) * 1.1;
+    const r = 500 + R() * 260, c = COLS[i % COLS.length];
+    const el = document.createElement("div");
+    el.className = "scr";
+    el.style.background = `radial-gradient(circle at ${30 + R() * 40}% 35%, rgba(255,226,150,.9) 0 9%, rgba(255,160,90,.3) 10%, transparent 26%), repeating-linear-gradient(0deg, rgba(0,0,0,.16) 0 3px, transparent 3px 12px) 0 62% / 100% 38% no-repeat, linear-gradient(180deg, ${c[0]}, ${c[1]} 80%)`;
+    el.innerHTML = `<span>${TOPICS[i % TOPICS.length]}</span>`;
+    swarm.appendChild(el);
+    SCREENS.push({ el, x: Math.cos(a) * r, y: Math.sin(a) * r * 1.3, z: -i * GAP, rot: (R() - 0.5) * 16 });
   }
-  tl.fromTo("#play1", { scale: 1.25, filter: "blur(6px)" }, { scale: 1, filter: "blur(0px)", duration: 0.35, ease: "expo.out" }, 0);
+  const cam = { p: 0 };
+  const place = () => {
+    for (const sc of SCREENS) {
+      const z = sc.z + cam.p;
+      const op = Math.min(1, Math.max(0, (z + 7200) / 2600)) * (1 - Math.min(1, Math.max(0, (z - 1250) / 450)));
+      const blur = Math.min(7, Math.max(0, -z / 1100));
+      sc.el.style.transform = `translate3d(${sc.x}px, ${sc.y}px, ${z}px) rotateZ(${sc.rot}deg)`;
+      sc.el.style.opacity = op.toFixed(3);
+      sc.el.style.filter = blur > 0.2 ? `blur(${blur.toFixed(1)}px)` : "none";
+    }
+  };
+  place();
+  tl.fromTo(cam, { p: 0 }, { p: 520, duration: E.centenas - 0.05, ease: "none", onUpdate: place }, 0);
+  tl.to(cam, { p: 5900, duration: 3.4 - E.centenas + 0.05, ease: "power2.in", onUpdate: place }, E.centenas - 0.05);
   tl.fromTo("#t1a", { scale: 1.08, y: 10 }, { scale: 1, y: 0, duration: 0.5, ease: "expo.out" }, 0);  // already on screen at frame 0
   slam("#t1b", E.centenas - 0.04);
-  THUMBS.forEach((th, i) => {
-    const at = i < 12 ? i * 0.025 : E.centenas + 0.02 + (i - 12) * 0.022;
-    tl.fromTo(th.d, { x: 420, y: 932, z: 0, scale: 0.35, opacity: i < 12 ? 0.9 : 0, rotate: 0 },
-      { x: th.x - 120, y: th.y - 68, z: th.z, scale: 1, opacity: 1, rotate: (i % 5 - 2) * 4, duration: 0.6, ease: "expo.out" }, at);
-    blurPulse(th.d, at, 0.5, 10);
-    tl.to(th.d, { y: th.y - 68 - 60 * (1 + th.z / 700), duration: 3.35 - (at + 0.6), ease: "none" }, at + 0.6);
-  });
   riseWords("#t1c", E.videos - 0.05, 0.09);
-  tl.fromTo("#play1", { scale: 1.14 }, { scale: 1, duration: 0.4, ease: "elastic.out(1, .5)" }, E.gta);
   leave(["#t1a", "#t1b", "#t1c"], 3.3);
 
-  // the one video that becomes yours: lifted out of the swarm, a paper wipe opens behind it
-  const HERO_START = { x: 690, y: 1290 };
+  // the one video that becomes yours: it comes out of the tunnel to the camera, a paper wipe opens behind it
   const lift = document.createElement("div");
   lift.className = "thumb"; lift.style.background = "linear-gradient(160deg, #ff3fa2, #3b1263)";
   lift.innerHTML = `<i></i><b style="width:70%"></b>`;
   $("#heroLift").appendChild(lift);
-  tl.fromTo(lift, { x: HERO_START.x - 120, y: HERO_START.y - 68, scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, E.centenas + 0.4);
-  tl.to(lift, { y: HERO_START.y - 128, duration: 2.2, ease: "none" }, E.centenas + 0.9);
-  tl.to("#swarm", { opacity: 0.0, scale: 0.9, filter: "blur(14px)", duration: 0.4, ease: "power2.in" }, 3.35);
-  tl.to("#play1", { scale: 0.4, opacity: 0, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 3.35);
-  tl.to(lift, { x: 420, y: 932, scale: 2.6, rotate: 0, duration: 0.5, ease: "expo.inOut" }, 3.35);
-  blurPulse(lift, 3.35, 0.5, 8);
-  wipe("#w12", 540, 1000, 3.45, 0.38);
+  tl.fromTo(lift, { x: CX - 120, y: CY - 68, scale: 0.1, opacity: 0 }, { x: 420, y: 932, scale: 2.6, opacity: 1, duration: 0.62, ease: "expo.in" }, 3.18);
+  blurPulse(lift, 3.5, 0.35, 6);
+  tl.to("#swarm", { opacity: 0, filter: "blur(14px)", duration: 0.35, ease: "power2.in" }, 3.4);
+  wipe("#w12", 540, 1000, 3.5, 0.34);
 
   // ================= S2 turn (3.85 – 6.38)
   scene("#s2", 3.85, 6.38);

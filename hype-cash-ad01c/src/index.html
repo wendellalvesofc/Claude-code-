@@ -48,7 +48,11 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 .glass { background: rgba(255,255,255,.10); border: 2px solid rgba(255,255,255,.28); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 40px 90px rgba(10,0,30,.45), inset 0 1px 0 rgba(255,255,255,.35); }
 
-/* S1 */
+/* S1: tunnel of screens */
+#swarm { perspective: 1400px; perspective-origin: 540px 1080px; }
+.scr { position: absolute; left: 360px; top: 978px; width: 360px; height: 204px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(255,255,255,.22); box-shadow: 0 20px 50px rgba(0,0,0,.45); }
+.scr span { position: absolute; left: 16px; bottom: 14px; font: 700 24px Inter; color: #fff; background: rgba(10,8,18,.55); padding: 5px 12px; border-radius: 99px; }
+#s1scrim { background: linear-gradient(180deg, rgba(12,9,19,.92) 0%, rgba(12,9,19,.75) 25%, rgba(12,9,19,0) 40%); }
 #s1 { visibility: visible; background: radial-gradient(ellipse 70% 40% at 50% 55%, #241443 0%, var(--dark) 70%); }
 .thumb { position: absolute; left: 0; top: 0; width: 240px; height: 136px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(255,255,255,.18); }
 .thumb i { position: absolute; left: 50%; top: 50%; width: 0; height: 0; margin: -14px 0 0 -9px; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid rgba(255,255,255,.9); }
@@ -134,9 +138,9 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
   <!-- S1 hook: a swarm of videos -->
   <section class="scene" id="s1">
     <div class="persp" id="swarm"></div>
+    <div class="full" id="s1scrim"></div>
       <div class="wipe" id="w12" style="background: var(--paper)"></div>
     <div class="persp" id="heroLift"></div>
-    <div class="icon i-pink" id="play1" style="left: 410px; top: 870px; width: 260px; height: 260px"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></div>
     <div class="t" id="t1a" style="top: 300px; font-size: 64px">Você vai assistir</div>
     <div class="t" id="t1b" style="top: 380px; font-size: 168px; font-weight: 800; letter-spacing: -.04em"><span class="hl-lime">centenas</span></div>
     <div class="t" id="t1c" style="top: 580px; font-size: 60px"><span class="w">de</span> <span class="w">vídeos</span> <span class="w">sobre</span> <span class="w" style="font-weight:800">GTA VI</span></div>
