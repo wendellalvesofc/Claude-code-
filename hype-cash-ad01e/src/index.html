@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>HYPE CASH — Motion 01 C (Do caos à ordem)</title>
+<style>
+@font-face { font-family: Poppins; font-weight: 700; src: url(fonts/poppins-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+
+/* brand tokens (styles/tokens.css of the app); this version is flat and graphic: color blocks, ink outlines, hard shadows */
+:root {
+  --pink: #ff3fa2; --purple: #a83ffe; --deep: #5a17c9; --blue: #3f8fff; --lime: #d4ff3f;
+  --ink: #15101f; --dark: #0c0913; --paper: #f3f0f7; --muted: #8a809e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ink); }
+body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--ink); }
+.scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+.full { position: absolute; inset: 0; }
+
+/* type: poster stack, huge weight contrast */
+.h { position: absolute; left: 80px; width: 920px; font-family: Poppins; font-weight: 800; letter-spacing: -0.04em; line-height: 0.98; }
+.h .w { display: inline-block; }
+.sm { font-family: Inter; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+
+/* stickers: white card, ink outline, hard offset shadow */
+.stk { position: absolute; background: #fff; color: var(--ink); border: 6px solid var(--ink); border-radius: 30px; box-shadow: 14px 14px 0 var(--ink); }
+.icon { position: absolute; border-radius: 30%; display: grid; place-items: center; border: 5px solid var(--ink);
+  box-shadow: inset 0 -8px 16px rgba(0,0,0,.22), inset 0 6px 12px rgba(255,255,255,.45); }
+.icon svg { width: 56%; height: 56%; }
+.i-pink { background: radial-gradient(circle at 30% 20%, #ff9ccd, #ff3fa2 50%, #c8187a 100%); }
+.i-blue { background: radial-gradient(circle at 30% 20%, #a9ccff, #3f8fff 50%, #1b4fb8 100%); }
+.i-purple { background: radial-gradient(circle at 30% 20%, #d79bff, #a83ffe 50%, #5a17c9 100%); }
+.i-lime { background: radial-gradient(circle at 30% 20%, #f4ffc0, #d4ff3f 50%, #9fc400 100%); }
+
+/* S1 hook: pink block, a knot of doubt */
+#s1 { background: var(--pink); visibility: visible; }
+#knot { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+#qm { position: absolute; left: 430px; top: 1120px; width: 220px; height: 220px; border-radius: 50%; background: #fff; border: 8px solid var(--ink); box-shadow: 14px 14px 0 var(--ink);
+  display: grid; place-items: center; font: 800 150px/1 Poppins; color: var(--ink); }
+
+/* S2 questions: ink with a dot grid */
+#s2 { background: var(--ink); }
+#dots2 { background: radial-gradient(circle, rgba(255,255,255,.10) 3px, transparent 3.5px) 0 0 / 60px 60px; }
+.qc { left: 0; top: 0; width: 820px; height: 190px; display: flex; align-items: center; padding: 0 36px; }
+.qc .icon { position: relative; flex: none; width: 112px; height: 112px; margin-right: 32px; }
+.qc .tx { position: relative; font: 800 56px/1.02 Poppins; letter-spacing: -.035em; }
+.qc .ans { position: absolute; left: 180px; top: 0; height: 100%; display: flex; align-items: center; font: 800 50px/1.02 Poppins; letter-spacing: -.035em; opacity: 0; }
+.qc .num { position: absolute; left: -26px; top: -30px; width: 84px; height: 84px; border-radius: 50%; background: var(--lime); border: 6px solid var(--ink); display: grid; place-items: center;
+  font: 800 34px Poppins; color: var(--ink); opacity: 0; }
+.qc .ck { position: absolute; right: 30px; top: 50px; width: 90px; height: 90px; border-radius: 50%; background: var(--lime); border: 6px solid var(--ink); display: grid; place-items: center; opacity: 0; }
+#logo3 { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+
+/* S4 the only phone moment, flat sticker phone on blue */
+#s4 { background: var(--blue); }
+#stripes4 { background: repeating-linear-gradient(-45deg, rgba(255,255,255,.07) 0 40px, transparent 40px 80px); }
+#phone { position: absolute; left: 270px; top: 560px; width: 540px; height: 1140px; border-radius: 84px; background: var(--ink); border: 8px solid var(--ink);
+  box-shadow: 22px 22px 0 var(--ink); padding: 14px; }
+#screen { position: relative; width: 496px; height: 1096px; border-radius: 66px; overflow: hidden; background: #0d0a18; }
+#screen img { position: absolute; left: 0; top: 22px; width: 496px; }
+.pg { position: absolute; inset: 0; }
+#island { position: absolute; left: 188px; top: 12px; width: 120px; height: 34px; border-radius: 20px; background: #000; z-index: 9; }
+#hlP { position: absolute; z-index: 7; border: 5px solid var(--lime); border-radius: 16px; box-shadow: 0 0 0 6px rgba(21,16,31,.6); }
+.tag { position: absolute; height: 100px; padding: 0 34px; display: flex; align-items: center; font: 800 50px Poppins; letter-spacing: -.03em; color: var(--ink);
+  border: 6px solid var(--ink); border-radius: 50px; box-shadow: 10px 10px 0 var(--ink); }
+
+/* S5 paper: from idea to published */
+#s5 { background: var(--paper); color: var(--ink); }
+#bulb { left: 90px; top: 760px; width: 230px; height: 230px; }
+#arrow5 { position: absolute; left: 0; top: 0; }
+#up { left: 380px; top: 700px; width: 620px; height: 360px; padding: 34px 40px; }
+#up .t { font: 700 34px Inter; color: var(--muted); }
+#up .th { margin-top: 20px; display: flex; align-items: center; gap: 24px; }
+#up .mini { width: 170px; height: 96px; border-radius: 16px; border: 5px solid var(--ink); background: linear-gradient(150deg, #ff3fa2, #a83ffe 60%, #5a17c9); position: relative; flex: none; }
+#up .mini::after { content: ""; position: absolute; left: 50%; top: 50%; margin: -13px 0 0 -8px; border-top: 13px solid transparent; border-bottom: 13px solid transparent; border-left: 21px solid #fff; }
+#up .nm { font: 800 38px/1.1 Poppins; letter-spacing: -.03em; }
+#up .bar { margin-top: 30px; height: 34px; border-radius: 17px; border: 5px solid var(--ink); background: #fff; overflow: hidden; }
+#up .fill { width: 100%; height: 100%; background: var(--lime); transform-origin: 0 50%; }
+#toast { left: 130px; top: 1150px; width: 820px; height: 150px; display: flex; align-items: center; gap: 26px; padding: 0 34px; background: var(--ink); color: #fff; box-shadow: 14px 14px 0 var(--pink); border-color: var(--ink); }
+#toast .ck { width: 84px; height: 84px; border-radius: 50%; background: var(--lime); border: 5px solid #fff; display: grid; place-items: center; flex: none; }
+#toast span { font: 800 46px Poppins; letter-spacing: -.03em; }
+
+/* S6 deep purple: the next step */
+#s6 { background: var(--deep); }
+#strike { position: absolute; height: 18px; border-radius: 9px; background: var(--lime); transform-origin: 0 50%; border: 4px solid var(--ink); }
+.stp { position: absolute; width: 200px; border: 6px solid var(--ink); border-radius: 22px 22px 0 0; background: #7b3ff0; box-shadow: 10px 0 0 var(--ink); }
+#hop { position: absolute; left: 0; top: 0; width: 80px; height: 80px; border-radius: 50%; background: var(--pink); border: 6px solid var(--ink); }
+
+/* S7 CTA */
+#s7 { background: var(--ink); }
+#bloom7 { position: absolute; left: 90px; top: 150px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(255,63,162,.45), rgba(168,63,254,.15) 45%, rgba(168,63,254,0) 70%); }
+#logo7 { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+#btn { position: absolute; left: 110px; top: 1080px; width: 860px; height: 160px; border-radius: 80px; background: var(--pink); border: 7px solid #fff; box-shadow: 14px 14px 0 var(--lime);
+  display: grid; place-items: center; font: 800 56px Poppins; letter-spacing: -.03em; color: #fff; }
+#cursor { position: absolute; left: 0; top: 0; width: 84px; }
+#ripple { position: absolute; width: 60px; height: 60px; border-radius: 50%; border: 6px solid #fff; opacity: 0; }
+#legal { position: absolute; left: 140px; top: 1330px; width: 800px; text-align: center; font: 500 24px/1.4 Inter; color: rgba(255,255,255,.55); }
+
+.blk { position: absolute; left: 0; width: 1080px; height: 1920px; }
+#grain { position: absolute; inset: 0; background: url(img/grain.png); opacity: .035; pointer-events: none; z-index: 50; }
+</style>
+</head>
+<body>
+<div id="root">
+  <!-- S1 hook: the doubt, a knot that keeps drawing itself -->
+  <section class="scene" id="s1">
+    <svg id="knot" viewBox="0 0 1080 1920"><path id="knotPath" fill="none" stroke="#15101f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div id="qm">?</div>
+    <div class="h sm" id="t1a" style="top: 250px; font-size: 76px; color: #fff">Quer criar conteúdo<br>sobre GTA 6,</div>
+    <div class="h" id="t1b" style="top: 440px; font-size: 92px; color: var(--ink)"><span class="w">mas</span> <span class="w">não</span> <span class="w">sabe</span><br><span class="w">por</span> <span class="w">onde</span></div>
+    <div class="h" id="t1c" style="top: 630px; font-size: 168px; color: #fff">começar?</div>
+  </section>
+
+  <!-- S2 + S3: the questions pile up, then snap into the right order -->
+  <section class="scene" id="s2">
+    <div class="full" id="dots2"></div>
+    <img id="logo3" src="img/logo.png">
+    <div class="h" id="t3" style="top: 560px; font-size: 96px; color: var(--lime)"><span class="w">na</span> <span class="w">ordem</span> <span class="w">certa.</span></div>
+    <div class="stk qc" id="q0"><div class="icon i-blue"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3" fill="#fff"/><circle cx="18" cy="6" r="3" fill="#fff"/><circle cx="18" cy="18" r="3" fill="#fff"/><path d="M8.5 10.8l7-3.6M8.5 13.2l7 3.6" stroke="#fff" stroke-width="2.4"/></svg></div><div class="tx">Qual rede escolher?</div><div class="ans">Escolha sua rede</div><div class="num">01</div><div class="ck"><svg viewBox="0 0 24 24" width="50" height="50"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#15101f" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="stk qc" id="q1"><div class="icon i-pink"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5" fill="#fff"/><rect x="13" y="4" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="4" y="13" width="7" height="7" rx="1.5" fill="#fff" opacity=".6"/><rect x="13" y="13" width="7" height="7" rx="1.5" fill="#fff"/></svg></div><div class="tx">Qual formato?</div><div class="ans">Defina seu formato</div><div class="num">02</div><div class="ck"><svg viewBox="0 0 24 24" width="50" height="50"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#15101f" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+    <div class="stk qc" id="q2"><div class="icon i-purple"><svg viewBox="0 0 24 24"><path d="M12 16V5M7 9.5L12 4.5l5 5" stroke="#fff" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 15v3.5h14V15" stroke="#fff" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="tx">O que postar primeiro?</div><div class="ans">Publique o 1º vídeo</div><div class="num">03</div><div class="ck"><svg viewBox="0 0 24 24" width="50" height="50"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#15101f" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+  </section>
+
+  <!-- S4: the only phone moment, real screens -->
+  <section class="scene" id="s4">
+    <div class="full" id="stripes4"></div>
+    <div class="h" id="t4" style="top: 250px; font-size: 104px; color: #fff"><span class="w">Playbook</span><br><span class="w">interativo</span></div>
+    <div id="phone"><div id="screen">
+      <div id="island"></div>
+      <div class="pg" id="pgMap"><img src="img/scr-map-after.jpg"></div>
+      <div class="pg" id="pgM1"><img id="m1_0" src="img/scr-m1-0.jpg"><img id="m1_1" src="img/scr-m1-1.jpg"><img id="m1_2" src="img/scr-m1-2.jpg"><img id="m1_3" src="img/scr-m1-3.jpg"><img id="m1_4" src="img/scr-m1-4.jpg"></div>
+      <div class="pg" id="pgProg"><img src="img/scr-map-after.jpg"><div id="hlP"></div></div>
+    </div></div>
+    <div class="tag" id="g0" style="left: 50px; top: 760px; background: var(--lime)">Missões</div>
+    <div class="tag" id="g1" style="left: 640px; top: 1050px; background: var(--pink); color: #fff">Checklist</div>
+    <div class="tag" id="g2" style="left: 70px; top: 1390px; background: #fff">Progresso</div>
+  </section>
+
+  <!-- S5: out of the idea, first video published -->
+  <section class="scene" id="s5">
+    <div class="h" id="t5a" style="top: 260px; font-size: 104px"><span class="w">Sair</span> <span class="w">da</span> <span class="w" style="color: var(--pink)">ideia</span></div>
+    <div class="h" id="t5b" style="top: 380px; font-size: 104px"><span class="w">e</span> <span class="w">publicar</span> <span class="w" style="color: var(--deep)">o 1º vídeo.</span></div>
+    <div class="icon i-lime" id="bulb"><svg viewBox="0 0 24 24"><path d="M12 3.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V17h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 3.5z" fill="#15101f"/><rect x="9.4" y="18.3" width="5.2" height="2.2" rx="1" fill="#15101f"/></svg></div>
+    <div class="stk" id="up"><div class="t" id="upT">Publicando…</div><div class="th"><div class="mini"></div><div class="nm">Meu primeiro vídeo<br>sobre GTA 6</div></div><div class="bar"><div class="fill" id="upFill"></div></div></div>
+    <div class="stk" id="toast"><div class="ck"><svg viewBox="0 0 24 24" width="48" height="48"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#15101f" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span>Publicado! Missão cumprida.</span></div>
+  </section>
+
+  <!-- S6: no easy money; just the next step, always clear -->
+  <section class="scene" id="s6">
+    <div class="h sm" id="t6a" style="top: 300px; font-size: 56px; color: rgba(255,255,255,.75)">Sem promessa de</div>
+    <div class="h" id="t6b" style="top: 380px; font-size: 128px; color: #fff"><span class="w">dinheiro</span> <span class="w">fácil.</span></div>
+    <div id="strike"></div>
+    <div class="h" id="t6c" style="top: 300px; font-size: 112px; color: #fff"><span class="w">Só</span> <span class="w">o</span> <span class="w" style="color: var(--lime)">próximo</span> <span class="w" style="color: var(--lime)">passo,</span></div>
+    <div class="h sm" id="t6d" style="top: 540px; font-size: 76px; color: #fff"><span class="w">sempre</span> <span class="w">claro.</span></div>
+    <div id="steps"></div>
+    <div id="hop"></div>
+  </section>
+
+  <!-- S7: CTA -->
+  <section class="scene" id="s7">
+    <div id="bloom7"></div>
+    <img id="logo7" src="img/logo.png">
+    <div class="h sm" id="t7" style="top: 820px; left: 140px; width: 800px; text-align: center; font-family: Inter; font-weight: 600; font-size: 42px; line-height: 1.3; color: rgba(255,255,255,.88)">O playbook interativo para criar conteúdo com o hype do GTA VI</div>
+    <div id="btn">Conheça o HYPE CASH →</div>
+    <div id="ripple"></div>
+    <svg id="cursor" viewBox="0 0 24 24"><path d="M4 2.5l15 9.2-6.6 1.4 3.8 7.3-3 1.5-3.8-7.3L4.6 19z" fill="#fff" stroke="#15101f" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <div id="legal">Produto digital independente, sem vínculo com a Rockstar Games. Resultados dependem da sua execução.</div>
+  </section>
+
+  <!-- color blocks used as hard-cut transitions -->
+  <div class="blk" id="b12" style="background: var(--ink); visibility: hidden"></div>
+  <div class="blk" id="b34" style="background: var(--blue); visibility: hidden"></div>
+  <div class="blk" id="b45" style="background: var(--paper); visibility: hidden"></div>
+  <div class="blk" id="b56" style="background: var(--deep); visibility: hidden"></div>
+  <div class="blk" id="b67" style="background: var(--pink); visibility: hidden"></div>
+  <div id="grain"></div>
+</div>
+<script src="gsap.min.js"></script>
+<script src="timing.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
