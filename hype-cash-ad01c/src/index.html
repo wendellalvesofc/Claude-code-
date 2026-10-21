@@ -48,11 +48,16 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 .glass { background: rgba(255,255,255,.10); border: 2px solid rgba(255,255,255,.28); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 40px 90px rgba(10,0,30,.45), inset 0 1px 0 rgba(255,255,255,.35); }
 
-/* S1: tunnel of screens */
-#swarm { perspective: 1400px; perspective-origin: 540px 1080px; }
-.scr { position: absolute; left: 360px; top: 978px; width: 360px; height: 204px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(255,255,255,.22); box-shadow: 0 20px 50px rgba(0,0,0,.45); }
-.scr span { position: absolute; left: 16px; bottom: 14px; font: 700 24px Inter; color: #fff; background: rgba(10,8,18,.55); padding: 5px 12px; border-radius: 99px; }
-#s1scrim { background: linear-gradient(180deg, rgba(12,9,19,.92) 0%, rgba(12,9,19,.75) 25%, rgba(12,9,19,0) 40%); }
+/* S1: an endless feed wall of videos, scrolling at full speed */
+#swarm { perspective: 1500px; perspective-origin: 540px 760px; }
+#wall { position: absolute; left: 50%; top: 50%; width: 2040px; height: 3200px; margin: -1600px 0 0 -1020px; display: flex; gap: 24px; justify-content: center; }
+.col { width: 316px; flex: none; display: flex; flex-direction: column; gap: 22px; }
+.tn { position: relative; width: 316px; height: 178px; flex: none; border-radius: 20px; overflow: hidden; border: 2px solid rgba(255,255,255,.16); box-shadow: 0 18px 40px rgba(0,0,0,.5); }
+.tn svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tn em { position: absolute; left: 14px; top: 12px; max-width: 250px; font: 800 33px/0.98 Poppins; font-style: normal; color: #fff; letter-spacing: -.02em; text-shadow: 0 3px 0 rgba(0,0,0,.4), 0 0 18px rgba(0,0,0,.35); }
+.tn u { position: absolute; right: 10px; bottom: 10px; font: 700 17px Inter; text-decoration: none; color: #fff; background: rgba(0,0,0,.78); padding: 2px 8px; border-radius: 6px; }
+#wallDim { background: var(--dark); opacity: 0; }
+#s1scrim { background: linear-gradient(180deg, rgba(12,9,19,.96) 0%, rgba(12,9,19,.88) 30%, rgba(12,9,19,.35) 42%, rgba(12,9,19,0) 52%, rgba(12,9,19,0) 85%, rgba(12,9,19,.6) 100%); }
 #s1 { visibility: visible; background: radial-gradient(ellipse 70% 40% at 50% 55%, #241443 0%, var(--dark) 70%); }
 .thumb { position: absolute; left: 0; top: 0; width: 240px; height: 136px; border-radius: 22px; overflow: hidden; border: 2px solid rgba(255,255,255,.18); }
 .thumb i { position: absolute; left: 50%; top: 50%; width: 0; height: 0; margin: -14px 0 0 -9px; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 22px solid rgba(255,255,255,.9); }
@@ -135,9 +140,11 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 </head>
 <body>
 <div id="root">
-  <!-- S1 hook: a swarm of videos -->
+  <!-- S1 hook: an endless feed of GTA VI videos -->
+  <svg width="0" height="0" style="position:absolute"><filter id="vblur" x="-2%" y="-6%" width="104%" height="112%"><feGaussianBlur id="vblurG" stdDeviation="0 0"/></filter></svg>
   <section class="scene" id="s1">
-    <div class="persp" id="swarm"></div>
+    <div class="persp" id="swarm"><div id="wall"></div></div>
+    <div class="full" id="wallDim"></div>
     <div class="full" id="s1scrim"></div>
       <div class="wipe" id="w12" style="background: var(--paper)"></div>
     <div class="persp" id="heroLift"></div>

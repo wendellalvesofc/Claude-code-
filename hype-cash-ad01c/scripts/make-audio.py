@@ -79,7 +79,7 @@ write(root / "audio/music.wav", np.tanh(1.2 * mus) / 1.2 * .8)
 TICKS = [19.80, 19.97, 20.14, 20.31]
 CUES = (
     [("impact-bass-2", 0.0, -10, .6), ("whoosh-short", 0.05, -18, .4), ("pop", E["centenas"], -14, .3), ("whoosh", E["centenas"] + .05, -16, .5),
-     ("click-soft", E["gta"], -16, .25),
+     ("click-soft", E["gta"], -16, .25), ("pop", 2.82, -14, .3),
      ("whoosh", 3.35, -12, .6), ("whoosh-short", 3.6, -18, .4), ("pop", E["seus"] + .02, -14, .3), ("whoosh-short", E["seus"] + .05, -17, .4),
      ("ping", E["seus"] + .28, -18, .6), ("whoosh-cinematic", 6.15, -13, .7),
      ("impact-bass-1", E["hypecash"] - .04, -13, .8), ("sparkle", E["hypecash"] + .7, -20, .9), ("pop", E["playbook"] - .03, -17, .3),

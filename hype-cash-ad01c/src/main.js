@@ -25,52 +25,68 @@ function build() {
     tl.set(sel, { visibility: "hidden" }, at + dur + 0.02);
   };
 
-  // ================= S1 hook (0 – 3.85): a tunnel of screens the camera flies through
+  // ================= S1 hook (0 – 3.85): an endless feed of GTA VI videos racing past, then one is picked out
   tl.set("#s1", { visibility: "hidden" }, 3.86);   // s1 is visible from the first frame (see CSS)
-  const R = rng(9), swarm = $("#swarm");
-  const COLS = [["#ff3fa2", "#3b1263"], ["#3f8fff", "#160d3a"], ["#a83ffe", "#0f2a4a"], ["#ff8a3f", "#3a0f3f"], ["#3fd4ff", "#1a1046"], ["#d4ff3f", "#16283a"]];
-  const TOPICS = ["Trailer 2", "Mapa", "Teorias", "React", "Notícias", "Gameplay", "Personagens", "Easter eggs", "Lançamento", "Detalhes"];
-  const CX = 540, CY = 1080, N = 34, GAP = 230;
-  const SCREENS = [];
-  for (let i = 0; i < N; i++) {
-    // golden-angle spiral around the vanishing point, skipping the top sector where the headline sits
-    let a = i * 2.39996 + R() * 0.4;
-    const deg = ((a * 180 / Math.PI) % 360 + 360) % 360;
-    if (deg > 215 && deg < 325) a += (deg < 270 ? -1 : 1) * 1.1;
-    const r = 500 + R() * 260, c = COLS[i % COLS.length];
-    const el = document.createElement("div");
-    el.className = "scr";
-    el.style.background = `radial-gradient(circle at ${30 + R() * 40}% 35%, rgba(255,226,150,.9) 0 9%, rgba(255,160,90,.3) 10%, transparent 26%), repeating-linear-gradient(0deg, rgba(0,0,0,.16) 0 3px, transparent 3px 12px) 0 62% / 100% 38% no-repeat, linear-gradient(180deg, ${c[0]}, ${c[1]} 80%)`;
-    el.innerHTML = `<span>${TOPICS[i % TOPICS.length]}</span>`;
-    swarm.appendChild(el);
-    SCREENS.push({ el, x: Math.cos(a) * r, y: Math.sin(a) * r * 1.3, z: -i * GAP, rot: (R() - 0.5) * 16 });
-  }
-  const cam = { p: 0 };
-  const place = () => {
-    for (const sc of SCREENS) {
-      const z = sc.z + cam.p;
-      const op = Math.min(1, Math.max(0, (z + 7200) / 2600)) * (1 - Math.min(1, Math.max(0, (z - 1250) / 450)));
-      const blur = Math.min(7, Math.max(0, -z / 1100));
-      sc.el.style.transform = `translate3d(${sc.x}px, ${sc.y}px, ${z}px) rotateZ(${sc.rot}deg)`;
-      sc.el.style.opacity = op.toFixed(3);
-      sc.el.style.filter = blur > 0.2 ? `blur(${blur.toFixed(1)}px)` : "none";
-    }
+  const R = rng(9), wall = $("#wall");
+  const SKY = [["#ff3fa2", "#ff9a4a"], ["#a83ffe", "#ff3fa2"], ["#3f8fff", "#a83ffe"], ["#5a17c9", "#ff6a5a"], ["#ff7a3f", "#ffd24a"], ["#1a1046", "#3fd4ff"]];
+  const TOPICS = ["TRAILER 2", "MAPA COMPLETO", "TEORIAS", "REACT", "NOTÍCIAS", "GAMEPLAY", "PERSONAGENS", "EASTER EGGS", "LANÇAMENTO", "DETALHES", "TOP 10", "SEGREDOS"];
+  // thumbnail art: sunset sky, sun, sea, skyline and a palm (no play icon, no platform UI)
+  const art = () => {
+    const sx = 60 + R() * 200, sy = 70 + R() * 30;
+    let city = "";
+    for (let x = 0; x < 316; x += 14 + R() * 18) { const h = 14 + R() * 46, w = 10 + R() * 16; city += `<rect x="${x.toFixed(0)}" y="${(138 - h).toFixed(0)}" width="${w.toFixed(0)}" height="${h.toFixed(0)}" fill="#1b0f2e" opacity=".9"/>`; }
+    const px = R() < 0.5 ? 20 + R() * 50 : 230 + R() * 50, lean = (R() - 0.5) * 30;
+    const tx = px + lean, ty = 66 + R() * 20;
+    const palm = `<path d="M${px} 178 Q${px + lean * 0.2} ${ty + 50} ${tx} ${ty}" stroke="#120a1c" stroke-width="7" fill="none"/>` +
+      [[-48, 6], [-34, 26], [46, 8], [34, 28], [-16, -26], [18, -24]].map(([dx, dy]) => `<path d="M${tx} ${ty} q${dx * 0.5} ${dy - 22} ${dx} ${dy}" stroke="#120a1c" stroke-width="6" stroke-linecap="round" fill="none"/>`).join("");
+    return `<svg viewBox="0 0 316 178"><circle cx="${sx}" cy="${sy}" r="${22 + R() * 14}" fill="#ffe6a0" opacity=".95"/>${city}<rect y="138" width="316" height="40" fill="#120a1c" opacity=".55"/><rect y="146" width="316" height="3" fill="#ffe6a0" opacity=".25"/>${palm}</svg>`;
   };
-  place();
-  tl.fromTo(cam, { p: 0 }, { p: 520, duration: E.centenas - 0.05, ease: "none", onUpdate: place }, 0);
-  tl.to(cam, { p: 5900, duration: 3.4 - E.centenas + 0.05, ease: "power2.in", onUpdate: place }, E.centenas - 0.05);
+  const COLS = 6, PER = 12, STEP = 200, LOOP = PER * STEP;   // 178 tile + 22 gap
+  const SPEED = [1, 1.18, 0.9, 1.1, 0.95, 1.14], OFF = [], colEls = [];
+  for (let c = 0; c < COLS; c++) {
+    const col = document.createElement("div"); col.className = "col";
+    const tiles = [];
+    for (let i = 0; i < PER; i++) {
+      const k = (c * 5 + i * 7) % TOPICS.length, sky = SKY[(c + i * 2) % SKY.length];
+      const m = 1 + Math.floor(R() * 24), sec = Math.floor(R() * 60);
+      tiles.push(`<div class="tn" style="background: linear-gradient(180deg, ${sky[0]}, ${sky[1]} 75%)">${art()}<em>${TOPICS[k]}</em><u>${m}:${String(sec).padStart(2, "0")}</u></div>`);
+    }
+    col.innerHTML = tiles.join("").repeat(3);
+    wall.appendChild(col); colEls.push(col); OFF.push(R() * LOOP);
+  }
+  gsap.set("#wall", { rotateX: 26, rotateZ: -9, z: -120 });   // static plane, set outside the timeline so frame 0 has it
+  // scroll speed (px/s): cruising, then racing on "centenas", then braking to a stop before "GTA 6" ends
+  const V0 = 700, V1 = 2800, tUp = E.centenas, tHold = 2.3, tStop = 2.85;
+  const vel = (t) => t < tUp ? V0 : t < tUp + 0.15 ? V0 + (V1 - V0) * (t - tUp) / 0.15 : t < tHold ? V1 : t < tStop ? V1 * (1 - (t - tHold) / (tStop - tHold)) ** 2 : 0;
+  const blurG = $("#vblurG"), clock = { t: 0 };
+  const scroll = () => {
+    let p = 0; const n = Math.ceil(clock.t * 240), dt = n ? clock.t / n : 0;
+    for (let i = 0; i < n; i++) p += vel((i + 0.5) * dt) * dt;
+    colEls.forEach((col, c) => { col.style.transform = `translate3d(0, ${-((OFF[c] + p * SPEED[c]) % LOOP) - 400}px, 0)`; });
+    const b = vel(clock.t) / V1 * 9;
+    blurG.setAttribute("stdDeviation", `0 ${b.toFixed(2)}`);
+    wall.style.filter = b > 0.3 ? "url(#vblur)" : "none";
+  };
+  scroll();
+  tl.fromTo(clock, { t: 0 }, { t: 3.85, duration: 3.85, ease: "none", onUpdate: scroll }, 0);
+  // camera: a slow push in, a kick on "centenas"
+  tl.fromTo("#swarm", { scale: 1.04 }, { scale: 1, duration: E.centenas, ease: "none" }, 0);
+  tl.fromTo("#swarm", { scale: 1.12 }, { scale: 1, duration: 0.55, ease: "expo.out" }, E.centenas);
   tl.fromTo("#t1a", { scale: 1.08, y: 10 }, { scale: 1, y: 0, duration: 0.5, ease: "expo.out" }, 0);  // already on screen at frame 0
   slam("#t1b", E.centenas - 0.04);
   riseWords("#t1c", E.videos - 0.05, 0.09);
   leave(["#t1a", "#t1b", "#t1c"], 3.3);
 
-  // the one video that becomes yours: it comes out of the tunnel to the camera, a paper wipe opens behind it
+  // the feed stops, everything dims, and one video lifts out of the wall: the one that becomes yours
+  tl.to("#wallDim", { opacity: 0.74, duration: 0.35, ease: "power2.out" }, 2.78);
   const lift = document.createElement("div");
   lift.className = "thumb"; lift.style.background = "linear-gradient(160deg, #ff3fa2, #3b1263)";
   lift.innerHTML = `<i></i><b style="width:70%"></b>`;
   $("#heroLift").appendChild(lift);
-  tl.fromTo(lift, { x: CX - 120, y: CY - 68, scale: 0.1, opacity: 0 }, { x: 420, y: 932, scale: 2.6, opacity: 1, duration: 0.62, ease: "expo.in" }, 3.18);
-  blurPulse(lift, 3.5, 0.35, 6);
+  tl.fromTo(lift, { x: 420, y: 1262, scale: 1.25, rotateX: 26, rotateZ: -9, opacity: 0, boxShadow: "0 0 0 rgba(255,63,162,0)" },
+    { rotateX: 0, rotateZ: 0, scale: 1.7, opacity: 1, boxShadow: "0 0 90px rgba(255,63,162,.7)", duration: 0.4, ease: "back.out(1.8)" }, 2.8);
+  tl.to(lift, { x: 420, y: 932, scale: 2.6, boxShadow: "0 0 0 rgba(255,63,162,0)", duration: 0.6, ease: "power3.inOut" }, 3.22);
+  tl.fromTo(lift, { filter: "blur(5px)" }, { filter: "blur(0px)", duration: 0.45, ease: "power2.out", immediateRender: false }, 3.3);
   tl.to("#swarm", { opacity: 0, filter: "blur(14px)", duration: 0.35, ease: "power2.in" }, 3.4);
   wipe("#w12", 540, 1000, 3.5, 0.34);
 
