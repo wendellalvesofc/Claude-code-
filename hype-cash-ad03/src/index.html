@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>HYPE CASH — Motion 03 Não jogadores</title>
+<style>
+@font-face { font-family: Poppins; font-weight: 700; src: url(fonts/poppins-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: InstrumentSerif; font-style: italic; font-weight: 400; src: url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2"); }
+@font-face { font-family: InstrumentSerif; font-style: normal; font-weight: 400; src: url(fonts/instrument-serif-latin-400-normal.woff2) format("woff2"); }
+
+/* editorial: warm paper, ink, one accent (brand pink); brand purple only for the product moment */
+:root { --paper: #f4f0e8; --paper2: #ebe5d9; --ink: #15111c; --soft: #6f6878; --pink: #ff3fa2; --purple: #a83ffe; --deep: #5a17c9; --lime: #d4ff3f; --dark: #0d0a14; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); }
+body { font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); }
+.scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; }
+.abs { position: absolute; }
+.full { position: absolute; inset: 0; }
+.persp { position: absolute; inset: 0; perspective: 2200px; }
+.t { position: absolute; left: 70px; width: 940px; text-align: center; font-family: Poppins; font-weight: 700; letter-spacing: -0.02em; line-height: 1.06; }
+.t .w { display: inline-block; }
+.serif { font-family: InstrumentSerif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+.pink { color: var(--pink); }
+.kicker { font: 700 24px Inter; letter-spacing: .2em; text-transform: uppercase; color: var(--soft); }
+.rule { position: absolute; left: 70px; width: 940px; height: 2px; background: var(--ink); transform-origin: 0 50%; }
+
+.icon { position: absolute; border-radius: 28%; display: grid; place-items: center;
+  box-shadow: inset 0 -14px 28px rgba(0,0,0,.28), inset 0 8px 16px rgba(255,255,255,.45), 0 34px 70px rgba(40,10,60,.28); }
+.icon::before { content: ""; position: absolute; left: 9%; top: 6%; width: 82%; height: 46%; border-radius: 40% 40% 50% 50% / 60% 60% 40% 40%; background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0)); }
+.icon svg { position: relative; width: 56%; height: 56%; }
+.i-purple { background: radial-gradient(circle at 30% 20%, #d79bff, #a83ffe 45%, #5a17c9 100%); }
+.i-pink { background: radial-gradient(circle at 30% 20%, #ff9ccd, #ff3fa2 45%, #b0145f 100%); }
+
+/* S1 */
+#s1 { visibility: visible; background: var(--paper); }
+#ink1 { position: absolute; left: 0; top: 0; }
+
+/* S2 editorial page */
+#s2 { background: var(--paper); }
+#mast { position: absolute; left: 0; width: 1080px; top: 250px; text-align: center; font-family: InstrumentSerif; font-style: normal; font-size: 270px; line-height: .9; letter-spacing: -.02em; }
+.card { position: absolute; background: #fffdf8; border: 2px solid var(--ink); border-radius: 26px; box-shadow: 10px 10px 0 var(--ink); overflow: hidden; }
+.card .no { position: absolute; left: 26px; top: 22px; font: 700 22px Inter; letter-spacing: .18em; color: var(--soft); }
+.card .lbl { position: absolute; left: 26px; bottom: 24px; font: 700 50px Poppins; letter-spacing: -.02em; }
+#k1 { left: 70px; top: 760px; width: 460px; height: 720px; }
+#k2 { left: 570px; top: 760px; width: 440px; height: 340px; }
+#k3 { left: 570px; top: 1140px; width: 440px; height: 340px; }
+.ln { position: absolute; left: 26px; height: 14px; border-radius: 7px; background: var(--ink); transform-origin: 0 50%; }
+.bar { position: absolute; bottom: 110px; width: 56px; border-radius: 10px 10px 0 0; background: var(--ink); transform-origin: 50% 100%; }
+#dot { position: absolute; left: 0; top: 0; width: 44px; height: 44px; border-radius: 50%; background: var(--pink); }
+
+/* S3 product */
+#s3 { background: var(--dark); color: #fff; }
+#bloom3 { position: absolute; left: 90px; top: 120px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(168,63,254,.6) 0%, rgba(168,63,254,.15) 42%, rgba(168,63,254,0) 70%); }
+#logo3 { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+#chip3 { left: 0; width: 1080px; text-align: center; }
+#chip3 span { display: inline-block; border-radius: 99px; padding: 16px 34px; font: 600 32px Inter; letter-spacing: .14em; text-transform: uppercase; color: #e9dcff; border: 2px solid rgba(255,255,255,.25); background: rgba(255,255,255,.06); }
+#mm { left: 0; width: 1080px; top: 0; text-align: left; }
+#phone { position: absolute; left: 470px; top: 560px; width: 560px; height: 1180px; transform-style: preserve-3d; }
+.edge { position: absolute; inset: 0; border-radius: 86px; background: linear-gradient(135deg, #3b3550, #15121f 45%, #2a2438); }
+#frame { position: absolute; inset: 0; border-radius: 86px; padding: 11px; background: linear-gradient(145deg, #a49cbc 0%, #3d3750 18%, #1c1828 50%, #4a4360 82%, #b8b0d0 100%); }
+#bezel { width: 100%; height: 100%; border-radius: 76px; background: #050407; padding: 13px; }
+#screen { position: relative; width: 512px; height: 1132px; border-radius: 64px; overflow: hidden; background: #0d0a18; }
+#screen img { position: absolute; left: 0; top: 22px; width: 512px; }
+.pg { position: absolute; inset: 0; }
+#island { position: absolute; left: 196px; top: 12px; width: 120px; height: 34px; border-radius: 20px; background: #000; z-index: 9; }
+#status { position: absolute; left: 0; top: 0; width: 512px; height: 40px; z-index: 8; font: 600 15px Inter; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 6px 44px 0 50px; }
+#glare { position: absolute; inset: 0; z-index: 10; background: linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.12) 42%, rgba(255,255,255,0) 55%); }
+.lab { position: absolute; left: 60px; font: 700 52px Poppins; letter-spacing: -.02em; color: #fff; }
+.lab small { display: block; font: 700 22px Inter; letter-spacing: .2em; text-transform: uppercase; color: var(--lime); margin-bottom: 8px; }
+
+/* S4 project */
+#s4 { background: var(--paper); }
+#pen4 { position: absolute; left: 0; top: 0; }
+
+/* S5 honest */
+#s5 { background: var(--paper); }
+#strike5 { position: absolute; height: 12px; border-radius: 6px; background: var(--pink); transform-origin: 0 50%; }
+#compass { position: absolute; left: 390px; top: 1080px; width: 300px; height: 300px; }
+
+/* S6 CTA */
+#s6 { background: var(--dark); color: #fff; }
+#bloom6 { position: absolute; left: 40px; top: 160px; width: 1000px; height: 1000px; border-radius: 50%; background: radial-gradient(circle, rgba(255,63,162,.42) 0%, rgba(168,63,254,.28) 35%, rgba(168,63,254,0) 68%); }
+#logo6 { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+#btn { position: absolute; left: 120px; top: 1170px; width: 840px; height: 140px; border-radius: 99px; background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff);
+  display: flex; align-items: center; justify-content: center; gap: 18px; font: 700 48px Poppins; color: #fff; overflow: hidden; box-shadow: 0 26px 70px rgba(168,63,254,.55); }
+#btn .shine { position: absolute; left: -180px; top: -40px; width: 110px; height: 230px; transform: rotate(18deg); background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.65), rgba(255,255,255,0)); }
+#cursor { position: absolute; left: 0; top: 0; width: 64px; height: 64px; }
+#ripple { position: absolute; width: 120px; height: 120px; border-radius: 50%; border: 5px solid rgba(255,255,255,.9); opacity: 0; }
+#legal { position: absolute; left: 90px; width: 900px; top: 1420px; text-align: center; font: 500 24px/1.45 Inter; color: rgba(255,255,255,.6); }
+
+.panel { position: absolute; visibility: hidden; }
+#grain { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; background: url(img/grain.png) repeat; opacity: .04; pointer-events: none; }
+</style>
+</head>
+<body>
+<div id="root">
+  <!-- S1: the objection, crossed out -->
+  <section class="scene" id="s1">
+    <div class="abs kicker" id="kick1" style="left: 70px; top: 240px">Para quem não joga</div>
+    <div class="rule" id="rule1" style="top: 290px"></div>
+    <div class="t" id="t1a" style="top: 340px; font-size: 70px">Você não precisa</div>
+    <div class="t serif" id="t1b" style="top: 420px; font-size: 250px; line-height: 1"><span class="w" id="jogarW">jogar</span></div>
+    <div class="persp"><div class="icon i-purple" id="pad" style="left: 410px; top: 760px; width: 260px; height: 260px">
+      <svg viewBox="0 0 24 24"><path d="M7.5 8h9a4.5 4.5 0 0 1 4.4 3.6l.8 4a2.6 2.6 0 0 1-4.5 2.2L15.6 16H8.4l-1.6 1.8a2.6 2.6 0 0 1-4.5-2.2l.8-4A4.5 4.5 0 0 1 7.5 8z" fill="#fff"/><path d="M7.5 10.6v3M6 12.1h3" stroke="#5a17c9" stroke-width="1.4" stroke-linecap="round"/><circle cx="15.8" cy="11.2" r=".95" fill="#ff3fa2"/><circle cx="17.6" cy="13" r=".95" fill="#3fd4ff"/></svg></div></div>
+    <div class="t" id="t1c" style="top: 1110px; font-size: 96px; font-weight: 800; letter-spacing: -.035em"><span class="w">pra</span> <span class="w" id="criarW">criar</span> <span class="w serif pink" style="font-weight: 400; font-size: 120px">conteúdo</span></div>
+    <div class="t" id="t1d" style="top: 1260px; font-size: 56px; color: var(--soft)">sobre ele.</div>
+    <svg id="ink1" width="1080" height="1920"><path id="strike1" fill="none" stroke="#ff3fa2" stroke-width="16" stroke-linecap="round"/><path id="loop1" fill="none" stroke="#ff3fa2" stroke-width="7" stroke-linecap="round"/></svg>
+  </section>
+
+  <!-- S2: the subject everywhere; formats drawn from shapes -->
+  <section class="scene" id="s2">
+    <div class="abs kicker" id="kick2" style="left: 70px; top: 220px">O assunto</div>
+    <div id="mast">GTA <span class="serif">VI</span></div>
+    <div class="t" id="t2a" style="top: 540px; font-size: 64px"><span class="w">vai</span> <span class="w">estar</span> <span class="w">em</span> <span class="w serif pink" style="font-weight:400; font-size: 84px">todo lugar</span></div>
+    <div class="rule" id="rule2" style="top: 690px"></div>
+    <div class="card" id="k1"><div class="no">01</div>
+      <div class="ln" id="l0" style="top: 90px; width: 400px; height: 34px"></div><div class="ln" id="l1" style="top: 140px; width: 330px; height: 34px"></div>
+      <div id="photo" style="position:absolute; left: 26px; top: 210px; width: 408px; height: 220px; border-radius: 16px; background: linear-gradient(135deg, #ff3fa2, #a83ffe 60%, #3f8fff)"></div>
+      <div class="ln" id="l2" style="top: 460px; width: 400px"></div><div class="ln" id="l3" style="top: 490px; width: 380px"></div><div class="ln" id="l4" style="top: 520px; width: 395px"></div><div class="ln" id="l5" style="top: 550px; width: 260px"></div>
+      <div class="lbl">Notícias</div></div>
+    <div class="card" id="k2"><div class="no">02</div>
+      <div id="qm" class="serif" style="position:absolute; left: 0; width: 440px; top: 40px; text-align:center; font-size: 210px; line-height: 1; color: var(--pink)">?</div>
+      <div class="lbl">Curiosidades</div></div>
+    <div class="card" id="k3"><div class="no">03</div>
+      <div class="bar" id="b0" style="left: 40px; height: 70px"></div><div class="bar" id="b1" style="left: 110px; height: 120px"></div><div class="bar" id="b2" style="left: 180px; height: 95px"></div><div class="bar" id="b3" style="left: 250px; height: 165px; background: var(--pink)"></div>
+      <svg style="position:absolute; left: 0; top: 0" width="440" height="340"><path id="trend" d="M50 210 L120 160 L190 185 L270 110 L360 70" fill="none" stroke="#a83ffe" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="lbl">Análises</div></div>
+    <div id="dot"></div>
+  </section>
+
+  <!-- S3: the product, with the only phone moment -->
+  <section class="scene" id="s3">
+    <div id="bloom3"></div>
+    <img id="logo3" src="img/logo.png" alt="HYPE CASH">
+    <div class="abs" id="chip3" style="top: 760px"><span>Playbook interativo</span></div>
+    <div class="lab" id="lb0" style="top: 760px"><small>Missão</small>por</div>
+    <div class="lab" id="lb1" style="top: 900px"><small>&nbsp;</small>missão</div>
+    <div class="persp"><div id="phone">
+      <div class="edge" style="transform: translateZ(-12px)"></div><div class="edge" style="transform: translateZ(-8px)"></div><div class="edge" style="transform: translateZ(-4px)"></div>
+      <div id="frame"><div id="bezel"><div id="screen">
+        <div id="status"><span>9:41</span><span>▂▄▆ ▮</span></div><div id="island"></div>
+        <div class="pg" id="pgMap"><img src="img/scr-map-after.jpg"></div>
+        <div class="pg" id="pgCheck"><img id="chkImg" src="img/scr-m1-4.jpg"></div>
+        <div class="pg" id="pgTools"><img id="toolsImg" src="img/scr-tools.jpg"></div>
+        <div id="glare"></div>
+      </div></div></div>
+    </div></div>
+    <div class="lab" id="lb2" style="top: 1180px; font-size: 40px"><small>Tela real</small>Mapa de missões</div>
+    <div class="lab" id="lb3" style="top: 1180px; font-size: 40px"><small>Tela real</small>Checklist</div>
+    <div class="lab" id="lb4" style="top: 1180px; font-size: 40px"><small>Tela real</small>Ferramentas</div>
+  </section>
+
+  <!-- S4: a content project around the theme -->
+  <section class="scene" id="s4">
+    <div class="abs kicker" id="kick4" style="left: 70px; top: 520px">Como começar</div>
+    <div class="rule" id="rule4" style="top: 570px"></div>
+    <div class="t" id="t4a" style="top: 640px; font-size: 76px">um projeto de</div>
+    <div class="t serif" id="t4b" style="top: 720px; font-size: 230px; line-height: 1"><span class="pink">conteúdo</span></div>
+    <div class="t" id="t4c" style="top: 1010px; font-size: 64px; color: var(--soft)">com esse tema.</div>
+    <svg id="pen4" width="1080" height="1920"><path id="u4" d="M150 985 C 330 1010, 600 965, 930 990" fill="none" stroke="#15111c" stroke-width="8" stroke-linecap="round"/></svg>
+  </section>
+
+  <!-- S5: no easy promise, direction -->
+  <section class="scene" id="s5">
+    <div class="t" id="t5a" style="top: 520px; font-size: 76px"><span class="w">Sem</span> <span class="w">promessa</span> <span class="w serif" id="facilW" style="font-weight:400; font-size: 96px">fácil.</span></div>
+    <div id="strike5"></div>
+    <div class="t" id="t5b" style="top: 700px; font-size: 76px">Com</div>
+    <div class="t serif" id="t5c" style="top: 770px; font-size: 220px; line-height: 1"><span class="pink">direção.</span></div>
+    <svg id="compass" viewBox="0 0 300 300">
+      <circle cx="150" cy="150" r="140" fill="#fffdf8" stroke="#15111c" stroke-width="5"/>
+      <g stroke="#15111c" stroke-width="5" stroke-linecap="round"><path d="M150 18v26M150 256v26M18 150h26M256 150h26"/></g>
+      <g id="needle"><path d="M150 50 L172 150 L150 250 L128 150z" fill="#15111c"/><path d="M150 50 L172 150 L128 150z" fill="#ff3fa2"/></g>
+      <circle cx="150" cy="150" r="12" fill="#fffdf8" stroke="#15111c" stroke-width="5"/>
+    </svg>
+  </section>
+
+  <!-- S6 CTA -->
+  <section class="scene" id="s6">
+    <div id="bloom6"></div>
+    <img id="logo6" src="img/logo.png" alt="HYPE CASH">
+    <div class="t" id="t6a" style="top: 970px; font-family: Inter; font-weight: 600; font-size: 42px; line-height: 1.3; letter-spacing: -.01em; color: #e9e2fb">O playbook interativo para criar conteúdo com o hype do GTA VI</div>
+    <div id="btn"><span>Conheça o HYPE CASH</span><span>→</span><div class="shine" id="shine"></div></div>
+    <div id="ripple"></div>
+    <svg id="cursor" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z" fill="#fff" stroke="#15111c" stroke-width="1.2" stroke-linejoin="round"/></svg>
+    <div id="legal">Produto digital independente, sem vínculo com a Rockstar Games.<br>Resultados dependem da sua execução.</div>
+  </section>
+
+  <div class="panel" id="pA" style="left:0; top:0; width:1080px; height:1920px; background: var(--paper)"></div>
+  <div class="panel" id="pB" style="left:0; top:0; width:1080px; height:1920px; background: var(--dark)"></div>
+  <div id="grain"></div>
+</div>
+<script src="gsap.min.js"></script>
+<script src="timing.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
