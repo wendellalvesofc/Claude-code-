@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>HYPE CASH — Motion 01 F (Alto Impacto)</title>
+<style>
+@font-face { font-family: Poppins; font-weight: 700; src: url(fonts/poppins-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 900; src: url(fonts/poppins-latin-900-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+@font-face { font-family: InstrumentSerif; font-style: italic; font-weight: 400; src: url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2"); }
+
+/* brand tokens (styles/tokens.css of the app). High-impact edit: one metaphor object per line, full-color backgrounds per beat */
+:root {
+  --pink: #ff3fa2; --purple: #a83ffe; --deep: #5a17c9; --blue: #3f8fff; --lime: #d4ff3f;
+  --ink: #15101f; --black: #07050b; --paper: #f5f2f9; --muted: #8a809e;
+  --g: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--black); }
+body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--black); }
+#cam { position: absolute; inset: 0; }
+.scene { position: absolute; inset: 0; overflow: hidden; visibility: hidden; background: var(--black); }
+.full { position: absolute; inset: 0; }
+.c { position: absolute; left: 60px; width: 960px; text-align: center; font-family: Poppins; font-weight: 800; letter-spacing: -.035em; line-height: 1.02; }
+.w { display: inline-block; }
+.serif { font-family: InstrumentSerif; font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+.pink { color: var(--pink); } .lime { color: var(--lime); } .ink { color: var(--ink); } .mut { color: var(--muted); }
+.gt { background: var(--g); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.glow { position: absolute; border-radius: 50%; }
+.icon { position: absolute; border-radius: 30%; display: grid; place-items: center;
+  box-shadow: inset 0 -10px 22px rgba(0,0,0,.28), inset 0 7px 14px rgba(255,255,255,.45), 0 24px 50px rgba(20,0,50,.4); }
+.icon::before { content: ""; position: absolute; left: 9%; top: 6%; width: 82%; height: 46%; border-radius: 40% 40% 50% 50% / 60% 60% 40% 40%; background: linear-gradient(180deg, rgba(255,255,255,.5), rgba(255,255,255,0)); }
+.icon svg { position: relative; width: 54%; height: 54%; }
+.i-pink { background: radial-gradient(circle at 30% 20%, #ff9ccd, #ff3fa2 45%, #b0145f 100%); }
+.i-purple { background: radial-gradient(circle at 30% 20%, #d79bff, #a83ffe 45%, #5a17c9 100%); }
+.i-blue { background: radial-gradient(circle at 30% 20%, #a9ccff, #3f8fff 45%, #1b4fb8 100%); }
+.i-lime { background: radial-gradient(circle at 30% 20%, #f4ffc0, #d4ff3f 45%, #8fb800 100%); }
+.i-white { background: radial-gradient(circle at 30% 20%, #ffffff, #efe9f7 50%, #cbbfe0 100%); }
+.dust { position: absolute; inset: 0; pointer-events: none; }
+#grain { position: absolute; inset: 0; background: url(img/grain.png); opacity: .045; z-index: 50; pointer-events: none; }
+
+/* B1 globe */
+#globe { position: absolute; left: 250px; top: 760px; width: 580px; height: 580px; border-radius: 50%; overflow: hidden;
+  background: radial-gradient(circle at 35% 30%, #4a8bff 0%, #2453c9 40%, #120a3a 85%);
+  box-shadow: 0 0 120px rgba(63,143,255,.45), inset -60px -60px 120px rgba(0,0,0,.65), inset 20px 20px 60px rgba(255,255,255,.12); }
+#lands { position: absolute; left: 0; top: 0; width: 2320px; height: 580px; }
+.land { position: absolute; border-radius: 46% 54% 40% 60% / 55% 45% 55% 45%; background: radial-gradient(circle at 40% 35%, #c9ef6a, #7fb21e 55%, #3f6b0c); opacity: .9; }
+#gshade { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.28), rgba(255,255,255,0) 30%), radial-gradient(circle at 70% 75%, rgba(0,0,0,.55), rgba(0,0,0,0) 60%); }
+#gatm { position: absolute; left: 220px; top: 730px; width: 640px; height: 640px; border-radius: 50%; box-shadow: 0 0 0 6px rgba(120,170,255,.25), 0 0 80px rgba(120,170,255,.35); }
+#pause { position: absolute; left: 400px; top: 910px; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,.95); display: grid; place-items: center; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+#pause i { position: absolute; top: 85px; width: 34px; height: 110px; border-radius: 10px; background: var(--ink); }
+/* B2 play card */
+#s2 { background: var(--pink); }
+#play2 { position: absolute; left: 290px; top: 700px; width: 500px; height: 500px; border-radius: 110px; background: #fff; box-shadow: 0 50px 120px rgba(100,0,50,.35); display: grid; place-items: center; }
+#play2 i { width: 0; height: 0; margin-left: 30px; border-top: 90px solid transparent; border-bottom: 90px solid transparent; border-left: 150px solid var(--pink); }
+/* B3 searches */
+#cnt3 { position: absolute; left: 0; top: 660px; width: 1080px; text-align: center; font: 900 168px/1 Poppins; letter-spacing: -.05em; color: var(--lime); font-variant-numeric: tabular-nums; }
+.bub { position: absolute; height: 92px; padding: 0 30px; border-radius: 46px; background: var(--pink); color: #fff; font: 800 44px Poppins; display: flex; align-items: center; box-shadow: 0 20px 40px rgba(255,63,162,.35); }
+.bub::after { content: ""; position: absolute; left: 50%; bottom: -16px; margin-left: -14px; border-left: 14px solid transparent; border-right: 14px solid transparent; border-top: 18px solid var(--pink); }
+.qcard { position: absolute; left: 140px; width: 800px; height: 150px; border-radius: 34px; background: #17121f; border: 2px solid #2a2338; display: flex; align-items: center; padding: 0 30px; gap: 28px; font: 800 58px Poppins; }
+.qcard .icon { position: relative; flex: none; width: 100px; height: 100px; }
+/* B4 */
+#s4 { background: var(--lime); }
+/* B5 toggle */
+#tg { position: absolute; left: 110px; top: 860px; width: 860px; height: 190px; border-radius: 95px; background: #1b1626; border: 3px solid #2e2640; }
+#knob { position: absolute; left: 14px; top: 14px; width: 410px; height: 156px; border-radius: 78px; background: #3a3150; }
+.tl { position: absolute; top: 0; height: 190px; width: 430px; display: grid; place-items: center; font: 800 58px Poppins; letter-spacing: -.03em; }
+#cursor5, #cursor14 { position: absolute; left: 0; top: 0; width: 96px; z-index: 6; }
+/* B6 slot */
+#s6 { background: var(--deep); }
+#slot6 { position: absolute; left: 430px; top: 850px; width: 560px; height: 170px; overflow: hidden; border-radius: 40px; }
+.sc { position: absolute; left: 0; top: 0; width: 560px; height: 170px; border-radius: 40px; background: #fff; color: var(--ink); display: flex; align-items: center; gap: 24px; padding: 0 30px; font: 800 66px Poppins; letter-spacing: -.03em; }
+.sc .icon { position: relative; flex: none; width: 110px; height: 110px; }
+.sc .x { position: absolute; left: 20px; right: 20px; top: 80px; height: 12px; border-radius: 6px; background: var(--pink); transform-origin: 0 50%; }
+/* B7 */
+#s7 { background: var(--paper); color: var(--ink); }
+.qm { position: absolute; font: 900 200px/1 Poppins; background: radial-gradient(circle at 30% 25%, #d79bff, #a83ffe 45%, #5a17c9); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 20px 30px rgba(90,23,201,.3)); }
+/* B8 */
+#logo8 { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+.ring { position: absolute; left: 540px; top: 900px; width: 400px; height: 400px; margin: -200px 0 0 -200px; border-radius: 50%; border: 6px solid var(--pink); box-shadow: 0 0 40px rgba(255,63,162,.6), inset 0 0 40px rgba(255,63,162,.4); opacity: 0; }
+/* B9 phone */
+#s9 { background: var(--blue); }
+#phone { position: absolute; left: 310px; top: 520px; width: 460px; height: 970px; border-radius: 72px; padding: 10px; background: linear-gradient(145deg, #4a4360, #15121f 45%, #2a2438); box-shadow: 0 50px 110px rgba(10,20,80,.5); }
+#screen { position: relative; width: 440px; height: 950px; border-radius: 62px; overflow: hidden; background: #0d0a18; }
+#screen img { position: absolute; left: 0; top: 22px; width: 440px; }
+.pg { position: absolute; inset: 0; }
+#island { position: absolute; left: 160px; top: 12px; width: 120px; height: 32px; border-radius: 18px; background: #000; z-index: 9; }
+#hlP { position: absolute; z-index: 7; border: 4px solid var(--lime); border-radius: 14px; box-shadow: 0 0 22px rgba(212,255,63,.8); }
+.chip { position: absolute; height: 100px; padding: 0 30px 0 14px; border-radius: 50px; background: #fff; color: var(--ink); display: flex; align-items: center; gap: 16px; font: 800 44px Poppins; letter-spacing: -.02em; box-shadow: 0 24px 50px rgba(10,20,80,.3); }
+.chip .icon { position: relative; width: 72px; height: 72px; box-shadow: inset 0 -6px 12px rgba(0,0,0,.25), inset 0 5px 10px rgba(255,255,255,.45); }
+/* B10 */
+#s10 { background: var(--lime); color: var(--ink); }
+#coil { position: absolute; left: 0; top: 0; }
+/* B11 */
+#coin { position: absolute; left: 390px; top: 960px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #f4ffc0, #d4ff3f 45%, #8fb800); box-shadow: inset 0 -14px 26px rgba(0,0,0,.25), inset 0 10px 18px rgba(255,255,255,.5), 0 30px 70px rgba(0,0,0,.5);
+  display: grid; place-items: center; font: 900 170px/1 Poppins; color: #5e7d00; }
+#ban { position: absolute; left: 350px; top: 920px; width: 380px; height: 380px; border-radius: 50%; border: 22px solid var(--pink); }
+#ban::after { content: ""; position: absolute; left: -10px; top: 157px; width: 380px; height: 22px; background: var(--pink); transform: rotate(-45deg); }
+.strike { position: absolute; height: 14px; border-radius: 7px; background: var(--pink); transform-origin: 0 50%; }
+/* B12 */
+#s12 { background: var(--pink); }
+.chev { position: absolute; top: 900px; width: 220px; height: 220px; border-right: 46px solid #fff; border-top: 46px solid #fff; border-radius: 14px; transform: rotate(45deg); }
+/* B13 calendar */
+#cal { position: absolute; left: 270px; top: 640px; width: 540px; height: 600px; border-radius: 80px; background: #fff; overflow: hidden; box-shadow: 0 50px 120px rgba(0,0,0,.55); }
+#cal .hd { height: 170px; background: var(--g); display: grid; place-items: center; font: 800 70px Poppins; letter-spacing: .08em; color: #fff; }
+#cal .nm { height: 430px; display: grid; place-items: center; font: 900 330px/1 Poppins; letter-spacing: -.06em; color: var(--ink); }
+/* B14 CTA */
+#s14 { background: var(--paper); }
+#flood { position: absolute; left: 540px; top: 1160px; width: 200px; height: 200px; margin: -100px 0 0 -100px; border-radius: 50%; background: radial-gradient(circle, #ff3fa2, #a83ffe 70%); }
+#cta { position: absolute; left: 240px; top: 1080px; width: 600px; height: 160px; border-radius: 80px; background: var(--pink); display: grid; place-items: center; font: 800 64px Poppins; letter-spacing: -.02em; color: #fff;
+  box-shadow: 0 0 0 6px rgba(255,255,255,.5), 0 30px 80px rgba(255,63,162,.45); }
+#logo14 { position: absolute; left: 0; top: 0; width: 1189px; transform-origin: 0 0; }
+#ripple { position: absolute; width: 60px; height: 60px; border-radius: 50%; border: 6px solid #fff; opacity: 0; }
+#legal { position: absolute; left: 140px; top: 1310px; width: 800px; text-align: center; font: 500 23px/1.4 Inter; color: rgba(255,255,255,.75); }
+</style>
+</head>
+<body>
+<div id="root"><div id="cam">
+  <!-- B1: the whole world will stop -->
+  <section class="scene" id="s1" style="visibility: visible">
+    <canvas class="dust" id="dust1" width="1080" height="1920"></canvas>
+    <div id="gatm"></div>
+    <div id="globe"><div id="lands"></div><div id="gshade"></div></div>
+    <div id="pause"><i style="left: 84px"></i><i style="left: 162px"></i></div>
+    <div class="c" id="t1a" style="top: 360px; font-size: 104px"><span class="w">O</span> <span class="w">mundo</span> <span class="w">inteiro</span></div>
+    <div class="c" id="t1b" style="top: 480px; font-size: 150px; font-weight: 900"><span class="w">vai</span> <span class="w lime">parar</span></div>
+  </section>
+
+  <!-- B2: to watch GTA 6 -->
+  <section class="scene" id="s2">
+    <div class="c serif" id="t2a" style="top: 470px; font-size: 110px">pra ver</div>
+    <div id="play2"><i></i></div>
+    <div class="c" id="t2b" style="top: 1260px; font-size: 190px; font-weight: 900; letter-spacing: -.05em">GTA VI</div>
+  </section>
+
+  <!-- B3: millions searching -->
+  <section class="scene" id="s3">
+    <canvas class="dust" id="dust3" width="1080" height="1920"></canvas>
+    <div class="bub" id="bA" style="left: 110px; top: 470px">gta 6 trailer</div>
+    <div class="bub" id="bB" style="left: 600px; top: 520px">gta 6 mapa</div>
+    <div id="cnt3">0</div>
+    <div class="c" id="t3" style="top: 870px; font-size: 80px"><span class="w">pessoas</span> <span class="w gt">procurando</span></div>
+    <div class="qcard" id="q1" style="top: 1030px"><div class="icon i-pink"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#fff"/></svg></div>vídeo</div>
+    <div class="qcard" id="q2" style="top: 1200px"><div class="icon i-blue"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2" fill="#fff"/><path d="M7 9h10M7 12h10M7 15h6" stroke="#1b4fb8" stroke-width="1.8"/></svg></div>notícia</div>
+    <div class="qcard" id="q3" style="top: 1370px"><div class="icon i-lime"><svg viewBox="0 0 24 24"><path d="M12 3.5a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V17h5.2v-.7c0-.8.4-1.5 1-2A6 6 0 0 0 12 3.5z" fill="#15101f"/><rect x="9.4" y="18.3" width="5.2" height="2.2" rx="1" fill="#15101f"/></svg></div>teoria</div>
+  </section>
+
+  <!-- B4: and you? -->
+  <section class="scene" id="s4">
+    <div class="c ink" id="t4" style="top: 780px; font-size: 230px; font-weight: 900; letter-spacing: -.06em">E você?</div>
+  </section>
+
+  <!-- B5: viewer / creator toggle -->
+  <section class="scene" id="s5">
+    <canvas class="dust" id="dust5" width="1080" height="1920"></canvas>
+    <div class="c" id="t5a" style="top: 470px; font-size: 76px"><span class="w">Só</span> <span class="w">mais</span> <span class="w">um</span> <span class="w mut">assistindo…</span></div>
+    <div id="tg"><div id="knob"></div><div class="tl" id="tlA" style="left: 0">Espectador</div><div class="tl" id="tlB" style="left: 430px; color: #6c6386">Criador</div></div>
+    <div class="c" id="t5b" style="top: 1160px; font-size: 76px"><span class="w">ou</span> <span class="w">quem</span> <span class="w">eles</span> <span class="w">vão</span> <span class="w pink">assistir?</span></div>
+    <svg id="cursor5" viewBox="0 0 24 24"><path d="M4 2.5l15 9.2-6.6 1.4 3.8 7.3-3 1.5-3.8-7.3L4.6 19z" fill="#fff" stroke="#15101f" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  </section>
+
+  <!-- B6: the problem is not… -->
+  <section class="scene" id="s6">
+    <div class="c serif" id="t6a" style="top: 640px; font-size: 96px">O problema</div>
+    <div class="c" id="t6b" style="top: 870px; left: 90px; width: 330px; text-align: left; font-size: 110px; font-weight: 900"><span class="pink">Não é</span></div>
+    <div id="slot6">
+      <div class="sc" id="sc0"><div class="icon i-blue"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5" fill="#fff"/><rect x="10" y="18" width="4" height="1.4" rx=".7" fill="#1b4fb8"/></svg></div>o celular<div class="x"></div></div>
+      <div class="sc" id="sc1"><div class="icon i-pink"><svg viewBox="0 0 24 24"><circle cx="7" cy="17" r="3" stroke="#fff" stroke-width="2.2" fill="none"/><circle cx="17" cy="17" r="3" stroke="#fff" stroke-width="2.2" fill="none"/><path d="M9 15L18 4M15 15L6 4" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></div>a edição<div class="x"></div></div>
+      <div class="sc" id="sc2"><div class="icon i-lime"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8" stroke="#15101f" stroke-width="2.4" fill="none"/><path d="M12 9v4l3 2M10 3h4" stroke="#15101f" stroke-width="2.4" stroke-linecap="round"/></svg></div>o tempo<div class="x"></div></div>
+    </div>
+  </section>
+
+  <!-- B7: it's not knowing where to start -->
+  <section class="scene" id="s7">
+    <div class="qm" id="qm1" style="left: 80px; top: 360px">?</div><div class="qm" id="qm2" style="left: 820px; top: 520px; font-size: 150px">?</div>
+    <div class="qm" id="qm3" style="left: 130px; top: 1300px; font-size: 130px">?</div><div class="qm" id="qm4" style="left: 800px; top: 1260px; font-size: 220px">?</div>
+    <div class="c ink" id="t7a" style="top: 760px; font-size: 100px"><span class="w">É</span> <span class="w">não</span> <span class="w">saber</span></div>
+    <div class="c serif" id="t7b" style="top: 880px; font-size: 140px"><span class="w">por</span> <span class="w">onde</span> <span class="w pink">começar.</span></div>
+  </section>
+
+  <!-- B8: that's why Hype Cash exists -->
+  <section class="scene" id="s8">
+    <canvas class="dust" id="dust8" width="1080" height="1920"></canvas>
+    <div class="ring" id="r1"></div><div class="ring" id="r2"></div><div class="ring" id="r3"></div>
+    <div class="c serif" id="t8a" style="top: 470px; font-size: 92px">Por isso existe o</div>
+    <img id="logo8" src="img/logo.png">
+    <div class="c" id="t8b" style="top: 1260px; font: 700 34px Inter; letter-spacing: .3em; color: rgba(255,255,255,.8)">PLAYBOOK INTERATIVO</div>
+  </section>
+
+  <!-- B9: the only phone moment, real screens -->
+  <section class="scene" id="s9">
+    <div class="c" id="t9" style="top: 250px; font-size: 92px"><span class="w">missão</span> <span class="w">por</span> <span class="w lime">missão</span></div>
+    <div id="phone"><div id="screen">
+      <div id="island"></div>
+      <div class="pg" id="pgMap"><img src="img/scr-map-after.jpg"></div>
+      <div class="pg" id="pgM1"><img id="m1_0" src="img/scr-m1-0.jpg"><img id="m1_1" src="img/scr-m1-1.jpg"><img id="m1_2" src="img/scr-m1-2.jpg"><img id="m1_3" src="img/scr-m1-3.jpg"><img id="m1_4" src="img/scr-m1-4.jpg"></div>
+      <div class="pg" id="pgProg"><img src="img/scr-map-after.jpg"><div id="hlP"></div></div>
+      <div class="pg" id="pgTools"><img id="toolsImg" src="img/scr-tools.jpg"></div>
+    </div></div>
+    <div class="chip" id="c9a" style="left: 30px; top: 760px"><div class="icon i-lime"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#15101f" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Checklist</div>
+    <div class="chip" id="c9b" style="left: 620px; top: 1000px"><div class="icon i-pink"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke="rgba(255,255,255,.4)" stroke-width="3" fill="none"/><path d="M12 4a8 8 0 0 1 7.6 5.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>Progresso</div>
+    <div class="chip" id="c9c" style="left: 40px; top: 1260px"><div class="icon i-purple"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5 5L4 17l3 3 5.5-5.5a4 4 0 0 0 5-5l-2.5 2.5-2.5-.5-.5-2.5z" fill="#fff"/></svg></div>Ferramentas</div>
+  </section>
+
+  <!-- B10: no fluff (a coil that straightens) -->
+  <section class="scene" id="s10">
+    <svg id="coil" width="1080" height="1920" viewBox="0 0 1080 1920"><path id="coilP" fill="none" stroke="#15101f" stroke-width="16" stroke-linecap="round"/></svg>
+    <div class="c ink" id="t10" style="top: 640px; font-size: 140px; font-weight: 900"><span class="w">Sem</span> <span class="w">enrolação.</span></div>
+  </section>
+
+  <!-- B11: no easy-money promise -->
+  <section class="scene" id="s11">
+    <div class="c serif" id="t11a" style="top: 520px; font-size: 92px; color: rgba(255,255,255,.75)">Sem promessa de</div>
+    <div class="c" id="t11b" style="top: 640px; font-size: 128px; font-weight: 900"><span class="w">dinheiro</span> <span class="w">fácil.</span></div>
+    <div class="strike" id="sk11"></div>
+    <div id="coin">$</div><div id="ban"></div>
+  </section>
+
+  <!-- B12: only the next step -->
+  <section class="scene" id="s12">
+    <div class="c" id="t12" style="top: 560px; font-size: 120px; font-weight: 900"><span class="w">Só</span> <span class="w">o</span> <span class="w">próximo</span> <span class="w ink">passo.</span></div>
+    <div class="chev" id="ch1" style="left: 200px"></div><div class="chev" id="ch2" style="left: 400px"></div><div class="chev" id="ch3" style="left: 600px"></div>
+  </section>
+
+  <!-- B13: the date -->
+  <section class="scene" id="s13">
+    <canvas class="dust" id="dust13" width="1080" height="1920"></canvas>
+    <div class="c" id="t13a" style="top: 380px; font-size: 104px"><span class="w">GTA</span> <span class="w">VI</span> <span class="w lime">chega</span></div>
+    <div id="cal"><div class="hd">NOVEMBRO</div><div class="nm" id="calN">19</div></div>
+  </section>
+
+  <!-- B14: tap "Saiba mais" and start today -->
+  <section class="scene" id="s14">
+    <div id="flood"></div>
+    <img id="logo14" src="img/logo.png">
+    <div class="c" id="t14" style="top: 820px; font-size: 92px; font-weight: 900; color: var(--ink)"><span class="w">comece</span> <span class="w">hoje</span></div>
+    <div id="cta">Saiba mais</div>
+    <div id="ripple"></div>
+    <svg id="cursor14" viewBox="0 0 24 24"><path d="M4 2.5l15 9.2-6.6 1.4 3.8 7.3-3 1.5-3.8-7.3L4.6 19z" fill="#fff" stroke="#15101f" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <div id="legal">Produto digital independente, sem vínculo com a Rockstar Games. Resultados dependem da sua execução.</div>
+  </section>
+</div>
+<div id="grain"></div>
+</div>
+<script src="gsap.min.js"></script>
+<script src="timing.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
