@@ -139,9 +139,9 @@ function build() {
   // ================= s9 (16.5 – 20.7): "no dia da Black você garante um fone de ouvido oficial da marca por apenas R$ 1."
   tl.fromTo("#glow9", { scale: 0.7, opacity: 0.5 }, { scale: 1.1, opacity: 1, duration: 4.2, ease: "sine.inOut" }, 16.5);
   riseOn("#t9a", [W("no", 1), W("dia", 1), W("da", 1), W("black", 2), W("você", 3), W("garante")]);
-  slam("#hp", W("fone") - 0.05, 1.6);
-  float("#hp", W("fone") + 0.3, 1.8, 14);
-  tl.fromTo("#orbit", { scale: 0.6, opacity: 0, rotate: 0 }, { scale: 1, opacity: 1, rotate: 40, duration: 4.0, ease: "expo.out", immediateRender: false }, W("fone") - 0.05);
+  slam("#hp", W("no", 1) - 0.06, 1.6);
+  float("#hp", W("no", 1) + 0.3, 3.0, 14);
+  tl.fromTo("#orbit", { scale: 0.6, opacity: 0, rotate: 0 }, { scale: 1, opacity: 1, rotate: 40, duration: 4.0, ease: "expo.out", immediateRender: false }, W("no", 1) - 0.06);
   const sats = $$(".sat"), orb = { a: 0 };
   const orbDraw = () => sats.forEach((s, i) => {
     const ang = orb.a + i * Math.PI / 2;

@@ -90,7 +90,7 @@ place(sfx, impact(), 11.62, db(-9))
 place(sfx, ding(), 13.64, db(-8))                  # notificação Pix
 place(sfx, impact(), 13.98, db(-5)); place(sfx, cash(), 13.98, db(-3))
 place(sfx, pop(), 15.0, db(-9))                    # pílula das datas
-place(sfx, impact(), 17.95, db(-9))                # fone
+place(sfx, impact(), 16.5, db(-9))                 # fone
 for i in range(4): place(sfx, pop(), 18.58 + i * 0.08, db(-13))
 place(sfx, riser(1.4), 20.08 - 1.4, db(-9))
 place(sfx, impact(), 20.08, db(-5)); place(sfx, cash(), 20.08, db(-3))
