@@ -1,0 +1,40 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Inter Black,74,&H00FFFFFF,&H8CFFFFFF,&H64000000,&H8C000000,1,0,0,0,100,100,0,0,1,2,3,2,108,108,380,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.98,Default,,0,0,0,,{\c&HFFFFFF&}{\k34}E {\c&HFFFFFF&}{\k16}se {\c&HFFFFFF&}{\k24}você {\c&HFFFFFF&}{\k24}pudesse
+Dialogue: 0,0:00:00.98,0:00:02.04,Default,,0,0,0,,{\c&HFFFFFF&}{\k16}se {\c&HFFFFFF&}{\k40}planejar {\c&HFFFFFF&}{\k22}pra {\c&HFFFFFF&}{\k18}Black,
+Dialogue: 0,0:00:02.04,0:00:02.96,Default,,0,0,0,,{\c&HFFFFFF&}{\k24}sem {\c&HFFFFFF&}{\k34}ficar {\c&HFFFFFF&}{\k18}esperando {\c&HFFFFFF&}{\k16}pra
+Dialogue: 0,0:00:02.96,0:00:03.67,Default,,0,0,0,,{\c&HFFFFFF&}{\k30}última {\c&HFFFFFF&}{\k26}hora?
+Dialogue: 0,0:00:03.82,0:00:04.64,Default,,0,0,0,,{\c&HFFFFFF&}{\k12}Aqui {\c&HFFFFFF&}{\k16}na {\c&HFFFFFF&}{\k30}realme {\c&HFFFFFF&}{\k24}você
+Dialogue: 0,0:00:04.64,0:00:05.43,Default,,0,0,0,,{\c&HFFFFFF&}{\k22}já {\c&HFFFFFF&}{\k42}consegue.
+Dialogue: 0,0:00:06.02,0:00:06.74,Default,,0,0,0,,{\c&HFFFFFF&}{\k10}E {\c&HFFFFFF&}{\k20}por {\c&HFFFFFF&}{\k20}aqui {\c&HFFFFFF&}{\k22}a
+Dialogue: 0,0:00:06.74,0:00:07.87,Default,,0,0,0,,{\c&HFFFFFF&}{\k40}pré-Black {\c&HFFFFFF&}{\k20}já {\c&HFFFFFF&}{\k38}começou.
+Dialogue: 0,0:00:08.04,0:00:08.54,Default,,0,0,0,,{\c&HFFFFFF&}{\k16}Tem {\c&HFFFFFF&}{\k24}mais,
+Dialogue: 0,0:00:08.54,0:00:09.22,Default,,0,0,0,,{\c&HFFFFFF&}{\k10}aqui {\c&HFFFFFF&}{\k24}você {\c&HFFFFFF&}{\k10}tem {\c&HFFFFFF&}{\k24}um
+Dialogue: 0,0:00:09.22,0:00:10.06,Default,,0,0,0,,{\c&HFFFFFF&}{\k18}preço {\c&HFFFFFF&}{\k60}garantido.
+Dialogue: 0,0:00:10.06,0:00:10.68,Default,,0,0,0,,{\c&HFFFFFF&}{\k14}Se {\c&HFFFFFF&}{\k24}chegar {\c&HFFFFFF&}{\k12}no {\c&HFFFFFF&}{\k12}dia
+Dialogue: 0,0:00:10.68,0:00:11.26,Default,,0,0,0,,{\c&HFFFFFF&}{\k20}da {\c&HFFFFFF&}{\k16}Black {\c&HFFFFFF&}{\k12}e {\c&HFFFFFF&}{\k10}os
+Dialogue: 0,0:00:11.26,0:00:12.26,Default,,0,0,0,,{\c&HFFFFFF&}{\k16}preços {\c&HFFFFFF&}{\k22}estiverem {\c&HFFFFFF&}{\k46}diferentes {\c&HFFFFFF&}{\k16}do
+Dialogue: 0,0:00:12.26,0:00:12.97,Default,,0,0,0,,{\c&HFFFFFF&}{\k14}que {\c&HFFFFFF&}{\k20}já {\c&HFFFFFF&}{\k22}estão,
+Dialogue: 0,0:00:13.00,0:00:13.74,Default,,0,0,0,,{\c&HFFFFFF&}{\k12}eu {\c&HFFFFFF&}{\k10}te {\c&HFFFFFF&}{\k36}garanto {\c&HFFFFFF&}{\k16}o
+Dialogue: 0,0:00:13.74,0:00:14.59,Default,,0,0,0,,{\c&HFFFFFF&}{\k12}Pix {\c&HFFFFFF&}{\k12}de {\c&H6BE62E&}{\k46}R$ 1.000.
+Dialogue: 0,0:00:14.60,0:00:15.38,Default,,0,0,0,,{\c&HFFFFFF&}{\k18}E {\c&HFFFFFF&}{\k18}pra {\c&HFFFFFF&}{\k20}você {\c&HFFFFFF&}{\k22}que
+Dialogue: 0,0:00:15.38,0:00:16.56,Default,,0,0,0,,{\c&HFFFFFF&}{\k38}garantiu {\c&HFFFFFF&}{\k8}o {\c&HFFFFFF&}{\k16}seu {\c&HFFFFFF&}{\k42}realme,
+Dialogue: 0,0:00:16.56,0:00:17.18,Default,,0,0,0,,{\c&HFFFFFF&}{\k10}no {\c&HFFFFFF&}{\k12}dia {\c&HFFFFFF&}{\k26}da {\c&HFFFFFF&}{\k14}Black
+Dialogue: 0,0:00:17.18,0:00:18.18,Default,,0,0,0,,{\c&HFFFFFF&}{\k28}você {\c&HFFFFFF&}{\k38}garante {\c&HFFFFFF&}{\k16}um {\c&HFFFFFF&}{\k18}fone
+Dialogue: 0,0:00:18.18,0:00:19.20,Default,,0,0,0,,{\c&HFFFFFF&}{\k14}de {\c&HFFFFFF&}{\k26}ouvido {\c&HFFFFFF&}{\k42}oficial {\c&HFFFFFF&}{\k20}da
+Dialogue: 0,0:00:19.20,0:00:20.72,Default,,0,0,0,,{\c&HFFFFFF&}{\k24}marca {\c&HFFFFFF&}{\k24}por {\c&HFFFFFF&}{\k40}apenas {\c&H6BE62E&}{\k52}R$ 1.
+Dialogue: 0,0:00:20.72,0:00:21.38,Default,,0,0,0,,{\c&HFFFFFF&}{\k24}É {\c&HFFFFFF&}{\k16}isso {\c&HFFFFFF&}{\k20}mesmo,
+Dialogue: 0,0:00:21.38,0:00:22.02,Default,,0,0,0,,{\c&HFFFFFF&}{\k12}um {\c&HFFFFFF&}{\k14}fone {\c&HFFFFFF&}{\k18}de {\c&HFFFFFF&}{\k20}ouvido
+Dialogue: 0,0:00:22.02,0:00:23.08,Default,,0,0,0,,{\c&HFFFFFF&}{\k20}por {\c&HFFFFFF&}{\k34}apenas {\c&H6BE62E&}{\k38}R$ 1.
+Dialogue: 0,0:00:23.08,0:00:23.82,Default,,0,0,0,,{\c&HFFFFFF&}{\k8}Vai {\c&HFFFFFF&}{\k22}perder {\c&HFFFFFF&}{\k32}essa?
+Dialogue: 0,0:00:23.82,0:00:24.52,Default,,0,0,0,,{\c&HFFFFFF&}{\k16}Então {\c&HFFFFFF&}{\k10}vem {\c&HFFFFFF&}{\k12}pra {\c&HFFFFFF&}{\k32}realme
+Dialogue: 0,0:00:24.52,0:00:25.89,Default,,0,0,0,,{\c&HFFFFFF&}{\k16}do {\c&HFFFFFF&}{\k22}Plaza {\c&HFFFFFF&}{\k20}Shopping {\c&HFFFFFF&}{\k64}Carapicuíba.

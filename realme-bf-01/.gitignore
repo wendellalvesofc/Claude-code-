@@ -1,0 +1,7 @@
+out/remotion_raw.mp4
+analysis/*16k.wav
+analysis/stills/
+motion/node_modules/
+motion/out/
+motion/public/base.mp4
+motion/public/mix.wav
