@@ -43,10 +43,14 @@ def pop():
     return norm(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.03))
 
 def impact():
-    t = t_(0.8); f = 70 * np.exp(-t * 3) + 38
-    body = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.28)
-    crack = lp(rng.standard_normal(len(t)), 2500) * np.exp(-t / 0.04)
-    return norm(body + 0.5 * crack)
+    t = t_(1.1)
+    sub = np.sin(2 * np.pi * np.cumsum(62 * np.exp(-t * 2.2) + 32) / SR) * np.exp(-t / 0.42)
+    punch = np.sin(2 * np.pi * np.cumsum(180 * np.exp(-t * 30) + 70) / SR) * np.exp(-t / 0.06)
+    crack = hp(rng.standard_normal(len(t)), 1800) * np.exp(-t / 0.012)
+    x = sub + 0.7 * punch + 0.45 * crack
+    ir = rng.standard_normal(int(0.35 * SR)) * np.exp(-np.arange(int(0.35 * SR)) / (0.08 * SR))
+    tail = signal.fftconvolve(lp(x, 3000), ir)[:len(x)]
+    return norm(x + 0.08 * norm(tail))
 
 def riser(d=1.4):
     t = t_(d); f = 120 * (3000 / 120) ** (t / d)
@@ -70,35 +74,43 @@ def tick():
     t = t_(0.03); return hp(rng.standard_normal(len(t)), 3000) * np.exp(-t / 0.004)
 def ding():
     t = t_(0.6); return (np.sin(2*np.pi*1568*t) + 0.6*np.sin(2*np.pi*2093*t)) * np.exp(-t / 0.15)
-def click():
-    t = t_(0.04); return (hp(rng.standard_normal(len(t)), 1500) + np.sin(2*np.pi*2200*t)) * np.exp(-t / 0.006)
+def mouse_click():
+    # clique de mouse: "tec" do botão descendo e um "tec" mais fraco subindo 75 ms depois
+    out = np.zeros(int(0.2 * SR))
+    for at, g, f in [(0.0, 1.0, 3400), (0.075, 0.55, 3900)]:
+        t = t_(0.025)
+        body = np.sin(2 * np.pi * f * t) * np.exp(-t / 0.0025) + 0.5 * np.sin(2 * np.pi * 1150 * t) * np.exp(-t / 0.004)
+        snap = bp(rng.standard_normal(len(t)), 2500, 9000) * np.exp(-t / 0.0012)
+        place(out, (body + snap) * g, at)
+    return norm(out)
 
 sfx = np.zeros(N)
-# cortes: whoosh curto em cada troca de cena
-for c in [1.94, 3.52, 6.55, 8.0, 10.0, 12.95, 14.5, 16.5, 20.7, 23.0, 23.8, 27.0]:
-    place(sfx, whoosh(0.26), c - 0.16, db(-7))
-place(sfx, impact(), 0.0, db(-10))                 # quadro 0
-place(sfx, pop(), 0.72, db(-9)); place(sfx, pop(), 0.9, db(-10))   # "pudesse", calendário
-for k in range(12): place(sfx, tick(), 2.0 + k * 0.125, db(-8 if k % 2 else -4))  # relógio
-place(sfx, impact(), 3.26, db(-9))
-place(sfx, impact(), 4.07, db(-10)); place(sfx, pop(), 4.86, db(-9))   # realme / check
-place(sfx, impact(), 6.72, db(-6)); place(sfx, pop(), 7.3, db(-9)); place(sfx, pop(), 7.4, db(-11))  # pré-Black / fogo
-place(sfx, pop(), 9.14, db(-9)); place(sfx, impact(), 9.38, db(-11))   # escudo / garantido
-place(sfx, whoosh(0.3), 10.4, db(-9)); place(sfx, whoosh(0.3), 10.65, db(-9))  # cards
-for k in range(30): place(sfx, tick(), 10.75 + k * 0.07, db(-16))      # preço embaralhando
-place(sfx, impact(), 11.62, db(-9))
-place(sfx, ding(), 13.64, db(-8))                  # notificação Pix
-place(sfx, impact(), 13.98, db(-5)); place(sfx, cash(), 13.98, db(-3))
-place(sfx, pop(), 15.0, db(-9))                    # pílula das datas
-place(sfx, impact(), 16.5, db(-9))                 # fone
-for i in range(4): place(sfx, pop(), 18.58 + i * 0.08, db(-13))
-place(sfx, riser(1.4), 20.08 - 1.4, db(-9))
-place(sfx, impact(), 20.08, db(-5)); place(sfx, cash(), 20.08, db(-3))
-place(sfx, cash(), 22.56, db(-5)); place(sfx, impact(), 22.56, db(-10))
-place(sfx, pop(), 23.0, db(-8)); place(sfx, impact(), 23.36, db(-8))   # "essa?"
-place(sfx, impact(), 24.17, db(-10)); place(sfx, pop(), 24.58, db(-9)) # realme / pin
-place(sfx, pop(), 27.6, db(-9))
-place(sfx, click(), 28.55, db(-4)); place(sfx, whoosh(0.4, rev=True), 28.6, db(-12))
+# cortes: whoosh discreto nas trocas entre motion e gravação
+for c in [1.94, 3.52, 5.4, 6.05, 7.5, 9.5, 12.45, 14.0, 16.0, 20.2, 22.5, 23.3, 26.5]:
+    place(sfx, whoosh(0.24), c - 0.15, db(-11))
+place(sfx, impact(), 0.0, db(-7))                  # quadro 0
+place(sfx, pop(), 0.72, db(-10)); place(sfx, pop(), 0.9, db(-11))  # "pudesse", calendário
+for k in range(12): place(sfx, tick(), 2.0 + k * 0.125, db(-9 if k % 2 else -5))  # relógio
+place(sfx, impact(), 3.26, db(-9))                 # "hora?"
+place(sfx, impact(), 4.07, db(-12))                # realme
+place(sfx, impact(), 6.22, db(-5))                 # PRÉ-BLACK
+place(sfx, pop(), 6.8, db(-10)); place(sfx, pop(), 6.9, db(-12))   # fogo
+place(sfx, pop(), 8.64, db(-11))                   # escudo
+place(sfx, whoosh(0.3), 9.9, db(-11)); place(sfx, whoosh(0.3), 10.15, db(-11))  # cards
+for k in range(30): place(sfx, tick(), 10.25 + k * 0.07, db(-18))  # preço embaralhando
+place(sfx, impact(), 11.12, db(-9))                # "diferentes"
+place(sfx, ding(), 13.14, db(-8))                  # notificação Pix
+place(sfx, impact(), 13.48, db(-7)); place(sfx, cash(), 13.48, db(-7))
+place(sfx, pop(), 14.5, db(-11))                   # pílula das datas
+place(sfx, impact(), 16.0, db(-8))                 # fone
+for i in range(4): place(sfx, pop(), 18.08 + i * 0.08, db(-15))
+place(sfx, riser(1.4), 19.58 - 1.4, db(-11))
+place(sfx, impact(), 19.58, db(-4)); place(sfx, cash(), 19.58, db(-4))
+place(sfx, cash(), 22.06, db(-7)); place(sfx, impact(), 22.06, db(-12))
+place(sfx, pop(), 22.5, db(-10)); place(sfx, impact(), 22.86, db(-7))  # "essa?"
+place(sfx, pop(), 24.08, db(-10))                  # pin
+place(sfx, pop(), 27.1, db(-11))                   # botão
+place(sfx, mouse_click(), 28.05, db(-2))           # clique do mouse no botão
 
 # ---------------- Trilha original (124 BPM, Am–F–C–G) ----------------
 BPM = 124; beat = 60 / BPM; bar = 4 * beat
@@ -166,7 +178,7 @@ k = int(0.25 * SR); speech = np.convolve(speech, np.ones(k) / k, mode="same")
 speech = np.clip(speech * 3, 0, 1)
 duck = db(-8 * speech)
 
-music_bus = music * db(-22 + 9) * duck  # trilha ~-22 dB abaixo da referência da voz
+music_bus = music * 0  # sem trilha, a pedido do cliente
 sfx_bus = norm(sfx, 1.0) * db(-12 + 6)
 mix = voice + music_bus + sfx_bus
 # fades de 0.3 s
