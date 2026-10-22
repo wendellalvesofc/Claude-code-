@@ -12,13 +12,13 @@ const W = (txt, n = 0) => {
 };
 
 // trechos em que a gravação aparece (em tela cheia, sob os motions)
-const FOOT = [[3.52, 6.55], [8.0, 10.0], [14.5, 16.5], [20.7, 23.0], [23.8, 30.0]];
+const FOOT = [[3.52, 6.05], [7.5, 9.5], [14, 16], [20.2, 22.5], [23.3, 29.5]];
 // cenas: [id, início, fim, punch]
 const SCENES = [
-  ["#s1", 0, 1.94, 1.0], ["#s2", 1.94, 3.52, 1.12], ["#s3", 3.52, 6.55, 1.0], ["#s4", 6.55, 8.0, 1.15],
-  ["#s5", 8.0, 10.0, 1.0], ["#s6", 10.0, 12.95, 1.1], ["#s7", 12.95, 14.5, 1.12], ["#s8", 14.5, 16.5, 1.0],
-  ["#s9", 16.5, 20.7, 1.1], ["#s10", 20.7, 23.0, 1.0], ["#s11", 23.0, 23.8, 1.15], ["#s12", 23.8, 27.0, 1.0],
-  ["#s13", 27.0, 30.0, 1.0],
+  ["#s1", 0, 1.94, 1.0], ["#s2", 1.94, 3.52, 1.12], ["#s3", 3.52, 6.05, 1.0], ["#s4", 6.05, 7.5, 1.15],
+  ["#s5", 7.5, 9.5, 1.0], ["#s6", 9.5, 12.45, 1.1], ["#s7", 12.45, 14, 1.12], ["#s8", 14, 16, 1.0],
+  ["#s9", 16, 20.2, 1.1], ["#s10", 20.2, 22.5, 1.0], ["#s11", 22.5, 23.3, 1.15], ["#s12", 23.3, 26.5, 1.0],
+  ["#s13", 26.5, 29.5, 1.0],
 ];
 
 function build() {
@@ -75,36 +75,31 @@ function build() {
 
   // ================= s3 (3.52 – 6.55, gravação): "Aqui na realme você já consegue." / "E por aqui"
   riseOn("#t3a", [W("aqui"), W("na")]);
-  slam("#t3b", W("realme") - 0.03, 1.6);
-  riseOn("#t3c", [W("você", 1), W("já"), W("consegue")]);
-  pop("#chk3", W("consegue"));
-  out(["#t3a", "#t3b", "#t3c", "#chk3"], 5.62);
-  flash(5.73, 0.35);                           // o whip da câmera vira corte
-  riseOn("#t3d", [W("e", 1), W("por"), W("aqui", 1)]);
+  slam("#t3b", W("realme") - 0.03, 1.4);
+  out(["#t3a", "#t3b"], 5.22);
+  flash(5.4, 0.3);                             // corte seco para a 2ª gravação
 
   // ================= s4 (6.55 – 8.0): "a pré-Black já começou." (tela amarela)
-  rise("#t4a", 6.55);
+  rise("#t4a", 6.05);
   slam("#t4b", W("pré-black") - 0.02, 1.7);
   shake(W("pré-black"), 14);
   riseOn("#t4c", [W("já", 1), W("começou")]);
   pop("#fire2", W("começou") - 0.05, 0); pop("#fire1", W("começou") + 0.05, -20); pop("#fire3", W("começou") + 0.12, 20);
 
   // ================= s5 (8.0 – 10.0, gravação): "Tem mais, aqui você tem um preço garantido."
-  riseOn("#t5a", [W("tem"), W("mais")]);
-  out("#t5a", W("preço") - 0.15);
   pop("#shd5", W("preço") - 0.08);
-  slam("#t5b", W("preço") - 0.02, 1.4);
-  slam("#t5c", W("garantido") - 0.02, 1.5);
+  rise("#t5b", W("preço") - 0.05);
+  rise("#t5c", W("garantido") - 0.05);
 
   // ================= s6 (10.0 – 12.95): "Se chegar no dia da Black e os preços estiverem diferentes do que já estão,"
   riseOn("#t6a", [W("se", 2), W("chegar"), W("no"), W("dia"), W("da"), W("black", 1)]);
-  tl.fromTo("#cd1", { x: -500, rotate: -12, opacity: 0 }, { x: 0, rotate: -4, opacity: 1, duration: 0.5, ease: "back.out(1.6)", immediateRender: false }, 10.5);
-  tl.fromTo("#cd2", { x: 500, rotate: 12, opacity: 0 }, { x: 0, rotate: 4, opacity: 1, duration: 0.5, ease: "back.out(1.6)", immediateRender: false }, 10.75);
+  tl.fromTo("#cd1", { x: -500, rotate: -12, opacity: 0 }, { x: 0, rotate: -4, opacity: 1, duration: 0.5, ease: "back.out(1.6)", immediateRender: false }, 10);
+  tl.fromTo("#cd2", { x: 500, rotate: 12, opacity: 0 }, { x: 0, rotate: 4, opacity: 1, duration: 0.5, ease: "back.out(1.6)", immediateRender: false }, 10.25);
   // o preço da Black embaralha sem parar: é diferente, não importa o valor
   const scr = { t: 0 }, scrEl = $("#scr");
   const scrDraw = () => { const n = Math.floor(scr.t * 22); scrEl.textContent = "R$ " + ((n * 7919) % 9) + "." + String((n * 104729) % 1000).padStart(3, "0"); };
   scrDraw();
-  tl.fromTo(scr, { t: 0 }, { t: 2.2, duration: 2.2, ease: "none", onUpdate: scrDraw, immediateRender: false }, 10.75);
+  tl.fromTo(scr, { t: 0 }, { t: 2.2, duration: 2.2, ease: "none", onUpdate: scrDraw, immediateRender: false }, 10.25);
   pop("#neq", W("diferentes") - 0.05, 0);
   riseOn("#t6b", [W("e", 2), W("os"), W("preços"), W("estiverem")]);
   slam("#t6c", W("diferentes") - 0.03, 1.4);
@@ -132,12 +127,10 @@ function build() {
   }
 
   // ================= s8 (14.5 – 16.5, gravação): "E pra você que garantiu o seu realme,"
-  riseOn("#t8a", [W("e", 3), W("pra", 2), W("você", 2), W("que", 1), W("garantiu")]);
-  riseOn("#t8b", [W("o", 1), W("seu"), W("realme", 1)]);
-  tl.fromTo("#date8", { y: 160, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, 15.0);
+  tl.fromTo("#date8", { y: 160, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, 14.5);
 
   // ================= s9 (16.5 – 20.7): "no dia da Black você garante um fone de ouvido oficial da marca por apenas R$ 1."
-  tl.fromTo("#glow9", { scale: 0.7, opacity: 0.5 }, { scale: 1.1, opacity: 1, duration: 4.2, ease: "sine.inOut" }, 16.5);
+  tl.fromTo("#glow9", { scale: 0.7, opacity: 0.5 }, { scale: 1.1, opacity: 1, duration: 4.2, ease: "sine.inOut" }, 16);
   riseOn("#t9a", [W("no", 1), W("dia", 1), W("da", 1), W("black", 2), W("você", 3), W("garante")]);
   slam("#hp", W("no", 1) - 0.06, 1.6);
   float("#hp", W("no", 1) + 0.3, 3.0, 14);
@@ -148,7 +141,7 @@ function build() {
     s.style.left = 540 + Math.cos(ang) * 410 + "px"; s.style.top = 960 + Math.sin(ang) * 410 + "px";
   });
   orbDraw();
-  tl.fromTo(orb, { a: 0 }, { a: Math.PI * 1.2, duration: 4.2, ease: "none", onUpdate: orbDraw, immediateRender: false }, 16.5);
+  tl.fromTo(orb, { a: 0 }, { a: Math.PI * 1.2, duration: 4.2, ease: "none", onUpdate: orbDraw, immediateRender: false }, 16);
   sats.forEach((s, i) => pop(s, W("oficial") + i * 0.08, 0));
   riseOn("#t9b", [W("fone"), W("oficial")]);
   riseOn("#t9c", [W("da", 2), W("marca"), W("por", 1), W("apenas")]);
@@ -158,31 +151,26 @@ function build() {
   flash(W("r$ 1"), 0.45);
 
   // ================= s10 (20.7 – 23.0, gravação): "É isso mesmo, um fone de ouvido por apenas R$ 1."
-  riseOn("#t10a", [W("é"), W("isso"), W("mesmo")]);
-  riseOn("#t10b", [W("um", 2), W("fone", 1), W("por", 2), W("apenas", 1)]);
-  slam("#t10c", W("r$ 1", 1) - 0.02, 1.8);
-  shake(W("r$ 1", 1), 14);
+  slam("#t10c", W("r$ 1", 1) - 0.02, 1.5);
 
   // ================= s11 (23.0 – 23.8): "Vai perder essa?"
-  pop("#face", 23.0, -20);
-  tl.fromTo("#face", { rotate: -6 }, { rotate: 6, duration: 0.08, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, 23.35);
+  pop("#face", 22.5, -20);
+  tl.fromTo("#face", { rotate: -6 }, { rotate: 6, duration: 0.08, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, 22.85);
   riseOn("#t11a", [W("vai"), W("perder")]);
   slam("#t11b", W("essa") - 0.02, 1.6);
 
   // ================= s12 (23.8 – 27.0, gravação): "Então vem pra realme do Plaza Shopping Carapicuíba."
-  riseOn("#t12a", [W("então"), W("vem"), W("pra", 3)]);
-  slam("#t12b", W("realme", 2) - 0.03, 1.6);
   tl.fromTo("#loc12", { y: 160, opacity: 0, scale: 0.85 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, W("plaza") - 0.1);
 
   // ================= s13 (27.0 – 30.0): CTA sobre a fachada
-  tl.fromTo("#fimg", { filter: "blur(0px)" }, { filter: "blur(16px)", duration: 0.5, ease: "power2.out", immediateRender: false }, 27.0);
+  tl.fromTo("#fimg", { filter: "blur(0px)" }, { filter: "blur(16px)", duration: 0.5, ease: "power2.out", immediateRender: false }, 26.5);
   tl.set("#fimg", { filter: "blur(0px)" }, 0);
-  tl.fromTo("#dim13", { opacity: 0 }, { opacity: 1, duration: 0.5, immediateRender: false }, 27.0);
-  rise("#t13a", 27.05); rise("#t13b", 27.2); rise("#t13c", 27.4);
-  tl.fromTo("#t13c .g", { scale: 1.4 }, { scale: 1, duration: 0.3, ease: "expo.out", immediateRender: false }, 27.45);
-  tl.fromTo("#btn", { y: 160, scale: 0.85, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, 27.6);
-  tl.fromTo("#loc13", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out", immediateRender: false }, 27.8);
-  const CLICK = 28.55;
+  tl.fromTo("#dim13", { opacity: 0 }, { opacity: 1, duration: 0.5, immediateRender: false }, 26.5);
+  rise("#t13a", 26.55); rise("#t13b", 26.7); rise("#t13c", 26.9);
+  tl.fromTo("#t13c .g", { scale: 1.4 }, { scale: 1, duration: 0.3, ease: "expo.out", immediateRender: false }, 26.95);
+  tl.fromTo("#btn", { y: 160, scale: 0.85, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, 27.1);
+  tl.fromTo("#loc13", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out", immediateRender: false }, 27.3);
+  const CLICK = 28.05;
   tl.fromTo("#cursor", { x: 900, y: 1700, opacity: 0 }, { x: 640, y: 1110, opacity: 1, duration: 0.45, ease: "expo.out", immediateRender: false }, CLICK - 0.5);
   tl.to("#cursor", { scale: 0.85, duration: 0.08, yoyo: true, repeat: 1, transformOrigin: "35% 10%" }, CLICK);
   tl.to("#btn", { scale: 0.95, duration: 0.08, yoyo: true, repeat: 1, ease: "power1.out" }, CLICK);
@@ -197,7 +185,7 @@ function build() {
     D.push({ d, x: (i * 263) % 1080, y: (i * 571) % 1920, v: 18 + (i * 37) % 50, s: 0.5 + ((i * 13) % 10) / 10, o: 0.15 + ((i * 7) % 10) / 22 });
   }
   const dc = { t: 0 };
-  const DARK = [[0, 3.52], [12.95, 14.5], [16.5, 20.7], [27.0, 30.0]];
+  const DARK = [[0, 3.52], [12.45, 14], [16, 20.2], [26.5, 29.5]];
   const dustDraw = () => { dust.style.opacity = DARK.some(([a, b]) => dc.t >= a && dc.t < b) ? 1 : 0; D.forEach((p) => {
     p.d.style.transform = `translate(${p.x + Math.sin(dc.t * 0.7 + p.x) * 20}px, ${((p.y - dc.t * p.v) % 1920 + 1920) % 1920}px) scale(${p.s})`;
     p.d.style.opacity = p.o;
