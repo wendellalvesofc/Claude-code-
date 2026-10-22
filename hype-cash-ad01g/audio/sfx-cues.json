@@ -1,0 +1,322 @@
+[
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 0.0,
+  "gain_db": -12
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 0.05,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 1.0,
+  "gain_db": -18
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 1.73,
+  "gain_db": -20
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 1.8,
+  "gain_db": -20
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 1.87,
+  "gain_db": -20
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 1.94,
+  "gain_db": -20
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 2.01,
+  "gain_db": -20
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 1.82,
+  "gain_db": -14
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 4.36,
+  "gain_db": -15
+ },
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 4.96,
+  "gain_db": -14
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 5.6,
+  "gain_db": -14
+ },
+ {
+  "sfx": "glitch-1",
+  "cue_s": 6.18,
+  "gain_db": -16
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 6.32,
+  "gain_db": -12
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 6.95,
+  "gain_db": -18
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 8.35,
+  "gain_db": -16
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 8.48,
+  "gain_db": -16
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 8.7,
+  "gain_db": -16
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 10.05,
+  "gain_db": -15
+ },
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 10.12,
+  "gain_db": -15
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 11.12,
+  "gain_db": -16
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 11.17,
+  "gain_db": -16
+ },
+ {
+  "sfx": "glitch-3",
+  "cue_s": 12.41,
+  "gain_db": -18
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 12.77,
+  "gain_db": -16
+ },
+ {
+  "sfx": "glitch-3",
+  "cue_s": 14.0,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 14.28,
+  "gain_db": -13
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 15.26,
+  "gain_db": -11
+ },
+ {
+  "sfx": "whoosh-cinematic",
+  "cue_s": 15.75,
+  "gain_db": -15
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 15.96,
+  "gain_db": -13
+ },
+ {
+  "sfx": "sparkle",
+  "cue_s": 16.42,
+  "gain_db": -21
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 17.85,
+  "gain_db": -13
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 18.06,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 18.84,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 19.48,
+  "gain_db": -15
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 18.93,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 19.05,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 19.17,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 19.29,
+  "gain_db": -13
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 22.3,
+  "gain_db": -14
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 22.62,
+  "gain_db": -17
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 23.06,
+  "gain_db": -19
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 23.12,
+  "gain_db": -19
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 23.18,
+  "gain_db": -19
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 23.24,
+  "gain_db": -19
+ },
+ {
+  "sfx": "click",
+  "cue_s": 23.8,
+  "gain_db": -13
+ },
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 24.16,
+  "gain_db": -14
+ },
+ {
+  "sfx": "ping",
+  "cue_s": 24.27,
+  "gain_db": -19
+ },
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 24.74,
+  "gain_db": -14
+ },
+ {
+  "sfx": "click",
+  "cue_s": 25.2,
+  "gain_db": -11
+ },
+ {
+  "sfx": "notification",
+  "cue_s": 25.3,
+  "gain_db": -14
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 25.54,
+  "gain_db": -16
+ },
+ {
+  "sfx": "glitch-3",
+  "cue_s": 26.82,
+  "gain_db": -17
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 27.03,
+  "gain_db": -13
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 27.53,
+  "gain_db": -11
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 28.25,
+  "gain_db": -17
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 30.32,
+  "gain_db": -13
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 30.78,
+  "gain_db": -16
+ },
+ {
+  "sfx": "whoosh",
+  "cue_s": 31.74,
+  "gain_db": -14
+ },
+ {
+  "sfx": "error",
+  "cue_s": 32.75,
+  "gain_db": -25
+ },
+ {
+  "sfx": "whoosh-cinematic",
+  "cue_s": 33.4,
+  "gain_db": -14
+ },
+ {
+  "sfx": "impact-bass-1",
+  "cue_s": 33.5,
+  "gain_db": -13
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 33.51,
+  "gain_db": -15
+ },
+ {
+  "sfx": "click",
+  "cue_s": 34.04,
+  "gain_db": -10
+ },
+ {
+  "sfx": "sparkle",
+  "cue_s": 35.22,
+  "gain_db": -18
+ }
+]
