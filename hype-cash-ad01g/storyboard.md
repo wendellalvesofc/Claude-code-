@@ -28,12 +28,19 @@ O que **não** trouxe:
 
 **Validade:** criativo pré-lançamento (a frase da data vale até 19/11/2026; depois, trocar só essa linha).
 
+## Revisão do gancho (a pedido do dono)
+O gancho anterior era texto pequeno sobre preto, com um único vídeo pequeno: não dominava o quadro. Agora:
+- o quadro 0 é cheio de movimento e de cor (parede de vídeos);
+- o tempo perdido vira imagem (meses girando, horas de tela subindo);
+- "NÃO É PRA VOCÊ" ocupa a tela inteira;
+- o falso fim virou um desligar de TV, muito mais claro como quebra de padrão.
+
 ## Storyboard (16 cortes; uma ideia nova a cada ~1–2 s)
 | Tempo (s) | Locução | Tela | Composição e movimento | Som |
 |---|---|---|---|---|
-| 0,00–1,85 | "Se você vai passar os próximos meses" | Se você vai passar → os próximos **meses** · NOV DEZ JAN FEV MAR | Quadro 0: título + um vídeo de GTA 6 tocando (barra de progresso e tempo correndo). Os meses entram e acendem em lima | Grave + clique |
-| 1,85–4,38 | "só assistindo vídeo de GTA 6" | só **assistindo** / vídeo de GTA 6 | Um feed de vídeos (Trailer 2, Teorias, Mapa…) rola sem parar atrás do texto | Whoosh |
-| 4,38–6,34 | "esse vídeo não é pra você." | esse vídeo / **não é pra você.** (inclinado) | Fundo claro; cada palavra bate; tremida; a tela "apaga" como se o vídeo acabasse; falha de rebobinar | Grave · pop · glitch |
+| 0,00–1,85 | "Se você vai passar os próximos meses" | Se você vai **passar** → os próximos / **NOV DEZ JAN FEV MESES** | **Gancho refeito:** o quadro 0 já é uma parede inteira de vídeos de GTA 6 (Trailer 2 explicado, Teorias insanas, Tudo que vazou…) subindo em alta velocidade, com legenda pesada no centro. Em "próximos" um contador de meses gira como caça-níquel e trava em MESES com tranco | Grave + whoosh · 5 cliques do contador · impacto |
+| 1,85–4,38 | "só assistindo vídeo de GTA 6" | só **assistindo** · TEMPO DE TELA **0h → 312h** · vídeo de GTA **6** | Miniaturas voam em direção à câmera (túnel de conteúdo) enquanto o contador de horas assistidas acelera até 312h | Tique-taque acelerando · pop |
+| 4,38–6,34 | "esse vídeo não é pra você." | esse vídeo / **NÃO É / PRA / VOCÊ.** (gigante, inclinado) | Fundo claro; cada linha bate com tremida crescente. Depois **a tela se desliga como uma TV antiga** (colapsa numa linha branca, vira um ponto e apaga); falha de rebobinar e volta com "Agora," | 3 impactos · desligar + glitch |
 | 6,34–10,08 | "Agora, se você já pensou em criar conteúdo sobre esse hype," | **Agora,** → se você já pensou em / **criar conteúdo** / sobre esse hype, | Corte com tranco; três ícones 3D (microfone, câmera, play) entram em "criar conteúdo" | Impacto · pops |
 | 10,08–11,14 | "presta atenção." | presta / **atenção.** | Fundo claro, zoom forte | Grave |
 | 11,14–14,32 | "Não é falta de talento. Não é falta de tempo." | pílulas: Não é falta de ~~talento~~ · Não é falta de ~~tempo~~ | As pílulas empilham e cada palavra é riscada em rosa | Pops · glitch curto |

@@ -28,39 +28,78 @@ function build() {
   const shake = (at, px = 14) => tl.fromTo("#cam", { x: 0 }, { x: px, duration: 0.04, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, at).set("#cam", { x: 0 }, at + 0.25);
 
   // ================= sh1 (0 – 1.85): "Se você vai passar os próximos meses"
+  // frame 0: full-bleed wall of GTA 6 videos racing up, a heavy caption over it
   shot("#sh1", 0, 1.85, 1.0);
-  tl.fromTo("#t1a", { scale: 1.06 }, { scale: 1, duration: 0.8, ease: "expo.out" }, 0);   // on screen at frame 0
-  out("#t1a", E.proximos - 0.3);
-  // frame 0 already has motion: a GTA 6 video playing, its progress bar running
-  tl.set("#vbar", { scaleX: 0.62 }, 0);
-  const vt = { s: 724 }, vtime = $("#vtime");
-  tl.fromTo("#vbar", { scaleX: 0.62 }, { scaleX: 0.75, duration: 1.4, ease: "none" }, 0);
-  tl.fromTo(vt, { s: 724 }, { s: 760, duration: 1.4, ease: "none", onUpdate: () => { vtime.textContent = `${Math.floor(vt.s / 60)}:${String(Math.floor(vt.s % 60)).padStart(2, "0")} / 18:30`; } }, 0);
-  tl.fromTo("#vid1", { scale: 1 }, { scale: 1.04, duration: 1.4, ease: "none" }, 0);
-  tl.to("#vid1", { y: 140, opacity: 0, filter: "blur(12px)", duration: 0.25, ease: "power2.in" }, E.meses - 0.3);
-  riseOn("#t1b", [E.proximos - 0.24, E.proximos, E.meses]);
-  $("#months").innerHTML = ["NOV", "DEZ", "JAN", "FEV", "MAR"].map((m, i) => `<div class="mo" style="left:${90 + i * 185}px">${m}</div>`).join("");
-  tl.fromTo("#months .mo", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "expo.out", stagger: 0.07 }, E.meses - 0.1);
-  tl.to("#months .mo", { backgroundColor: "#d4ff3f", color: "#15101f", duration: 0.08, stagger: 0.07 }, E.meses + 0.15);
+  const VIDS = [["TRAILER 2 EXPLICADO", "#ff3fa2", "#3b1263"], ["TEORIAS INSANAS", "#3f8fff", "#160d3a"], ["MAPA COMPLETO", "#a83ffe", "#0f2a4a"], ["REACT AO TRAILER", "#ff8a3f", "#3a0f3f"],
+    ["TUDO QUE VAZOU", "#3fd4ff", "#1a1046"], ["EASTER EGGS", "#d4ff3f", "#16283a"], ["PERSONAGENS", "#ff3fa2", "#2a0f5c"], ["DATA CONFIRMADA", "#3f8fff", "#3b1263"],
+    ["GAMEPLAY?", "#a83ffe", "#3a0f3f"], ["10 DETALHES", "#ff8a3f", "#16283a"]];
+  const thumb = ([t, a, b], i) => `background: radial-gradient(circle at ${25 + (i * 37) % 55}% 45%, rgba(255,226,150,.9) 0 8%, transparent 20%), linear-gradient(180deg, ${a}, ${b} 85%)`;
+  let wall = "";
+  for (let i = 0; i < 20; i++) {
+    const v = VIDS[i % VIDS.length], col = i % 2, row = Math.floor(i / 2);
+    wall += `<div class="wv" style="left:${col ? 556 : 24}px; top:${row * 306 + (col ? 150 : 0)}px; ${thumb(v, i)}"><b>${v[0]}</b><u>${8 + (i * 7) % 15}:${String((i * 23) % 60).padStart(2, "0")}</u><i style="width:${20 + (i * 29) % 70}%"></i></div>`;
+  }
+  $("#wall1").innerHTML = wall;
+  tl.fromTo("#wall1", { y: -200 }, { y: -1700, duration: 1.85, ease: "power1.in" }, 0);
+  tl.fromTo("#t1a", { scale: 1.1 }, { scale: 1, duration: 0.6, ease: "expo.out" }, 0);   // on screen at frame 0
+  tl.to("#t1a", { y: -40, opacity: 0, filter: "blur(10px)", duration: 0.14, ease: "power2.in" }, E.proximos - 0.32);
+  riseOn("#t1b", [E.proximos - 0.24, E.proximos]);
+  // month slot: NOV → DEZ → JAN → FEV → MESES, each line punching through
+  const slot = [...document.querySelectorAll("#slot div")];
+  gsap.set(slot, { yPercent: 100 });   // outside the timeline: a set at 0 is not rendered by seek(0)
+  slot.forEach((d, i) => {
+    const at = E.proximos + 0.02 + i * 0.1;
+    tl.fromTo(d, { yPercent: 100 }, { yPercent: 0, duration: 0.09, ease: "power2.out", immediateRender: false }, at);
+    if (i < slot.length - 1) tl.to(d, { yPercent: -100, duration: 0.09, ease: "power2.in" }, at + 0.1);
+  });
+  tl.fromTo(slot[slot.length - 1], { scale: 1.25 }, { scale: 1, duration: 0.3, ease: "expo.out", immediateRender: false }, E.meses);
+  shake(E.meses + 0.02, 10);
 
-  // ================= sh2 (1.85 – 4.38): "só assistindo vídeo de GTA 6"
-  shot("#sh2", 1.85, 4.38);
-  const FEED = [["TRAILER 2", "#ff3fa2", "#3b1263"], ["TEORIAS", "#3f8fff", "#160d3a"], ["MAPA", "#a83ffe", "#0f2a4a"], ["REACT", "#ff8a3f", "#3a0f3f"],
-    ["NOTÍCIAS", "#3fd4ff", "#1a1046"], ["EASTER EGGS", "#d4ff3f", "#16283a"], ["PERSONAGENS", "#ff3fa2", "#2a0f5c"], ["GAMEPLAY", "#3f8fff", "#3b1263"]];
-  $("#feed").innerHTML = FEED.map(([t, a, b], i) => `<div class="fv" style="background: radial-gradient(circle at ${30 + i * 8}% 40%, rgba(255,226,150,.85) 0 7%, transparent 18%), linear-gradient(180deg, ${a}, ${b} 85%)"><b>${t}</b><i style="width:${30 + (i * 17) % 60}%"></i></div>`).join("");
-  tl.fromTo("#feed", { y: 200 }, { y: -2400, duration: 2.6, ease: "power1.in" }, 1.85);
+  // ================= sh2 (1.85 – 4.38): "só assistindo vídeo de GTA 6" — screen time ticking up
+  shot("#sh2", 1.85, 4.38, 1.12);
+  tl.fromTo("#glow2", { scale: 0.6, opacity: 0.5 }, { scale: 1.15, opacity: 1, duration: 2.5, ease: "sine.inOut" }, 1.85);
+  // thumbnails flying past the camera (hyperspace of content)
+  const FLY = 16, flyEls = [];
+  for (let i = 0; i < FLY; i++) {
+    const el = document.createElement("div"); el.className = "fl";
+    el.setAttribute("style", thumb(VIDS[i % VIDS.length], i));
+    $("#fly").appendChild(el); flyEls.push({ el, a: i * 2.39996, ph: (i / FLY) });
+  }
+  const fc = { t: 0 };
+  const flyDraw = () => {
+    for (const f of flyEls) {
+      const p = (fc.t * 0.55 + f.ph) % 1;                 // 0 = far, 1 = at the camera
+      const z = -2600 + p * 3200, r = 260 + p * 520;
+      f.el.style.transform = `translate3d(${Math.cos(f.a) * r}px, ${Math.sin(f.a) * r * 1.4}px, ${z}px)`;
+      f.el.style.opacity = (Math.min(1, p * 3) * (1 - Math.max(0, (p - 0.85) / 0.15)) * 0.8).toFixed(3);
+    }
+  };
+  flyDraw();
+  tl.fromTo(fc, { t: 0 }, { t: 2.6, duration: 2.6, ease: "none", onUpdate: flyDraw, immediateRender: false }, 1.85);
   riseOn("#t2a", [E.so, E.assistindo]);
+  tl.fromTo("#t2a .pink", { scale: 1.3 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, E.assistindo - 0.05);
+  rise("#hrsL", 1.95);
+  const hc = { h: 0 }, hrs = $("#hrs");
+  tl.fromTo(hc, { h: 0 }, { h: 312, duration: 2.3, ease: "power2.in", onUpdate: () => { hrs.textContent = `${Math.round(hc.h)}h`; }, immediateRender: false }, 1.95);
+  tl.fromTo("#hrs", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "expo.out" }, 1.9);
+  tl.to("#hrs", { scale: 1.08, duration: 2.2, ease: "power1.in" }, 2.2);
   riseOn("#t2b", [E.video, E.video + 0.2, E.gta, E.gta + 0.3]);
 
-  // ================= sh3 (4.38 – 6.34): "esse vídeo não é pra você." then a fake ending and a rewind glitch
-  shot("#sh3", 4.38, 6.34);
+  // ================= sh3 (4.38 – 6.34): "esse vídeo não é pra você." then the screen switches off like an old TV
+  shot("#sh3", 4.38, 6.2, 1.0);
+  tl.fromTo("#sh3", { backgroundColor: "#ffffff" }, { backgroundColor: "#f5f2f9", duration: 0.25 }, 4.38);
   riseOn("#t3a", [E.esse, E.esse + 0.2]);
-  tl.set("#t3b", { rotate: -4 }, 0);
-  $("#t3b").querySelectorAll(".w").forEach((w, i) => slam(w, [E.nao, E.nao + 0.32, E.pra, E.voce][i] - 0.04, 1.6));
-  shake(E.voce + 0.05, 10);
-  tl.to(["#t3a", "#t3b"], { scale: 0.9, opacity: 0.25, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, 6.0);
-  tl.to("#rgb", { opacity: 1, duration: 0.03, yoyo: true, repeat: 5 }, 6.2);
-  shake(6.2, 26);
+  tl.set(["#b3a", "#b3b", "#b3c"], { rotate: -5 }, 0);
+  [["#b3a", E.nao], ["#b3b", E.pra], ["#b3c", E.voce]].forEach(([s, at], i) => { slam(s, at - 0.04, 1.9); shake(at, 8 + i * 6); });
+  tl.to("#b3c", { scale: 1.06, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, E.voce + 0.3);
+  // CRT power-off: the picture collapses to a bright line, then to a dot, then black
+  gsap.set("#cam", { filter: "brightness(1)" });
+  tl.fromTo("#cam", { scaleY: 1, filter: "brightness(1)" }, { scaleY: 0.006, filter: "brightness(2.5)", duration: 0.14, ease: "power3.in", immediateRender: false }, 5.92);
+  tl.to("#cam", { scaleX: 0.02, duration: 0.1, ease: "power3.in" }, 6.06);
+  tl.set("#cam", { opacity: 0 }, 6.17);
+  tl.set("#cam", { scaleX: 1, scaleY: 1, filter: "brightness(1)", opacity: 1 }, 6.3);
+  tl.to("#rgb", { opacity: 1, duration: 0.03, yoyo: true, repeat: 3 }, 6.2);
+  shake(6.3, 26);
 
   // ================= sh4 (6.34 – 10.08): "Agora, se você já pensou em criar conteúdo sobre esse hype,"
   shot("#sh4", 6.34, 10.08, 1.15);

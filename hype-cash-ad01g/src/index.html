@@ -45,14 +45,25 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 #rgb { position: absolute; inset: 0; z-index: 45; pointer-events: none; opacity: 0;
   background: repeating-linear-gradient(0deg, rgba(255,63,162,.35) 0 6px, rgba(63,143,255,.3) 6px 12px, rgba(0,0,0,0) 12px 40px); }
 
-/* sh1 */
-.mo { position: absolute; top: 1000px; width: 170px; height: 110px; border-radius: 22px; background: #16111f; border: 2px solid #2b2340; display: grid; place-items: center; font: 800 44px Poppins; color: #fff; }
-/* sh2 feed */
-#feed { position: absolute; left: 190px; top: 0; width: 700px; }
-.fv { width: 700px; height: 394px; margin-bottom: 26px; border-radius: 30px; overflow: hidden; position: relative; opacity: .5; }
-.fv b { position: absolute; left: 26px; bottom: 22px; font: 800 44px Poppins; color: #fff; text-shadow: 0 3px 10px rgba(0,0,0,.6); }
-.fv i { position: absolute; left: 0; bottom: 0; height: 8px; background: var(--pink); }
-#sh2shade { background: linear-gradient(180deg, rgba(7,5,11,.95) 0%, rgba(7,5,11,.55) 30%, rgba(7,5,11,.55) 70%, rgba(7,5,11,.95) 100%); }
+/* sh1: wall of GTA 6 videos racing by, months flipping */
+#wall1 { position: absolute; left: 0; top: 0; width: 1080px; }
+.wv { position: absolute; width: 500px; height: 282px; border-radius: 26px; overflow: hidden; }
+.wv b { position: absolute; left: 22px; top: 18px; font: 900 46px/1 Poppins; color: #fff; letter-spacing: -.03em; text-shadow: 0 4px 0 rgba(0,0,0,.35), 0 0 20px rgba(0,0,0,.4); max-width: 420px; }
+.wv u { position: absolute; right: 14px; bottom: 16px; font: 700 24px Inter; text-decoration: none; color: #fff; background: rgba(0,0,0,.7); padding: 2px 10px; border-radius: 7px; }
+.wv i { position: absolute; left: 0; bottom: 0; height: 8px; background: var(--pink); }
+#shade1 { background: radial-gradient(ellipse 90% 34% at 50% 50%, rgba(7,5,11,.92) 0%, rgba(7,5,11,.75) 60%, rgba(7,5,11,.35) 100%); }
+.cap { position: absolute; left: 60px; width: 960px; text-align: center; font: 900 128px/1 Poppins; letter-spacing: -.045em; color: #fff; text-shadow: 0 10px 40px rgba(0,0,0,.7); }
+#slot { position: absolute; left: 0; top: 820px; width: 1080px; height: 330px; overflow: hidden; }
+#slot div { position: absolute; left: 0; top: 0; width: 1080px; text-align: center; font: 900 330px/1 Poppins; letter-spacing: -.06em; color: var(--lime); text-shadow: 0 0 60px rgba(212,255,63,.35); }
+/* sh2: the watch-time counter */
+#glow2 { left: 40px; top: 560px; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(255,63,162,.35), rgba(168,63,254,.12) 45%, rgba(0,0,0,0) 70%); }
+#fly { position: absolute; inset: 0; perspective: 900px; perspective-origin: 540px 1000px; }
+.fl { position: absolute; left: 390px; top: 915px; width: 300px; height: 170px; border-radius: 18px; }
+#hrs { position: absolute; left: 0; top: 760px; width: 1080px; text-align: center; font: 900 330px/1 Poppins; letter-spacing: -.06em; color: #fff; }
+#hrsL { position: absolute; left: 0; top: 700px; width: 1080px; text-align: center; font: 700 32px Inter; letter-spacing: .32em; color: rgba(255,255,255,.65); }
+/* sh3: the slam + CRT power-off */
+#sh3 .big3 { position: absolute; left: 60px; width: 960px; text-align: center; font: 900 220px/0.92 Poppins; letter-spacing: -.055em; color: var(--pink); }
+#crt { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #fff; opacity: 0; z-index: 44; transform-origin: 50% 50%; }
 /* sh9 phone */
 #glow9 { left: 140px; top: 520px; width: 800px; height: 1100px; background: radial-gradient(ellipse, rgba(168,63,254,.45), rgba(255,63,162,.18) 45%, rgba(245,242,249,0) 70%); }
 #phone { position: absolute; left: 310px; top: 560px; width: 460px; height: 970px; border-radius: 72px; padding: 10px; background: linear-gradient(145deg, #4a4360, #15121f 45%, #2a2438);
@@ -88,31 +99,33 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 </head>
 <body>
 <div id="root"><div id="cam">
-  <!-- sh1: the months of only watching -->
+  <!-- sh1: a wall of GTA 6 videos racing by -->
   <section class="scene" id="sh1" style="visibility: visible">
-    <div class="c" id="t1a" style="top: 760px; font-size: 96px"><span class="w">Se</span> <span class="w">você</span> <span class="w">vai</span> <span class="w">passar</span></div>
-    <div class="c" id="t1b" style="top: 760px; font-size: 96px"><span class="w">os</span> <span class="w">próximos</span> <span class="w lime">meses</span></div>
-    <div id="months"></div>
-    <div id="vid1" style="position: absolute; left: 190px; top: 960px; width: 700px; height: 394px; border-radius: 30px; overflow: hidden; background: radial-gradient(circle at 68% 42%, rgba(255,226,150,.9) 0 7%, transparent 18%), linear-gradient(180deg, #a83ffe, #ff3fa2 60%, #2a0f5c 61%, #12081f)">
-      <div style="position: absolute; left: 26px; top: 22px; font: 800 40px Poppins; color: #fff">GTA 6: TUDO DO TRAILER</div>
-      <div style="position: absolute; left: 0; bottom: 0; width: 100%; height: 10px; background: rgba(255,255,255,.25)"><div id="vbar" style="width: 100%; height: 100%; background: var(--pink); transform-origin: 0 50%"></div></div>
-      <div id="vtime" style="position: absolute; right: 20px; bottom: 24px; font: 700 28px Inter; color: #fff; background: rgba(0,0,0,.6); padding: 4px 12px; border-radius: 8px">12:04 / 18:30</div>
-    </div>
+    <div id="wall1"></div>
+    <div class="full" id="shade1"></div>
+    <div class="cap" id="t1a" style="top: 830px"><span class="w">Se</span> <span class="w">você</span> <span class="w">vai</span> <span class="w lime">passar</span></div>
+    <div class="cap" id="t1b" style="top: 660px; font-size: 104px"><span class="w">os</span> <span class="w">próximos</span></div>
+    <div id="slot"><div>NOV</div><div>DEZ</div><div>JAN</div><div>FEV</div><div>MESES</div></div>
   </section>
 
-  <!-- sh2: just watching GTA 6 videos -->
+  <!-- sh2: hours of watching ticking up -->
   <section class="scene" id="sh2">
-    <div id="feed"></div>
-    <div class="full" id="sh2shade"></div>
-    <div class="c" id="t2a" style="top: 760px; font-size: 104px"><span class="w">só</span> <span class="w pink">assistindo</span></div>
-    <div class="c" id="t2b" style="top: 880px; font-size: 80px"><span class="w">vídeo</span> <span class="w">de</span> <span class="w">GTA</span> <span class="w">6</span></div>
+    <div class="glow" id="glow2"></div>
+    <div id="fly"></div>
+    <div class="cap" id="t2a" style="top: 330px; font-size: 110px"><span class="w">só</span> <span class="w pink">assistindo</span></div>
+    <div id="hrsL">TEMPO DE TELA</div>
+    <div id="hrs">0h</div>
+    <div class="cap" id="t2b" style="top: 1130px; font-size: 84px"><span class="w">vídeo</span> <span class="w">de</span> <span class="w">GTA</span> <span class="w lime">6</span></div>
   </section>
 
-  <!-- sh3: this video is not for you (fake ending) -->
+  <!-- sh3: this video is not for you — then the screen switches off like an old TV -->
   <section class="scene white" id="sh3">
-    <div class="c" id="t3a" style="top: 700px; font-size: 84px; color: var(--ink)"><span class="w">esse</span> <span class="w">vídeo</span></div>
-    <div class="c" id="t3b" style="top: 810px; font-size: 120px"><span class="w pink">não</span> <span class="w pink">é</span> <span class="w pink">pra</span> <span class="w pink">você.</span></div>
+    <div class="cap" id="t3a" style="top: 470px; font-size: 96px; color: var(--ink); text-shadow: none"><span class="w">esse</span> <span class="w">vídeo</span></div>
+    <div class="big3" id="b3a" style="top: 640px">NÃO É</div>
+    <div class="big3" id="b3b" style="top: 850px">PRA</div>
+    <div class="big3" id="b3c" style="top: 1060px">VOCÊ.</div>
   </section>
+  <div id="crt"></div>
 
   <!-- sh4: now, if you've thought about creating -->
   <section class="scene" id="sh4">

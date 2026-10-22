@@ -82,10 +82,14 @@ write(root / "audio/music.wav", np.tanh(1.2 * mus) / 1.2 * .8)
 
 # graphic actions → sfx (file, time, gain dB, max length s)
 CUES = (
-    [("impact-bass-2", 0.0, -12, .5), ("click-soft", 0.05, -18, .2), ("whoosh-short", 1.0, -18, .3)] +
-    [("click-soft", E["meses"] + .15 + i * .07, -20, .15) for i in range(5)] +
-    [("whoosh", 1.82, -14, .4), ("whoosh-short", 4.36, -15, .35), ("impact-bass-2", E["nao"] - .02, -14, .4), ("pop", E["voce"] - .02, -14, .3),
-     ("glitch-1", 6.18, -16, .3), ("impact-bass-1", E["agora"] - .04, -12, .6), ("whoosh-short", 6.95, -18, .3)] +
+    [("impact-bass-2", 0.0, -12, .5), ("whoosh", 0.02, -16, .5), ("riser", 0.1, -24, 1.5)] +
+    [("click", E["proximos"] + .02 + i * .1, -15, .12) for i in range(5)] +
+    [("impact-bass-1", E["meses"] - .02, -13, .6), ("whoosh", 1.82, -14, .4)] +
+    [("click-soft", 2.0 + i * .14 * (1 - i / 22), -21, .1) for i in range(16)] +
+    [("pop", E["assistindo"] - .04, -15, .3), ("whoosh-short", 4.36, -15, .35)] +
+    [("impact-bass-2", t - .03, -13, .4) for t in (E["nao"], E["pra"], E["voce"])] +
+    [("glitch-2", 5.93, -17, .3), ("impact-bass-1", 6.16, -16, .5), ("glitch-1", 6.2, -16, .25),
+     ("impact-bass-1", E["agora"] - .04, -12, .6), ("whoosh-short", 6.95, -18, .3)] +
     [("pop", t, -16, .3) for t in (E["criar"] + .05, E["criar"] + .18, E["conteudo"] + .2)] +
     [("whoosh-short", 10.05, -15, .35), ("impact-bass-2", E["presta"] - .04, -15, .4), ("whoosh-short", 11.12, -16, .35),
      ("pop", E["nao1"] - .03, -16, .3), ("glitch-3", E["talento"] + .35, -18, .25), ("pop", E["nao2"] - .03, -16, .3), ("glitch-3", E["tempo"] + .3, -18, .25),
