@@ -30,23 +30,37 @@ Não usei:
 
 **Validade:** criativo pré-lançamento; depois de 19/11/2026 troca-se só a frase da data. O anúncio deve usar o botão **"Saiba mais"** no Meta, que é o que a narração pede.
 
+## Revisão de identidade e impacto (a pedido do dono)
+A primeira versão usava fundos chapados em lima, rosa e branco, e não tinha a cara da marca. Agora tudo segue o `styles/tokens.css` do app:
+- **Fundo:** noite "Vice City" (`#0a0612` / `#150c24`).
+- **Cor principal:** o degradê pôr do sol (`#ff3fa2 → #a83ffe → #3f8fff`) nas palavras-chave, nos flashes e nas cenas cheias.
+- **Superfícies:** cards de vidro escuro com borda clara, no lugar de cards brancos.
+- **Lima:** só como detalhe pequeno (✓ e ícone).
+
+Para dar mais impacto:
+- Uma **grade neon em perspectiva** com linha do horizonte (assinatura synthwave/Vice City) fica correndo o tempo todo.
+- A **luz de fundo muda de cor a cada batida**.
+- **Flashes em degradê** marcam os cortes.
+- O texto tem **aberração cromática** (contorno rosa e azul), e o tranco de câmera ficou maior.
+- O planeta virou um planeta noturno com continentes neon.
+
 ## Storyboard (14 batidas)
 | Tempo (s) | Locução | Tela | Objeto / movimento | Fundo |
 |---|---|---|---|---|
-| 0,00–1,62 | "O mundo inteiro vai parar" | O mundo inteiro / vai **parar** | Planeta girando desde o quadro 0; em "parar" ele trava, perde a cor e um botão de **pausa** salta na frente; tremida | Preto + poeira |
-| 1,62–3,25 | "pra ver GTA 6," | *pra ver* · ▶ · **GTA VI** | Play gigante entra girando; "GTA VI" bate | **Rosa** |
-| 3,25–6,42 | "Milhões de pessoas procurando vídeo, notícia, teoria." | **1.000.000+** · pessoas procurando · vídeo / notícia / teoria | Contador dispara; balões de busca ("gta 6 trailer", "gta 6 mapa"); três cartões com ícones 3D entram da direita | Preto + poeira |
-| 6,42–7,22 | "E você?" | **E você?** | Palavra gigante bate, tremida forte | **Lima** |
-| 7,22–10,65 | "Vai ser só mais um assistindo… ou quem eles vão assistir?" | Só mais um *assistindo…* · [Espectador ◯ Criador] · ou quem eles vão **assistir?** | Interruptor; o cursor clica e ele passa de **Espectador** para **Criador** (brilho rosa) | Preto + poeira |
-| 10,65–14,62 | "O problema não é o celular. Não é a edição. Não é o tempo." | *O problema* · **Não é** [o celular → a edição → o tempo] | Roleta de cartões com ícones 3D; cada um é riscado e sai | **Roxo** |
-| 14,62–16,80 | "É não saber por onde começar." | É não saber / *por onde **começar.*** | Interrogações 3D flutuando | **Claro** |
-| 16,80–20,35 | "Por isso existe o Hype Cash: um playbook interativo" | *Por isso existe o* · [LOGO] · PLAYBOOK INTERATIVO | Logo em slam, anéis rosa pulsando | Preto + poeira |
-| 20,35–24,45 | "que te guia missão por missão, com checklist, progresso e ferramentas." | missão por **missão** · Checklist · Progresso · Ferramentas | **Único momento com celular (~4 s)**: Mapa de Missões → checklist marcando 1→4 → Progresso 14 % → Central de Ferramentas rolando | **Azul** |
-| 24,45–25,55 | "Sem enrolação." | **Sem enrolação.** | Um fio enrolado é puxado e vira uma linha reta | **Lima** |
-| 25,55–27,32 | "Sem promessa de dinheiro fácil." | *Sem promessa de* ~~dinheiro fácil.~~ | Moeda 3D com sinal de proibido | Preto |
-| 27,32–28,46 | "Só o próximo passo." | Só o próximo **passo.** | Três setas avançando | **Rosa** |
-| 28,46–31,46 | "GTA 6 chega dia 19 de novembro." | GTA VI **chega** · [NOVEMBRO 19] | Cartão de calendário vira para a frente; "19" bate | Preto + poeira |
-| 31,46–35,00 | "Toque em saiba mais e comece hoje." | **Saiba mais** → [LOGO] · comece hoje · aviso legal | O cursor clica em "Saiba mais" e a cor **inunda a tela** a partir do botão; logo e "comece hoje" | Claro → **degradê da marca** |
+| 0,00–1,62 | "O mundo inteiro vai parar" | O mundo inteiro / vai **parar** | Planeta girando desde o quadro 0; em "parar" ele trava, perde a cor e um botão de **pausa** salta na frente; tremida | Noite Vice City + grade neon + poeira |
+| 1,62–3,25 | "pra ver GTA 6," | *pra ver* · ▶ · **GTA VI** | Play gigante entra girando; "GTA VI" bate | **Degradê pôr do sol** (rosa → roxo → azul) |
+| 3,25–6,42 | "Milhões de pessoas procurando vídeo, notícia, teoria." | **1.000.000+** · pessoas procurando · vídeo / notícia / teoria | Contador dispara; balões de busca ("gta 6 trailer", "gta 6 mapa"); três cartões com ícones 3D entram da direita | Noite Vice City + grade neon + poeira |
+| 6,42–7,22 | "E você?" | **E você?** | Palavra gigante bate, tremida forte | Noite + luz rosa |
+| 7,22–10,65 | "Vai ser só mais um assistindo… ou quem eles vão assistir?" | Só mais um *assistindo…* · [Espectador ◯ Criador] · ou quem eles vão **assistir?** | Interruptor; o cursor clica e ele passa de **Espectador** para **Criador** (brilho rosa) | Noite Vice City + grade neon + poeira |
+| 10,65–14,62 | "O problema não é o celular. Não é a edição. Não é o tempo." | *O problema* · **Não é** [o celular → a edição → o tempo] | Roleta de cartões com ícones 3D; cada um é riscado e sai | Noite + luz roxa |
+| 14,62–16,80 | "É não saber por onde começar." | É não saber / *por onde **começar.*** | Interrogações 3D flutuando | Noite + luz azul |
+| 16,80–20,35 | "Por isso existe o Hype Cash: um playbook interativo" | *Por isso existe o* · [LOGO] · PLAYBOOK INTERATIVO | Logo em slam, anéis rosa pulsando | Noite Vice City + grade neon + poeira |
+| 20,35–24,45 | "que te guia missão por missão, com checklist, progresso e ferramentas." | missão por **missão** · Checklist · Progresso · Ferramentas | **Único momento com celular (~4 s)**: Mapa de Missões → checklist marcando 1→4 → Progresso 14 % → Central de Ferramentas rolando | Noite + luz roxa/azul |
+| 24,45–25,55 | "Sem enrolação." | **Sem enrolação.** | Um fio enrolado é puxado e vira uma linha reta | Noite + luz rosa |
+| 25,55–27,32 | "Sem promessa de dinheiro fácil." | *Sem promessa de* ~~dinheiro fácil.~~ | Moeda 3D com sinal de proibido | Noite + luz violeta |
+| 27,32–28,46 | "Só o próximo passo." | Só o próximo **passo.** | Três setas avançando | **Degradê pôr do sol** (rosa → roxo → azul) |
+| 28,46–31,46 | "GTA 6 chega dia 19 de novembro." | GTA VI **chega** · [NOVEMBRO 19] | Cartão de calendário vira para a frente; "19" bate | Noite Vice City + grade neon + poeira |
+| 31,46–35,00 | "Toque em saiba mais e comece hoje." | **Saiba mais** → [LOGO] · comece hoje · aviso legal | O cursor clica em "Saiba mais" e a cor **inunda a tela** a partir do botão; logo e "comece hoje" | Noite → **degradê pôr do sol** inunda a tela |
 
 Aviso: "Produto digital independente, sem vínculo com a Rockstar Games. Resultados dependem da sua execução."
 

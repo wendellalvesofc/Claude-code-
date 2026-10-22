@@ -12,7 +12,7 @@ function build() {
   const PRE = { d11: box($("#t11b").querySelectorAll(".w")[0]), f11: box($("#t11b").querySelectorAll(".w")[1]) };
 
   // ---- helpers: hard cuts with a camera punch, words that land on the narration
-  const shot = (id, a, b, punch = 1.1) => {
+  const shot = (id, a, b, punch = 1.18) => {
     tl.set(id, { visibility: "visible" }, a); tl.set(id, { visibility: "hidden" }, b);
     tl.fromTo(id, { scale: punch }, { scale: 1, duration: 0.4, ease: "expo.out", immediateRender: false }, a);
   };
@@ -32,6 +32,15 @@ function build() {
   });
   drawDust();
   tl.fromTo(dk, { t: 0 }, { t: 35, duration: 35, ease: "none", onUpdate: drawDust, immediateRender: false }, 0);
+
+  // Vice City night (the app's identity): a neon grid floor always moving, a colour wash that changes per beat, sunset flashes on the hard cuts
+  tl.fromTo("#gridf", { backgroundPosition: "0px 0px" }, { backgroundPosition: "0px 4200px", duration: 35, ease: "none" }, 0);
+  const WASH = { pink: "rgba(255,63,162,.55)", purple: "rgba(168,63,254,.6)", blue: "rgba(63,143,255,.55)", deep: "rgba(90,23,201,.6)" };
+  const wash = (c, at, y = 42) => tl.set("#wash", { background: `radial-gradient(ellipse 80% 55% at 50% ${y}%, ${WASH[c]}, rgba(10,6,18,0) 70%)` }, at);
+  [["purple", 0], ["pink", 3.25], ["pink", 6.42, 50], ["blue", 7.22], ["purple", 10.65], ["blue", 14.62], ["pink", 16.8], ["purple", 20.35], ["pink", 24.45], ["deep", 25.55], ["purple", 28.46], ["pink", 31.46]]
+    .forEach(([c, at, y]) => wash(c, at, y));
+  const flashG = (at, o = 0.75) => tl.fromTo("#flashG", { opacity: o }, { opacity: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, at);
+  [1.62, 6.42, 10.65, 16.8, 20.35, 24.45, 28.46].forEach((t) => flashG(t));
 
   // ================= B1 (0 – 1.62): "O mundo inteiro vai parar" — the planet stops
   shot("#s1", 0, 1.62, 1.0);
@@ -190,7 +199,7 @@ function build() {
   tl.to("#cta", { scale: 0.93, duration: 0.08, yoyo: true, repeat: 1 }, E.saiba + 0.08);
   tl.fromTo("#ripple", { left: 570, top: 1130, scale: 0.4, opacity: 0.9 }, { scale: 5, opacity: 0, duration: 0.6, ease: "expo.out" }, E.saiba + 0.12);
   tl.fromTo("#flood", { scale: 0 }, { scale: 24, duration: 0.45, ease: "power3.in" }, E.saiba + 0.14);
-  tl.to("#cta", { backgroundColor: "#ffffff", color: "#ff3fa2", duration: 0.15 }, E.saiba + 0.5);
+  tl.set("#cta", { background: "#0a0612", boxShadow: "0 0 0 4px rgba(255,255,255,.5), 0 0 80px rgba(10,6,18,.6)" }, E.saiba + 0.5);
   tl.to("#cursor14", { x: 880, y: 1600, opacity: 0, duration: 0.35, ease: "power2.in" }, E.saiba + 0.4);
   const L14 = 560 / 1189;
   tl.fromTo("#logo14", { x: 260, y: 320, scale: L14 * 1.4, opacity: 0, filter: "blur(18px)" }, { x: 260, y: 320, scale: L14, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, E.comece - 0.25);
