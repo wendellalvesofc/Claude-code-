@@ -28,7 +28,7 @@ WORKERS=6 node scripts/render.mjs
 ## Nota de entrega
 - **Verificações sobre o render final:**
   - ffprobe: 1110 quadros, 30 fps, 37,000 s.
-  - Loudness: −14,4 LUFS, pico de −1,4 dBFS.
+  - Loudness: −14,4 LUFS, pico de −1,4 dBFS (render com o gancho refeito).
   - Voz sobre o fundo: mediana de 22,8 dB na faixa da fala.
   - Grade de 1 quadro a cada 0,5 s.
   - Transcrição da mix final (`medium`): todas as palavras, com "Hype Cash" reconhecido corretamente.
