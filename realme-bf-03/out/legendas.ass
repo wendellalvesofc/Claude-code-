@@ -1,0 +1,53 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Poppins ExtraBold,60,&H00FFFFFF,&H00FFFFFF,&H99000000,&H90000000,0,0,0,0,100,100,-0.5,0,1,2.5,4,2,90,90,670,1
+Style: HL1,Poppins ExtraBold,68,&H00FFFFFF,&H00FFFFFF,&H99000000,&H90000000,0,0,0,0,100,100,-1,0,1,3,5,2,60,60,785,1
+Style: HL2,Poppins Black,120,&H00FFFFFF,&H00FFFFFF,&H8C000000,&H90000000,0,0,0,0,100,100,-3,0,1,5,5,2,60,60,650,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.54,0:00:01.30,Cap,,0,0,0,,oi,
+Dialogue: 0,0:00:01.30,0:00:02.38,Cap,,0,0,0,,fala com o cliente aqui
+Dialogue: 0,0:00:02.38,0:00:03.14,Cap,,0,0,0,,o que que ele quer?
+Dialogue: 0,0:00:03.14,0:00:04.50,Cap,,0,0,0,,fala aqui com ele
+Dialogue: 0,0:00:04.50,0:00:05.26,Cap,,0,0,0,,cara, fala você,
+Dialogue: 0,0:00:05.26,0:00:05.82,Cap,,0,0,0,,eu tô ocupada
+Dialogue: 0,0:00:05.82,0:00:06.22,Cap,,0,0,0,,por favor,
+Dialogue: 0,0:00:06.22,0:00:07.32,Cap,,0,0,0,,fala aqui com ele
+Dialogue: 0,0:00:07.32,0:00:08.08,Cap,,0,0,0,,cara, eu acredito
+Dialogue: 0,0:00:08.08,0:00:08.92,Cap,,0,0,0,,no seu potencial,
+Dialogue: 0,0:00:08.92,0:00:10.02,Cap,,0,0,0,,você consegue
+Dialogue: 0,0:00:10.02,0:00:10.58,Cap,,0,0,0,,ele quer comprar
+Dialogue: 0,0:00:10.58,0:00:13.46,HL2,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(790,870,\alpha&H00&\c&H1FD2FF&)\t(790,791,\fscx125\fscy125)\t(791,1010,\fscx100\fscy100)}de {\alpha&HA8&\c&HD0D0D0&\t(1030,1110,\alpha&H00&\c&H1FD2FF&)\t(1030,1031,\fscx125\fscy125)\t(1031,1250,\fscx100\fscy100)}256 {\alpha&HA8&\c&HD0D0D0&\t(1590,1670,\alpha&H00&\c&H1FD2FF&)\t(1590,1591,\fscx125\fscy125)\t(1591,1810,\fscx100\fscy100)}GB
+Dialogue: 0,0:00:10.58,0:00:13.46,HL1,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(0,80,\alpha&H00&\c&HFFFFFF&)}2 {\alpha&HA8&\c&HD0D0D0&\t(140,220,\alpha&H00&\c&HFFFFFF&)}P4 {\alpha&HA8&\c&HD0D0D0&\t(590,670,\alpha&H00&\c&HFFFFFF&)}Power
+Dialogue: 0,0:00:14.28,0:00:15.74,Cap,,0,0,0,,2 P4 Power?
+Dialogue: 0,0:00:15.84,0:00:17.90,Cap,,0,0,0,,de 256 GB?
+Dialogue: 0,0:00:18.36,0:00:19.46,Cap,,0,0,0,,passa aqui
+Dialogue: 0,0:00:19.76,0:00:21.40,Cap,,0,0,0,,coloca aquela música lá
+Dialogue: 0,0:00:21.40,0:00:22.26,Cap,,0,0,0,,pode deixar
+Dialogue: 0,0:00:25.52,0:00:26.98,Cap,,0,0,0,,fala, patrão
+Dialogue: 0,0:00:27.72,0:00:29.18,Cap,,0,0,0,,como que você tá?
+Dialogue: 0,0:00:30.00,0:00:31.02,Cap,,0,0,0,,viu as ofertas
+Dialogue: 0,0:00:31.02,0:00:33.20,Cap,,0,0,0,,da pré-Black, né?
+Dialogue: 0,0:00:33.48,0:00:34.24,Cap,,0,0,0,,já vai garantir
+Dialogue: 0,0:00:34.24,0:00:36.00,Cap,,0,0,0,,seu celular, né?
+Dialogue: 0,0:00:36.38,0:00:36.90,Cap,,0,0,0,,um pra você
+Dialogue: 0,0:00:36.90,0:00:38.88,Cap,,0,0,0,,e um pra esposa?
+Dialogue: 0,0:00:39.14,0:00:39.86,Cap,,0,0,0,,pode deixar que eu
+Dialogue: 0,0:00:39.86,0:00:41.30,Cap,,0,0,0,,vou deixar separado
+Dialogue: 0,0:00:41.30,0:00:43.32,Cap,,0,0,0,,e vou melhorar pra você
+Dialogue: 0,0:00:43.34,0:00:44.98,Cap,,0,0,0,,no dia da Black,
+Dialogue: 0,0:00:44.98,0:00:46.02,Cap,,0,0,0,,você pode vir aqui
+Dialogue: 0,0:00:46.02,0:00:46.92,Cap,,0,0,0,,com a nota oficial
+Dialogue: 0,0:00:46.92,0:00:48.06,Cap,,0,0,0,,do seu celular
+Dialogue: 0,0:00:48.06,0:00:48.58,Cap,,0,0,0,,e vai pegar
+Dialogue: 0,0:00:48.58,0:00:51.00,HL2,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(1310,1390,\alpha&H00&\c&H6BE239&)\t(1310,1311,\fscx125\fscy125)\t(1311,1530,\fscx100\fscy100)}por {\alpha&HA8&\c&HD0D0D0&\t(1470,1550,\alpha&H00&\c&H6BE239&)\t(1470,1471,\fscx125\fscy125)\t(1471,1690,\fscx100\fscy100)}R$ 1
+Dialogue: 0,0:00:48.58,0:00:51.00,HL1,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(0,80,\alpha&H00&\c&HFFFFFF&)}um {\alpha&HA8&\c&HD0D0D0&\t(170,250,\alpha&H00&\c&HFFFFFF&)}fone {\alpha&HA8&\c&HD0D0D0&\t(350,430,\alpha&H00&\c&HFFFFFF&)}oficial {\alpha&HA8&\c&HD0D0D0&\t(790,870,\alpha&H00&\c&HFFFFFF&)}realme
+Dialogue: 0,0:00:51.78,0:00:53.04,Cap,,0,0,0,,é isso aí
