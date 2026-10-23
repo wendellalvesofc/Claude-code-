@@ -21,16 +21,17 @@ body { font-family: Poppins, sans-serif; color: #fff; -webkit-font-smoothing: an
 #leak { position: absolute; inset: -200px; opacity: 0; mix-blend-mode: screen; pointer-events: none;
   background: radial-gradient(ellipse 60% 70% at var(--lx, 40%) 50%, rgba(255,246,214,1) 0%, rgba(255,196,64,.95) 28%, rgba(255,120,10,.75) 52%, rgba(255,70,0,.35) 70%, rgba(255,60,0,0) 85%); }
 
-/* legenda normal: 2–4 palavras, ~62% da altura */
+/* legenda normal: 2–4 palavras, ~62% da altura. Fonte pedida: SportSans (exclusiva do CapCut, sem download);
+   Poppins é a alternativa livre mais próxima do traço das referências. */
 .cap { position: absolute; left: 90px; width: 900px; top: 1190px; text-align: center; font: 800 52px/1.15 Poppins; letter-spacing: -.01em;
-  text-shadow: 0 3px 12px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.6); visibility: hidden; }
+  text-shadow: 0 4px 0 rgba(0,0,0,.28), 0 5px 14px rgba(0,0,0,.5); visibility: hidden; }
 /* destaque: linha branca + linha grande colorida */
 .hl { position: absolute; left: 60px; width: 960px; top: 1130px; text-align: center; visibility: hidden;
-  text-shadow: 0 4px 16px rgba(0,0,0,.5), 0 2px 4px rgba(0,0,0,.55); }
+  text-shadow: 0 5px 0 rgba(0,0,0,.28), 0 6px 18px rgba(0,0,0,.5); }
 .hl .l1 { font: 800 62px/1.05 Poppins; letter-spacing: -.015em; }
 .hl .l2 { font: 900 112px/1.0 Poppins; letter-spacing: -.035em; margin-top: 2px; }
 .w { display: inline-block; }
-.cap, .hl { -webkit-text-stroke: 4px rgba(0,0,0,.5); paint-order: stroke fill; }
+.cap, .hl { -webkit-text-stroke: 3px rgba(0,0,0,.4); paint-order: stroke fill; }
 .hl .l2 { -webkit-text-stroke: 7px rgba(0,0,0,.55); }
 .y { color: var(--y); } .g { color: var(--g); }
 

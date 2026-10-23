@@ -85,16 +85,19 @@ def mouse_click():
     return norm(out)
 
 sfx = np.zeros(N)
-# troca de apresentador: whoosh subindo até o corte + impacto grave no pico do flash (como nas referências)
+# sons do CapCut enviados pelo cliente (realme-bf-02/sfx): dinheiro nas falas de valor,
+# clique de mouse quando um destaque da legenda acende, clique de câmera nas trocas de apresentador
+def load(name):
+    x, r = sf.read(f"{root}/../sfx/{name}.wav")
+    x = x.mean(axis=1) if x.ndim > 1 else x
+    return signal.resample_poly(x, SR, r) if r != SR else x
+DIN, MOUSE, CAM = load("dinheiro"), load("mouse"), load("camera")
 for c in [4.5, 10.567, 17.7]:
-    place(sfx, whoosh(0.34, rev=True), c - 0.34, db(-10))
-    place(sfx, impact(), c, db(-14))
-# jump cuts: só um whoosh curtinho
-for c in [14.7, 22.3]:
-    place(sfx, whoosh(0.18), c - 0.09, db(-16))
-# destaques: pop discreto quando o valor/frase-chave acende
-for t in [1.77, 9.95, 17.19, 21.65]:
-    place(sfx, pop(), t, db(-13))
+    place(sfx, CAM, c - 0.05, db(-4))
+for t in [1.8, 9.98]:
+    place(sfx, MOUSE, t - 0.03, db(-4))
+for t in [17.22, 21.68]:
+    place(sfx, DIN, t - 0.03, db(-3))
 
 # ---------------- Trilha original (124 BPM, Am–F–C–G) ----------------
 BPM = 124; beat = 60 / BPM; bar = 4 * beat
@@ -163,7 +166,7 @@ speech = np.clip(speech * 3, 0, 1)
 duck = db(-8 * speech)
 
 music_bus = music * 0  # sem trilha, a pedido do cliente
-sfx_bus = norm(sfx, 1.0) * db(-12 + 6)
+sfx_bus = sfx  # níveis já definidos acima, relativos ao arquivo original do CapCut
 mix = voice + music_bus + sfx_bus
 # fades de 0.3 s
 fl = int(0.3 * SR); mix[:fl] *= np.linspace(0, 1, fl); mix[-fl:] *= np.linspace(1, 0, fl)

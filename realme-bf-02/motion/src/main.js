@@ -53,10 +53,7 @@ function build() {
   items.forEach((it, i) => {
     const b = i + 1 < items.length ? items[i + 1].a : END;
     tl.set(it.el, { visibility: "visible" }, it.a).set(it.el, { visibility: "hidden" }, b);
-    if (!it.h) {
-      tl.fromTo(it.el, { scale: 0.94, opacity: 0.4 }, { scale: 1, opacity: 1, duration: 0.1, ease: "power2.out", immediateRender: false }, it.a);
-      return;
-    }
+    if (!it.h) return;   // legenda normal: corte seco de uma para a outra, sem animação
     // palavra "fantasma" (cinza translúcida) que acende na cor quando é falada
     const ws = [...it.el.querySelectorAll(".w")], times = [...it.h.l1, ...it.h.l2].map((x) => x[1]);
     const l1n = it.h.l1.length;
@@ -65,7 +62,6 @@ function build() {
       tl.to(w, { opacity: 1, filter: "grayscale(0) brightness(1)", duration: 0.08, ease: "none" }, times[k] - 0.03);
       if (k >= l1n) tl.fromTo(w, { scale: 1.25 }, { scale: 1, duration: 0.22, ease: "back.out(2)", immediateRender: false }, times[k] - 0.03);
     });
-    tl.fromTo(it.el, { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, it.a);
   });
 
   // ---- câmera: empurrão lento em cada plano e punch-in nos jump cuts
