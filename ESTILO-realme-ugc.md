@@ -18,8 +18,17 @@ Preset para os próximos vídeos da realme. Base: `realme-bf-01/refs2/` (sheets,
   - a linha nova "acende" da cinza para a cor.
 - Nada de cards, pílulas ou caixas.
 
-## Som
-- Voz na frente, natural. Trilha bem baixa ou nenhuma; SFX quase ausentes (no máximo um "pop" nos destaques).
+## Som (padrão do cliente, sons do CapCut em `realme-bf-02/sfx/`)
+- Voz na frente, natural, sem trilha.
+- 💵 `dinheiro.wav`: nas falas de valor (R$ 1, R$ 1.000).
+- 🖱️ `mouse.wav`: quando um destaque da legenda acende.
+- 📸 `camera.wav`: na transição (troca de apresentador, com o flash quente).
+- Níveis: picos dos sons alguns dB abaixo dos picos da voz.
+
+## Legenda: regras do cliente
+- Fonte preferida: **SportSans** (CapCut). Sem o arquivo, usar Poppins ExtraBold, a mais próxima.
+- Legenda normal **sem animação**: corte seco de uma para a outra.
+- Animação só nos destaques: as palavras acendem da cinza para a cor.
 
 ## Rodapé legal (vídeo oficial)
 Texto pequeno no topo, como na referência oficial:
