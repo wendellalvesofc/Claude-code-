@@ -1,0 +1,7 @@
+source/*.mov
+analysis/*.wav
+motion/node_modules/
+motion/src/foot/
+motion/out/frames/
+motion/preview/
+motion/base.mp4

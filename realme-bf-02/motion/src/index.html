@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>realme | Vídeo 02 (UGC)</title>
+<style>
+@font-face { font-family: Poppins; font-weight: 800; src: url(fonts/poppins-latin-800-normal.woff2) format("woff2"); }
+@font-face { font-family: Poppins; font-weight: 900; src: url(fonts/poppins-latin-900-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2) format("woff2"); }
+
+/* Estilo UGC das referências (realmestore.br / realme.raposo): a fala é o vídeo; legenda curta branca,
+   destaques só nas ofertas (amarelo = frase-chave, verde = valor), flash quente na troca de apresentador. */
+:root { --y: #ffd21f; --g: #39e26b; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+body { font-family: Poppins, sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+#cam { position: absolute; inset: 0; }
+#fimg { position: absolute; inset: 0; width: 1080px; height: 1920px; object-fit: cover; }
+#leak { position: absolute; inset: -200px; opacity: 0; mix-blend-mode: screen; pointer-events: none;
+  background: radial-gradient(ellipse 60% 70% at var(--lx, 40%) 50%, rgba(255,246,214,1) 0%, rgba(255,196,64,.95) 28%, rgba(255,120,10,.75) 52%, rgba(255,70,0,.35) 70%, rgba(255,60,0,0) 85%); }
+
+/* legenda normal: 2–4 palavras, ~62% da altura */
+.cap { position: absolute; left: 90px; width: 900px; top: 1190px; text-align: center; font: 800 52px/1.15 Poppins; letter-spacing: -.01em;
+  text-shadow: 0 3px 12px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.6); visibility: hidden; }
+/* destaque: linha branca + linha grande colorida */
+.hl { position: absolute; left: 60px; width: 960px; top: 1130px; text-align: center; visibility: hidden;
+  text-shadow: 0 4px 16px rgba(0,0,0,.5), 0 2px 4px rgba(0,0,0,.55); }
+.hl .l1 { font: 800 62px/1.05 Poppins; letter-spacing: -.015em; }
+.hl .l2 { font: 900 112px/1.0 Poppins; letter-spacing: -.035em; margin-top: 2px; }
+.w { display: inline-block; }
+.cap, .hl { -webkit-text-stroke: 4px rgba(0,0,0,.5); paint-order: stroke fill; }
+.hl .l2 { -webkit-text-stroke: 7px rgba(0,0,0,.55); }
+.y { color: var(--y); } .g { color: var(--g); }
+
+/* rodapé legal no topo, como no vídeo oficial */
+#legal { position: absolute; left: 110px; width: 860px; top: 150px; text-align: center; font: 500 23px/1.38 Inter; color: rgba(255,255,255,.9);
+  text-shadow: 0 1px 3px rgba(0,0,0,.8), 0 0 10px rgba(0,0,0,.35); }
+</style>
+</head>
+<body>
+<div id="root">
+  <div id="cam"><img id="fimg" alt=""></div>
+  <div id="leak"></div>
+  <div id="caps"></div>
+  <div id="legal">Válido para compras de 15/10 a 15/11/2026. Se o mesmo modelo estiver mais barato em 27/11/2026, faremos um pix de R$ 1000, conforme regulamento. Fone por R$ 1 para clientes elegíveis. Consulte modelos, lojas participantes e condições da campanha.</div>
+</div>
+<script src="timing.js"></script>
+<script src="gsap.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
