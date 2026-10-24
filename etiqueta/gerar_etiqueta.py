@@ -7,8 +7,10 @@ from reportlab.lib.colors import HexColor, white
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
-PRECO = sys.argv[1] if len(sys.argv) > 1 else "X.XXX"
-PARCELAS = sys.argv[2] if len(sys.argv) > 2 else "10"
+PRECO = sys.argv[1] if len(sys.argv) > 1 else "3.947"
+PARCELAS = sys.argv[2] if len(sys.argv) > 2 else "12"
+valor_parcela = int(PRECO.replace(".", "")) / int(PARCELAS)
+PARCELA_FMT = f"{valor_parcela:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 SAIDA = "etiqueta_realme_p4_power.pdf"
 
 F = "/usr/share/fonts/truetype/liberation/"
@@ -17,7 +19,7 @@ pdfmetrics.registerFont(TTFont("Bold", F + "LiberationSans-Bold.ttf"))
 
 W, H = 190 * mm, 40 * mm
 ESCURO = HexColor("#3a3634")
-CAIXA = HexColor("#5b524c")
+CAIXA = HexColor("#151515")
 TEXTO = HexColor("#2b2b2b")
 
 c = canvas.Canvas(SAIDA, pagesize=(W, H))
@@ -55,7 +57,7 @@ linha(H - 26 * mm, ["Chipset MediaTek Dimensity 7400 Ultra 5G",
 
 # Cores
 y = H - 32.5 * mm; x = x0
-for nome, cor in [("Prata Power", "#c9cacc"), ("Laranja Flash", "#f26a1b")]:
+for nome, cor in [("Flash Silver", "#c9cacc"), ("Flash Orange", "#f26a1b")]:
     c.setFillColor(HexColor(cor)); c.setStrokeColor(HexColor("#9a9a9a")); c.setLineWidth(0.4)
     c.circle(x + 1.3 * mm, y + 0.9 * mm, 1.3 * mm, stroke=1, fill=1)
     c.setFillColor(TEXTO); c.setFont("Bold", 7)
@@ -69,7 +71,7 @@ c.setFillColor(CAIXA); c.roundRect(bx, by, bw, bh, 2 * mm, stroke=0, fill=1)
 cx = bx + bw / 2
 c.setFillColor(white)
 c.setFont("Bold", 8.5); c.drawCentredString(cx, by + bh - 6.5 * mm, "256GB + 8GB")
-c.setFont("Reg", 6); c.drawCentredString(cx, by + bh - 9.6 * mm, f"em {PARCELAS}x")
+c.setFont("Reg", 6.5); c.drawCentredString(cx, by + bh - 10 * mm, f"em {PARCELAS}x de R$ {PARCELA_FMT}")
 rs, num, cent = "R$", PRECO, ",00"
 w_rs = pdfmetrics.stringWidth(rs, "Bold", 9)
 w_num = pdfmetrics.stringWidth(num, "Bold", 24)
