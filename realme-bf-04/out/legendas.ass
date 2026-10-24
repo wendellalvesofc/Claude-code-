@@ -1,0 +1,54 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Poppins ExtraBold,60,&H00FFFFFF,&H00FFFFFF,&H99000000,&H90000000,0,0,0,0,100,100,-0.5,0,1,2.5,4,2,90,90,670,1
+Style: HL1,Poppins ExtraBold,68,&H00FFFFFF,&H00FFFFFF,&H99000000,&H90000000,0,0,0,0,100,100,-1,0,1,3,5,2,60,60,785,1
+Style: HL2,Poppins Black,120,&H00FFFFFF,&H00FFFFFF,&H8C000000,&H90000000,0,0,0,0,100,100,-3,0,1,5,5,2,60,60,650,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.08,Cap,,0,0,0,,e aí, você gostou,
+Dialogue: 0,0:00:01.08,0:00:01.24,Cap,,0,0,0,,Yasmin?
+Dialogue: 0,0:00:01.24,0:00:01.90,Cap,,0,0,0,,eu gostei, mas
+Dialogue: 0,0:00:01.90,0:00:03.20,Cap,,0,0,0,,quanto você faz ele no pix?
+Dialogue: 0,0:00:03.20,0:00:03.88,Cap,,0,0,0,,ó, esse daqui
+Dialogue: 0,0:00:03.88,0:00:05.04,Cap,,0,0,0,,eu consigo fazer ele
+Dialogue: 0,0:00:05.04,0:00:07.62,Cap,,0,0,0,,por {\c&H6BE239&}R$ 3.950{\c&HFFFFFF&}
+Dialogue: 0,0:00:07.62,0:00:09.68,Cap,,0,0,0,,esse daqui, o C85,
+Dialogue: 0,0:00:09.68,0:00:11.80,Cap,,0,0,0,,por {\c&H6BE239&}R$ 2.500{\c&HFFFFFF&}
+Dialogue: 0,0:00:11.80,0:00:12.82,Cap,,0,0,0,,tá bom, então vou levar
+Dialogue: 0,0:00:12.82,0:00:13.14,Cap,,0,0,0,,um pra mim,
+Dialogue: 0,0:00:13.14,0:00:13.90,Cap,,0,0,0,,um pro meu filho
+Dialogue: 0,0:00:13.90,0:00:14.90,Cap,,0,0,0,,ai, legal
+Dialogue: 0,0:00:15.02,0:00:16.18,Cap,,0,0,0,,ah, Yasmin, e aí,
+Dialogue: 0,0:00:16.18,0:00:17.10,Cap,,0,0,0,,você gostou,
+Dialogue: 0,0:00:17.10,0:00:18.52,Cap,,0,0,0,,vai querer levar?
+Dialogue: 0,0:00:18.86,0:00:20.04,Cap,,0,0,0,,ai, não sei
+Dialogue: 0,0:00:20.04,0:00:20.84,Cap,,0,0,0,,eu queria que combinasse
+Dialogue: 0,0:00:20.84,0:00:22.24,Cap,,0,0,0,,com a bancada lá de casa
+Dialogue: 0,0:00:22.24,0:00:23.56,Cap,,0,0,0,,mas eu tenho os dois modelos
+Dialogue: 0,0:00:23.56,0:00:25.50,Cap,,0,0,0,,em outras cores também
+Dialogue: 0,0:00:25.50,0:00:26.06,Cap,,0,0,0,,ah, mas eu queria
+Dialogue: 0,0:00:26.06,0:00:26.58,Cap,,0,0,0,,que combinasse
+Dialogue: 0,0:00:26.58,0:00:27.74,Cap,,0,0,0,,com a minha personalidade
+Dialogue: 0,0:00:27.74,0:00:30.16,Cap,,0,0,0,,ó, vamos fazer assim, então?
+Dialogue: 0,0:00:30.16,0:00:31.82,Cap,,0,0,0,,só pra te mimar, tá?
+Dialogue: 0,0:00:31.82,0:00:33.56,Cap,,0,0,0,,é só com você
+Dialogue: 0,0:00:33.56,0:00:34.14,Cap,,0,0,0,,ai, eu sei,
+Dialogue: 0,0:00:34.14,0:00:35.64,Cap,,0,0,0,,eu sou um ótimo cliente
+Dialogue: 0,0:00:36.12,0:00:37.92,Cap,,0,0,0,,pra melhorar o seu pacote,
+Dialogue: 0,0:00:37.92,0:00:39.16,Cap,,0,0,0,,como você vai estar adquirindo
+Dialogue: 0,0:00:39.16,0:00:41.12,Cap,,0,0,0,,o aparelho na pré-Black,
+Dialogue: 0,0:00:41.12,0:00:42.42,Cap,,0,0,0,,no dia da Black,
+Dialogue: 0,0:00:42.42,0:00:43.60,Cap,,0,0,0,,você pode voltar aqui
+Dialogue: 0,0:00:43.60,0:00:44.54,Cap,,0,0,0,,e você consegue
+Dialogue: 0,0:00:44.54,0:00:47.12,HL2,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(1270,1350,\alpha&H00&\c&H6BE239&)\t(1270,1271,\fscx125\fscy125)\t(1271,1490,\fscx100\fscy100)}por {\alpha&HA8&\c&HD0D0D0&\t(1450,1530,\alpha&H00&\c&H6BE239&)\t(1450,1451,\fscx125\fscy125)\t(1451,1670,\fscx100\fscy100)}apenas {\alpha&HA8&\c&HD0D0D0&\t(1770,1850,\alpha&H00&\c&H6BE239&)\t(1770,1771,\fscx125\fscy125)\t(1771,1990,\fscx100\fscy100)}R$ 1
+Dialogue: 0,0:00:44.54,0:00:47.12,HL1,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(0,80,\alpha&H00&\c&HFFFFFF&)}esse {\alpha&HA8&\c&HD0D0D0&\t(170,250,\alpha&H00&\c&HFFFFFF&)}fone {\alpha&HA8&\c&HD0D0D0&\t(390,470,\alpha&H00&\c&HFFFFFF&)}oficial {\alpha&HA8&\c&HD0D0D0&\t(990,1070,\alpha&H00&\c&HFFFFFF&)}realme
+Dialogue: 0,0:00:47.12,0:00:48.64,Cap,,0,0,0,,ah, então vou levar os dois
+Dialogue: 0,0:00:48.64,0:00:49.46,Cap,,0,0,0,,ai!
