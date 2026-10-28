@@ -11,7 +11,7 @@ import soundfile as sf
 root = sys.argv[1]
 W, H, FPS, S = 2160, 3840, 24, 2                         # S: escala em relação às coordenadas de 1080x1920
 Hs = np.load(f"{root}/analysis/homographies.npy").astype(np.float64)
-MASKS = np.load(f"{root}/analysis/masks.npy", mmap_mode="r")
+MASKS = np.load(f"{root}/analysis/masks_final.npy", mmap_mode="r")   # scripts/combine_masks.py
 N = len(Hs)
 Sm = np.diag([S, S, 1.0]); Sinv = np.linalg.inv(Sm)
 TOUCH, REF_DROP = 5.083, 4.303
@@ -105,10 +105,22 @@ if "--test" in sys.argv:
         if i >= max(want): break
     dec.kill(); sys.exit()
 
-# áudio: referência com o silêncio alongado (mesmo cálculo da prévia)
+# áudio: mesma música da referência, remontada nos tempos deste vídeo
+#  - música até parar (2,175 s, igual à referência)
+#  - o clique da música (2,94 s na referência) em cada toque dela no interruptor: 2,96 s e 4,06 s
+#  - a volta da música (4,303 s na referência) exatamente no toque que liga (5,083 s)
 y, sr = sf.read(f"{root}/analysis/ref_audio.wav")
-cut = int(3.70 * sr)
-audio = np.concatenate([y[:cut], np.zeros((int(round(SHIFT * sr)), y.shape[1])), y[cut:]])
+REF_CLICK, CLICKS = 2.94, [2.96, 4.06]
+total = TOUCH + (len(y) / sr - REF_DROP)
+audio = np.zeros((int(round(total * sr)), y.shape[1]))
+def put(seg, at):
+    i = int(round(at * sr)); audio[i:i + len(seg)] += seg[: len(audio) - i]
+def piece(a, b, fade=0.004):
+    seg = y[int(a * sr):int(b * sr)].copy(); f = int(fade * sr)
+    seg[:f] *= np.linspace(0, 1, f)[:, None]; seg[-f:] *= np.linspace(1, 0, f)[:, None]; return seg
+put(piece(0, 2.30), 0.0)                                           # música e a parada
+for c in CLICKS: put(piece(REF_CLICK - 0.015, REF_CLICK + 0.09), c - 0.015)   # clique em cada toque
+put(piece(REF_DROP - 0.05, len(y) / sr), TOUCH - 0.05)            # volta da música até o fim
 fl = int(0.25 * sr); audio[-fl:] *= np.linspace(1, 0, fl)[:, None]
 sf.write(f"{root}/analysis/audio_sync.wav", audio, sr, subtype="PCM_24")
 n_out = int(round(len(audio) / sr * FPS))
