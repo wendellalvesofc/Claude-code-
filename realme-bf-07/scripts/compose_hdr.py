@@ -18,7 +18,7 @@ TOUCH, REF_DROP = 5.083, 4.303
 SHIFT = TOUCH - REF_DROP
 
 SW = dict(cx=522, cy=418, w=168, h=76)                   # mesmas posições da prévia (coordenadas 1080 do quadro 120)
-POSTER = dict(x=160, y=545, size=610)
+POSTER = dict(x=150, y=600, size=680)          # maior e centralizado na parede (x 140–840, y 310–1700)
 
 # ---- sRGB -> HLG (BT.2020)
 M709_2020 = np.array([[0.6274, 0.3293, 0.0433], [0.0691, 0.9195, 0.0114], [0.0164, 0.0880, 0.8956]])
@@ -33,18 +33,21 @@ def to_hlg_bgra(bgra):                                   # camada BGRA float (co
     rgb = bgra[..., 2::-1] / 255.0
     return np.dstack([srgb_to_hlg(rgb), bgra[..., 3]]).astype(np.float32)
 
-Y, K = (31, 210, 255), (17, 17, 17)
+WHITE, BLACK, GREEN = (245, 245, 245), (20, 20, 20), (89, 199, 52)   # BGR; verde de interruptor ligado
 def switch_img(state):
+    """0 = desligado (pílula branca, bolinha preta à esquerda) | 1 = ligado (pílula verde, bolinha branca à direita)"""
     s = 4 * S; w, h = SW["w"] * s, SW["h"] * s
     img = np.zeros((h, w, 4), np.float32); pill = np.zeros((h, w), np.uint8); r = h // 2
     cv2.rectangle(pill, (r, 0), (w - r, h), 255, -1); cv2.circle(pill, (r, r), r, 255, -1); cv2.circle(pill, (w - r, r), r, 255, -1)
-    img[..., :3] = np.float32(Y) * (1 - state) + np.float32(K) * state; img[..., 3] = pill / 255.0
-    kr = int(r * 0.78); kx = int((w - r) * (1 - state) + r * state)
+    img[..., :3] = np.float32(WHITE) * (1 - state) + np.float32(GREEN) * state; img[..., 3] = pill / 255.0
+    edge = cv2.morphologyEx(pill, cv2.MORPH_GRADIENT, np.ones((3 * S, 3 * S), np.uint8)) / 255.0   # contorno fino cinza
+    img[..., :3] = img[..., :3] * (1 - edge[..., None] * 0.35 * (1 - state))
+    kr = int(r * 0.78); kx = int(r * (1 - state) + (w - r) * state)      # bolinha vai da esquerda para a direita
     knob = np.zeros((h, w), np.uint8); cv2.circle(knob, (kx, r), kr, 255, -1)
     ka = cv2.GaussianBlur(knob, (0, 0), 2 * S) / 255.0
-    kcol = np.float32(K) * (1 - state) + np.float32(Y) * state
+    kcol = np.float32(BLACK) * (1 - state) + np.float32(WHITE) * state
     img[..., :3] = img[..., :3] * (1 - ka[..., None]) + kcol * ka[..., None]
-    img[..., :3] = np.clip(img[..., :3] * np.linspace(1.08, 0.92, h, dtype=np.float32)[:, None, None], 0, 255)
+    img[..., :3] = np.clip(img[..., :3] * np.linspace(1.04, 0.94, h, dtype=np.float32)[:, None, None], 0, 255)
     return to_hlg_bgra(cv2.resize(img, (SW["w"] * S, SW["h"] * S), interpolation=cv2.INTER_AREA))
 
 poster = cv2.imread(f"{root}/source/cartaz.png", cv2.IMREAD_COLOR).astype(np.float32)

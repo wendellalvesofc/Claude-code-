@@ -6,3 +6,4 @@ analysis/test_*.jpg
 analysis/g1*.jpg
 analysis/*.log
 analysis/hdr_test_*.jpg
+analysis/out_audio.wav
