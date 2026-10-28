@@ -4,3 +4,5 @@ analysis/*.wav
 analysis/*.npy
 analysis/test_*.jpg
 analysis/g1*.jpg
+analysis/*.log
+analysis/hdr_test_*.jpg
