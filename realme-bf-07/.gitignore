@@ -1,3 +1,6 @@
 ref/*.mov
 source/*
 analysis/*.wav
+analysis/*.npy
+analysis/test_*.jpg
+analysis/g1*.jpg
