@@ -1,0 +1,135 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Poppins ExtraBold,60,&H00FFFFFF,&H00FFFFFF,&H99000000,&H90000000,0,0,0,0,100,100,-0.5,0,1,2.5,4,2,90,90,670,1
+Style: HL1,Poppins ExtraBold,68,&H00FFFFFF,&H00FFFFFF,&H99000000,&H90000000,0,0,0,0,100,100,-1,0,1,3,5,2,60,60,785,1
+Style: HL2,Poppins Black,120,&H00FFFFFF,&H00FFFFFF,&H8C000000,&H90000000,0,0,0,0,100,100,-3,0,1,5,5,2,60,60,650,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:00.52,Cap,,0,0,0,,ó, aí eu tenho
+Dialogue: 0,0:00:00.52,0:00:01.40,Cap,,0,0,0,,esse modelinho aqui,
+Dialogue: 0,0:00:01.40,0:00:01.80,Cap,,0,0,0,,que ele é
+Dialogue: 0,0:00:01.80,0:00:02.74,Cap,,0,0,0,,de {\c&H1FD2FF&}512 com 12{\c&HFFFFFF&}
+Dialogue: 0,0:00:02.74,0:00:03.14,Cap,,0,0,0,,amiga, você consegue me
+Dialogue: 0,0:00:03.14,0:00:03.70,Cap,,0,0,0,,arrumar um pouquinho de
+Dialogue: 0,0:00:03.70,0:00:04.80,Cap,,0,0,0,,água, por favor?
+Dialogue: 0,0:00:04.80,0:00:05.56,Cap,,0,0,0,,ó, eu vou ver
+Dialogue: 0,0:00:05.56,0:00:06.04,Cap,,0,0,0,,se tem,
+Dialogue: 0,0:00:06.04,0:00:06.72,Cap,,0,0,0,,tá? um pezinho,
+Dialogue: 0,0:00:06.72,0:00:07.56,Cap,,0,0,0,,qualquer coisa já ajuda,
+Dialogue: 0,0:00:07.56,0:00:08.04,Cap,,0,0,0,,só que eu tô...
+Dialogue: 0,0:00:08.04,0:00:08.64,Cap,,0,0,0,,tá lá.
+Dialogue: 0,0:00:08.64,0:00:09.30,Cap,,0,0,0,,ó, é que esse
+Dialogue: 0,0:00:09.30,0:00:09.92,Cap,,0,0,0,,pessoal daqui,
+Dialogue: 0,0:00:09.92,0:00:10.52,Cap,,0,0,0,,eles têm mania de
+Dialogue: 0,0:00:10.52,0:00:11.38,Cap,,0,0,0,,roubar a venda,
+Dialogue: 0,0:00:11.38,0:00:13.54,Cap,,0,0,0,,então segura isso aqui
+Dialogue: 0,0:00:13.54,0:00:14.02,Cap,,0,0,0,,que é pra eles
+Dialogue: 0,0:00:14.02,0:00:14.92,Cap,,0,0,0,,saberem que você tá
+Dialogue: 0,0:00:14.92,0:00:15.94,Cap,,0,0,0,,comigo. tá bom.
+Dialogue: 0,0:00:15.94,0:00:17.06,Cap,,0,0,0,,ó, não deixa ninguém
+Dialogue: 0,0:00:17.06,0:00:18.08,Cap,,0,0,0,,falar com você não,
+Dialogue: 0,0:00:18.08,0:00:18.68,Cap,,0,0,0,,tá?
+Dialogue: 0,0:00:18.68,0:00:19.76,Cap,,0,0,0,,já vem.
+Dialogue: 0,0:00:20.84,0:00:21.60,Cap,,0,0,0,,ei, amigo,
+Dialogue: 0,0:00:21.60,0:00:22.42,Cap,,0,0,0,,amigo.
+Dialogue: 0,0:00:22.60,0:00:23.38,Cap,,0,0,0,,ei,
+Dialogue: 0,0:00:23.38,0:00:23.98,Cap,,0,0,0,,você sabia que começou
+Dialogue: 0,0:00:23.98,0:00:25.04,Cap,,0,0,0,,a pré-Black da realme?
+Dialogue: 0,0:00:25.04,0:00:25.76,Cap,,0,0,0,,nós estamos com as
+Dialogue: 0,0:00:25.76,0:00:26.54,Cap,,0,0,0,,melhores ofertas,
+Dialogue: 0,0:00:26.54,0:00:27.24,Cap,,0,0,0,,sabia?
+Dialogue: 0,0:00:27.64,0:00:28.66,Cap,,0,0,0,,pré-Black.
+Dialogue: 0,0:00:28.66,0:00:29.36,Cap,,0,0,0,,sério? aham,
+Dialogue: 0,0:00:29.36,0:00:29.96,Cap,,0,0,0,,começou já.
+Dialogue: 0,0:00:29.96,0:00:30.44,Cap,,0,0,0,,que que você tá
+Dialogue: 0,0:00:30.44,0:00:31.32,Cap,,0,0,0,,fazendo aí?
+Dialogue: 0,0:00:31.32,0:00:32.18,Cap,,0,0,0,,tô falando da pré-Black
+Dialogue: 0,0:00:32.18,0:00:32.64,Cap,,0,0,0,,pra ele,
+Dialogue: 0,0:00:32.64,0:00:33.34,Cap,,0,0,0,,menina. ah,
+Dialogue: 0,0:00:33.34,0:00:34.00,Cap,,0,0,0,,tá querendo roubar meu
+Dialogue: 0,0:00:34.00,0:00:34.98,Cap,,0,0,0,,cliente? eu tô,
+Dialogue: 0,0:00:34.98,0:00:35.00,Cap,,0,0,0,,eu tô.
+Dialogue: 0,0:00:35.00,0:00:35.70,Cap,,0,0,0,,ô, sai daqui,
+Dialogue: 0,0:00:35.70,0:00:36.20,Cap,,0,0,0,,sai daqui.
+Dialogue: 0,0:00:36.20,0:00:36.92,Cap,,0,0,0,,ó, aí o que
+Dialogue: 0,0:00:36.92,0:00:37.34,Cap,,0,0,0,,que eu vou ver
+Dialogue: 0,0:00:37.34,0:00:37.98,Cap,,0,0,0,,pra você?
+Dialogue: 0,0:00:37.98,0:00:38.82,Cap,,0,0,0,,como você vai adquirir
+Dialogue: 0,0:00:38.82,0:00:39.22,Cap,,0,0,0,,o modelo,
+Dialogue: 0,0:00:39.22,0:00:39.66,Cap,,0,0,0,,eu vou ver se
+Dialogue: 0,0:00:39.66,0:00:40.46,Cap,,0,0,0,,você consegue encaixar já
+Dialogue: 0,0:00:40.46,0:00:41.30,Cap,,0,0,0,,o combo da capinha
+Dialogue: 0,0:00:41.30,0:00:42.16,Cap,,0,0,0,,e da película.
+Dialogue: 0,0:00:42.16,0:00:42.80,Cap,,0,0,0,,deixa eu só ver
+Dialogue: 0,0:00:42.80,0:00:43.16,Cap,,0,0,0,,qual que é o
+Dialogue: 0,0:00:43.16,0:00:44.80,Cap,,0,0,0,,modelo que você escolheu.
+Dialogue: 0,0:00:46.02,0:00:46.96,Cap,,0,0,0,,se você comprar sua
+Dialogue: 0,0:00:46.96,0:00:47.48,Cap,,0,0,0,,pré-Black hoje,
+Dialogue: 0,0:00:47.48,0:00:48.00,Cap,,0,0,0,,no dia da Black,
+Dialogue: 0,0:00:48.00,0:00:49.80,HL2,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(310,390,\alpha&H00&\c&H6BE239&)\t(310,311,\fscx125\fscy125)\t(311,530,\fscx100\fscy100)}fone {\alpha&HA8&\c&HD0D0D0&\t(630,710,\alpha&H00&\c&H6BE239&)\t(630,631,\fscx125\fscy125)\t(631,850,\fscx100\fscy100)}por {\alpha&HA8&\c&HD0D0D0&\t(730,810,\alpha&H00&\c&H6BE239&)\t(730,731,\fscx125\fscy125)\t(731,950,\fscx100\fscy100)}R$ 1
+Dialogue: 0,0:00:48.00,0:00:49.80,HL1,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(0,80,\alpha&H00&\c&HFFFFFF&)}você {\alpha&HA8&\c&HD0D0D0&\t(70,150,\alpha&H00&\c&HFFFFFF&)}vai {\alpha&HA8&\c&HD0D0D0&\t(150,230,\alpha&H00&\c&HFFFFFF&)}comprar
+Dialogue: 0,0:00:49.80,0:00:50.50,Cap,,0,0,0,,é isso que eu
+Dialogue: 0,0:00:50.50,0:00:50.70,Cap,,0,0,0,,queria saber.
+Dialogue: 0,0:00:50.70,0:00:51.34,Cap,,0,0,0,,é, um real,
+Dialogue: 0,0:00:51.34,0:00:51.88,Cap,,0,0,0,,vai tá um real
+Dialogue: 0,0:00:51.88,0:00:52.46,Cap,,0,0,0,,no dia da Black.
+Dialogue: 0,0:00:52.46,0:00:52.84,Cap,,0,0,0,,que que você tá
+Dialogue: 0,0:00:52.84,0:00:54.16,Cap,,0,0,0,,fazendo aqui de novo?
+Dialogue: 0,0:00:54.22,0:00:54.82,Cap,,0,0,0,,eu tô falando de
+Dialogue: 0,0:00:54.82,0:00:54.88,Cap,,0,0,0,,um real.
+Dialogue: 0,0:00:54.88,0:00:56.06,Cap,,0,0,0,,ai, fone de um
+Dialogue: 0,0:00:56.06,0:00:56.58,Cap,,0,0,0,,real.
+Dialogue: 0,0:00:56.58,0:00:57.58,Cap,,0,0,0,,eu tô falando pra
+Dialogue: 0,0:00:57.58,0:00:57.98,Cap,,0,0,0,,ele. eu tô falando
+Dialogue: 0,0:00:57.98,0:00:58.58,Cap,,0,0,0,,de um real pra
+Dialogue: 0,0:00:58.58,0:00:59.08,Cap,,0,0,0,,ele. ai,
+Dialogue: 0,0:00:59.08,0:00:59.84,Cap,,0,0,0,,cliente é meu,
+Dialogue: 0,0:00:59.84,0:01:00.58,Cap,,0,0,0,,vai caçar o seu,
+Dialogue: 0,0:01:00.58,0:01:01.30,Cap,,0,0,0,,vai caçar o seu.
+Dialogue: 0,0:01:01.30,0:01:02.22,Cap,,0,0,0,,então, pra você ficou
+Dialogue: 0,0:01:02.22,0:01:03.54,Cap,,0,0,0,,legal as condições?
+Dialogue: 0,0:01:03.54,0:01:03.92,Cap,,0,0,0,,ah, eu acho que
+Dialogue: 0,0:01:03.92,0:01:04.40,Cap,,0,0,0,,eu vou botar no
+Dialogue: 0,0:01:04.40,0:01:05.52,Cap,,0,0,0,,dia da Black mesmo.
+Dialogue: 0,0:01:05.52,0:01:06.22,Cap,,0,0,0,,cara, eu vou pegar
+Dialogue: 0,0:01:06.22,0:01:07.12,Cap,,0,0,0,,um argumento agora.
+Dialogue: 0,0:01:07.12,0:01:07.50,Cap,,0,0,0,,eu vou pegar uma
+Dialogue: 0,0:01:07.50,0:01:08.40,Cap,,0,0,0,,coisinha e aí eu
+Dialogue: 0,0:01:08.40,0:01:09.34,Cap,,0,0,0,,vou te explicar porque
+Dialogue: 0,0:01:09.34,0:01:09.80,Cap,,0,0,0,,que você tem que
+Dialogue: 0,0:01:09.80,0:01:10.16,Cap,,0,0,0,,fechar hoje.
+Dialogue: 0,0:01:10.16,0:01:10.68,Cap,,0,0,0,,vamos ver se você
+Dialogue: 0,0:01:10.68,0:01:11.36,Cap,,0,0,0,,ganhou.
+Dialogue: 0,0:01:12.92,0:01:13.58,Cap,,0,0,0,,ei, ei,
+Dialogue: 0,0:01:13.58,0:01:14.40,Cap,,0,0,0,,ei, deixa eu te
+Dialogue: 0,0:01:14.40,0:01:15.28,Cap,,0,0,0,,falar um negócio.
+Dialogue: 0,0:01:15.64,0:01:16.40,Cap,,0,0,0,,sabia que se você
+Dialogue: 0,0:01:16.40,0:01:17.18,Cap,,0,0,0,,botar aqui no dia
+Dialogue: 0,0:01:17.18,0:01:17.68,Cap,,0,0,0,,da Black e o
+Dialogue: 0,0:01:17.68,0:01:18.40,Cap,,0,0,0,,aparelho não estiver no
+Dialogue: 0,0:01:18.40,0:01:19.02,Cap,,0,0,0,,mesmo preço,
+Dialogue: 0,0:01:19.02,0:01:22.40,HL2,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(590,670,\alpha&H00&\c&H6BE239&)\t(590,591,\fscx125\fscy125)\t(591,810,\fscx100\fscy100)}R$ 1.000 {\alpha&HA8&\c&HD0D0D0&\t(1650,1730,\alpha&H00&\c&H6BE239&)\t(1650,1651,\fscx125\fscy125)\t(1651,1870,\fscx100\fscy100)}na {\alpha&HA8&\c&HD0D0D0&\t(1790,1870,\alpha&H00&\c&H6BE239&)\t(1790,1791,\fscx125\fscy125)\t(1791,2010,\fscx100\fscy100)}hora, {\alpha&HA8&\c&HD0D0D0&\t(2050,2130,\alpha&H00&\c&H6BE239&)\t(2050,2051,\fscx125\fscy125)\t(2051,2270,\fscx100\fscy100)}no {\alpha&HA8&\c&HD0D0D0&\t(2130,2210,\alpha&H00&\c&H6BE239&)\t(2130,2131,\fscx125\fscy125)\t(2131,2350,\fscx100\fscy100)}Pix
+Dialogue: 0,0:01:19.02,0:01:22.40,HL1,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(0,80,\alpha&H00&\c&HFFFFFF&)}eu {\alpha&HA8&\c&HD0D0D0&\t(190,270,\alpha&H00&\c&HFFFFFF&)}te {\alpha&HA8&\c&HD0D0D0&\t(290,370,\alpha&H00&\c&HFFFFFF&)}garanto
+Dialogue: 0,0:01:22.46,0:01:23.52,Cap,,0,0,0,,é, é sério,
+Dialogue: 0,0:01:23.52,0:01:23.74,Cap,,0,0,0,,eu tô te...
+Dialogue: 0,0:01:23.74,0:01:24.54,Cap,,0,0,0,,cara,
+Dialogue: 0,0:01:24.76,0:01:25.72,Cap,,0,0,0,,você tá aqui de
+Dialogue: 0,0:01:25.72,0:01:27.08,Cap,,0,0,0,,novo. nossa,
+Dialogue: 0,0:01:27.08,0:01:28.32,Cap,,0,0,0,,eu tô explicando.
+Dialogue: 0,0:01:28.32,0:01:29.30,Cap,,0,0,0,,explicando o quê?
+Dialogue: 0,0:01:29.32,0:01:30.20,Cap,,0,0,0,,eu tô explicando o
+Dialogue: 0,0:01:30.20,0:01:31.22,Cap,,0,0,0,,negócio pro cliente.
+Dialogue: 0,0:01:31.22,0:01:31.92,Cap,,0,0,0,,explicando o quê?
+Dialogue: 0,0:01:31.92,0:01:33.26,Cap,,0,0,0,,olha, com o argumento
+Dialogue: 0,0:01:33.26,0:01:33.80,Cap,,0,0,0,,dela agora eu vou
+Dialogue: 0,0:01:33.80,0:01:35.20,Cap,,0,0,0,,levar. tá fechado,
+Dialogue: 0,0:01:35.20,0:01:35.80,Cap,,0,0,0,,não precisa de mais
+Dialogue: 0,0:01:35.80,0:01:36.54,Cap,,0,0,0,,nada.
