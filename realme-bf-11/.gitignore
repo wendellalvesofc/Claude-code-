@@ -1,0 +1,6 @@
+source/*.mov
+analysis/*.wav
+analysis/*.npy
+analysis/*.raw
+analysis/sep/
+analysis/test_*
