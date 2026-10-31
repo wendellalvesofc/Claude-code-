@@ -1,0 +1,60 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Poppins ExtraBold,60,&H00FFFFFF,&H00FFFFFF,&H99000000,&H90000000,0,0,0,0,100,100,-0.5,0,1,2.5,4,2,90,90,670,1
+Style: HL1,Poppins ExtraBold,68,&H00FFFFFF,&H00FFFFFF,&H99000000,&H90000000,0,0,0,0,100,100,-1,0,1,3,5,2,60,60,785,1
+Style: HL2,Poppins Black,120,&H00FFFFFF,&H00FFFFFF,&H8C000000,&H90000000,0,0,0,0,100,100,-3,0,1,5,5,2,60,60,650,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.30,0:00:01.14,Cap,,0,0,0,,ó, Yasmin,
+Dialogue: 0,0:00:01.14,0:00:01.86,Cap,,0,0,0,,então vai ficar assim,
+Dialogue: 0,0:00:01.86,0:00:03.12,Cap,,0,0,0,,vai ficar {\c&H1FD2FF&}R$ 1.700{\c&HFFFFFF&} do
+Dialogue: 0,0:00:03.12,0:00:05.30,Cap,,0,0,0,,aparelho e {\c&H1FD2FF&}R$ 200{\c&HFFFFFF&} do
+Dialogue: 0,0:00:05.30,0:00:06.48,Cap,,0,0,0,,fone, vai ficar {\c&H1FD2FF&}R$ 1.900{\c&HFFFFFF&}
+Dialogue: 0,0:00:06.48,0:00:07.66,Cap,,0,0,0,,tudo, tá bom?
+Dialogue: 0,0:00:07.66,0:00:08.30,Cap,,0,0,0,,nossa, tá caro,
+Dialogue: 0,0:00:08.30,0:00:08.82,Cap,,0,0,0,,você não consegue nem
+Dialogue: 0,0:00:08.82,0:00:10.08,Cap,,0,0,0,,dar um descontinho?
+Dialogue: 0,0:00:10.22,0:00:10.92,Cap,,0,0,0,,ah, cara,
+Dialogue: 0,0:00:10.92,0:00:11.62,Cap,,0,0,0,,ó, vamos fazer assim,
+Dialogue: 0,0:00:11.62,0:00:12.76,Cap,,0,0,0,,só pra você,
+Dialogue: 0,0:00:12.76,0:00:13.48,Cap,,0,0,0,,tá?
+Dialogue: 0,0:00:14.18,0:00:14.76,Cap,,0,0,0,,o que é que
+Dialogue: 0,0:00:14.76,0:00:15.78,Cap,,0,0,0,,eu vou conseguir fazer?
+Dialogue: 0,0:00:15.78,0:00:16.74,Cap,,0,0,0,,você vai levar só
+Dialogue: 0,0:00:16.74,0:00:17.88,Cap,,0,0,0,,o aparelho hoje,
+Dialogue: 0,0:00:17.88,0:00:18.56,Cap,,0,0,0,,porque você vai estar
+Dialogue: 0,0:00:18.56,0:00:19.52,Cap,,0,0,0,,adquirindo ele agora na
+Dialogue: 0,0:00:19.52,0:00:20.28,Cap,,0,0,0,,pré-Black.
+Dialogue: 0,0:00:20.28,0:00:21.18,Cap,,0,0,0,,você volta aqui no
+Dialogue: 0,0:00:21.18,0:00:21.90,Cap,,0,0,0,,dia da Black e
+Dialogue: 0,0:00:21.90,0:00:22.60,Cap,,0,0,0,,esse fone que ele
+Dialogue: 0,0:00:22.60,0:00:23.54,Cap,,0,0,0,,ia sair por {\c&H1FD2FF&}R$ 200{\c&HFFFFFF&},
+Dialogue: 0,0:00:23.54,0:00:25.40,HL2,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(770,850,\alpha&H00&\c&H6BE239&)\t(770,771,\fscx125\fscy125)\t(771,990,\fscx100\fscy100)}por {\alpha&HA8&\c&HD0D0D0&\t(950,1030,\alpha&H00&\c&H6BE239&)\t(950,951,\fscx125\fscy125)\t(951,1170,\fscx100\fscy100)}apenas {\alpha&HA8&\c&HD0D0D0&\t(1170,1250,\alpha&H00&\c&H6BE239&)\t(1170,1171,\fscx125\fscy125)\t(1171,1390,\fscx100\fscy100)}R$ 1
+Dialogue: 0,0:00:23.54,0:00:25.40,HL1,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(0,80,\alpha&H00&\c&HFFFFFF&)}você {\alpha&HA8&\c&HD0D0D0&\t(270,350,\alpha&H00&\c&HFFFFFF&)}vai {\alpha&HA8&\c&HD0D0D0&\t(330,410,\alpha&H00&\c&HFFFFFF&)}comprar {\alpha&HA8&\c&HD0D0D0&\t(590,670,\alpha&H00&\c&HFFFFFF&)}ele
+Dialogue: 0,0:00:25.40,0:00:26.28,Cap,,0,0,0,,é só trazer a
+Dialogue: 0,0:00:26.28,0:00:26.82,Cap,,0,0,0,,nota fiscal.
+Dialogue: 0,0:00:26.82,0:00:27.44,Cap,,0,0,0,,ai, maravilha!
+Dialogue: 0,0:00:27.44,0:00:28.04,Cap,,0,0,0,,tá bom?
+Dialogue: 0,0:00:28.04,0:00:28.16,Cap,,0,0,0,,vou querer,
+Dialogue: 0,0:00:28.16,0:00:28.44,Cap,,0,0,0,,então.
+Dialogue: 0,0:00:28.44,0:00:28.88,Cap,,0,0,0,,vai querer levar?
+Dialogue: 0,0:00:28.88,0:00:29.84,Cap,,0,0,0,,só vou pegar a
+Dialogue: 0,0:00:29.84,0:00:31.04,Cap,,0,0,0,,sacolinha, tá?
+Dialogue: 0,0:00:31.38,0:00:32.52,Cap,,0,0,0,,bicha véia besta,
+Dialogue: 0,0:00:32.52,0:00:33.36,Cap,,0,0,0,,mal sabe que esse
+Dialogue: 0,0:00:33.36,0:00:34.30,Cap,,0,0,0,,benefício é pra qualquer
+Dialogue: 0,0:00:34.30,0:00:35.44,Cap,,0,0,0,,cliente que adquiriu só
+Dialogue: 0,0:00:35.44,0:00:36.10,Cap,,0,0,0,,o aparelho agora na
+Dialogue: 0,0:00:36.10,0:00:36.78,Cap,,0,0,0,,pré-Black.
+Dialogue: 0,0:00:36.78,0:00:37.90,Cap,,0,0,0,,é só voltar com
+Dialogue: 0,0:00:37.90,0:00:38.30,Cap,,0,0,0,,a nota fiscal
+Dialogue: 0,0:00:38.30,0:00:40.20,HL2,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(490,570,\alpha&H00&\c&H6BE239&)\t(490,491,\fscx125\fscy125)\t(491,710,\fscx100\fscy100)}fone {\alpha&HA8&\c&HD0D0D0&\t(670,750,\alpha&H00&\c&H6BE239&)\t(670,671,\fscx125\fscy125)\t(671,890,\fscx100\fscy100)}por {\alpha&HA8&\c&HD0D0D0&\t(810,890,\alpha&H00&\c&H6BE239&)\t(810,811,\fscx125\fscy125)\t(811,1030,\fscx100\fscy100)}R$ 1
+Dialogue: 0,0:00:38.30,0:00:40.20,HL1,,0,0,0,,{\alpha&HA8&\c&HD0D0D0&\t(0,80,\alpha&H00&\c&HFFFFFF&)}e {\alpha&HA8&\c&HD0D0D0&\t(170,250,\alpha&H00&\c&HFFFFFF&)}pegar {\alpha&HA8&\c&HD0D0D0&\t(350,430,\alpha&H00&\c&HFFFFFF&)}esse
