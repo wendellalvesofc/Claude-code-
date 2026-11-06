@@ -1,0 +1,9 @@
+source/*.mov
+analysis/*.wav
+analysis/test_*.jpg
+analysis/*.npy
+analysis/*.wav
+analysis/*.raw
+source/*.mov
+analysis/seg.log
+scripts/__pycache__/
