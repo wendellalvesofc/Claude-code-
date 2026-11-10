@@ -1,6 +1,7 @@
-# Vídeo 14: remove o iPhone roxo da mesa (quadros 543–602). Resto intacto; cores BT.709 e áudio originais.
+# Vídeo 14: remove o iPhone roxo da mesa (quadros 180–313 e 543–602). Resto intacto; cores BT.709 e áudio originais.
 import subprocess, sys, numpy as np
 sys.path.insert(0, "scripts"); from remove import frame
+import removeB
 W, H = 1080, 1920; A, B = 543, 602
 dec = subprocess.Popen(["ffmpeg", "-v", "error", "-i", "source/video14.mov", "-fps_mode", "passthrough", "-vf",
     "scale=in_color_matrix=bt709:in_range=tv:out_range=pc:flags=accurate_rnd+full_chroma_int", "-f", "rawvideo", "-pix_fmt", "bgr24", "-"], stdout=subprocess.PIPE)
@@ -13,5 +14,8 @@ n = 0
 while True:
     b = dec.stdout.read(W * H * 3)
     if len(b) < W * H * 3: break
-    enc.stdin.write(frame(n - 530).tobytes() if A <= n <= B else b); n += 1
+    if A <= n <= B: out = frame(n - 530)
+    elif removeB.A <= n <= removeB.B: out = removeB.frame(np.frombuffer(b, np.uint8).reshape(H, W, 3).copy(), n)
+    else: out = b
+    enc.stdin.write(out.tobytes() if hasattr(out, "tobytes") else out); n += 1
 enc.stdin.close(); enc.wait(); dec.wait(); print("quadros", n)
