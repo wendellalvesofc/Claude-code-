@@ -155,7 +155,7 @@ function build() {
   const k0 = dots[chosen[Math.floor(chosen.length / 2)]];
   tl.to("#crowd", { scale: 9, transformOrigin: `${k0.gx}px ${k0.gy}px`, duration: 0.45, ease: "power3.in" }, 17.95);
   leave(["#t4a", "#t4b"], 17.95, -80);
-  flash(18.35, 0.7);
+  flash(18.35, 0.3);
 
   // ================= S5 (18.35 – 22.45): the product, mission by mission
   scene("#s5", 18.35, 22.45);
