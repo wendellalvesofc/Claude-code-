@@ -1,0 +1,8 @@
+node_modules/
+out/frames/
+out/*.log
+preview/still_*.png
+out.log
+
+node_modules
+out/w*.log
