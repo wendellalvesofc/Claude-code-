@@ -9,7 +9,9 @@ import path from "node:path";
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const timing = JSON.parse(fs.readFileSync(path.join(root, "timing.json"), "utf8"));
-fs.writeFileSync(path.join(root, "src/timing.js"), `window.TIMING = ${JSON.stringify(timing)};\n`);
+// rewrite only when it changed: parallel workers start this script too, and a page could read a half-written file
+const timingJs = `window.TIMING = ${JSON.stringify(timing)};\n`, timingPath = path.join(root, "src/timing.js");
+if (!fs.existsSync(timingPath) || fs.readFileSync(timingPath, "utf8") !== timingJs) fs.writeFileSync(timingPath, timingJs);
 
 const stillsArg = process.argv.indexOf("--stills");
 const stills = stillsArg > -1 ? process.argv[stillsArg + 1].split(",").map(Number) : null;
