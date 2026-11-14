@@ -2,3 +2,4 @@ source/*.mov
 analysis/*.wav
 analysis/*.npy
 models/
+models/

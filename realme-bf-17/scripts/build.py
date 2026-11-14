@@ -4,9 +4,9 @@
 import subprocess, sys, numpy as np, cv2, soundfile as sf
 from PIL import Image, ImageDraw, ImageFont
 W, H, FPS = 1080, 1920, 30
-C = (540, 470)                                   # centro da frase (parede verde, acima das cabeças)
+C = (540, 1395)                                  # centralizada na horizontal, logo abaixo dos queixos, na altura do polegar do gesto
 S0 = 0.07                                        # tamanho de "sujeira"
-STEPS = [(17.15, 0.22), (17.95, 0.48), (18.62, 0.76), (19.40, 1.0)]   # (abertura dos dedos, escala alcançada)
+STEPS = [(17.15, 0.18), (17.95, 0.40), (18.62, 0.62), (19.40, 0.80)]   # (abertura dos dedos, escala alcançada)
 RISE = 0.28
 END = 20.95                                      # some no início da vinheta
 
@@ -48,7 +48,7 @@ def comp(img, t):
     s = scale_at(t)
     h0, w0 = TXT_A.shape; w1, h1 = max(2, int(w0 * s)), max(2, int(h0 * s))
     rgb = cv2.resize(TXT_HLG, (w1, h1), interpolation=cv2.INTER_AREA); a = cv2.resize(TXT_A, (w1, h1), interpolation=cv2.INTER_AREA)
-    k = (1 - min(1, s / 0.5)) * 0.9                                # quanto menor, mais "fora de foco", como sujeira na lente
+    k = (1 - min(1, s / 0.4)) * 0.9                                # quanto menor, mais "fora de foco", como sujeira na lente
     if k > 0.05:
         rgb = cv2.GaussianBlur(rgb, (0, 0), k); a = cv2.GaussianBlur(a, (0, 0), k)
     a = a * (0.8 + 0.2 * min(1, (s - S0) / 0.3))                    # sujeira um pouco translúcida
