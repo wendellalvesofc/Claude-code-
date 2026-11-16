@@ -35,8 +35,13 @@ Texto pequeno no topo, como na referência oficial:
 > Válido para compras de 15/10 a 15/11/2026. Se o mesmo modelo estiver mais barato em 27/11/2026, faremos um pix de R$ 1000, conforme regulamento. Fone por R$ 1 para clientes elegíveis. Consulte modelos, lojas participantes e condições da campanha.
 
 ## Ofertas da campanha (atualizado em 16/11/2026)
-**Encerradas, não usar mais em vídeos novos:**
-- Pré-Black (compras de 15/10 a 15/11/2026), **fone por R$ 1** e **Pix de R$ 1.000** (preço garantido).
+**Encerrada, não usar mais em vídeos novos:**
+- **Fone por R$ 1** (prazo acabou).
+
+**Ainda vale: Pix de R$ 1.000 (preço garantido da pré-Black)**
+- Vale para quem comprou na pré-Black, de 15/10 a 15/11/2026.
+- Se o mesmo modelo estiver mais barato no dia **27/11/2026**, o cliente recebe um Pix de R$ 1.000, conforme o regulamento.
+- O período de compra já acabou. Nos vídeos novos, o Pix aparece como garantia de quem já comprou ("se no dia 27 estiver mais barato…"), não como convite para comprar agora na pré-Black.
 
 **Em vigor: REAL FRIDAY** (cartaz oficial em `campanha/real-friday-cartaz.jpg`)
 - Na compra de um **celular realme**, o cliente **ganha brindes** e **concorre a prêmios**.
