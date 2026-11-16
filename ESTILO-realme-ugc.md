@@ -38,10 +38,11 @@ Texto pequeno no topo, como na referência oficial:
 **Encerrada, não usar mais em vídeos novos:**
 - **Fone por R$ 1** (prazo acabou).
 
-**Ainda vale: Pix de R$ 1.000 (preço garantido da pré-Black)**
-- Vale para quem comprou na pré-Black, de 15/10 a 15/11/2026.
-- Se o mesmo modelo estiver mais barato no dia **27/11/2026**, o cliente recebe um Pix de R$ 1.000, conforme o regulamento.
-- O período de compra já acabou. Nos vídeos novos, o Pix aparece como garantia de quem já comprou ("se no dia 27 estiver mais barato…"), não como convite para comprar agora na pré-Black.
+**Em vigor: Pix de R$ 1.000 (preço garantido), mensagem principal até 27/11**
+- A ideia é fazer o cliente **comprar agora, antes do dia 27/11**, porque a loja **já está com preço de Black**.
+- Se o mesmo modelo estiver mais barato no dia **27/11/2026**, o cliente recebe um **Pix de R$ 1.000**, conforme o regulamento.
+- Tom das legendas: "já estamos com preço de Black: compre agora e, se no dia 27 estiver mais barato, você recebe um Pix de R$ 1.000".
+- O período de compra válido segue o que o cliente informou em 16/11 (compras antes de 27/11). O rodapé legal antigo dizia 15/10 a 15/11; confirmar o texto do regulamento antes de usar um rodapé com datas.
 
 **Em vigor: REAL FRIDAY** (cartaz oficial em `campanha/real-friday-cartaz.jpg`)
 - Na compra de um **celular realme**, o cliente **ganha brindes** e **concorre a prêmios**.
