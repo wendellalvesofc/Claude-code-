@@ -33,3 +33,15 @@ Preset para os próximos vídeos da realme. Base: `realme-bf-01/refs2/` (sheets,
 ## Rodapé legal (vídeo oficial)
 Texto pequeno no topo, como na referência oficial:
 > Válido para compras de 15/10 a 15/11/2026. Se o mesmo modelo estiver mais barato em 27/11/2026, faremos um pix de R$ 1000, conforme regulamento. Fone por R$ 1 para clientes elegíveis. Consulte modelos, lojas participantes e condições da campanha.
+
+## Ofertas da campanha (atualizado em 16/11/2026)
+**Encerradas, não usar mais em vídeos novos:**
+- Pré-Black (compras de 15/10 a 15/11/2026), **fone por R$ 1** e **Pix de R$ 1.000** (preço garantido).
+
+**Em vigor: REAL FRIDAY** (cartaz oficial em `campanha/real-friday-cartaz.jpg`)
+- Na compra de um **celular realme**, o cliente **ganha brindes** e **concorre a prêmios**.
+- **Sorteio Nacional de 11/11 a 26/12**.
+- Prêmios no cartaz: uma **moto** e celulares realme. Brindes: chaveiros, guarda-chuva, boneco e caixa realme.
+- **Apuração do sorteio: 01/01/2027.**
+- O cartaz traz um QR code "Saiba mais" com o regulamento.
+- Nas legendas, usar só o que está no cartaz. Não citar marca, modelo ou valor da moto, nem quantidades, sem confirmação. Na dúvida, perguntar.
