@@ -29,6 +29,7 @@ Preset para os próximos vídeos da realme. Base: `realme-bf-01/refs2/` (sheets,
 - Fonte preferida: **SportSans** (CapCut). Sem o arquivo, usar Poppins ExtraBold, a mais próxima.
 - Legenda normal **sem animação**: corte seco de uma para a outra.
 - Animação só nos destaques: as palavras acendem da cinza para a cor.
+- **Sempre uma linha só** (pedido do cliente, 16/11). Destaque = a mesma linha, com as palavras-chave acendendo em amarelo e um "pop" (estilo `Key`, Poppins Black 92). Frase longa vira dois blocos seguidos com corte seco, não duas linhas. Duas linhas só quando for realmente interessante.
 
 ## Rodapé legal (vídeo oficial)
 Texto pequeno no topo, como na referência oficial:
