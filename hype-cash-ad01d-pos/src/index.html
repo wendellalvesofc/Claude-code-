@@ -164,12 +164,20 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 #card .dur { position: absolute; right: 22px; bottom: 58px; padding: 4px 10px; border-radius: 6px; background: rgba(0,0,0,.7); font: 700 24px Inter; color: #fff; }
 #card .prog { position: absolute; left: 22px; right: 22px; bottom: 50px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.25); }
 #card .prog i { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 3px; background: var(--g); transform-origin: 0 50%; transform: scaleX(.08); }
+
+/* hook background: real gameplay (helicopter over the Vice City shore), dimmed so the numbers stay the hero */
+#gpbg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; transform-origin: 50% 40%; }
+#gpdim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,3,7,.55) 0%, rgba(5,3,7,.62) 40%, rgba(5,3,7,.72) 75%, rgba(5,3,7,.95) 100%); }
+/* countdown, like a video player: keeps people to the end */
+#timer { position: absolute; right: 48px; top: 300px; z-index: 42; padding: 8px 18px; border-radius: 22px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.18);
+  font: 700 30px Inter; letter-spacing: .02em; color: rgba(255,255,255,.9); font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
 <div id="root">
   <!-- S1: 475 million views in 24 hours -->
   <section class="scene" id="s1">
+    <img id="gpbg" src="img/gp/h001.jpg"><div id="gpdim"></div>
     <div class="glow" id="glow1"></div>
     <div class="streak" id="sk1" style="top: 840px"></div>
     <div class="c lbl" id="t1top" style="top: 480px; font-size: 27px; letter-spacing: .16em; white-space: nowrap">para quem quer criar vídeos sobre GTA VI</div>
@@ -272,6 +280,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
   <div class="full" id="vig"></div>
   <div class="bar" id="barT"></div><div class="bar" id="barB"></div>
   <div id="src">475 milhões: visualizações do Trailer 2 de GTA VI somadas em todas as plataformas nas primeiras 24 h, segundo a Rockstar Games (maio de 2025).</div>
+  <div id="timer">0:45</div>
   <div id="grain"></div>
 </div>
 <script src="gsap.min.js"></script>

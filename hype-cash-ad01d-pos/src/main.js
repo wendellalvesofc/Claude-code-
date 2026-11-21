@@ -269,7 +269,19 @@ window.__ready = (async () => {
   await document.fonts.ready;
   await Promise.all([...document.images].map((im) => im.decode().catch(() => {})));
   const tl = build();
-  window.seek = (t) => { tl.seek(t, false); };
+  // gameplay frames (30 fps JPGs from assets/gameplay/heli.mp4) and the countdown follow t directly
+  const gp = $("#gpbg"), timer = $("#timer"), DUR = T.video_duration_s;
+  window.seek = (t) => {
+    tl.seek(t, false);
+    const left = Math.max(0, Math.ceil(DUR - t - 1e-6));
+    timer.textContent = `${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")}`;
+    const f = Math.min(180, Math.max(1, Math.floor(t * 30) + 1));
+    gp.style.transform = `scale(${(1.04 + 0.04 * Math.min(1, t / 5)).toFixed(4)})`;
+    const src = `img/gp/h${String(f).padStart(3, "0")}.jpg`;
+    if (gp.getAttribute("src") === src) return;
+    gp.setAttribute("src", src);
+    return gp.decode().catch(() => {});
+  };
   tl.seek(0);
   return { fonts: Object.fromEntries([...document.fonts].map((f) => [`${f.family} ${f.weight}`, f.status])), images: document.images.length, duration: tl.duration() };
 })();
