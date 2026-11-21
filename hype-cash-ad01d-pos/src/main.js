@@ -74,7 +74,8 @@ function build() {
   $("#city").innerHTML = city;
   tl.fromTo("#card", { scale: 0.55, opacity: 0, filter: "blur(18px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, 5.25);
   tl.to("#card", { scale: 1.05, duration: 2.8, ease: "none" }, 5.8);
-  tl.fromTo("#card .shot", { scale: 1.14, x: 14 }, { scale: 1.0, x: 0, duration: 3.3, ease: "none" }, 5.25);
+  // the shot keeps moving like a playing video: a steady push-in with a slow pan, no stop until the card leaves
+  tl.fromTo("#card .shot", { scale: 1.06, x: -36, y: 10 }, { scale: 1.3, x: 40, y: -14, duration: 3.45, ease: "none" }, 5.2);
   tl.fromTo("#card .prog i", { scaleX: 0.04 }, { scaleX: 0.3, duration: 3.3, ease: "none" }, 5.25);
   rise("#t2a", E.foi - 0.06);
   riseOn("#t2b", [E.segundo, E.trailer, E.trailer + 0.4, E.gta, E.fez]);

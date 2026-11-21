@@ -157,7 +157,8 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 #card .city { display: none; }
 #card .lb { position: absolute; left: 0; width: 900px; height: 40px; background: #000; }
 #card .lbT { top: 0; } #card .lbB { bottom: 0; }
-#card .scan { opacity: .35; }
+#card .scan { display: none; }
+#card .shot { will-change: transform; backface-visibility: hidden; }
 #card .tag { top: 56px; font-size: 26px; padding: 6px 14px; background: rgba(0,0,0,.55); border-left: 5px solid var(--pink); }
 #card .ilu { position: absolute; right: 24px; top: 60px; font: 600 18px Inter; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); }
 #card .dur { position: absolute; right: 22px; bottom: 58px; padding: 4px 10px; border-radius: 6px; background: rgba(0,0,0,.7); font: 700 24px Inter; color: #fff; }
