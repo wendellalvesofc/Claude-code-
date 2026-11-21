@@ -103,6 +103,24 @@ body { font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing
 #price { position: absolute; left: 60px; top: 790px; width: 960px; text-align: center; }
 #price .p1 { font: 800 160px/1 Poppins; letter-spacing: -.05em; background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 30px rgba(255,63,162,.45)); }
 #price .p2 { margin-top: 18px; font: 600 33px Inter; color: rgba(255,255,255,.85); letter-spacing: -.01em; }
+
+/* night palette for every scene (Vice night: deep purple sky, neon pink/blue horizon) */
+html, body, #root { background: #0a0612; }
+#s2, #s4, #s5 { color: #fff;
+  background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(255,63,162,.38) 0%, rgba(255,63,162,0) 70%),
+              radial-gradient(ellipse 90% 55% at 50% 30%, #2a0f63 0%, #150c24 50%, #0a0612 90%); }
+#s2 .kicker, #s4 .kicker, #s5 .kicker { color: rgba(255,255,255,.65); }
+#s2 .rule, #s4 .rule { background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); }
+#mast { color: #fff; text-shadow: 0 0 60px rgba(168,63,254,.55); }
+#mast .serif { background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: 20px; }
+.card { background: linear-gradient(160deg, #241536, #120b1e); border: 2px solid rgba(255,255,255,.18); box-shadow: 10px 10px 0 #ff3fa2, 0 0 60px rgba(168,63,254,.35); }
+.card .no { color: rgba(255,255,255,.55); }
+.card .lbl { color: #fff; }
+.ln, .bar { background: rgba(255,255,255,.82); }
+#t4c, #s5 #t5a { color: #fff; }
+#t4c { color: #b8a8d0 !important; }
+.pink { text-shadow: 0 0 40px rgba(255,63,162,.45); }
+#pA { background: #150c24 !important; }
 </style>
 </head>
 <body>
@@ -170,7 +188,7 @@ body { font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing
     <div class="t" id="t4a" style="top: 640px; font-size: 76px">um projeto de</div>
     <div class="t serif" id="t4b" style="top: 720px; font-size: 230px; line-height: 1"><span class="pink">conteúdo</span></div>
     <div class="t" id="t4c" style="top: 1010px; font-size: 64px; color: var(--soft)">com esse tema.</div>
-    <svg id="pen4" width="1080" height="1920"><path id="u4" d="M150 985 C 330 1010, 600 965, 930 990" fill="none" stroke="#15111c" stroke-width="8" stroke-linecap="round"/></svg>
+    <svg id="pen4" width="1080" height="1920"><path id="u4" d="M150 985 C 330 1010, 600 965, 930 990" fill="none" stroke="#ff3fa2" stroke-width="8" stroke-linecap="round"/></svg>
   </section>
 
   <!-- S5: no easy promise, direction -->
@@ -180,10 +198,10 @@ body { font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing
     <div class="t" id="t5b" style="top: 700px; font-size: 76px">Com</div>
     <div class="t serif" id="t5c" style="top: 770px; font-size: 220px; line-height: 1"><span class="pink">direção.</span></div>
     <svg id="compass" viewBox="0 0 300 300">
-      <circle cx="150" cy="150" r="140" fill="#fffdf8" stroke="#15111c" stroke-width="5"/>
-      <g stroke="#15111c" stroke-width="5" stroke-linecap="round"><path d="M150 18v26M150 256v26M18 150h26M256 150h26"/></g>
-      <g id="needle"><path d="M150 50 L172 150 L150 250 L128 150z" fill="#15111c"/><path d="M150 50 L172 150 L128 150z" fill="#ff3fa2"/></g>
-      <circle cx="150" cy="150" r="12" fill="#fffdf8" stroke="#15111c" stroke-width="5"/>
+      <circle cx="150" cy="150" r="140" fill="#1a1028" stroke="#ffffff" stroke-width="5"/>
+      <g stroke="#ffffff" stroke-width="5" stroke-linecap="round"><path d="M150 18v26M150 256v26M18 150h26M256 150h26"/></g>
+      <g id="needle"><path d="M150 50 L172 150 L150 250 L128 150z" fill="#ffffff"/><path d="M150 50 L172 150 L128 150z" fill="#ff3fa2"/></g>
+      <circle cx="150" cy="150" r="12" fill="#1a1028" stroke="#ffffff" stroke-width="5"/>
     </svg>
   </section>
 
