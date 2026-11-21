@@ -149,6 +149,20 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 #x4 { left: 0; top: 400px; } #x5 { left: 495px; top: 400px; } #x6 { left: 0; top: 600px; } #x7 { left: 495px; top: 600px; }
 #xfoot { position: absolute; left: 0; width: 1080px; top: 1440px; text-align: center; font: 700 40px Inter; letter-spacing: .02em; color: #d4ff3f; opacity: 0; }
 #sum { display: none !important; }
+
+/* trailer card v2: a cinematic Vice-style shot (art from the sales page) instead of the flat gradient */
+#card .shot { position: absolute; left: 0; top: 0; width: 900px; height: 506px; object-fit: cover; transform-origin: 55% 60%; }
+#card .grade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,63,162,.28) 0%, rgba(168,63,254,.10) 35%, rgba(0,0,0,0) 55%, rgba(20,8,40,.55) 100%); mix-blend-mode: soft-light; }
+#card .grade::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 75% 70% at 50% 50%, rgba(0,0,0,0) 55%, rgba(8,3,16,.6) 100%); }
+#card .city { display: none; }
+#card .lb { position: absolute; left: 0; width: 900px; height: 40px; background: #000; }
+#card .lbT { top: 0; } #card .lbB { bottom: 0; }
+#card .scan { opacity: .35; }
+#card .tag { top: 56px; font-size: 26px; padding: 6px 14px; background: rgba(0,0,0,.55); border-left: 5px solid var(--pink); }
+#card .ilu { position: absolute; right: 24px; top: 60px; font: 600 18px Inter; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+#card .dur { position: absolute; right: 22px; bottom: 58px; padding: 4px 10px; border-radius: 6px; background: rgba(0,0,0,.7); font: 700 24px Inter; color: #fff; }
+#card .prog { position: absolute; left: 22px; right: 22px; bottom: 50px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.25); }
+#card .prog i { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 3px; background: var(--g); transform-origin: 0 50%; transform: scaleX(.08); }
 </style>
 </head>
 <body>
@@ -168,7 +182,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
   <section class="scene" id="s2">
     <div class="c serif" id="t2a" style="top: 470px; font-size: 92px">Foi isso que o</div>
     <div class="c big" id="t2b" style="top: 590px; font-size: 92px"><span class="w">segundo</span> <span class="w">trailer</span> <span class="w">de</span> <span class="w gt">GTA VI</span> <span class="w">fez.</span></div>
-    <div id="card"><svg class="city" viewBox="0 0 900 120" preserveAspectRatio="none" id="city"></svg><div class="scan"></div><div class="tag">TRAILER 2</div><div class="play"></div></div>
+    <div id="card"><img class="shot" src="img/trailer-boat.jpg"><div class="grade"></div><svg class="city" viewBox="0 0 900 120" preserveAspectRatio="none" id="city"></svg><div class="lb lbT"></div><div class="lb lbB"></div><div class="scan"></div><div class="tag">TRAILER 2</div><div class="ilu">imagem ilustrativa</div><div class="play"></div><div class="dur">1:31</div><div class="prog"><i></i></div></div>
     <div id="stat"><span class="dot"></span><span id="statN">475 mi de visualizações · primeiras 24 h</span></div>
   </section>
 
