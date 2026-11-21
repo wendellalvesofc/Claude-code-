@@ -137,6 +137,23 @@ html, body, #root { background: #0a0612; }
 #mis3 { position: absolute; left: 440px; top: 560px; width: 600px; }
 #mis3 .m { position: absolute; left: 0; display: flex; align-items: center; gap: 18px; font: 700 40px Poppins; letter-spacing: -.02em; color: #fff; opacity: 0; white-space: nowrap; }
 #mis3 .m i { font: 700 26px Inter; font-style: normal; color: var(--lime); width: 44px; }
+
+/* SX: everything inside */
+#sx { background: radial-gradient(ellipse 80% 55% at 50% 40%, #2a0f63 0%, #120a20 55%, #07040c 92%); color: #fff; }
+#xglow { position: absolute; left: 90px; top: 380px; width: 900px; height: 1100px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,63,162,.22), rgba(0,0,0,0) 65%); }
+#xtitle { position: absolute; left: 0; width: 1080px; top: 380px; text-align: center; font: 800 96px Poppins; letter-spacing: -.04em; opacity: 0; }
+#xtitle .xg { background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#xgrid { position: absolute; left: 60px; top: 600px; width: 960px; }
+.xt { position: absolute; width: 465px; height: 170px; border-radius: 30px; display: flex; align-items: center; gap: 22px; padding: 0 26px; opacity: 0;
+  background: linear-gradient(160deg, #26163a, #140b22); border: 2px solid rgba(255,255,255,.12); box-shadow: 0 20px 50px rgba(0,0,0,.45); }
+.xt b { flex: none; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: #d4ff3f; color: #15101f; font: 900 36px Poppins; box-shadow: 0 0 26px rgba(212,255,63,.55); }
+.xt strong { display: block; font: 800 41px/1.05 Poppins; letter-spacing: -.03em; color: #fff; }
+.xt span { display: block; margin-top: 6px; font: 600 30px Inter; color: rgba(255,255,255,.7); }
+.xn { border: 3px solid rgba(255,63,162,.85); box-shadow: 0 0 50px rgba(255,63,162,.35), 0 20px 50px rgba(0,0,0,.45); }
+#x0 { left: 0; top: 0; } #x1 { left: 495px; top: 0; } #x2 { left: 0; top: 200px; } #x3 { left: 495px; top: 200px; }
+#x4 { left: 0; top: 400px; } #x5 { left: 495px; top: 400px; } #x6 { left: 0; top: 600px; } #x7 { left: 495px; top: 600px; }
+#xfoot { position: absolute; left: 0; width: 1080px; top: 1440px; text-align: center; font: 700 40px Inter; letter-spacing: .02em; color: #d4ff3f; opacity: 0; }
+#sum { display: none !important; }
 </style>
 </head>
 <body>
@@ -212,6 +229,23 @@ html, body, #root { background: #0a0612; }
     <svg id="pen4" width="1080" height="1920"><path id="u4" d="M150 985 C 330 1010, 600 965, 930 990" fill="none" stroke="#ff3fa2" stroke-width="8" stroke-linecap="round"/></svg>
   </section>
 
+  <!-- SX: "E tem muito mais": everything inside the R$ 97, so the four items read as a sample -->
+  <section class="scene" id="sx">
+    <div id="xglow"></div>
+    <div id="xtitle">E tem <span class="xg">muito mais:</span></div>
+    <div id="xgrid">
+      <div class="xt xn" id="x0"><b>✓</b><div><strong>7 missões</strong><span>completas</span></div></div>
+      <div class="xt xn" id="x1"><b>✓</b><div><strong>Ferramentas</strong><span>de IA</span></div></div>
+      <div class="xt xn" id="x2"><b>✓</b><div><strong>Guia de parcerias</strong><span>com marcas</span></div></div>
+      <div class="xt xn" id="x3"><b>✓</b><div><strong>Estúdio no Claude</strong><span>+ todos os prompts</span></div></div>
+      <div class="xt xr" id="x4"><b>✓</b><div><strong>Roteiros</strong><span>prontos</span></div></div>
+      <div class="xt xr" id="x5"><b>✓</b><div><strong>50 ideias</strong><span>+ 6 modelos</span></div></div>
+      <div class="xt xr" id="x6"><b>✓</b><div><strong>Cortes de lives</strong><span>com IA</span></div></div>
+      <div class="xt xr" id="x7"><b>✓</b><div><strong>Plano de</strong><span>7 dias</span></div></div>
+    </div>
+    <div id="xfoot">tudo dentro do mesmo playbook</div>
+  </section>
+
   <!-- S5 v2: no followers, no gear, no face -->
   <section class="scene" id="s5">
     <div class="t ob" id="ob0" style="top: 640px"><span class="m">Sem</span> <span class="gr">seguidores.</span></div>
@@ -224,7 +258,7 @@ html, body, #root { background: #0a0612; }
     <div id="bloom6"></div>
     <img id="logo6" src="img/logo.png" alt="HYPE CASH">
     <div class="t" id="t6a" style="top: 660px; font-family: Inter; font-weight: 600; font-size: 42px; line-height: 1.3; letter-spacing: -.01em; color: #e9e2fb">O playbook interativo para criar conteúdo com o hype do GTA VI</div>
-    <div id="price"><div class="p1">R$ 97</div><div class="p2">ou 12x de R$ 10,03 · garantia de 7 dias<br><span class="p3">acesso na hora, no celular ou computador</span></div></div>
+    <div id="price"><div class="p1">R$ 97</div><div class="p2">ou 12x de R$ 10,03 · acesso na hora · garantia de 7 dias</div></div>
     <div id="btn"><span>Quero começar</span><span>→</span><div class="shine" id="shine"></div></div>
     <div id="ripple"></div>
     <svg id="cursor" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z" fill="#fff" stroke="#15111c" stroke-width="1.2" stroke-linejoin="round"/></svg>

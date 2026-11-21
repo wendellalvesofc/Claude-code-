@@ -1,13 +1,13 @@
 {
  "audio": {
   "file": "audio/narration.wav",
-  "duration_s": 29.39,
-  "speech_end_s": 29.2,
-  "source": "ElevenLabs eleven_v4, voz 'Gabriel — Friendly Brazilian Ad Voice' (WPgqgCVa3mD38JuyODU6), take 1 de 2 (roteiro v2: o que tem dentro + objeções), usado inteiro e sem edição"
+  "duration_s": 36.43,
+  "speech_end_s": 36.27,
+  "source": "ElevenLabs eleven_v4, voz 'Gabriel — Friendly Brazilian Ad Voice' (WPgqgCVa3mD38JuyODU6), take 1 de 2 (roteiro v2: o que tem dentro + objeções), usado inteiro e sem edição; + frase 'E tem muito mais…' (ElevenLabs, mesma voz, take 1 de 2) inserida inteira na pausa em 19.88 s"
  },
  "fps": 30,
- "video_duration_s": 30.5,
- "total_frames": 915,
+ "video_duration_s": 37.567,
+ "total_frames": 1127,
  "timestamps_source": "faster-whisper medium local (word_timestamps)",
  "words": [
   {
@@ -261,129 +261,209 @@
    "e": 19.72
   },
   {
-   "w": "Sem",
-   "s": 20.16,
-   "e": 20.32
+   "w": "E",
+   "s": 20.08,
+   "e": 20.28
   },
   {
-   "w": "seguidores,",
-   "s": 20.32,
+   "w": "tem",
+   "s": 20.28,
+   "e": 20.52
+  },
+  {
+   "w": "muito",
+   "s": 20.52,
    "e": 20.92
   },
   {
-   "w": "sem",
-   "s": 21.16,
+   "w": "mais,",
+   "s": 20.92,
    "e": 21.38
   },
   {
-   "w": "equipamento,",
-   "s": 21.38,
-   "e": 22.02
-  },
-  {
-   "w": "sem",
-   "s": 22.24,
-   "e": 22.44
-  },
-  {
-   "w": "mostrar",
-   "s": 22.44,
-   "e": 22.82
-  },
-  {
-   "w": "o",
-   "s": 22.82,
-   "e": 23.0
-  },
-  {
-   "w": "rosto.",
-   "s": 23.0,
-   "e": 23.32
-  },
-  {
-   "w": "Tudo",
-   "s": 23.7,
-   "e": 23.94
-  },
-  {
-   "w": "por",
-   "s": 23.94,
-   "e": 24.18
-  },
-  {
-   "w": "R",
-   "s": 24.18,
-   "e": 25.06
-  },
-  {
-   "w": "$",
-   "s": 25.06,
-   "e": 25.06
-  },
-  {
-   "w": "97",
-   "s": 25.06,
-   "e": 25.06
-  },
-  {
-   "w": ",00",
-   "s": 25.06,
-   "e": 25.14
-  },
-  {
-   "w": "com",
-   "s": 25.14,
-   "e": 25.7
-  },
-  {
    "w": "7",
-   "s": 25.7,
-   "e": 26.08
+   "s": 21.86,
+   "e": 22.1
   },
   {
-   "w": "dias",
-   "s": 26.08,
-   "e": 26.32
+   "w": "missões",
+   "s": 22.1,
+   "e": 22.54
+  },
+  {
+   "w": "completas,",
+   "s": 22.54,
+   "e": 23.56
+  },
+  {
+   "w": "ferramentas",
+   "s": 23.72,
+   "e": 24.28
   },
   {
    "w": "de",
-   "s": 26.32,
-   "e": 26.52
+   "s": 24.28,
+   "e": 24.4
   },
   {
-   "w": "garantia.",
-   "s": 26.52,
-   "e": 27.22
-  },
-  {
-   "w": "Toque",
-   "s": 27.22,
-   "e": 27.62
-  },
-  {
-   "w": "no",
-   "s": 27.62,
-   "e": 27.76
-  },
-  {
-   "w": "botão",
-   "s": 27.76,
-   "e": 28.18
+   "w": "IA",
+   "s": 24.4,
+   "e": 24.74
   },
   {
    "w": "e",
-   "s": 28.18,
-   "e": 28.38
+   "s": 24.74,
+   "e": 25.06
+  },
+  {
+   "w": "guia",
+   "s": 25.06,
+   "e": 25.36
+  },
+  {
+   "w": "de",
+   "s": 25.36,
+   "e": 25.54
+  },
+  {
+   "w": "parcerias",
+   "s": 25.54,
+   "e": 26.0
+  },
+  {
+   "w": "com",
+   "s": 26.0,
+   "e": 26.2
+  },
+  {
+   "w": "marcas.",
+   "s": 26.2,
+   "e": 26.62
+  },
+  {
+   "w": "Sem",
+   "s": 27.23,
+   "e": 27.39
+  },
+  {
+   "w": "seguidores,",
+   "s": 27.39,
+   "e": 27.99
+  },
+  {
+   "w": "sem",
+   "s": 28.23,
+   "e": 28.45
+  },
+  {
+   "w": "equipamento,",
+   "s": 28.45,
+   "e": 29.09
+  },
+  {
+   "w": "sem",
+   "s": 29.31,
+   "e": 29.51
+  },
+  {
+   "w": "mostrar",
+   "s": 29.51,
+   "e": 29.89
+  },
+  {
+   "w": "o",
+   "s": 29.89,
+   "e": 30.07
+  },
+  {
+   "w": "rosto.",
+   "s": 30.07,
+   "e": 30.39
+  },
+  {
+   "w": "Tudo",
+   "s": 30.77,
+   "e": 31.01
+  },
+  {
+   "w": "por",
+   "s": 31.01,
+   "e": 31.25
+  },
+  {
+   "w": "R",
+   "s": 31.25,
+   "e": 32.13
+  },
+  {
+   "w": "$",
+   "s": 32.13,
+   "e": 32.13
+  },
+  {
+   "w": "97",
+   "s": 32.13,
+   "e": 32.13
+  },
+  {
+   "w": ",00",
+   "s": 32.13,
+   "e": 32.21
+  },
+  {
+   "w": "com",
+   "s": 32.21,
+   "e": 32.77
+  },
+  {
+   "w": "7",
+   "s": 32.77,
+   "e": 33.15
+  },
+  {
+   "w": "dias",
+   "s": 33.15,
+   "e": 33.39
+  },
+  {
+   "w": "de",
+   "s": 33.39,
+   "e": 33.59
+  },
+  {
+   "w": "garantia.",
+   "s": 33.59,
+   "e": 34.29
+  },
+  {
+   "w": "Toque",
+   "s": 34.29,
+   "e": 34.69
+  },
+  {
+   "w": "no",
+   "s": 34.69,
+   "e": 34.83
+  },
+  {
+   "w": "botão",
+   "s": 34.83,
+   "e": 35.25
+  },
+  {
+   "w": "e",
+   "s": 35.25,
+   "e": 35.45
   },
   {
    "w": "comece",
-   "s": 28.38,
-   "e": 28.78
+   "s": 35.45,
+   "e": 35.85
   },
   {
    "w": "hoje!",
-   "s": 28.78,
-   "e": 29.16
+   "s": 35.85,
+   "e": 36.23
   }
  ],
  "emphasis": {
@@ -415,19 +495,26 @@
   "cortes": 16.7,
   "plano": 18.5,
   "dias7": 19.04,
-  "sem1": 20.16,
-  "seguidores": 20.32,
-  "sem2": 21.16,
-  "equipamento": 21.38,
-  "sem3": 22.24,
-  "rosto": 23.0,
-  "tudo": 23.7,
-  "reais": 24.4,
-  "garantia": 26.52,
-  "toque": 27.22,
-  "botao": 27.76,
-  "comece": 28.38,
-  "hoje": 28.78
+  "sem1": 27.23,
+  "seguidores": 27.39,
+  "sem2": 28.23,
+  "equipamento": 28.45,
+  "sem3": 29.31,
+  "rosto": 30.07,
+  "tudo": 30.77,
+  "reais": 31.47,
+  "garantia": 33.59,
+  "toque": 34.29,
+  "botao": 34.83,
+  "comece": 35.45,
+  "hoje": 35.85,
+  "ins0": 20.08,
+  "mais": 20.52,
+  "missoes7": 21.86,
+  "ferramentas": 23.72,
+  "parcerias": 25.54,
+  "marcas": 26.2,
+  "insEnd": 26.8
  },
  "emphasis_prelaunch": {
   "voce": 0.0,

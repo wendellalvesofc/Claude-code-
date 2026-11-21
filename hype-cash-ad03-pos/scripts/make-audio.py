@@ -110,6 +110,9 @@ CUES = [(n, round(remap(c), 3), g, ml) for n, c, g, ml in CUES if c < 11.5] + [
     ("impact-bass-2", E["rosto"] + .4, -17, .5),
     ("whoosh-cinematic", 17.9 + C, -15, .5), ("impact-bass-1", 18.2 + C, -14, .7), ("impact-bass-2", E["reais"] + .02, -14, .5), ("sparkle", E["reais"] + .1, -20, .8),
     ("pop", E["garantia"] - .75, -17, .25), ("pop", E["toque"] - .03, -16, .3), ("click", E["botao"] + .1, -11, .3), ("sparkle", E["hoje"] + .15, -19, 1.0)]
+# "E tem muito mais": the grid of everything inside
+CUES += [("whoosh-cinematic", E["ins0"] - .15, -15, .5), ("pop", E["mais"] - .02, -16, .3)] + [("pop", E[k] - .06, -14, .3) for k in ("missoes7", "ferramentas", "parcerias")] + [
+    ("pop", E["marcas"] + .34, -14, .3), ("sparkle", E["marcas"] + .7, -20, .8)]
 def onset(x, kind):
     a = np.abs(x).max(1); sm = np.convolve(a, np.ones(240) / 240, "same")
     return int(np.argmax(sm)) if kind.startswith(("whoosh", "riser")) else int(np.argmax(sm >= .5 * sm.max()))

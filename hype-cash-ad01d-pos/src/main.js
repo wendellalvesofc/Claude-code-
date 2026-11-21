@@ -177,7 +177,7 @@ function build() {
   flash(22.45, 0.15);
 
   // ================= S6 v2 (N.ao – N.sem1): what is inside, the only phone moment, real screens (~6 s)
-  const S6A = N.ao - 0.2, S6B = N.sem1 - 0.15;
+  const S6A = N.ao - 0.2, S6B = N.ins0 - 0.1;
   raw.set("#s5", { visibility: "hidden" }, S6A);
   raw.set("#s6", { visibility: "visible" }, S6A); raw.set("#s6", { visibility: "hidden" }, S6B);
   raw.fromTo("#spot", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, S6A);
@@ -202,8 +202,25 @@ function build() {
   raw.to("#sum", { y: -40, opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power2.in" }, S6B - 0.25);
   raw.to(["#phone", "#t6", "#it3", "#tagReal", "#dots"], { y: -60, opacity: 0, filter: "blur(12px)", duration: 0.28, ease: "power2.in" }, PH_OUT - 0.28);
 
+  // ================= SX (N.ins0 – N.sem1): "E tem muito mais" – everything inside, so the four items read as a sample
+  const SXA = N.ins0 - 0.1, SXB = N.sem1 - 0.15;
+  raw.set("#sx", { visibility: "visible" }, SXA); raw.set("#sx", { visibility: "hidden" }, SXB);
+  raw.fromTo("#sx", { opacity: 0 }, { opacity: 1, duration: 0.25 }, SXA);
+  raw.fromTo("#xtitle", { y: 40, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, N.ins0);
+  raw.fromTo("#xtitle .xg", { scale: 1.25 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, N.mais - 0.05);
+  // recap: the four items already shown land first, dimmed
+  [4, 5, 6, 7].forEach((k, i) => raw.fromTo(`#x${k}`, { y: 40, opacity: 0, scale: 0.9 }, { y: 0, opacity: 0.55, scale: 1, duration: 0.35, ease: "back.out(2)" }, N.mais + 0.1 + i * 0.09));
+  // the rest pops on its words
+  [[0, N.missoes7], [1, N.ferramentas], [2, N.parcerias], [3, N.marcas + 0.4]].forEach(([k, at]) => {
+    raw.fromTo(`#x${k}`, { y: 40, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.2)" }, at - 0.08);
+    raw.fromTo(`#x${k} b`, { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, at + 0.05);
+  });
+  raw.to(["#x4", "#x5", "#x6", "#x7"], { opacity: 1, duration: 0.3 }, N.marcas + 0.75);
+  raw.fromTo("#xfoot", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, N.marcas + 0.7);
+  raw.to(["#xtitle", "#xgrid", "#xfoot"], { y: -60, opacity: 0, filter: "blur(12px)", duration: 0.28, ease: "power2.in" }, SXB - 0.3);
+
   // ================= S7 v2 (N.sem1 – N.tudo): no followers, no gear, no face; no magic formula
-  const S7A = S6B, S7B = N.tudo - 0.3;
+  const S7A = N.sem1 - 0.15, S7B = N.tudo - 0.3;
   raw.set("#s7", { visibility: "visible" }, S7A); raw.set("#s7", { visibility: "hidden" }, S7B);
   [[0, N.sem1, N.seguidores], [1, N.sem2, N.equipamento], [2, N.sem3, N.rosto]].forEach(([i, a, k]) => {
     raw.fromTo(`#ob${i}`, { y: 50, opacity: 0, filter: "blur(12px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, a - 0.06);
