@@ -94,6 +94,10 @@ function build() {
   tl.to("#chip3", { opacity: 0, y: -40, duration: 0.3 }, (E.mostra ?? 11.4) - 0.05);
   rise("#lb0", E.missao - 0.05);
   rise("#lb1", E.missao2 - 0.04);
+  // the 7 missions beside "missão por missão" (the four items later are a sample of what is inside)
+  const MIS = ["Entre no Jogo", "Modo Gameplay", "Mercado de Criadores", "Conteúdo Evergreen", "Território Próprio", "Escala de Monetização", "A Próxima Onda"];
+  $("#mis3").innerHTML = MIS.map((m, i) => `<div class="m" style="top: ${i * 66}px"><i>${String(i + 1).padStart(2, "0")}</i>${m}</div>`).join("");
+  $("#mis3").querySelectorAll(".m").forEach((el, i) => raw.fromTo(el, { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, N.missao - 0.1 + i * 0.1));
   // v2: "ao seu primeiro vídeo", then the only phone moment (~5 s): one real screen per item
   raw.fromTo("#lbV", { y: 44, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, N.ao - 0.06);
   const PH_IN = N.roteiros - 0.35, PH_OUT = N.dias7 + 0.35;
@@ -110,7 +114,9 @@ function build() {
     raw.fromTo(`#pg${i} img`, { y: 0 }, { y: -90, duration: 1.4, ease: "sine.inOut", immediateRender: false }, at + 0.25);
   });
   raw.to("#phone", { x: 900, rotateY: 40, filter: "blur(14px)", duration: 0.4, ease: "power3.in" }, PH_OUT - 0.4);
-  raw.to(["#it3", "#logo3"], { opacity: 0, duration: 0.25 }, PH_OUT - 0.35);
+  raw.to("#mis3", { x: 80, opacity: 0, filter: "blur(10px)", duration: 0.3, ease: "power2.in" }, PH_IN - 0.15);
+  raw.fromTo("#sum", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, N.plano - 0.05);
+  raw.to(["#it3", "#logo3", "#sum"], { opacity: 0, duration: 0.25 }, Math.max(PH_OUT - 0.35, N.sem1 - 0.8));
   const S5A = N.sem1 - 0.25;
   raw.set("#s3", { visibility: "hidden" }, S5A);
   raw.set("#pA", { visibility: "visible" }, S5A - 0.3);

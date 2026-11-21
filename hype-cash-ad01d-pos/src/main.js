@@ -198,6 +198,8 @@ function build() {
   });
   // the page scrolls a little on each screen, so the real content reads as alive
   [0, 1, 2, 3].forEach((i) => raw.fromTo(`#pg${i} img`, { y: 0 }, { y: -90, duration: 1.4, ease: "sine.inOut", immediateRender: false }, ITEMS[i] + 0.25));
+  raw.fromTo("#sum", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, N.plano - 0.05);
+  raw.to("#sum", { y: -40, opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power2.in" }, S6B - 0.25);
   raw.to(["#phone", "#t6", "#it3", "#tagReal", "#dots"], { y: -60, opacity: 0, filter: "blur(12px)", duration: 0.28, ease: "power2.in" }, PH_OUT - 0.28);
 
   // ================= S7 v2 (N.sem1 – N.tudo): no followers, no gear, no face; no magic formula

@@ -110,7 +110,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 #cursor { position: absolute; left: 0; top: 0; width: 84px; z-index: 5; }
 #ripple { position: absolute; width: 60px; height: 60px; border-radius: 50%; border: 6px solid #fff; opacity: 0; }
 #legal { position: absolute; left: 140px; top: 1560px; width: 800px; text-align: center; font: 500 23px/1.4 Inter; color: rgba(255,255,255,.5); }
-#price { position: absolute; left: 60px; top: 900px; width: 960px; text-align: center; }
+#price { position: absolute; left: 60px; top: 860px; width: 960px; text-align: center; }
 #price .p1 { font: 900 150px/1 Poppins; letter-spacing: -.05em; background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 30px rgba(255,63,162,.45)); }
 #price .p2 { margin-top: 14px; font: 600 33px Inter; color: rgba(255,255,255,.85); letter-spacing: -.01em; }
 #launch { position: absolute; left: 30px; top: 1250px; width: 220px; text-align: center; font: 600 28px/1.25 Inter; color: rgba(255,255,255,.55); }
@@ -125,6 +125,13 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 /* S7 v2: objections */
 .ob { font-size: 86px; opacity: 0; white-space: nowrap; }
 .ob .m { color: rgba(255,255,255,.55); }
+
+#price .p2 { line-height: 1.45; }
+#price .p3 { font: 600 30px Inter; color: rgba(212,255,63,.9); }
+
+/* summary after the list: the four items are a sample */
+#sum { position: absolute; left: 0; width: 1080px; top: 1625px; text-align: center; font: 700 38px Inter; letter-spacing: -.01em; color: rgba(255,255,255,.9); opacity: 0; }
+#sum b { color: var(--lime); font-weight: 800; }
 </style>
 </head>
 <body>
@@ -188,6 +195,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
     <div class="it" id="it2"><b>✓</b>Cortes de lives com IA</div>
     <div class="it" id="it3"><b>✓</b>Plano de 7 dias</div>
     <div id="dots"><i id="dt0"></i><i id="dt1"></i><i id="dt2"></i><i id="dt3"></i></div>
+    <div id="sum"><b>+ 7 missões</b> · ferramentas com IA · guia de parcerias</div>
   </section>
 
   <!-- S7: no followers, no gear, no face; no magic formula -->
@@ -204,8 +212,8 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
   <section class="scene" id="s8">
     <div class="glow" id="glow8"></div>
     <img id="logo8" src="img/logo.png">
-    <div class="c" id="t8" style="top: 770px; left: 140px; width: 800px; font: 600 42px/1.3 Inter; color: rgba(255,255,255,.88)">O playbook interativo para criar conteúdo com o hype do GTA VI</div>
-    <div id="price"><div class="p1">R$ 97</div><div class="p2">ou 12x de R$ 10,03 · acesso na hora · garantia de 7 dias</div></div>
+    <div class="c" id="t8" style="top: 730px; left: 140px; width: 800px; font: 600 42px/1.3 Inter; color: rgba(255,255,255,.88)">O playbook interativo para criar conteúdo com o hype do GTA VI</div>
+    <div id="price"><div class="p1">R$ 97</div><div class="p2">ou 12x de R$ 10,03 · garantia de 7 dias<br><span class="p3">acesso na hora, no celular ou computador</span></div></div>
     <div id="btn">Quero começar →<div id="shine"></div></div>
     <div id="ripple"></div>
     <svg id="cursor" viewBox="0 0 24 24"><path d="M4 2.5l15 9.2-6.6 1.4 3.8 7.3-3 1.5-3.8-7.3L4.6 19z" fill="#fff" stroke="#15101f" stroke-width="1.6" stroke-linejoin="round"/></svg>

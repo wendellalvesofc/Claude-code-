@@ -184,6 +184,8 @@ function build() {
     raw.fromTo(`#pg${i} img`, { y: 0 }, { y: -90, duration: 1.4, ease: "sine.inOut", immediateRender: false }, at + 0.25);
   });
   raw.to("#phone", { y: 1500, rotate: 8, duration: 0.4, ease: "power3.in" }, PH_OUT - 0.4);
+  raw.fromTo("#sum", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, N.plano - 0.05);
+  raw.to("#sum", { y: -40, opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power2.in" }, S5B - 0.25);
   raw.to(["#it3", "#t5a", "#tagReal", "#dots"], { opacity: 0, scale: 0.9, filter: "blur(10px)", duration: 0.25, ease: "power2.in" }, PH_OUT - 0.35);
 
   // ================= S6 v2 (N.sem1 – N.tudo): no followers, no gear, no face

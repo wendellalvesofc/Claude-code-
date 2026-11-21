@@ -129,6 +129,14 @@ html, body, #root { background: #0a0612; }
 .ob { font-size: 92px; font-weight: 800; letter-spacing: -.04em; white-space: nowrap; opacity: 0; color: #fff; }
 .ob .m { color: rgba(255,255,255,.55); }
 .ob .gr { background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+#price .p2 { line-height: 1.45; }
+#price .p3 { font: 600 30px Inter; color: rgba(212,255,63,.9); }
+
+#sum { opacity: 0; } #sum b { color: var(--lime); font-weight: 800; }
+#mis3 { position: absolute; left: 440px; top: 560px; width: 600px; }
+#mis3 .m { position: absolute; left: 0; display: flex; align-items: center; gap: 18px; font: 700 40px Poppins; letter-spacing: -.02em; color: #fff; opacity: 0; white-space: nowrap; }
+#mis3 .m i { font: 700 26px Inter; font-style: normal; color: var(--lime); width: 44px; }
 </style>
 </head>
 <body>
@@ -174,6 +182,8 @@ html, body, #root { background: #0a0612; }
     <div class="abs" id="chip3" style="top: 760px"><span>Playbook interativo</span></div>
     <div class="lab" id="lb0" style="top: 760px"><small>Missão</small>por</div>
     <div class="lab" id="lb1" style="top: 900px"><small>&nbsp;</small>missão</div>
+    <div id="mis3"></div>
+    <div class="lab" id="sum" style="top: 1420px; font: 700 30px/1.45 Inter; color: rgba(255,255,255,.9)"><b>+ 7 missões</b><br>+ ferramentas com IA<br>+ guia de parcerias</div>
     <div class="persp"><div id="phone">
       <div class="edge" style="transform: translateZ(-12px)"></div><div class="edge" style="transform: translateZ(-8px)"></div><div class="edge" style="transform: translateZ(-4px)"></div>
       <div id="frame"><div id="bezel"><div id="screen">
@@ -214,7 +224,7 @@ html, body, #root { background: #0a0612; }
     <div id="bloom6"></div>
     <img id="logo6" src="img/logo.png" alt="HYPE CASH">
     <div class="t" id="t6a" style="top: 660px; font-family: Inter; font-weight: 600; font-size: 42px; line-height: 1.3; letter-spacing: -.01em; color: #e9e2fb">O playbook interativo para criar conteúdo com o hype do GTA VI</div>
-    <div id="price"><div class="p1">R$ 97</div><div class="p2">ou 12x de R$ 10,03 · acesso na hora · garantia de 7 dias</div></div>
+    <div id="price"><div class="p1">R$ 97</div><div class="p2">ou 12x de R$ 10,03 · garantia de 7 dias<br><span class="p3">acesso na hora, no celular ou computador</span></div></div>
     <div id="btn"><span>Quero começar</span><span>→</span><div class="shine" id="shine"></div></div>
     <div id="ripple"></div>
     <svg id="cursor" viewBox="0 0 24 24"><path d="M5 3l14 8-6 1.6L10 19z" fill="#fff" stroke="#15111c" stroke-width="1.2" stroke-linejoin="round"/></svg>

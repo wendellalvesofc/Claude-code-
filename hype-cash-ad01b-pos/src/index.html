@@ -173,6 +173,13 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 /* S6 v2: objections */
 .ob { font-size: 92px; font-weight: 800; letter-spacing: -.04em; white-space: nowrap; opacity: 0; }
 .ob .m { color: rgba(255,255,255,.55); }
+
+#price .p2 { line-height: 1.45; }
+#price .p3 { font: 600 30px Inter; color: rgba(212,255,63,.9); }
+
+/* summary after the list: the four items are a sample */
+#sum { position: absolute; left: 0; width: 1080px; top: 1625px; text-align: center; font: 700 38px Inter; letter-spacing: -.01em; color: rgba(255,255,255,.9); opacity: 0; }
+#sum b { color: var(--lime); font-weight: 800; }
 </style>
 </head>
 <body>
@@ -238,6 +245,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
     <div class="it" id="it2"><b>✓</b>Cortes de lives com IA</div>
     <div class="it" id="it3"><b>✓</b>Plano de 7 dias</div>
     <div id="dots"><i id="dt0"></i><i id="dt1"></i><i id="dt2"></i><i id="dt3"></i></div>
+    <div id="sum"><b>+ 7 missões</b> · ferramentas com IA · guia de parcerias</div>
   </section>
 
   <!-- S6 v2: no followers, no gear, no face -->
@@ -262,7 +270,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
       <div id="ripple"></div>
     </div>
     <svg id="hand" viewBox="0 0 64 64"><path d="M26 6c3 0 5 2 5 5v16l3-1c3-1 6 1 6 4l4-1c3 0 5 2 5 4l3 0c3 0 5 3 5 6v8c0 9-7 16-16 16h-6c-6 0-10-3-13-8L9 38c-2-3 0-7 4-7 2 0 4 1 5 3l3 4V11c0-3 2-5 5-5z" fill="#fff" stroke="#15101f" stroke-width="3" stroke-linejoin="round"/></svg>
-    <div id="price"><div class="p1">R$ 97</div><div class="p2">ou 12x de R$ 10,03 · acesso na hora · garantia de 7 dias</div></div>
+    <div id="price"><div class="p1">R$ 97</div><div class="p2">ou 12x de R$ 10,03 · garantia de 7 dias<br><span class="p3">acesso na hora, no celular ou computador</span></div></div>
     <div id="legal">Produto digital independente, sem vínculo com a Rockstar Games. Resultados dependem da sua execução.</div>
   </section>
 
