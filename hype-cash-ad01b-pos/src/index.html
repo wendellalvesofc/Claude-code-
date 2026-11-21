@@ -53,7 +53,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 .mini span { font: 600 38px Inter; letter-spacing: -.01em; white-space: nowrap; }
 
 /* S1 + S2 share a background and the bar */
-#s12 { background: radial-gradient(ellipse 80% 45% at 50% 52%, #4a1d9e 0%, #2a0f63 45%, var(--night) 85%); visibility: visible; }
+#s12 { background: transparent; visibility: visible; }
 #glow12 { position: absolute; left: 140px; top: 640px; width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(255,63,162,.35), rgba(255,63,162,0) 65%); }
 #drop { position: absolute; left: 90px; top: 450px; width: 900px; border-radius: 44px; background: #fff; color: var(--ink); overflow: hidden;
   box-shadow: 0 40px 90px rgba(10,0,40,.45); }
@@ -197,11 +197,18 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 #x4 { left: 0; top: 400px; } #x5 { left: 495px; top: 400px; } #x6 { left: 0; top: 600px; } #x7 { left: 495px; top: 600px; }
 #xfoot { position: absolute; left: 0; width: 1080px; top: 1440px; text-align: center; font: 700 40px Inter; letter-spacing: .02em; color: #d4ff3f; opacity: 0; }
 #sum { display: none !important; }
+
+/* hook background: real gameplay (recorded by a friend, used with permission), dimmed so the text stays the hero */
+#gpbg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; transform-origin: 50% 40%; }
+#gpdim { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 45% at 50% 52%, rgba(74,29,158,.55) 0%, rgba(42,15,99,.62) 45%, rgba(27,11,58,.8) 85%); }
+#timer { position: absolute; right: 48px; top: 175px; z-index: 42; padding: 8px 18px; border-radius: 22px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.18);
+  font: 700 30px Inter; letter-spacing: .02em; color: rgba(255,255,255,.9); font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
 <div id="root">
   <!-- S1 + S2: the search (shared background and bar) -->
+  <img id="gpbg" src="img/gp/h001.jpg"><div id="gpdim"></div>
   <section class="scene" id="s12">
     <div id="glow12"></div>
     <div class="full" id="far"></div>
@@ -308,6 +315,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
     <div id="legal">Produto digital independente, sem vínculo com a Rockstar Games. Resultados dependem da sua execução.</div>
   </section>
 
+  <div id="timer">0:45</div>
   <div id="grain"></div>
 </div>
 <script src="gsap.min.js"></script>

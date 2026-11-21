@@ -81,6 +81,10 @@ function build() {
   riseOn("#t2b", [E.segundo, E.trailer, E.trailer + 0.4, E.gta, E.fez]);
   rise("#stat", 6.0);
   tl.to("#card", { scale: 2.6, opacity: 0, filter: "blur(20px)", duration: 0.35, ease: "power3.in" }, 8.3);
+  tl.to("#gpdim", { opacity: 1, duration: 0.01 }, 0);
+  tl.fromTo("#gpdim", { backgroundColor: "rgba(5,3,7,0)" }, { backgroundColor: "rgba(5,3,7,.35)", duration: 0.4, immediateRender: false }, 5.1);
+  tl.to(["#gpbg", "#gpdim"], { opacity: 0, duration: 0.35, ease: "power2.in" }, 8.28);
+  tl.set(["#gpbg", "#gpdim"], { visibility: "hidden" }, 8.7);
   leave(["#t2a", "#t2b", "#stat"], 8.28);
   flash(8.6, 0.22);
 
@@ -175,8 +179,22 @@ function build() {
   rise("#t5a", E.playbook - 0.06);
   rise("#t5b", E.prepara - 0.5);
   const MIS = ["Entre no Jogo", "Modo Gameplay", "Mercado de Criadores", "Conteúdo Evergreen", "Território Próprio", "Escala de Monetização", "A Próxima Onda"];
-  $("#strip").innerHTML = MIS.map((m, i) => `<div class="fr"><div class="in"><div class="n gt">${String(i + 1).padStart(2, "0")}</div><div class="t">${m}</div></div></div>`).join("");
-  tl.fromTo("#strip", { x: 1080 }, { x: -1720, duration: 2.0, ease: "power1.inOut" }, E.prepara - 0.45);
+  // the seven missions as a route: the logo moves up, every mission lands and lights on "missão por missão"
+  const R0 = N.prepara - 0.3, GAP5 = 128, Y5 = 520;
+  raw.to("#logo5", { x: 390, y: 150, scale: 300 / 1189, duration: 0.5, ease: "expo.inOut" }, R0 - 0.15);
+  raw.to("#glow5", { y: -420, scale: 0.6, duration: 0.5, ease: "expo.inOut" }, R0 - 0.15);
+  raw.to("#t5a", { opacity: 0, y: -30, duration: 0.25 }, R0 - 0.15);
+
+  raw.fromTo("#rl5", { height: 0 }, { height: GAP5 * 6, duration: 0.9, ease: "power2.inOut" }, R0);
+  MIS.forEach((t, i) => {
+    const st = document.createElement("div"); st.className = "st5"; st.style.top = `${Y5 + i * GAP5 - 27}px`;
+    st.innerHTML = `<div class="dot"></div><span class="n">${String(i + 1).padStart(2, "0")}</span><span class="tt">${t}</span>`;
+    $("#route5").appendChild(st);
+    raw.fromTo(st, { x: -50, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, R0 + 0.2 + i * 0.09);
+    const on = N.missao - 0.1 + i * 0.1;
+    raw.to(st.querySelector(".dot"), { backgroundColor: "#d4ff3f", borderColor: "#d4ff3f", boxShadow: "0 0 26px rgba(212,255,63,.8)", duration: 0.12 }, on);
+    raw.fromTo(st.querySelector(".dot"), { scale: 1.5 }, { scale: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, on);
+  });
   flash(22.45, 0.15);
 
   // ================= S6 v2 (N.ao – N.sem1): what is inside, the only phone moment, real screens (~6 s)
@@ -275,8 +293,8 @@ window.__ready = (async () => {
     tl.seek(t, false);
     const left = Math.max(0, Math.ceil(DUR - t - 1e-6));
     timer.textContent = `${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")}`;
-    const f = Math.min(180, Math.max(1, Math.floor(t * 30) + 1));
-    gp.style.transform = `scale(${(1.04 + 0.04 * Math.min(1, t / 5)).toFixed(4)})`;
+    const f = Math.min(276, Math.max(1, Math.floor(t * 30) + 1));
+    gp.style.transform = `scale(${(1.04 + 0.06 * Math.min(1, t / 8.5)).toFixed(4)})`;
     const src = `img/gp/h${String(f).padStart(3, "0")}.jpg`;
     if (gp.getAttribute("src") === src) return;
     gp.setAttribute("src", src);

@@ -5,3 +5,5 @@ preview/still_*.png
 
 node_modules
 out/w*.log
+
+src/img/gp

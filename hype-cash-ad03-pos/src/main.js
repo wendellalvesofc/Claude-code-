@@ -172,6 +172,8 @@ function build() {
 
   for (let k = 0; k < 31 * 12; k++) raw.set("#grain", { x: (k * 73) % 200, y: (k * 131) % 200 }, k / 12);
   raw.set({}, {}, T.video_duration_s);
+  tl.to(["#gpbg", "#gpdim"], { opacity: 0, duration: 0.3, ease: "power2.in" }, 3.6);
+  tl.set(["#gpbg", "#gpdim"], { visibility: "hidden" }, 3.95);
   return tl;
 }
 
@@ -181,7 +183,19 @@ window.__ready = (async () => {
   await document.fonts.ready;
   await Promise.all([...document.images].map((im) => im.decode().catch(() => {})));
   const tl = build();
-  window.seek = (t) => { tl.seek(t, false); };
+  // gameplay frames (30 fps JPGs from assets/gameplay) and the countdown follow t directly
+  const gp = $("#gpbg"), timer = $("#timer"), DUR = T.video_duration_s;
+  window.seek = (t) => {
+    tl.seek(t, false);
+    const left = Math.max(0, Math.ceil(DUR - t - 1e-6));
+    timer.textContent = `${Math.floor(left / 60)}:${String(left % 60).padStart(2, "0")}`;
+    const f = Math.min(138, Math.max(1, Math.floor(t * 30) + 1));
+    gp.style.transform = `scale(${(1.04 + 0.05 * Math.min(1, t / 7)).toFixed(4)})`;
+    const src = `img/gp/h${String(f).padStart(3, "0")}.jpg`;
+    if (gp.getAttribute("src") === src) return;
+    gp.setAttribute("src", src);
+    return gp.decode().catch(() => {});
+  };
   tl.seek(0);
   return { fonts: Object.fromEntries([...document.fonts].map((f) => [`${f.family} ${f.style} ${f.weight}`, f.status])), images: document.images.length, duration: tl.duration() };
 })();

@@ -171,13 +171,22 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 /* countdown, like a video player: keeps people to the end */
 #timer { position: absolute; right: 48px; top: 300px; z-index: 42; padding: 8px 18px; border-radius: 22px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.18);
   font: 700 30px Inter; letter-spacing: .02em; color: rgba(255,255,255,.9); font-variant-numeric: tabular-nums; }
+
+/* S5 v3: the seven missions as a readable route (was a fast film strip) */
+#strip { display: none; }
+#route5 { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+#rl5 { position: absolute; left: 148px; top: 520px; width: 6px; height: 0; border-radius: 3px; background: linear-gradient(180deg, var(--lime), var(--pink)); }
+.st5 { position: absolute; left: 125px; height: 60px; display: flex; align-items: center; opacity: 0; }
+.st5 .dot { width: 52px; height: 52px; border-radius: 50%; border: 5px solid rgba(255,255,255,.45); background: #0d0a14; flex: none; }
+.st5 .n { font: 700 30px Inter; color: var(--lime); margin: 0 20px 0 30px; letter-spacing: .04em; }
+.st5 .tt { font: 700 54px Poppins; letter-spacing: -.02em; color: #fff; white-space: nowrap; }
 </style>
 </head>
 <body>
 <div id="root">
   <!-- S1: 475 million views in 24 hours -->
+  <img id="gpbg" src="img/gp/h001.jpg"><div id="gpdim"></div>
   <section class="scene" id="s1">
-    <img id="gpbg" src="img/gp/h001.jpg"><div id="gpdim"></div>
     <div class="glow" id="glow1"></div>
     <div class="streak" id="sk1" style="top: 840px"></div>
     <div class="c lbl" id="t1top" style="top: 480px; font-size: 27px; letter-spacing: .16em; white-space: nowrap">para quem quer criar vídeos sobre GTA VI</div>
@@ -214,8 +223,9 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
     <div class="streak" id="sk5" style="top: 700px"></div>
     <img id="logo5" src="img/logo.png">
     <div class="c lbl" id="t5a" style="top: 950px">playbook interativo</div>
-    <div class="c serif" id="t5b" style="top: 1030px; font-size: 76px">que te leva, <span class="lime">missão por missão</span></div>
+    <div class="c serif" id="t5b" style="top: 1440px; font-size: 76px">que te leva, <span class="lime">missão por missão</span></div>
     <div id="strip"></div>
+    <div id="route5"><div id="rl5"></div></div>
   </section>
 
   <!-- S6: what is inside, the only phone moment (real screens) -->

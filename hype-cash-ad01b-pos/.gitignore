@@ -6,3 +6,5 @@ out.log
 
 node_modules
 out/w*.log
+
+src/img/gp

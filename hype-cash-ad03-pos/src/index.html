@@ -37,7 +37,7 @@ body { font-family: Inter, sans-serif; color: var(--ink); -webkit-font-smoothing
 .i-pink { background: radial-gradient(circle at 30% 20%, #ff9ccd, #ff3fa2 45%, #b0145f 100%); }
 
 /* S1 */
-#s1 { visibility: visible; background: radial-gradient(ellipse 90% 55% at 50% 45%, #2a0f63 0%, #150c24 45%, #0a0612 85%); }
+#s1 { visibility: visible; background: transparent; }
 #s1 .t { color: #fff; }
 #s1 .kicker { color: rgba(255,255,255,.65); }
 #s1 .rule { background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); }
@@ -154,11 +154,18 @@ html, body, #root { background: #0a0612; }
 #x4 { left: 0; top: 400px; } #x5 { left: 495px; top: 400px; } #x6 { left: 0; top: 600px; } #x7 { left: 495px; top: 600px; }
 #xfoot { position: absolute; left: 0; width: 1080px; top: 1440px; text-align: center; font: 700 40px Inter; letter-spacing: .02em; color: #d4ff3f; opacity: 0; }
 #sum { display: none !important; }
+
+/* hook background: real gameplay (recorded by a friend, used with permission), dimmed so the text stays the hero */
+#gpbg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; object-fit: cover; transform-origin: 50% 40%; }
+#gpdim { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 55% at 50% 45%, rgba(42,15,99,.6) 0%, rgba(21,12,36,.72) 45%, rgba(10,6,18,.88) 85%); }
+#timer { position: absolute; right: 48px; top: 300px; z-index: 42; padding: 8px 18px; border-radius: 22px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.18);
+  font: 700 30px Inter; letter-spacing: .02em; color: rgba(255,255,255,.9); font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
 <div id="root">
   <!-- S1: the objection, crossed out -->
+  <img id="gpbg" src="img/gp/h001.jpg"><div id="gpdim"></div>
   <section class="scene" id="s1">
     <div class="abs kicker" id="kick1" style="left: 70px; top: 240px">Para quem não joga</div>
     <div class="rule" id="rule1" style="top: 290px"></div>
@@ -267,6 +274,7 @@ html, body, #root { background: #0a0612; }
 
   <div class="panel" id="pA" style="left:0; top:0; width:1080px; height:1920px; background: var(--paper)"></div>
   <div class="panel" id="pB" style="left:0; top:0; width:1080px; height:1920px; background: var(--dark)"></div>
+  <div id="timer">0:45</div>
   <div id="grain"></div>
 </div>
 <script src="gsap.min.js"></script>
