@@ -41,7 +41,7 @@ def lowpass(x, fc):
     return y
 
 BEAT = 60 / 90; BAR = 4 * BEAT
-OPEN, THIN, BACK, END = E["hypecash"], E["sem"] - .1, E["direcao"], E["cash_end"] - .6
+OPEN, THIN, BACK, END = E["hypecash"], E["sem1"] - .1, E["tudo"] - .2, E["toque"] - .3
 CH = [[-7, -4, 0], [-11, -7, -4], [-16, -12, -9], [-9, -5, -2]]; RT = [-31, -35, -28, -33]
 pad = np.zeros(N); pl = np.zeros(N); dr = np.zeros(N); sub = np.zeros(N)
 off = OPEN % BEAT
@@ -67,7 +67,7 @@ K = kick()
 for i, bt in enumerate(np.arange(off, DUR, BEAT)):
     if THIN <= bt < BACK or bt >= END: continue
     # keep the brand name clear: no hats (their noise sits on the "sh" of "Cash") around both "Hype Cash"
-    near_brand = any(abs(bt - w) < .9 for w in (E["hypecash"] + .3, E["cash_end"] + .3))
+    near_brand = any(abs(bt - w) < .9 for w in (E["hypecash"] + .3,))
     if bt >= OPEN - .01 and i % 2 == 0: add(dr, .35 * K, bt)
     if not near_brand: add(dr, .08 * hat(.05), bt + BEAT / 2)
 pad = lowpass(pad, np.where(t_all < OPEN, 700, np.where((t_all >= THIN) & (t_all < BACK), 600, 1500)))
@@ -92,13 +92,23 @@ CUES = (
      ("glitch-3", EO["facil"] + .2, -20, .25), ("pop", EO["com_dir"], -16, .3), ("click", EO["direcao"] + .6, -17, .3)]
 )
 # the cues above follow the pre-launch narration: move them onto the post-launch one through the same words
-ANCH = [(0, 0), (EO["nao"], E["nao"]), (EO["precisa"], E["precisa"]), (EO["jogar"], E["jogar"]), (EO["gta"], E["gta"]), (EO["criar"], E["criar"]), (EO["conteudo"], E["conteudo"]), (EO["assunto"], E["assunto"]), (EO["estar"], E["estar"]), (EO["todo"], E["todo"]), (EO["lugar"], E["lugar"]), (EO["noticias"], E["noticias"]), (EO["curiosidades"], E["curiosidades"]), (EO["analises"], E["analises"]), (EO["hypecash"], E["hypecash"]), (EO["playbook"], E["playbook"]), (EO["interativo"], E["interativo"]), (EO["mostra"], E["mostra"]), (EO["missao"], E["missao"]), (EO["missao2"], E["missao2"]), (EO["comecar"], E["comecar"]), (EO["projeto"], E["projeto"]), (EO["conteudo2"], E["conteudo2"]), (EO["com"], E["com"]), (EO["tema"], E["tema"]), (EO["sem"], E["sem"]), (EO["facil"], E["facil"]), (EO["com_dir"], E["com_dir"]), (EO["direcao"], E["direcao"]), (18.85, 18.2)]
-def remap(t):
-    for (a0, b0), (a1, b1) in zip(ANCH, ANCH[1:]):
+P = T["emphasis_post1"]
+ANCH = [(0, 0), (EO["nao"], P["nao"]), (EO["precisa"], P["precisa"]), (EO["jogar"], P["jogar"]), (EO["gta"], P["gta"]), (EO["criar"], P["criar"]), (EO["conteudo"], P["conteudo"]), (EO["assunto"], P["assunto"]), (EO["estar"], P["estar"]), (EO["todo"], P["todo"]), (EO["lugar"], P["lugar"]), (EO["noticias"], P["noticias"]), (EO["curiosidades"], P["curiosidades"]), (EO["analises"], P["analises"]), (EO["hypecash"], P["hypecash"]), (EO["playbook"], P["playbook"]), (EO["interativo"], P["interativo"]), (EO["mostra"], P["mostra"]), (EO["missao"], P["missao"]), (EO["missao2"], P["missao2"]), (EO["comecar"], P["comecar"]), (EO["projeto"], P["projeto"]), (EO["conteudo2"], P["conteudo2"]), (EO["com"], P["com"]), (EO["tema"], P["tema"]), (EO["sem"], P["sem"]), (EO["facil"], P["facil"]), (EO["com_dir"], P["com_dir"]), (EO["direcao"], P["direcao"]), (18.85, 18.2)]
+def pw(AN, t):
+    for (a0, b0), (a1, b1) in zip(AN, AN[1:]):
         if t <= a1: return b0 + (t - a0) * (b1 - b0) / (a1 - a0)
-    return t + ANCH[-1][1] - ANCH[-1][0]
-CUES = [(n, round(remap(c), 3), g, ml) for n, c, g, ml in CUES] + [
-    ("whoosh-cinematic", 17.9, -15, .5), ("impact-bass-1", 18.2, -14, .7), ("impact-bass-2", E["reais"] + .02, -14, .5), ("sparkle", E["reais"] + .1, -20, .8),
+    return t + AN[-1][1] - AN[-1][0]
+B2 = [(0, 0)] + [(P[k], E[k]) for k in "nao precisa jogar gta criar conteudo assunto estar todo lugar noticias curiosidades analises hypecash playbook interativo mostra missao missao2".split()]
+def remap(t): return pw(B2, pw(ANCH, t))
+C = E["tudo"] - 18.3     # the CTA cues were timed for "Tudo" at 18.3 s
+ITEMS = [E["roteiros"], E["cinquenta"], E["cortes"], E["plano"]]
+PH_IN, PH_OUT, S5A = E["roteiros"] - .35, E["dias7"] + .35, E["sem1"] - .25
+CUES = [(n, round(remap(c), 3), g, ml) for n, c, g, ml in CUES if c < 11.5] + [
+    ("pop", E["ao"] - .05, -17, .3), ("whoosh", PH_IN, -13, .5)] + [
+    ("whoosh-short", a - .12, -18, .35) for a in ITEMS[1:]] + [("pop", a - .05, -15, .3) for a in ITEMS] + [("click-soft", a + .06, -13, .25) for a in ITEMS] + [
+    ("whoosh", PH_OUT - .4, -14, .4), ("whoosh-short", S5A - .3, -17, .35)] + [("pop", E[k] - .05, -15, .3) for k in ("sem1", "sem2", "sem3")] + [
+    ("impact-bass-2", E["rosto"] + .4, -17, .5),
+    ("whoosh-cinematic", 17.9 + C, -15, .5), ("impact-bass-1", 18.2 + C, -14, .7), ("impact-bass-2", E["reais"] + .02, -14, .5), ("sparkle", E["reais"] + .1, -20, .8),
     ("pop", E["garantia"] - .75, -17, .25), ("pop", E["toque"] - .03, -16, .3), ("click", E["botao"] + .1, -11, .3), ("sparkle", E["hoje"] + .15, -19, 1.0)]
 def onset(x, kind):
     a = np.abs(x).max(1); sm = np.convolve(a, np.ones(240) / 240, "same")

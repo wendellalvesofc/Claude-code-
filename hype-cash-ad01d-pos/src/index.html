@@ -114,6 +114,17 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 #price .p1 { font: 900 150px/1 Poppins; letter-spacing: -.05em; background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 30px rgba(255,63,162,.45)); }
 #price .p2 { margin-top: 14px; font: 600 33px Inter; color: rgba(255,255,255,.85); letter-spacing: -.01em; }
 #launch { position: absolute; left: 30px; top: 1250px; width: 220px; text-align: center; font: 600 28px/1.25 Inter; color: rgba(255,255,255,.55); }
+
+/* S6 v2: what is inside */
+#phone { left: 300px; top: 330px; }
+#tagReal { position: absolute; left: 0; width: 1080px; top: 1372px; text-align: center; font: 700 22px Inter; letter-spacing: .3em; color: rgba(255,255,255,.5); }
+.it { position: absolute; left: 0; width: 1080px; top: 1430px; display: flex; justify-content: center; align-items: center; gap: 22px; font: 800 66px Poppins; letter-spacing: -.03em; color: #fff; opacity: 0; }
+.it b { display: grid; place-items: center; width: 74px; height: 74px; border-radius: 50%; background: var(--lime); color: #15101f; font: 900 44px Poppins; box-shadow: 0 0 30px rgba(212,255,63,.6); }
+#dots { position: absolute; left: 0; width: 1080px; top: 1570px; display: flex; justify-content: center; gap: 18px; }
+#dots i { width: 70px; height: 10px; border-radius: 5px; background: rgba(255,255,255,.18); }
+/* S7 v2: objections */
+.ob { font-size: 86px; opacity: 0; white-space: nowrap; }
+.ob .m { color: rgba(255,255,255,.55); }
 </style>
 </head>
 <body>
@@ -156,38 +167,37 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
     <div class="streak" id="sk5" style="top: 700px"></div>
     <img id="logo5" src="img/logo.png">
     <div class="c lbl" id="t5a" style="top: 950px">playbook interativo</div>
-    <div class="c serif" id="t5b" style="top: 1030px; font-size: 76px">que te prepara, <span class="lime">missão por missão</span></div>
+    <div class="c serif" id="t5b" style="top: 1030px; font-size: 76px">que te leva, <span class="lime">missão por missão</span></div>
     <div id="strip"></div>
   </section>
 
-  <!-- S6: the only phone moment, real screens -->
+  <!-- S6: what is inside, the only phone moment (real screens) -->
   <section class="scene" id="s6">
     <div class="glow" id="spot"></div>
-    <div class="c big" id="t6" style="top: 200px; font-size: 84px"><span class="w">Do</span> <span class="w">zero</span> <span class="w">ao</span> <span class="w gt">primeiro</span> <span class="w gt">vídeo</span></div>
+    <div class="c big" id="t6" style="top: 170px; font-size: 80px"><span class="w">ao</span> <span class="w">seu</span> <span class="w gt">primeiro</span> <span class="w gt">vídeo:</span></div>
     <div id="phone"><div id="screen">
       <div id="island"></div>
-      <div class="pg" id="pgM1"><img id="m1_0" src="img/scr-m1-0.jpg"><img id="m1_1" src="img/scr-m1-1.jpg"><img id="m1_2" src="img/scr-m1-2.jpg"><img id="m1_3" src="img/scr-m1-3.jpg"><img id="m1_4" src="img/scr-m1-4.jpg"></div>
-      <div class="pg" id="pgMap"><img src="img/scr-map-after.jpg"><div id="hlP"></div></div>
+      <div class="pg" id="pg0"><img src="img/scr-comece.jpg"></div>
+      <div class="pg" id="pg1"><img src="img/scr-biblioteca.jpg"></div>
+      <div class="pg" id="pg2"><img src="img/scr-cortes.jpg"></div>
+      <div class="pg" id="pg3"><img src="img/scr-plano.jpg"></div>
     </div></div>
-    <div class="lt" id="l6a" style="left: 60px; top: 1530px"><i></i>Checklist</div>
-    <div class="lt" id="l6b" style="left: 640px; top: 1530px"><i></i>Progresso</div>
+    <div id="tagReal">TELA REAL</div>
+    <div class="it" id="it0"><b>✓</b>Roteiros prontos</div>
+    <div class="it" id="it1"><b>✓</b>50 ideias de vídeo</div>
+    <div class="it" id="it2"><b>✓</b>Cortes de lives com IA</div>
+    <div class="it" id="it3"><b>✓</b>Plano de 7 dias</div>
+    <div id="dots"><i id="dt0"></i><i id="dt1"></i><i id="dt2"></i><i id="dt3"></i></div>
   </section>
 
-  <!-- S7: no easy money; a plan, so you don't start late -->
+  <!-- S7: no followers, no gear, no face; no magic formula -->
   <section class="scene" id="s7">
-    <div class="c serif" id="t7a" style="top: 420px; font-size: 76px; color: rgba(255,255,255,.75)">Sem</div>
-    <div class="c big" id="t7b" style="top: 520px; font-size: 120px"><span class="w">fórmula</span> <span class="w">mágica.</span></div>
+    <div class="c big ob" id="ob0" style="top: 560px"><span class="m">Sem</span> <span class="gt">seguidores.</span></div>
+    <div class="c big ob" id="ob1" style="top: 720px"><span class="m">Sem</span> <span class="gt">equipamento.</span></div>
+    <div class="c big ob" id="ob2" style="top: 880px"><span class="m">Sem</span> <span class="gt">mostrar o rosto.</span></div>
+    <div class="c serif" id="t7a" style="top: 760px; font-size: 76px; color: rgba(255,255,255,.75)">Sem</div>
+    <div class="c big" id="t7b" style="top: 860px; font-size: 100px; white-space: nowrap"><span class="w">fórmula</span> <span class="w">mágica.</span></div>
     <div id="strike"></div>
-    <div class="c big" id="t7c" style="top: 400px; font-size: 104px"><span class="w">Só</span> <span class="w">um</span> <span class="w gt">plano,</span></div>
-    <div class="c serif" id="t7e" style="top: 1420px; font-size: 64px; color: rgba(255,255,255,.85)">enquanto o assunto está no <span class="gt">auge</span>.</div>
-    <div class="c serif" id="t7d" style="top: 540px; font-size: 80px"><span class="w">pra</span> <span class="w">você</span> <span class="w">começar</span> <span class="w lime">agora.</span></div>
-    <div id="tline"><div id="tfill"></div></div>
-    <div class="tk" id="tkA" style="left: 70px"><span class="gt">19 NOV</span></div>
-    <div class="tk" id="tkB" style="left: 900px">HOJE</div>
-    <div class="pin" id="pinYou"></div>
-    <div class="pin" id="pinLate"></div>
-    <div id="you">você começa<br>aqui</div><div id="launch">lançamento</div>
-    
   </section>
 
   <!-- S8: CTA -->

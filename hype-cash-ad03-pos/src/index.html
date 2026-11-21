@@ -121,6 +121,14 @@ html, body, #root { background: #0a0612; }
 #t4c { color: #b8a8d0 !important; }
 .pink { text-shadow: 0 0 40px rgba(255,63,162,.45); }
 #pA { background: #150c24 !important; }
+
+/* v2: items beside the phone, objections */
+.it3 { font-size: 46px; line-height: 1.08; opacity: 0; }
+.it3 b { display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--lime); color: #15111c; font: 900 32px Poppins; margin: 0 14px 8px 0; vertical-align: middle; box-shadow: 0 0 24px rgba(212,255,63,.6); }
+.it3 b + * { }
+.ob { font-size: 92px; font-weight: 800; letter-spacing: -.04em; white-space: nowrap; opacity: 0; color: #fff; }
+.ob .m { color: rgba(255,255,255,.55); }
+.ob .gr { background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); -webkit-background-clip: text; background-clip: text; color: transparent; }
 </style>
 </head>
 <body>
@@ -170,15 +178,18 @@ html, body, #root { background: #0a0612; }
       <div class="edge" style="transform: translateZ(-12px)"></div><div class="edge" style="transform: translateZ(-8px)"></div><div class="edge" style="transform: translateZ(-4px)"></div>
       <div id="frame"><div id="bezel"><div id="screen">
         <div id="status"><span>9:41</span><span>▂▄▆ ▮</span></div><div id="island"></div>
-        <div class="pg" id="pgMap"><img src="img/scr-map-after.jpg"></div>
-        <div class="pg" id="pgCheck"><img id="chkImg" src="img/scr-m1-4.jpg"></div>
-        <div class="pg" id="pgTools"><img id="toolsImg" src="img/scr-tools.jpg"></div>
+        <div class="pg" id="pg0"><img src="img/scr-comece.jpg"></div>
+        <div class="pg" id="pg1"><img src="img/scr-biblioteca.jpg"></div>
+        <div class="pg" id="pg2"><img src="img/scr-cortes.jpg"></div>
+        <div class="pg" id="pg3"><img src="img/scr-plano.jpg"></div>
         <div id="glare"></div>
       </div></div></div>
     </div></div>
-    <div class="lab" id="lb2" style="top: 1180px; font-size: 40px"><small>Tela real</small>Mapa de missões</div>
-    <div class="lab" id="lb3" style="top: 1180px; font-size: 40px"><small>Tela real</small>Checklist</div>
-    <div class="lab" id="lb4" style="top: 1180px; font-size: 40px"><small>Tela real</small>Ferramentas</div>
+    <div class="lab" id="lbV" style="top: 1040px"><small>&nbsp;</small>ao seu <span style="color: var(--lime)">1º vídeo.</span></div>
+    <div class="lab it3" id="it0" style="top: 1230px"><small>Tela real</small><b>✓</b>Roteiros<br>prontos</div>
+    <div class="lab it3" id="it1" style="top: 1230px"><small>Tela real</small><b>✓</b>50 ideias<br>de vídeo</div>
+    <div class="lab it3" id="it2" style="top: 1230px"><small>Tela real</small><b>✓</b>Cortes de<br>lives com IA</div>
+    <div class="lab it3" id="it3" style="top: 1230px"><small>Tela real</small><b>✓</b>Plano de<br>7 dias</div>
   </section>
 
   <!-- S4: a content project around the theme -->
@@ -191,18 +202,11 @@ html, body, #root { background: #0a0612; }
     <svg id="pen4" width="1080" height="1920"><path id="u4" d="M150 985 C 330 1010, 600 965, 930 990" fill="none" stroke="#ff3fa2" stroke-width="8" stroke-linecap="round"/></svg>
   </section>
 
-  <!-- S5: no easy promise, direction -->
+  <!-- S5 v2: no followers, no gear, no face -->
   <section class="scene" id="s5">
-    <div class="t" id="t5a" style="top: 520px; font-size: 76px"><span class="w">Sem</span> <span class="w serif" id="formW" style="font-weight:400; font-size: 96px">fórmula</span> <span class="w serif" id="facilW" style="font-weight:400; font-size: 96px">mágica.</span></div>
-    <div id="strike5"></div>
-    <div class="t" id="t5b" style="top: 700px; font-size: 76px">Com</div>
-    <div class="t serif" id="t5c" style="top: 770px; font-size: 220px; line-height: 1"><span class="pink">direção.</span></div>
-    <svg id="compass" viewBox="0 0 300 300">
-      <circle cx="150" cy="150" r="140" fill="#1a1028" stroke="#ffffff" stroke-width="5"/>
-      <g stroke="#ffffff" stroke-width="5" stroke-linecap="round"><path d="M150 18v26M150 256v26M18 150h26M256 150h26"/></g>
-      <g id="needle"><path d="M150 50 L172 150 L150 250 L128 150z" fill="#ffffff"/><path d="M150 50 L172 150 L128 150z" fill="#ff3fa2"/></g>
-      <circle cx="150" cy="150" r="12" fill="#1a1028" stroke="#ffffff" stroke-width="5"/>
-    </svg>
+    <div class="t ob" id="ob0" style="top: 640px"><span class="m">Sem</span> <span class="gr">seguidores.</span></div>
+    <div class="t ob" id="ob1" style="top: 790px"><span class="m">Sem</span> <span class="gr">equipamento.</span></div>
+    <div class="t ob" id="ob2" style="top: 940px"><span class="m">Sem</span> <span class="gr">mostrar o rosto.</span></div>
   </section>
 
   <!-- S6 CTA -->

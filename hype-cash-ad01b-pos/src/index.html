@@ -147,6 +147,32 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
 #price { position: absolute; left: 60px; top: 790px; width: 960px; text-align: center; }
 #price .p1 { font: 800 160px/1 Poppins; letter-spacing: -.05em; background: linear-gradient(90deg, #ff3fa2, #a83ffe 55%, #3f8fff); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 30px rgba(255,63,162,.45)); }
 #price .p2 { margin-top: 18px; font: 600 33px Inter; color: rgba(255,255,255,.85); letter-spacing: -.01em; }
+
+/* night palette on S3 (was paper) */
+#s3 { background: radial-gradient(ellipse 80% 40% at 50% 100%, rgba(255,63,162,.32) 0%, rgba(255,63,162,0) 70%), radial-gradient(ellipse 90% 55% at 50% 30%, #2a0f63 0%, #150c24 50%, #0a0612 90%); color: #fff; }
+#s3 #t3a { color: rgba(255,255,255,.6) !important; }
+#s3 #t3b, #s3 #t3c { color: #fff !important; }
+.res { background: linear-gradient(160deg, #241536, #140c22); box-shadow: 0 18px 40px rgba(0,0,0,.4), 0 0 0 2px rgba(255,255,255,.08); }
+.res .th, .res .ln i { background: rgba(255,255,255,.10); }
+.shim { background: linear-gradient(100deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.18) 50%, rgba(255,255,255,0) 70%); }
+#slot { border: 4px dashed rgba(255,255,255,.25); background: rgba(255,255,255,.04); }
+#slot .th { border: 3px dashed rgba(255,255,255,.25); background: transparent; }
+#fill { background: linear-gradient(160deg, #2c1842, #170d26); }
+#fill .tt, #fill .ch { color: #fff; }
+#fill .av { box-shadow: 0 0 0 3px #170d26, 0 0 0 6px var(--pink); }
+/* S5 v2: what is inside (dark) */
+#s5 { background: radial-gradient(ellipse 80% 55% at 50% 45%, #2a0f63 0%, #150c24 50%, #0a0612 90%); color: #fff; }
+#spot5 { position: absolute; left: 90px; top: 300px; width: 900px; height: 1200px; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,63,162,.28), rgba(0,0,0,0) 65%); }
+#phone { left: 260px; top: 330px; transform-origin: 50% 0; }
+#frame { box-shadow: 0 60px 140px rgba(0,0,0,.7), 0 0 80px rgba(168,63,254,.35); }
+#tagReal { position: absolute; left: 0; width: 1080px; top: 1372px; text-align: center; font: 700 22px Inter; letter-spacing: .3em; color: rgba(255,255,255,.5); }
+.it { position: absolute; left: 0; width: 1080px; top: 1430px; display: flex; justify-content: center; align-items: center; gap: 22px; font: 800 66px Poppins; letter-spacing: -.03em; color: #fff; opacity: 0; }
+.it b { display: grid; place-items: center; width: 74px; height: 74px; border-radius: 50%; background: var(--lime); color: #15101f; font: 900 44px Poppins; box-shadow: 0 0 30px rgba(212,255,63,.6); }
+#dots { position: absolute; left: 0; width: 1080px; top: 1570px; display: flex; justify-content: center; gap: 18px; }
+#dots i { width: 70px; height: 10px; border-radius: 5px; background: rgba(255,255,255,.18); }
+/* S6 v2: objections */
+.ob { font-size: 92px; font-weight: 800; letter-spacing: -.04em; white-space: nowrap; opacity: 0; }
+.ob .m { color: rgba(255,255,255,.55); }
 </style>
 </head>
 <body>
@@ -165,7 +191,7 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
     <div class="h" id="t1a" style="top: 250px; font-size: 84px"><span class="lime">GTA 6</span> chegou,</div>
     <div class="h" id="t1b" style="top: 360px; font-size: 84px"><span class="w">muita</span> <span class="w">gente</span> <span class="w">está</span></div>
     <div class="h" id="t1c" style="top: 450px; font-size: 128px; font-weight: 800; letter-spacing: -.045em"><span class="lime">pesquisando.</span></div>
-    <div class="wipe" id="w23" style="background: var(--paper)"></div>
+    <div class="wipe" id="w23" style="background: #2a0f63"></div>
   </section>
 
   <!-- S3: who shows up in those searches? -->
@@ -192,33 +218,33 @@ body { font-family: Inter, sans-serif; color: #fff; -webkit-font-smoothing: anti
     <img id="logo4" src="img/logo.png">
     <div id="chip4">PLAYBOOK INTERATIVO</div>
     <div id="route"><div id="rline"></div></div>
-    <div class="h" id="t4" style="top: 1500px; font-size: 76px"><span class="w">a</span> <span class="w">criar</span> <span class="w lime">conteúdo</span> <span class="w">sobre</span> <span class="w">esse</span> <span class="w">hype.</span></div>
+    <div class="h" id="t4" style="top: 1500px; font-size: 76px"><span class="w">ao</span> <span class="w">seu</span> <span class="w lime">primeiro</span> <span class="w lime">vídeo.</span></div>
   </section>
 
-  <!-- S5: the only phone moment, real screens -->
+  <!-- S5 v2: what is inside, the only phone moment (real screens) -->
   <section class="scene" id="s5">
-    <div class="full" id="dots5"></div>
-    <div class="h" id="t5a" style="top: 250px; font-size: 92px; color: var(--ink); font-weight: 800; letter-spacing: -.04em">Do 1º vídeo</div>
-    <div class="h" id="t5b" style="top: 250px; font-size: 92px; color: var(--ink); font-weight: 800; letter-spacing: -.04em">à audiência</div>
+    <div id="spot5"></div>
+    <div class="h" id="t5a" style="top: 170px; font-size: 84px; font-weight: 800; letter-spacing: -.04em">O que tem <span class="lime">dentro:</span></div>
     <div id="phone"><div id="frame"><div id="bezel"><div id="screen">
       <div id="island"></div>
-      <div class="pg" id="pgM1"><img id="m1_0" src="img/scr-m1-0.jpg"><img id="m1_1" src="img/scr-m1-1.jpg"><img id="m1_2" src="img/scr-m1-2.jpg"><img id="m1_3" src="img/scr-m1-3.jpg"><img id="m1_4" src="img/scr-m1-4.jpg"></div>
-      <div class="pg" id="pgMap"><img src="img/scr-map-after.jpg"><div id="hlP"></div></div>
+      <div class="pg" id="pg0"><img src="img/scr-comece.jpg"></div>
+      <div class="pg" id="pg1"><img src="img/scr-biblioteca.jpg"></div>
+      <div class="pg" id="pg2"><img src="img/scr-cortes.jpg"></div>
+      <div class="pg" id="pg3"><img src="img/scr-plano.jpg"></div>
     </div></div></div></div>
-    <div class="chip" id="c5a" style="left: 40px; top: 1060px"><div class="icon i-lime"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#15101f" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Checklist</div>
-    <div class="chip" id="c5b" style="left: 600px; top: 1300px"><div class="icon i-purple"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none"/><path d="M12 4a8 8 0 0 1 7.6 5.5" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>Progresso</div>
-    <div class="wipe" id="w56" style="background: var(--dark)"></div>
+    <div id="tagReal">TELA REAL</div>
+    <div class="it" id="it0"><b>✓</b>Roteiros prontos</div>
+    <div class="it" id="it1"><b>✓</b>50 ideias de vídeo</div>
+    <div class="it" id="it2"><b>✓</b>Cortes de lives com IA</div>
+    <div class="it" id="it3"><b>✓</b>Plano de 7 dias</div>
+    <div id="dots"><i id="dt0"></i><i id="dt1"></i><i id="dt2"></i><i id="dt3"></i></div>
   </section>
 
-  <!-- S6: no easy-money promise; a plan while the hype is on air -->
+  <!-- S6 v2: no followers, no gear, no face -->
   <section class="scene" id="s6">
-    <div class="h" id="t6a" style="top: 520px; font-size: 56px; font-family: Inter; font-weight: 600; color: var(--muted)">Sem</div>
-    <div class="h" id="t6b" style="top: 600px; font-size: 124px; font-weight: 800; letter-spacing: -.04em"><span class="w">fórmula</span> <span class="w">mágica.</span></div>
-    <div id="strike"></div>
-    <div class="h" id="t6c" style="top: 470px; font-size: 64px"><span class="w">Um</span></div>
-    <div class="h" id="t6d" style="top: 540px; font-size: 190px; font-weight: 800; letter-spacing: -.05em"><span class="grad">plano</span></div>
-    <div class="h" id="t6e" style="top: 760px; font-size: 64px"><span class="w">pra</span> <span class="w">começar</span> <span class="w">enquanto</span> <span class="w">o</span> <span class="w">hype</span> <span class="w">está…</span></div>
-    <div id="onair"><div class="ld"></div><span>NO AUGE</span><div id="onairOn"><div class="ld"></div><span>NO AUGE</span></div></div>
+    <div class="h ob" id="ob0" style="top: 640px"><span class="m">Sem</span> <span class="grad">seguidores.</span></div>
+    <div class="h ob" id="ob1" style="top: 790px"><span class="m">Sem</span> <span class="grad">equipamento.</span></div>
+    <div class="h ob" id="ob2" style="top: 940px"><span class="m">Sem</span> <span class="grad">mostrar o rosto.</span></div>
     <div class="wipe" id="w67" style="background: #2a0f63"></div>
   </section>
 

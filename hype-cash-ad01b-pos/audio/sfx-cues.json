@@ -6,322 +6,332 @@
  },
  {
   "sfx": "key-press",
-  "cue_s": 0.018,
+  "cue_s": 0.02,
   "gain_db": -15
  },
  {
   "sfx": "key-press",
-  "cue_s": 0.176,
+  "cue_s": 0.195,
   "gain_db": -16
  },
  {
   "sfx": "key-press",
-  "cue_s": 0.316,
+  "cue_s": 0.351,
   "gain_db": -16
  },
  {
   "sfx": "key-press",
-  "cue_s": 0.439,
+  "cue_s": 0.488,
   "gain_db": -16
  },
  {
   "sfx": "whoosh",
-  "cue_s": 1.836,
+  "cue_s": 1.936,
   "gain_db": -14
  },
  {
   "sfx": "pop",
-  "cue_s": 1.88,
+  "cue_s": 1.98,
   "gain_db": -19
  },
  {
   "sfx": "pop",
-  "cue_s": 2.025,
+  "cue_s": 2.125,
   "gain_db": -19
  },
  {
   "sfx": "pop",
-  "cue_s": 2.169,
+  "cue_s": 2.269,
   "gain_db": -19
  },
  {
   "sfx": "pop",
-  "cue_s": 2.314,
+  "cue_s": 2.414,
   "gain_db": -19
  },
  {
   "sfx": "pop",
-  "cue_s": 2.458,
+  "cue_s": 2.558,
   "gain_db": -19
  },
  {
   "sfx": "pop",
-  "cue_s": 2.734,
+  "cue_s": 2.834,
   "gain_db": -13
  },
  {
   "sfx": "whoosh",
-  "cue_s": 3.718,
+  "cue_s": 3.864,
   "gain_db": -12
  },
  {
   "sfx": "click-soft",
-  "cue_s": 4.222,
+  "cue_s": 4.415,
   "gain_db": -13
  },
  {
   "sfx": "pop",
-  "cue_s": 4.281,
+  "cue_s": 4.479,
   "gain_db": -16
  },
  {
   "sfx": "click-soft",
-  "cue_s": 5.114,
+  "cue_s": 5.26,
   "gain_db": -13
  },
  {
   "sfx": "pop",
-  "cue_s": 5.179,
+  "cue_s": 5.32,
   "gain_db": -16
  },
  {
   "sfx": "click-soft",
-  "cue_s": 5.777,
+  "cue_s": 5.9,
   "gain_db": -13
  },
  {
   "sfx": "pop",
-  "cue_s": 5.839,
+  "cue_s": 5.96,
   "gain_db": -16
  },
  {
   "sfx": "click-soft",
-  "cue_s": 6.614,
+  "cue_s": 6.698,
   "gain_db": -13
  },
  {
   "sfx": "pop",
-  "cue_s": 6.678,
+  "cue_s": 6.759,
   "gain_db": -16
  },
  {
   "sfx": "whoosh-cinematic",
-  "cue_s": 7.24,
+  "cue_s": 7.339,
   "gain_db": -14
  },
  {
   "sfx": "whoosh-short",
-  "cue_s": 7.74,
+  "cue_s": 7.856,
   "gain_db": -19
  },
  {
   "sfx": "pop",
-  "cue_s": 8.78,
+  "cue_s": 8.98,
   "gain_db": -14
  },
  {
   "sfx": "click-soft",
-  "cue_s": 9.312,
+  "cue_s": 9.615,
   "gain_db": -17
  },
  {
   "sfx": "notification",
-  "cue_s": 11.218,
+  "cue_s": 11.582,
   "gain_db": -13
  },
  {
   "sfx": "sparkle",
-  "cue_s": 11.425,
+  "cue_s": 11.789,
   "gain_db": -21
  },
  {
   "sfx": "whoosh",
-  "cue_s": 11.712,
+  "cue_s": 12.081,
   "gain_db": -12
  },
  {
   "sfx": "impact-bass-1",
-  "cue_s": 12.165,
+  "cue_s": 12.543,
   "gain_db": -13
  },
  {
   "sfx": "sparkle",
-  "cue_s": 12.849,
+  "cue_s": 13.286,
   "gain_db": -21
  },
  {
   "sfx": "pop",
-  "cue_s": 13.069,
+  "cue_s": 13.526,
   "gain_db": -16
  },
  {
   "sfx": "whoosh-short",
-  "cue_s": 14.23,
+  "cue_s": 14.222,
   "gain_db": -17
  },
  {
   "sfx": "click",
-  "cue_s": 14.92,
+  "cue_s": 14.82,
   "gain_db": -16
  },
  {
   "sfx": "click",
-  "cue_s": 15.074,
+  "cue_s": 14.974,
   "gain_db": -16
  },
  {
   "sfx": "click",
-  "cue_s": 15.229,
+  "cue_s": 15.129,
   "gain_db": -16
  },
  {
   "sfx": "click",
-  "cue_s": 15.383,
+  "cue_s": 15.283,
   "gain_db": -16
  },
  {
   "sfx": "click",
-  "cue_s": 15.538,
+  "cue_s": 15.438,
   "gain_db": -16
  },
  {
   "sfx": "click",
-  "cue_s": 15.692,
+  "cue_s": 15.592,
   "gain_db": -16
  },
  {
   "sfx": "click",
-  "cue_s": 15.847,
+  "cue_s": 15.747,
   "gain_db": -16
  },
  {
   "sfx": "whoosh",
-  "cue_s": 17.7,
+  "cue_s": 17.06,
   "gain_db": -12
  },
  {
   "sfx": "whoosh-short",
-  "cue_s": 17.842,
+  "cue_s": 17.21,
   "gain_db": -16
  },
  {
-  "sfx": "click-soft",
-  "cue_s": 18.505,
-  "gain_db": -11
- },
- {
-  "sfx": "click-soft",
-  "cue_s": 18.811,
-  "gain_db": -11
- },
- {
-  "sfx": "click-soft",
-  "cue_s": 19.117,
-  "gain_db": -11
- },
- {
-  "sfx": "click-soft",
-  "cue_s": 19.428,
-  "gain_db": -11
- },
- {
-  "sfx": "pop",
-  "cue_s": 20.037,
-  "gain_db": -15
+  "sfx": "whoosh-short",
+  "cue_s": 18.7,
+  "gain_db": -18
  },
  {
   "sfx": "whoosh-short",
-  "cue_s": 20.8,
-  "gain_db": -17
+  "cue_s": 19.94,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 21.76,
+  "gain_db": -18
  },
  {
   "sfx": "pop",
-  "cue_s": 20.9,
+  "cue_s": 17.51,
   "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 18.77,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 20.01,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 21.83,
+  "gain_db": -15
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 17.62,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 18.88,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 20.12,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 21.94,
+  "gain_db": -13
  },
  {
   "sfx": "whoosh",
-  "cue_s": 21.364,
-  "gain_db": -12
- },
- {
-  "sfx": "glitch-3",
-  "cue_s": 22.448,
-  "gain_db": -17
- },
- {
-  "sfx": "whoosh-short",
-  "cue_s": 22.683,
-  "gain_db": -16
- },
- {
-  "sfx": "impact-bass-2",
-  "cue_s": 23.227,
+  "cue_s": 22.99,
   "gain_db": -13
  },
  {
   "sfx": "pop",
-  "cue_s": 24.196,
-  "gain_db": -16
+  "cue_s": 23.49,
+  "gain_db": -15
  },
  {
-  "sfx": "glitch-1",
-  "cue_s": 25.124,
-  "gain_db": -22
+  "sfx": "pop",
+  "cue_s": 24.55,
+  "gain_db": -15
  },
  {
-  "sfx": "ping",
-  "cue_s": 25.373,
-  "gain_db": -16
+  "sfx": "pop",
+  "cue_s": 25.65,
+  "gain_db": -15
+ },
+ {
+  "sfx": "impact-bass-2",
+  "cue_s": 26.43,
+  "gain_db": -15
  },
  {
   "sfx": "whoosh-cinematic",
-  "cue_s": 25.6,
+  "cue_s": 26.42,
   "gain_db": -14
  },
  {
   "sfx": "impact-bass-1",
-  "cue_s": 25.88,
+  "cue_s": 26.7,
   "gain_db": -13
  },
  {
   "sfx": "key-press",
-  "cue_s": 26.02,
+  "cue_s": 26.84,
   "gain_db": -17
  },
  {
   "sfx": "key-press",
-  "cue_s": 26.16,
+  "cue_s": 26.98,
   "gain_db": -17
  },
  {
   "sfx": "impact-bass-2",
-  "cue_s": 26.36,
+  "cue_s": 27.92,
   "gain_db": -13
  },
  {
   "sfx": "sparkle",
-  "cue_s": 26.44,
+  "cue_s": 28.0,
   "gain_db": -20
  },
  {
   "sfx": "pop",
-  "cue_s": 27.16,
+  "cue_s": 28.8,
   "gain_db": -17
  },
  {
   "sfx": "pop",
-  "cue_s": 28.88,
+  "cue_s": 31.02,
   "gain_db": -15
  },
  {
   "sfx": "click",
-  "cue_s": 29.58,
+  "cue_s": 31.38,
   "gain_db": -10
  },
  {
   "sfx": "sparkle",
-  "cue_s": 30.54,
+  "cue_s": 32.38,
   "gain_db": -18
  }
 ]

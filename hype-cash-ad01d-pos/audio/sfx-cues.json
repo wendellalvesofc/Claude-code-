@@ -11,252 +11,277 @@
  },
  {
   "sfx": "impact-bass-2",
-  "cue_s": 1.562,
+  "cue_s": 1.738,
   "gain_db": -12
  },
  {
   "sfx": "whoosh",
-  "cue_s": 1.637,
+  "cue_s": 1.821,
   "gain_db": -15
  },
  {
   "sfx": "pop",
-  "cue_s": 3.274,
+  "cue_s": 3.631,
   "gain_db": -15
  },
  {
   "sfx": "whoosh-cinematic",
-  "cue_s": 4.359,
+  "cue_s": 4.902,
   "gain_db": -13
  },
  {
   "sfx": "whoosh-short",
-  "cue_s": 4.564,
+  "cue_s": 5.13,
   "gain_db": -16
  },
  {
   "sfx": "click-soft",
-  "cue_s": 6.84,
+  "cue_s": 7.66,
   "gain_db": -17
  },
  {
   "sfx": "whoosh",
-  "cue_s": 7.181,
+  "cue_s": 8.017,
   "gain_db": -12
  },
  {
   "sfx": "impact-bass-1",
-  "cue_s": 7.695,
+  "cue_s": 8.554,
   "gain_db": -11
  },
  {
   "sfx": "whoosh-short",
-  "cue_s": 7.888,
+  "cue_s": 8.766,
   "gain_db": -17
  },
  {
   "sfx": "whoosh-cinematic",
-  "cue_s": 8.55,
+  "cue_s": 9.529,
   "gain_db": -14
  },
  {
   "sfx": "pop",
-  "cue_s": 8.794,
+  "cue_s": 9.81,
   "gain_db": -15
  },
  {
   "sfx": "riser",
-  "cue_s": 9.997,
+  "cue_s": 11.238,
   "gain_db": -22
  },
  {
   "sfx": "whoosh",
-  "cue_s": 11.415,
+  "cue_s": 12.455,
   "gain_db": -14
  },
  {
   "sfx": "glitch-3",
-  "cue_s": 12.46,
+  "cue_s": 13.64,
   "gain_db": -21
  },
  {
   "sfx": "ping",
-  "cue_s": 13.3,
+  "cue_s": 14.6,
   "gain_db": -21
  },
  {
   "sfx": "ping",
-  "cue_s": 13.36,
+  "cue_s": 14.663,
   "gain_db": -21
  },
  {
   "sfx": "ping",
-  "cue_s": 13.42,
+  "cue_s": 14.726,
   "gain_db": -21
  },
  {
   "sfx": "ping",
-  "cue_s": 13.48,
+  "cue_s": 14.789,
   "gain_db": -21
  },
  {
   "sfx": "ping",
-  "cue_s": 13.54,
+  "cue_s": 14.851,
   "gain_db": -21
  },
  {
   "sfx": "click-soft",
-  "cue_s": 13.96,
+  "cue_s": 15.3,
   "gain_db": -18
  },
  {
   "sfx": "click-soft",
-  "cue_s": 14.035,
+  "cue_s": 15.375,
   "gain_db": -18
  },
  {
   "sfx": "click-soft",
-  "cue_s": 14.11,
+  "cue_s": 15.45,
   "gain_db": -18
  },
  {
   "sfx": "click-soft",
-  "cue_s": 14.185,
+  "cue_s": 15.525,
   "gain_db": -18
  },
  {
   "sfx": "riser",
-  "cue_s": 13.54,
+  "cue_s": 14.851,
   "gain_db": -18
  },
  {
   "sfx": "impact-bass-1",
-  "cue_s": 14.974,
+  "cue_s": 16.314,
   "gain_db": -11
  },
  {
   "sfx": "sparkle",
-  "cue_s": 15.526,
+  "cue_s": 16.923,
   "gain_db": -20
  },
  {
   "sfx": "whoosh",
-  "cue_s": 17.44,
+  "cue_s": 18.33,
   "gain_db": -13
  },
  {
   "sfx": "whoosh-cinematic",
-  "cue_s": 18.581,
+  "cue_s": 19.54,
   "gain_db": -14
  },
  {
   "sfx": "whoosh-short",
-  "cue_s": 18.794,
+  "cue_s": 19.64,
   "gain_db": -17
- },
- {
-  "sfx": "click-soft",
-  "cue_s": 19.714,
-  "gain_db": -12
- },
- {
-  "sfx": "click-soft",
-  "cue_s": 19.989,
-  "gain_db": -12
- },
- {
-  "sfx": "click-soft",
-  "cue_s": 20.24,
-  "gain_db": -12
- },
- {
-  "sfx": "click-soft",
-  "cue_s": 20.49,
-  "gain_db": -12
- },
- {
-  "sfx": "pop",
-  "cue_s": 20.62,
-  "gain_db": -15
  },
  {
   "sfx": "whoosh-short",
-  "cue_s": 21.327,
-  "gain_db": -17
+  "cue_s": 22.26,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 23.52,
+  "gain_db": -18
+ },
+ {
+  "sfx": "whoosh-short",
+  "cue_s": 25.26,
+  "gain_db": -18
  },
  {
   "sfx": "pop",
-  "cue_s": 21.433,
+  "cue_s": 21.15,
   "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 22.33,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 23.59,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 25.33,
+  "gain_db": -15
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 21.26,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 22.44,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 23.7,
+  "gain_db": -13
+ },
+ {
+  "sfx": "click-soft",
+  "cue_s": 25.44,
+  "gain_db": -13
  },
  {
   "sfx": "whoosh",
-  "cue_s": 21.816,
+  "cue_s": 26.15,
   "gain_db": -13
  },
  {
-  "sfx": "glitch-3",
-  "cue_s": 22.998,
-  "gain_db": -17
+  "sfx": "pop",
+  "cue_s": 26.55,
+  "gain_db": -15
  },
  {
-  "sfx": "whoosh-short",
-  "cue_s": 23.13,
-  "gain_db": -17
+  "sfx": "pop",
+  "cue_s": 28.05,
+  "gain_db": -15
+ },
+ {
+  "sfx": "pop",
+  "cue_s": 29.17,
+  "gain_db": -15
  },
  {
   "sfx": "impact-bass-2",
-  "cue_s": 23.867,
-  "gain_db": -13
+  "cue_s": 29.79,
+  "gain_db": -15
  },
  {
-  "sfx": "pop",
-  "cue_s": 24.194,
-  "gain_db": -14
+  "sfx": "whoosh-short",
+  "cue_s": 30.16,
+  "gain_db": -17
  },
  {
-  "sfx": "pop",
-  "cue_s": 25.53,
+  "sfx": "glitch-3",
+  "cue_s": 31.12,
   "gain_db": -17
  },
  {
   "sfx": "whoosh-cinematic",
-  "cue_s": 26.95,
+  "cue_s": 31.61,
   "gain_db": -14
  },
  {
   "sfx": "impact-bass-1",
-  "cue_s": 27.12,
+  "cue_s": 31.78,
   "gain_db": -13
  },
  {
   "sfx": "impact-bass-2",
-  "cue_s": 27.62,
+  "cue_s": 32.3,
   "gain_db": -13
  },
  {
   "sfx": "sparkle",
-  "cue_s": 27.7,
+  "cue_s": 32.38,
   "gain_db": -20
  },
  {
   "sfx": "pop",
-  "cue_s": 28.66,
+  "cue_s": 33.68,
   "gain_db": -17
  },
  {
   "sfx": "pop",
-  "cue_s": 30.29,
+  "cue_s": 35.43,
   "gain_db": -15
  },
  {
   "sfx": "click",
-  "cue_s": 30.85,
+  "cue_s": 36.01,
   "gain_db": -10
  },
  {
   "sfx": "sparkle",
-  "cue_s": 31.66,
+  "cue_s": 36.9,
   "gain_db": -18
  }
 ]

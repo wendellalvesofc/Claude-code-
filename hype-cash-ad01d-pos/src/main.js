@@ -10,18 +10,23 @@ const ease = (x) => (x < 0.5 ? 2 * x * x : 1 - (-2 * x + 2) ** 2 / 2);
 function build() {
   const tl = gsap.timeline({ paused: true });
   // old time → new time, piecewise linear through the same words in both narrations
-  const A = [[0, 0], [E.milhoes, N.milhoes], [E.visualizacoes, N.visualizacoes], [E.h24, N.h24], [E.horas, N.horas], [E.foi, N.foi], [E.segundo, N.segundo],
-    [E.trailer, N.trailer], [E.gta, N.gta], [E.fez, N.fez], [8.6, 7.4], [E.dia, N.dia], [E.d19, N.d19], [E.novembro, N.novembro], [11.35, 8.55], [E.toda, N.toda],
-    [E.atencao, N.atencao], [E.procurar, N.procurar], [E.conteudo, N.conteudo], [13.8, 11.4], [E.maioria, N.maioria], [E.assistir, N.assistir], [E.poucos, N.poucos],
-    [E.prontos, N.prontos], [E.criar, N.criar], [18.35, 14.7], [E.hypecash, N.hypecash], [E.playbook, N.playbook], [E.interativo, N.interativo], [E.prepara, N.prepara],
-    [E.missao, N.missao], [22.45, 18.75], [E.zero, N.zero], [E.primeiro, N.primeiro], [E.video, N.video], [E.checklist, N.checklist], [E.progresso, N.progresso],
-    [25.95, 22.05], [E.sem, N.sem], [E.dinheiro, N.dinheiro], [E.facil, N.facil], [E.so, N.so], [E.plano, N.plano], [E.comecar, N.comecar], [E.atrasado, N.atrasado],
+  const P = T.emphasis_post1;
+  const A = [[0, 0], [E.milhoes, P.milhoes], [E.visualizacoes, P.visualizacoes], [E.h24, P.h24], [E.horas, P.horas], [E.foi, P.foi], [E.segundo, P.segundo],
+    [E.trailer, P.trailer], [E.gta, P.gta], [E.fez, P.fez], [8.6, 7.4], [E.dia, P.dia], [E.d19, P.d19], [E.novembro, P.novembro], [11.35, 8.55], [E.toda, P.toda],
+    [E.atencao, P.atencao], [E.procurar, P.procurar], [E.conteudo, P.conteudo], [13.8, 11.4], [E.maioria, P.maioria], [E.assistir, P.assistir], [E.poucos, P.poucos],
+    [E.prontos, P.prontos], [E.criar, P.criar], [18.35, 14.7], [E.hypecash, P.hypecash], [E.playbook, P.playbook], [E.interativo, P.interativo], [E.prepara, P.prepara],
+    [E.missao, P.missao], [22.45, 18.75], [E.zero, P.zero], [E.primeiro, P.primeiro], [E.video, P.video], [E.checklist, P.checklist], [E.progresso, P.progresso],
+    [25.95, 22.05], [E.sem, P.sem], [E.dinheiro, P.dinheiro], [E.facil, P.facil], [E.so, P.so], [E.plano, P.plano], [E.comecar, P.comecar], [E.atrasado, P.atrasado],
     [30.35, 27.1]];
-  const remap = (t) => {
+  const pw = (AA) => (t) => {
     if (t <= 0) return t;
-    for (let i = 1; i < A.length; i++) if (t <= A[i][0]) { const [a0, b0] = A[i - 1], [a1, b1] = A[i]; return b0 + (t - a0) * (b1 - b0) / (a1 - a0); }
-    return t + A[A.length - 1][1] - A[A.length - 1][0];
+    for (let i = 1; i < AA.length; i++) if (t <= AA[i][0]) { const [a0, b0] = AA[i - 1], [a1, b1] = AA[i]; return b0 + (t - a0) * (b1 - b0) / (a1 - a0); }
+    return t + AA[AA.length - 1][1] - AA[AA.length - 1][0];
   };
+  // v2 narration (what is inside + objections): the shared opening words move from the v1 times (P) to the v2 ones (N)
+  const B2 = [[0, 0], ...["milhoes", "visualizacoes", "h24", "horas", "foi", "segundo", "trailer", "gta", "fez", "jogo", "chega", "toda", "atencao", "procurar", "conteudo",
+    "maioria", "assistir", "poucos", "prontos", "criar", "hypecash", "playbook", "interativo", "prepara", "missao"].map((k) => [P[k], N[k]])];
+  const r1 = pw(A), r2 = pw(B2), remap = (t) => r2(r1(t));
   const raw = { to: tl.to.bind(tl), fromTo: tl.fromTo.bind(tl), set: tl.set.bind(tl) };
   const span = (v, at) => { const d = v.duration ?? 0.5, a = remap(at); return [a, Math.max(0.02, remap(at + d) - a)]; };
   tl.to = (t, v, at) => { if (typeof at !== "number") return raw.to(t, v, at); const [a, d] = span(v, at); return raw.to(t, { ...v, duration: d }, a); };
@@ -155,7 +160,7 @@ function build() {
   const k0 = dots[chosen[Math.floor(chosen.length / 2)]];
   tl.to("#crowd", { scale: 9, transformOrigin: `${k0.gx}px ${k0.gy}px`, duration: 0.45, ease: "power3.in" }, 17.95);
   leave(["#t4a", "#t4b"], 17.95, -80);
-  flash(18.35, 0.3);
+  flash(18.35, 0.12);
 
   // ================= S5 (18.35 – 22.45): the product, mission by mission
   scene("#s5", 18.35, 22.45);
@@ -169,59 +174,58 @@ function build() {
   const MIS = ["Entre no Jogo", "Modo Gameplay", "Mercado de Criadores", "Conteúdo Evergreen", "Território Próprio", "Escala de Monetização", "A Próxima Onda"];
   $("#strip").innerHTML = MIS.map((m, i) => `<div class="fr"><div class="in"><div class="n gt">${String(i + 1).padStart(2, "0")}</div><div class="t">${m}</div></div></div>`).join("");
   tl.fromTo("#strip", { x: 1080 }, { x: -1720, duration: 2.0, ease: "power1.inOut" }, E.prepara - 0.45);
-  flash(22.45, 0.35);
+  flash(22.45, 0.15);
 
-  // ================= S6 (22.45 – 25.95): the only phone moment (~3.5 s), real screens
-  scene("#s6", 22.45, 25.95);
-  tl.fromTo("#spot", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, 22.45);
-  riseOn("#t6", [E.zero - 0.18, E.zero, 23.16, E.primeiro, E.video]);
-  tl.fromTo("#phone", { y: 160, scale: 0.9, opacity: 0, filter: "blur(16px)" }, { y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, 22.5);
-  tl.to("#phone", { y: -24, duration: 3.0, ease: "sine.inOut" }, 23.1);
-  const W = 460, M1Y = -1189 * W / 512;
-  [0, 1, 2, 3].forEach((k) => tl.set(`#m1_${k}`, { y: M1Y }, 0));
-  tl.set("#m1_4", { y: M1Y - 27 * W / 512 }, 0);
-  [23.5, 23.75, 24.0, 24.25].forEach((t, k) => tl.fromTo(`#m1_${k + 1}`, { opacity: 0 }, { opacity: 1, duration: 0.05, immediateRender: true }, t));
-  tl.set("#pgMap", { x: W }, 0);
-  tl.to("#pgMap", { x: 0, duration: 0.3, ease: "power3.out" }, E.progresso - 0.15);
-  const PX = W / 430;
-  tl.set("#hlP", { left: 16 * PX - 4, top: 22 + 285 * PX - 4, width: 398 * PX + 8, height: 87 * PX + 8, opacity: 0 }, 0);
-  tl.to("#hlP", { opacity: 1, duration: 0.15, yoyo: true, repeat: 3 }, E.progresso + 0.15);
-  tl.fromTo("#l6a", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, E.checklist - 0.08);
-  tl.fromTo("#l6b", { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, E.progresso - 0.05);
-  leave(["#phone", "#t6", "#l6a", "#l6b"], 25.7, -60);
+  // ================= S6 v2 (N.ao – N.sem1): what is inside, the only phone moment, real screens (~6 s)
+  const S6A = N.ao - 0.2, S6B = N.sem1 - 0.15;
+  raw.set("#s5", { visibility: "hidden" }, S6A);
+  raw.set("#s6", { visibility: "visible" }, S6A); raw.set("#s6", { visibility: "hidden" }, S6B);
+  raw.fromTo("#spot", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, S6A);
+  $("#t6").querySelectorAll(".w").forEach((w, i) => raw.fromTo(w, { y: 46, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, [N.ao, N.ao + 0.06, N.primeiro, N.video][i] - 0.06));
+  // phone on screen ~5 s: it comes in with the first item and leaves after the last
+  const PH_IN = N.roteiros - 0.35, PH_OUT = N.dias7 + 0.35;
+  raw.fromTo("#phone", { y: 160, scale: 0.9, opacity: 0, filter: "blur(16px)" }, { y: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, PH_IN);
+  raw.to("#phone", { y: -20, duration: PH_OUT - PH_IN - 0.5, ease: "sine.inOut" }, PH_IN + 0.5);
+  raw.fromTo("#tagReal", { opacity: 0 }, { opacity: 1, duration: 0.3 }, N.roteiros - 0.1);
+  const ITEMS = [N.roteiros, N.cinquenta, N.cortes, N.plano];
+  ["#pg1", "#pg2", "#pg3"].forEach((g) => gsap.set(g, { x: 460 }));
+  ITEMS.forEach((at, i) => {
+    if (i > 0) raw.fromTo(`#pg${i}`, { x: 460 }, { x: 0, duration: 0.32, ease: "power3.out", immediateRender: false }, at - 0.12);
+    raw.fromTo(`#it${i}`, { y: 50, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: false }, at - 0.08);
+    raw.fromTo(`#it${i} b`, { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(3)", immediateRender: false }, at + 0.05);
+    if (i < 3) raw.to(`#it${i}`, { y: -40, opacity: 0, duration: 0.2, ease: "power2.in" }, ITEMS[i + 1] - 0.22);
+    raw.to(`#dt${i}`, { background: "#d4ff3f", boxShadow: "0 0 18px rgba(212,255,63,.8)", duration: 0.2 }, at);
+  });
+  // the page scrolls a little on each screen, so the real content reads as alive
+  [0, 1, 2, 3].forEach((i) => raw.fromTo(`#pg${i} img`, { y: 0 }, { y: -90, duration: 1.4, ease: "sine.inOut", immediateRender: false }, ITEMS[i] + 0.25));
+  raw.to(["#phone", "#t6", "#it3", "#tagReal", "#dots"], { y: -60, opacity: 0, filter: "blur(12px)", duration: 0.28, ease: "power2.in" }, PH_OUT - 0.28);
 
-  // ================= S7 (25.95 – 30.35): no easy money; a plan, so you don't start late
-  scene("#s7", 25.95, 30.35);
-  rise("#t7a", E.sem - 0.06);
-  riseOn("#t7b", [E.dinheiro, E.facil]);
+  // ================= S7 v2 (N.sem1 – N.tudo): no followers, no gear, no face; no magic formula
+  const S7A = S6B, S7B = N.tudo - 0.3;
+  raw.set("#s7", { visibility: "visible" }, S7A); raw.set("#s7", { visibility: "hidden" }, S7B);
+  [[0, N.sem1, N.seguidores], [1, N.sem2, N.equipamento], [2, N.sem3, N.rosto]].forEach(([i, a, k]) => {
+    raw.fromTo(`#ob${i}`, { y: 50, opacity: 0, filter: "blur(12px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, a - 0.06);
+    raw.fromTo(`#ob${i} .gt`, { scale: 1.25 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, k - 0.04);
+  });
+  raw.to(["#ob0", "#ob1", "#ob2"], { y: -80, opacity: 0, filter: "blur(12px)", duration: 0.28, ease: "power2.in", stagger: 0.04 }, N.semF - 0.32);
+  raw.fromTo("#t7a", { y: 46, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, N.semF - 0.06);
+  $("#t7b").querySelectorAll(".w").forEach((w, i) => raw.fromTo(w, { y: 46, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, [N.formula, N.magica][i] - 0.06));
   const ws = $("#t7b").querySelectorAll(".w"), base = $("#root").getBoundingClientRect();
   const a7 = ws[0].getBoundingClientRect(), b7 = ws[ws.length - 1].getBoundingClientRect();
-  tl.set("#strike", { left: a7.left - base.left - 12, top: a7.top - base.top + a7.height * 0.52, width: b7.right - a7.left + 24, scaleX: 0 }, 0);
-  tl.to("#strike", { scaleX: 1, duration: 0.25, ease: "power3.out" }, E.facil + 0.12);
-  leave(["#t7a", "#t7b", "#strike"], 27.3, -80);
-  riseOn("#t7c", [E.so, 27.9, E.plano]);
-  riseOn("#t7d", [28.62, 28.76, E.comecar, E.atrasado]);
-  tl.fromTo("#tline", { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, E.plano + 0.05);
-  tl.set("#tfill", { scaleX: 0 }, 0);
-  tl.fromTo(["#tkA", "#tkB"], { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "expo.out", stagger: 0.12 }, E.plano + 0.1);
-  pop("#pinLate", E.plano + 0.15);
-  rise("#launch", E.plano + 0.2);
-  tl.to("#tfill", { scaleX: 1, duration: 0.7, ease: "power2.inOut" }, E.comecar - 0.1);
-  pop("#pinYou", E.atrasado - 0.05);
-  rise("#you", E.atrasado);
-  raw.to("#pinYou", { boxShadow: "0 0 60px rgba(212,255,63,1)", duration: 0.25, yoyo: true, repeat: 5 }, N.atrasado + 0.4);
-  raw.fromTo("#t7e", { y: 40, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, N.enquanto - 0.06);
-  flash(30.35, 0.35);
+  gsap.set("#strike", { left: a7.left - base.left - 12, top: a7.top - base.top + a7.height * 0.52, width: b7.right - a7.left + 24, scaleX: 0 });
+  raw.to("#strike", { scaleX: 1, duration: 0.2, ease: "power3.out" }, N.magica + 0.08);
+  raw.fromTo(flashEl, { opacity: 0.2 }, { opacity: 0, duration: 0.28, ease: "power2.out", immediateRender: false }, S7B);
 
-  // ================= S8 (27.1 – 33.5): CTA with the price, the letterbox opens
-  scene("#s8", 30.35, 99);
-  raw.to("#barT", { y: -150, duration: 0.6, ease: "power3.inOut" }, 27.15);
-  raw.to("#barB", { y: 150, duration: 0.6, ease: "power3.inOut" }, 27.15);
-  raw.fromTo("#glow8", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: "expo.out" }, 27.1);
+  // ================= S8 (N.tudo – end): CTA with the price, the letterbox opens
+  const C = N.tudo - 27.2;     // the CTA was timed for "Tudo" at 27.2 s
+  raw.set("#s8", { visibility: "visible" }, S7B);
+  raw.to("#barT", { y: -150, duration: 0.6, ease: "power3.inOut" }, 27.15 + C);
+  raw.to("#barB", { y: 150, duration: 0.6, ease: "power3.inOut" }, 27.15 + C);
+  raw.fromTo("#glow8", { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: "expo.out" }, 27.1 + C);
   const L8 = 560 / 1189;
-  raw.fromTo("#logo8", { x: 260, y: 250, scale: L8 * 1.35, opacity: 0, filter: "blur(18px)" }, { x: 260, y: 250, scale: L8, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 27.12);
-  raw.to("#logo8", { scale: L8 * 1.03, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, 27.8);
-  raw.fromTo("#t8", { y: 40, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, 27.3);
+  raw.fromTo("#logo8", { x: 260, y: 250, scale: L8 * 1.35, opacity: 0, filter: "blur(18px)" }, { x: 260, y: 250, scale: L8, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 27.12 + C);
+  raw.to("#logo8", { scale: L8 * 1.03, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, 27.8 + C);
+  raw.fromTo("#t8", { y: 40, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.42, ease: "expo.out" }, 27.3 + C);
   raw.fromTo("#price .p1", { scale: 1.5, opacity: 0, filter: "blur(16px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, N.reais);
   raw.fromTo("#price .p2", { y: 30, opacity: 0, filter: "blur(10px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, N.garantia - 0.9);
   raw.fromTo("#btn", { y: 160, scale: 0.85, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)" }, N.toque - 0.05);
@@ -231,10 +235,10 @@ function build() {
   raw.fromTo("#ripple", { left: 684, top: 1198, scale: 0.4, opacity: 0.9 }, { scale: 5, opacity: 0, duration: 0.6, ease: "expo.out", immediateRender: false }, N.botao + 0.3);
   raw.to("#cursor", { x: 880, y: 1600, opacity: 0, duration: 0.4, ease: "power2.in" }, N.botao + 0.8);
   raw.to("#btn", { scale: 1.06, duration: 0.2, yoyo: true, repeat: 1, ease: "power2.out" }, N.comece);
-  raw.fromTo("#shine", { x: 0 }, { x: 1300, duration: 0.8, ease: "power2.inOut", repeat: 1, repeatDelay: 0.5 }, 31.7);
-  raw.fromTo("#legal", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 30.5);
+  raw.fromTo("#shine", { x: 0 }, { x: 1300, duration: 0.8, ease: "power2.inOut", repeat: 1, repeatDelay: 0.5 }, N.hoje + 0.1);
+  raw.fromTo("#legal", { opacity: 0 }, { opacity: 1, duration: 0.4 }, N.garantia + 0.3);
 
-  raw.set({}, {}, 33.5);
+  raw.set({}, {}, T.video_duration_s);
   return tl;
 }
 

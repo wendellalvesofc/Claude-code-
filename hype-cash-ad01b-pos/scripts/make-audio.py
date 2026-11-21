@@ -42,7 +42,7 @@ def lowpass(x, fc):
     return y
 
 BEAT = 60 / 104; BAR = 4 * BEAT
-OPEN, THIN, BACK, END = E["voce"], E["sem"] - .1, E["plano"], E["cash_end"] - .6
+OPEN, THIN, BACK, END = E["voce"], E["sem1"] - .1, E["tudo"] - .2, E["toque"] - .3
 CH = [[-4, -1, 3], [-8, -4, -1], [-13, -9, -6], [-6, -2, 1]]; RT = [-28, -32, -25, -30]
 pad = np.zeros(N); pl = np.zeros(N); dr = np.zeros(N); sub = np.zeros(N)
 off = OPEN % BEAT
@@ -66,7 +66,7 @@ K = kick()
 for i, bt in enumerate(np.arange(off, DUR, BEAT)):
     if THIN <= bt < BACK or bt >= END: continue
     # keep the brand name clear: no hats (their noise sits on the "sh" of "Cash") around both "Hype Cash"
-    near_brand = any(abs(bt - w) < .9 for w in (E["hypecash"] + .3, E["cash_end"] + .3))
+    near_brand = any(abs(bt - w) < .9 for w in (E["hypecash"] + .3,))
     if bt >= OPEN - .01:
         add(dr, .6 * K, bt)
         if not near_brand: add(dr, .16 * hat(), bt + BEAT / 2)
@@ -82,7 +82,7 @@ mus *= np.clip(t_all / .3, 0, 1) * np.clip((DUR - t_all) / .5, 0, 1)
 write(root / "audio/music.wav", np.tanh(1.2 * mus) / 1.2 * .8)
 
 # graphic actions → sfx (file, time, gain dB, max length s)
-EO = T["emphasis_prelaunch"]
+EO = T["emphasis_prelaunch"]; P = T["emphasis_post1"]
 CUES = (
     [("impact-bass-2", 0.0, -11, .6), ("key-press", 0.02, -15, .2), ("key-press", 0.2, -16, .2), ("key-press", 0.36, -16, .2), ("key-press", 0.5, -16, .2),
      ("whoosh", EO["muita"] - .05, -14, .5)] +
@@ -102,13 +102,21 @@ CUES = (
      ("glitch-1", EO["ar"] - .14, -22, .25), ("ping", EO["ar"] + .1, -16, .6)]
 )
 # the cues above follow the pre-launch narration: move them onto the post-launch one through the same words
-ANCH = [(0, 0), (EO["muita"], E["muita"]), (EO["pesquisar"], E["pesquisar"]), (EO["ele"], E["ele"]), (EO["trailer"], E["trailer"]), (EO["mapa"], E["mapa"]), (EO["segredos"], E["segredos"]), (EO["teorias"], E["teorias"]), (EO["pergunta"], E["pergunta"]), (EO["quem"], E["quem"]), (EO["aparecer"], E["aparecer"]), (EO["buscas"], E["buscas"]), (EO["pode"], E["pode"]), (EO["voce"], E["voce"]), (EO["hypecash"], E["hypecash"]), (EO["playbook"], E["playbook"]), (EO["interativo"], E["interativo"]), (EO["guia"], E["guia"]), (EO["missao"], E["missao"]), (EO["criar"], E["criar"]), (EO["conteudo"], E["conteudo"]), (EO["hype"], E["hype"]), (EO["primeiro"], E["primeiro"]), (EO["audiencia"], E["audiencia"]), (EO["checklist"], E["checklist"]), (EO["progresso"], E["progresso"]), (EO["sem"], E["sem"]), (EO["dinheiro"], E["dinheiro"]), (EO["facil"], E["facil"]), (EO["plano"], E["plano"]), (EO["comecar"], E["comecar"]), (EO["enquanto"], E["enquanto"]), (EO["hype2"], E["hype2"]), (EO["ar"], E["ar"]), (25.82, 25.85)]
-def remap(t):
-    for (a0, b0), (a1, b1) in zip(ANCH, ANCH[1:]):
+ANCH = [(0, 0), (EO["muita"], P["muita"]), (EO["pesquisar"], P["pesquisar"]), (EO["ele"], P["ele"]), (EO["trailer"], P["trailer"]), (EO["mapa"], P["mapa"]), (EO["segredos"], P["segredos"]), (EO["teorias"], P["teorias"]), (EO["pergunta"], P["pergunta"]), (EO["quem"], P["quem"]), (EO["aparecer"], P["aparecer"]), (EO["buscas"], P["buscas"]), (EO["pode"], P["pode"]), (EO["voce"], P["voce"]), (EO["hypecash"], P["hypecash"]), (EO["playbook"], P["playbook"]), (EO["interativo"], P["interativo"]), (EO["guia"], P["guia"]), (EO["missao"], P["missao"]), (EO["criar"], P["criar"]), (EO["conteudo"], P["conteudo"]), (EO["hype"], P["hype"]), (EO["primeiro"], P["primeiro"]), (EO["audiencia"], P["audiencia"]), (EO["checklist"], P["checklist"]), (EO["progresso"], P["progresso"]), (EO["sem"], P["sem"]), (EO["dinheiro"], P["dinheiro"]), (EO["facil"], P["facil"]), (EO["plano"], P["plano"]), (EO["comecar"], P["comecar"]), (EO["enquanto"], P["enquanto"]), (EO["hype2"], P["hype2"]), (EO["ar"], P["ar"]), (25.82, 25.85)]
+def pw(AN, t):
+    for (a0, b0), (a1, b1) in zip(AN, AN[1:]):
         if t <= a1: return b0 + (t - a0) * (b1 - b0) / (a1 - a0)
-    return t + ANCH[-1][1] - ANCH[-1][0]
-CUES = [(n, round(remap(c), 3), g, ml) for n, c, g, ml in CUES] + [
-    ("whoosh-cinematic", 25.6, -14, .5), ("impact-bass-1", 25.88, -13, .7), ("key-press", 26.02, -17, .2), ("key-press", 26.16, -17, .2),
+    return t + AN[-1][1] - AN[-1][0]
+B2 = [(0, 0)] + [(P[k], E[k]) for k in "chegar muita pesquisar ele trailer mapa segredos teorias pergunta quem aparecer buscas pode voce hypecash playbook interativo guia missao".split()]
+def remap(t): return pw(B2, pw(ANCH, t))
+C = E["tudo"] - 25.96     # the CTA cues were timed for "Tudo" at 25.96 s
+S5A, S5B = E["roteiros"] - .45, E["sem1"] - .15
+ITEMS = [E["roteiros"], E["cinquenta"], E["cortes"], E["plano"]]
+CUES = [(n, round(remap(c), 3), g, ml) for n, c, g, ml in CUES if c < 17.3] + [
+    ("whoosh", S5A - .05, -12, .5), ("whoosh-short", S5A + .1, -16, .4)] + [
+    ("whoosh-short", a - .12, -18, .35) for a in ITEMS[1:]] + [("pop", a - .05, -15, .3) for a in ITEMS] + [("click-soft", a + .06, -13, .25) for a in ITEMS] + [
+    ("whoosh", S5B - .4, -13, .5)] + [("pop", E[k] - .05, -15, .3) for k in ("sem1", "sem2", "sem3")] + [("impact-bass-2", E["rosto"] - .03, -15, .5)] + [
+    ("whoosh-cinematic", 25.6 + C, -14, .5), ("impact-bass-1", 25.88 + C, -13, .7), ("key-press", 26.02 + C, -17, .2), ("key-press", 26.16 + C, -17, .2),
     ("impact-bass-2", E["reais"] + .02, -13, .5), ("sparkle", E["reais"] + .1, -20, .8), ("pop", E["garantia"] - 1.2, -17, .25),
     ("pop", E["toque"] + .04, -15, .3), ("click", E["botao"] + .1, -10, .3), ("sparkle", E["hoje"] + .1, -18, 1.1)]
 def onset(x, kind):
